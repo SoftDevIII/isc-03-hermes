@@ -6,6 +6,8 @@
     "bradlc.vscode-tailwindcss",
     "rapidapi.vscode-rapidapi-client",
     "rapidapi.vscode-services",
-    "csstools.postcss"
+    "csstools.postcss",
+    "zixuanchen.vitest-explorer",
+    "orta.vscode-jest"
   ],
 }

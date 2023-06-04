@@ -7,10 +7,21 @@
     "lint": {
       "cache": false
     },
+    "format": {
+      "cache": false
+    },
+    "test:unit": {
+      "cache": false
+    },
+    "test:cov": {
+      "cache": false
+    },
     "build": {
       "dependsOn": [
         "^build",
-        "^lint"
+        "format",
+        "lint",
+        "test:unit"
       ],
       "outputs": [
         "dist/**"

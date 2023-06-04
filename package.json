@@ -5,6 +5,10 @@
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
+    "lint": "turbo lint",
+    "format": "turbo format",
+    "test:unit": "turbo test:unit",
+    "test:cov": "turbo test:cov",
     "start": "node apps/api/dist/main"
   },
   "author": "",

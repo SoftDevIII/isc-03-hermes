@@ -20,10 +20,15 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
   },
+  "types": [
+    "vitest/globals"
+  ],
   "include": [
     "src",
+    "test",
     "*.ts",
     "*.js",
     ".eslintrc.cjs"
