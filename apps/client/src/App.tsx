@@ -1,5 +1,19 @@
+import { useState } from 'react';
+
 export default function App() {
+  const [state, setState] = useState('');
+
+  const onClick = () => {
+    fetch('/api')
+      .then(res => res.text())
+      .then(setState);
+  };
   return (
-    <h1 className='text-3xl font-bold underline text-red-300'>Hello world!</h1>
+    <>
+      <button onClick={onClick} className='p-2 bg-blue-50'>
+        click me
+      </button>
+      {state}
+    </>
   );
 }

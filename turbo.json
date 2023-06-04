@@ -4,8 +4,17 @@
     "dev": {
       "cache": false
     },
-    "build": {
+    "lint": {
       "cache": false
+    },
+    "build": {
+      "dependsOn": [
+        "^build",
+        "^lint"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
     }
   }
 }
