@@ -1,13 +1,17 @@
 {
-  "name": "api",
+  "name": "isc-03-hermes",
   "version": "1.0.0",
-  "description": "<p align=\"center\">   <a href=\"http://nestjs.com/\" target=\"blank\"><img src=\"https://nestjs.com/img/logo-small.svg\" width=\"200\" alt=\"Nest Logo\" /></a> </p>",
+  "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "turbo dev",
+    "build": "turbo build"
   },
   "author": "",
   "license": "ISC",
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "devDependencies": {
+    "turbo": "^1.10.1"
+  }
 }
