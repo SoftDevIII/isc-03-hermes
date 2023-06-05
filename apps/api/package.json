@@ -83,7 +83,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "../../.eslintrc.cjs"
+      "./.eslintrc.js"
     ]
   }
 }
