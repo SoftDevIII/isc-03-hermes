@@ -21,7 +21,8 @@
         "^build",
         "format",
         "lint",
-        "test:unit"
+        "test:unit",
+        "test:cov"
       ],
       "outputs": [
         "dist/**"
