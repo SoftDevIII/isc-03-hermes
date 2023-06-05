@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "bradlc.vscode-tailwindcss",
+    "rapidapi.vscode-rapidapi-client",
+    "rapidapi.vscode-services",
+    "csstools.postcss",
+    "zixuanchen.vitest-explorer",
+    "orta.vscode-jest"
+  ],
+}
