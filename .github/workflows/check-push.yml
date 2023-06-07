@@ -1,9 +1,6 @@
 name: CI
 
 on:
-  pull_request:
-    branches:
-      - '**'
   push:
     branches:
       - '**'
@@ -43,20 +40,20 @@ jobs:
       - name: Check formatting
         run: npm run format:check
 
-  check-commit-message:
+  check_commit_convention:
     name: check commit message
     runs-on: ubuntu-latest
     steps:
     - uses: gsactions/commit-message-checker@v2
       with:
         pattern: '(?:build|docs|refactor|test|fix|perf|chore|feat|ci)(?:\(\w+\))?:\s[a-z]{1,2}.+'
-        error: "The commit message must follow the commit messages guidelines"
+        error: 'The commit message must follow the commit messages guidelines'
         excludeDescription: 'true'
         excludeTitle: 'true'
         checkAllCommitMessages: 'true'
         accessToken: ${{ secrets.GITHUB_TOKEN }}
 
-  branches-convention:
+  check_branches_convention:
     name: "Conventional Branch Names"
     runs-on: ubuntu-latest
     steps:
