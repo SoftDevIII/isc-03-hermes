@@ -11,3 +11,13 @@
 - Camilo Guzman
 - Jose Luis Teran
 - Isaias Rojas Condaro
+
+### TEAM - Sansi Gym Bros
+- Rodrigo Esprella
+- Jheremy Tancara
+- Andre Perez
+- Gabriela Trujillo
+- Alex Paca
+- Rolando Mendoza
+- Bianca Soliz
+- Diego Roca
