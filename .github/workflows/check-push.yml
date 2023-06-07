@@ -63,4 +63,4 @@ jobs:
           allowed_prefixes: 'feature,stable,fix,chore,doc,feat,build,ci'
           ignore: main,develop
           min_length: 4
-          max_length: 30
+          max_length: 100
