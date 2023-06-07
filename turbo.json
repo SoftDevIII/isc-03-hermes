@@ -21,11 +21,7 @@
     },
     "build": {
       "dependsOn": [
-        "^build",
-        "format",
-        "lint",
-        "test:unit",
-        "test:cov"
+        "^build"
       ],
       "outputs": [
         "dist/**"
