@@ -1,4 +1,4 @@
-name: CI
+name: Check commit, and branches convention, and Test
 
 on:
   push:
