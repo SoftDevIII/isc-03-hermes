@@ -1,4 +1,4 @@
-name: CI
+name: Check commit, and branches convention, and Test
 
 on:
   push:
@@ -40,15 +40,24 @@ jobs:
       - name: Check formatting
         run: npm run format:check
 
-  convention:
+  check_commit_convention:
+    name: check commit message
     runs-on: ubuntu-latest
-    name: "Conventional Names { Commits, Branches }"
     steps:
-      - uses: actions/checkout@v3
-      - uses: webiny/action-conventional-commits@v1.0.5
+    - uses: gsactions/commit-message-checker@v2
+      with:
+        pattern: '(?:build|docs|refactor|test|fix|perf|chore|feat|ci)(?:\(\w+\))?:\s[a-z]{1,2}.+'
+        error: 'The commit message must follow the commit messages guidelines'
+        excludeDescription: 'true'
+        excludeTitle: 'true'
+        checkAllCommitMessages: 'true'
+        accessToken: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 'Conventional Branches Names'
-        uses: deepakputhraya/action-branch-name@master
+  check_branches_convention:
+    name: "Conventional Branch Names"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: deepakputhraya/action-branch-name@master
         with:
           regex: '([a-z])+\/([a-z])+'
           allowed_prefixes: 'feature,stable,fix,chore,doc,feat,build,ci'

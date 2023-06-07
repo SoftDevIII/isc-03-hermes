@@ -1,4 +1,4 @@
-name: Semantic Pull Request Workflow
+name: Check Commit and Pull Request message
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - '**'
 
 jobs:
-  build:
+  semantic_pull_request:
     runs-on: ubuntu-latest
     name: Ensure Pull Request is Semantic
     steps:
@@ -14,4 +14,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          validateSingleCommit: true
+          validateSingleCommit: false
+
+  check_all_commits_message:
+    name: check all commits message
+    runs-on: ubuntu-latest
+    steps:
+    - uses: gsactions/commit-message-checker@v2
+      with:
+        pattern: '(?:build|docs|refactor|test|fix|perf|chore|feat|ci)(?:\(\w+\))?:\s[a-z]{1,2}.+'
+        error: 'The commit message must follow the commit messages guidelines'
+        excludeDescription: 'true'
+        excludeTitle: 'true'
+        checkAllCommitMessages: 'true'
+        accessToken: ${{ secrets.GITHUB_TOKEN }}
