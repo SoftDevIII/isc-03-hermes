@@ -1,11 +1,58 @@
-name: Check Commit and Pull Request message
+name: CI/CD
 
 on:
   pull_request:
     branches:
       - '**'
+      - '!main'
 
 jobs:
+  test_lint_format:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node_version: [18.14.0]
+      fail-fast: false
+
+    name: "CI/CD check. Node: ${{ matrix.node_version }}"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Install npm
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: "npm"
+          cache-dependency-path: 'package-lock.json'
+
+      - name: Install deps
+        run: npm install --no-frozen-lockfile
+
+      - name: Test unit
+        run: npm run test:unit
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+
+  check_branch_convention:
+    name: "Conventional Branch Names"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: deepakputhraya/action-branch-name@master
+        with:
+          regex: '([a-z])+\/([a-z])+'
+          allowed_prefixes: 'feature,stable,fix,chore,doc,feat,build,ci'
+          ignore: main,develop
+          min_length: 4
+          max_length: 30
+
   semantic_pull_request:
     runs-on: ubuntu-latest
     name: Ensure Pull Request is Semantic
