@@ -47,7 +47,7 @@ jobs:
     - name: Check message against regex
       uses: gsactions/commit-message-checker@v2
       with:
-        pattern: '(?:build|docs|refactor|test|fix|perf|chore|feat)(?:\(\w+\))?:\s[a-z]{1,2}.+'
+        pattern: '(?:build|docs|refactor|test|fix|perf|chore|feat|ci)(?:\(\w+\))?:\s[a-z]{1,2}.+'
         error: "The commit message must follow the commit messages guidelines"
         excludeDescription: 'true' # optional: this excludes the description body of a pull request
         excludeTitle: 'true' # optional: this excludes the title of a pull request
