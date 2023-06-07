@@ -1,4 +1,4 @@
-name: Check commit, and branches convention, and Test
+name: CI/CD_PUSH
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
         node_version: [18.14.0]
       fail-fast: false
 
-    name: "CI/CD check. Node: ${{ matrix.node_version }}"
+    name: Lint, Test and Check formatting
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -41,7 +41,7 @@ jobs:
         run: npm run format:check
 
   check_commit_convention:
-    name: check commit message
+    name: Conventional Commit Message
     runs-on: ubuntu-latest
     steps:
     - uses: gsactions/commit-message-checker@v2
@@ -54,7 +54,7 @@ jobs:
         accessToken: ${{ secrets.GITHUB_TOKEN }}
 
   check_branches_convention:
-    name: "Conventional Branch Names"
+    name: Conventional Branch Name
     runs-on: ubuntu-latest
     steps:
       - uses: deepakputhraya/action-branch-name@master
