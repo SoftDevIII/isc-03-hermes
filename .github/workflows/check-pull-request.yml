@@ -15,7 +15,7 @@ jobs:
         node_version: [18.14.0]
       fail-fast: false
 
-    name: "CI/CD check. Node: ${{ matrix.node_version }}"
+    name: Lint, Format and Test
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -42,7 +42,7 @@ jobs:
         run: npm run format:check
 
   check_branch_convention:
-    name: "Conventional Branch Names"
+    name: Conventional Branch Name
     runs-on: ubuntu-latest
     steps:
       - uses: deepakputhraya/action-branch-name@master
@@ -55,7 +55,7 @@ jobs:
 
   semantic_pull_request:
     runs-on: ubuntu-latest
-    name: Ensure Pull Request is Semantic
+    name: Conventional Pull request Name
     steps:
       - uses: amannn/action-semantic-pull-request@v5
         env:
@@ -64,7 +64,7 @@ jobs:
           validateSingleCommit: false
 
   check_all_commits_message:
-    name: check all commits message
+    name: Check all commits message
     runs-on: ubuntu-latest
     steps:
     - uses: gsactions/commit-message-checker@v2
