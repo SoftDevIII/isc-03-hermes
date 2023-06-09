@@ -21,4 +21,3 @@
 - Rolando Mendoza
 - Bianca Soliz
 - Diego Roca
-

@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ExampleModule } from './example/example.module';
+import AppController from './app.controller';
+import AppService from './app.service';
+import ExampleModule from './example/example.module';
 
 @Module({
   imports: [
@@ -25,4 +25,4 @@ import { ExampleModule } from './example/example.module';
   controllers: [AppController],
   providers: [AppService]
 })
-export class AppModule {}
+export default class AppModule {}

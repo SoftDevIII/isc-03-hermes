@@ -6,12 +6,12 @@ import {
   ParseIntPipe,
   Post
 } from '@nestjs/common';
-import { createTestDto } from './dto/create-test.dto';
-import { ExampleService } from './example.service';
-import { Test } from './test.entity';
+import CreateTestDto from './dto/create-test.dto';
+import ExampleService from './example.service';
+import Test from './test.entity';
 
 @Controller('test')
-export class ExampleController {
+class ExampleController {
   constructor(private readonly exampleService: ExampleService) {}
 
   @Get()
@@ -25,7 +25,9 @@ export class ExampleController {
   }
 
   @Post()
-  createTest(@Body() test: createTestDto): Promise<Test> {
+  createTest(@Body() test: CreateTestDto): Promise<Test> {
     return this.exampleService.createTest(test);
   }
 }
+
+export default ExampleController;

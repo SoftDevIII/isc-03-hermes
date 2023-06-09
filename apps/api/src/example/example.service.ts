@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { createTestDto } from './dto/create-test.dto';
-import { Test } from './test.entity';
+import CreateTestDto from './dto/create-test.dto';
+import Test from './test.entity';
 
 @Injectable()
-export class ExampleService {
+class ExampleService {
   constructor(
     @InjectRepository(Test) private readonly testRepository: Repository<Test>
   ) {}
 
-  createTest(test: createTestDto) {
+  createTest(test: CreateTestDto) {
     const newUser = this.testRepository.create(test);
     return this.testRepository.save(newUser);
   }
@@ -27,3 +27,5 @@ export class ExampleService {
     });
   }
 }
+
+export default ExampleService;
