@@ -59,7 +59,7 @@ jobs:
     steps:
       - uses: deepakputhraya/action-branch-name@master
         with:
-          regex: '([a-z])+\/([a-z])+'
+          regex: '([a-z])+\/([a-zA-Z])+'
           allowed_prefixes: 'feature,stable,fix,chore,doc,feat,build,ci'
           ignore: main,develop
           min_length: 4
