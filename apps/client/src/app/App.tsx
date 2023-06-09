@@ -8,6 +8,7 @@ export default function App() {
       .then(res => res.json())
       .then(data => setState(data.name));
   };
+
   return (
     <>
       <button onClick={onClick} className='p-2 bg-blue-50'>
