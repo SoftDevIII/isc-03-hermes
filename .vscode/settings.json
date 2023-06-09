@@ -31,5 +31,9 @@
     "**/dist/**",
     "**/cypress/**",
     "**/.{idea,git,cache,output,temp}/**"
-  ]
+  ],
+  "jest.autoRun": {
+    "onSave": false,
+    "onType": false
+  },
 }
