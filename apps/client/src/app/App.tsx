@@ -4,9 +4,9 @@ export default function App() {
   const [state, setState] = useState('');
 
   const onClick = () => {
-    fetch('/api')
-      .then(res => res.text())
-      .then(setState);
+    fetch('/api/test/1')
+      .then(res => res.json())
+      .then(data => setState(data.name));
   };
   return (
     <>
