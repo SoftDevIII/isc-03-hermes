@@ -1,15 +1,30 @@
-version: '3.8'
+version: latest
 
 services:
-  mysql:
-    image: mysql:latest
-    container_name: mysql
-    ports:
-    - '1010:3306'
+  postgres:
+    image: postgis/postgis:latest
+    container_name: postgres
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: hermes_db
+      POSTGRES_DB: hermes
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - 1010:1010
+    command: -p 1010
     volumes:
-    - ./init.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./sql/query.sql:/docker-entrypoint-initdb.d/query.sql
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_LISTEN_PORT: 2020
+    ports:
+      - 2020:2020
+    depends_on:
+      - postgres

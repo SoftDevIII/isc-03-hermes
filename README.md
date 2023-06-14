@@ -12,7 +12,7 @@
 - Jose Luis Teran
 - Isaias Rojas Condaro
 
-### TEAM - Sansi Gym Bros
+### Team - SansiGymBros
 - Rodrigo Esprella
 - Jheremy Tancara
 - Andre Perez
@@ -21,3 +21,12 @@
 - Rolando Mendoza
 - Bianca Soliz
 - Diego Roca
+
+### Team - The UNOS
+- Sebasthian Khristian Salinas Pozzo
+- Anghelo Leonardo Zambrana Quinteros
+- Hugo Andres Oropeza Villalpando
+- Deidamia Elizabeth Fuentes Nogales
+- Ignacio Ruben Villarroel Rodriguez
+- Josue Mauricio Prado Camacho
+- Luis Enrique Espinoza Vera
