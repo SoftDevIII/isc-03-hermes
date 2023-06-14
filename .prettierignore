@@ -1,5 +1,5 @@
 dist/
-temp/
 coverage/
 .turbo/
 LICENSE
+node_modules/
