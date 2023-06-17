@@ -10,6 +10,8 @@ export default function Map() {
   const LONG = -66.15566250307504;
   const LAT = -17.393650765970328;
   const ZOOM = 12.5;
+  const MIN_ZOOM = 2;
+  const MAX_ZOOM = 19.5;
 
   useEffect(() => {
     if (map.current) {
@@ -23,6 +25,9 @@ export default function Map() {
       center: [LONG, LAT],
       zoom: ZOOM
     });
+
+    map.current.setMinZoom(MIN_ZOOM);
+    map.current.setMaxZoom(MAX_ZOOM);
   });
 
   return (
