@@ -1,12 +1,12 @@
 import mapboxgl, { LngLat, Marker as MapBoxMarker } from 'mapbox-gl';
 import React, { useRef, useState } from 'react';
-import useMap from '../context/MapState';
+import useMap from '../../context/MapState';
+import startingPointIcon from './assets/starting-point.png';
 import CoordinatesDisplay from './components/CoordinatesDisplay';
 import StartingPointMarker from './components/StartingPointMarker';
-import startingPointIcon from './assets/starting-point.png';
 
 function Marker() {
-  const { map, mapContainer } = useMap();
+  const { map, container } = useMap();
 
   const marker = useRef<MapBoxMarker | null>();
   const [coordinate, setCoordinate] = useState<LngLat>();
@@ -54,7 +54,7 @@ function Marker() {
   return (
     <div className='h-screen'>
       <div
-        ref={mapContainer as React.LegacyRef<HTMLDivElement>}
+        ref={container as React.LegacyRef<HTMLDivElement>}
         className='h-full'
       />
       {isStartingPoint && coordinate !== undefined && (
