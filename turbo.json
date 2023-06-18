@@ -4,6 +4,12 @@
     "dev": {
       "cache": false
     },
+    "dev:windows": {
+      "cache": false
+    },
+    "up": {
+      "cache": false
+    },
     "lint": {
       "cache": false
     },

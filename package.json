@@ -4,6 +4,8 @@
   "description": "",
   "scripts": {
     "dev": "turbo dev -F db && turbo dev -F api -F client",
+    "dev:windows": "turbo dev -F api -F client",
+    "up": "turbo up -F db",
     "build": "turbo build -F client -F api",
     "lint": "turbo lint -F client -F api",
     "format": "turbo format -F client -F api",

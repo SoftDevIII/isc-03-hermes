@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:windows": "vite",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "format:check": "prettier --check",
     "build": "tsc && vite build",

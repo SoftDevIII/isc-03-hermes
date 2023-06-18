@@ -6,6 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "docker compose down && docker compose up -d"
+    "dev": "docker compose down && docker compose up -d",
+    "up": "docker compose down && docker compose up -d"
   }
 }
