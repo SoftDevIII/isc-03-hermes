@@ -26,4 +26,8 @@ declare global {
   interface CreateMapProps {
     container: MapRef['container'];
   }
+
+  interface ConfigureMapProps {
+    current: MapType['map'];
+  }
 }
