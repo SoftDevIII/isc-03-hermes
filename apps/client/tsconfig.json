@@ -24,14 +24,17 @@
     "forceConsistentCasingInFileNames": true,
   },
   "types": [
-    "vitest/globals"
+    "vitest/globals",
+    "./src/globals"
   ],
   "include": [
     "src",
     "test",
     "*.ts",
     "*.js",
-    ".eslintrc.cjs"
+    ".eslintrc.cjs",
+    "*.d.ts",
+    "*.d.tsx"
   ],
   "references": [
     {
