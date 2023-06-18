@@ -1,5 +1,11 @@
 import { Map } from 'mapbox-gl';
-import { INIT_LAT, INIT_LONG, INIT_ZOOM, MAX_ZOOM, MIN_ZOOM } from '../utils/constants';
+import {
+  INIT_LAT,
+  INIT_LONG,
+  INIT_ZOOM,
+  MAX_ZOOM,
+  MIN_ZOOM
+} from '../utils/constants';
 
 function createMap({ container }: CreateMapProps) {
   return new Map({
@@ -17,4 +23,3 @@ function configureMap({ current }: ConfigureMapProps) {
 }
 
 export { configureMap, createMap };
-
