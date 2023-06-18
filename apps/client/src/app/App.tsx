@@ -1,8 +1,8 @@
-import Map from './map/Map';
+import Map from './components/map/Map';
 
 export default function App() {
   return (
-    <div className='h-screen'>
+    <div className='h-screen grid'>
       <Map />
     </div>
   );
