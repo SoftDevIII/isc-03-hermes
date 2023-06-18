@@ -8,6 +8,7 @@
     "rapidapi.vscode-services",
     "csstools.postcss",
     "zixuanchen.vitest-explorer",
-    "orta.vscode-jest"
+    "orta.vscode-jest",
+    "usernamehw.errorlens"
   ],
 }
