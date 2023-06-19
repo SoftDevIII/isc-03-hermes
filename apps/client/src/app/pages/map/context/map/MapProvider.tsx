@@ -1,4 +1,4 @@
-import useMapProvider from '../hooks/useMapProvider';
+import useMapProvider from '../../hooks/useMapProvider';
 import MapContext from './MapContext';
 
 function MapProvider({ children }: MapProviderProps) {

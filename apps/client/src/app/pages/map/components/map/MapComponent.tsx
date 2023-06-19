@@ -1,5 +1,5 @@
 import { LegacyRef } from 'react';
-import useMap from '../../context/MapState';
+import useMap from '../../context/map/MapState';
 
 function MapComponent() {
   const { container } = useMap();
