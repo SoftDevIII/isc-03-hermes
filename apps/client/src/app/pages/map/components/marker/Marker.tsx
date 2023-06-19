@@ -6,7 +6,7 @@ import CoordinatesDisplay from './components/CoordinatesDisplay';
 import StartingPointMarker from './components/StartingPointMarker';
 
 function Marker() {
-  const { map, container } = useMap();
+  const { map } = useMap();
 
   const marker = useRef<MapBoxMarker | null>();
   const [coordinate, setCoordinate] = useState<LngLat>();
