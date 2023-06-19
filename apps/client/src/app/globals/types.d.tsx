@@ -46,4 +46,74 @@ declare global {
     isOutBounds: boolean;
     setIsOutBounds: Dispatch<SetStateAction<boolean>>;
   }
+
+  interface MarkerButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+  }
+
+  interface MenuButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+  }
+
+  interface OptionButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+  }
+
+  type Option = {
+    id: number;
+    title: string;
+    action: string;
+  };
+  interface FetchOptionsProps {
+    url: string;
+  }
+
+  interface UseOptionsProps {
+    url: string;
+  }
+
+  interface DropDownProps {
+    url: string;
+    onActionSelected: (action: string) => void;
+    isOpen: boolean;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    menuClassName: string;
+  }
+
+  interface DropDownTopProps {
+    children: ReactNode;
+    url: string;
+    onActionSelected: (action: string) => void;
+    isOpen: boolean;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    className: string;
+    menuClassName: string;
+  }
+
+  interface DropDownBottomProps {
+    children: ReactNode;
+    url: string;
+    onActionSelected: (action: string) => void;
+    isOpen: boolean;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    className: string;
+    menuClassName: string;
+  }
+
+  interface DropDownMarkerProps {
+    children: ReactNode;
+    onActionSelected: (action: string) => void;
+    isOpen: boolean;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface DropDownMenuProps {
+    children: ReactNode;
+    onActionSelected: (action: string) => void;
+    isOpen: boolean;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
 }
