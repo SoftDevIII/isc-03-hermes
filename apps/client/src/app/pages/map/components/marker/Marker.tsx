@@ -1,8 +1,10 @@
+import RoomIcon from '@mui/icons-material/Room';
 import mapboxgl, { LngLat, Marker as MapBoxMarker } from 'mapbox-gl';
 import { useRef, useState } from 'react';
 import useMap from '../../context/map/MapState';
-import DropdownMenu from './components/DropdownMenu';
+import MarkerButton from '../../shared-ui-components/MarkerButton';
 import CoordinatesDisplay from './components/CoordinatesDisplay';
+import DropDownMarker from './components/DropDownMarker';
 
 function Marker() {
   const { map } = useMap();
@@ -10,6 +12,7 @@ function Marker() {
   const marker = useRef<MapBoxMarker | null>();
   const [isStartingPoint, setIsStartingPoint] = useState(false);
   const [coordinate, setCoordinate] = useState<LngLat>();
+  const [isOpen, setIsOpen] = useState(false);
 
   const removeMarker = () => {
     if (marker.current) {
@@ -50,6 +53,10 @@ function Marker() {
     setCoordinate(undefined);
   };
 
+  const handleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
   const handleActionSelected = (action: string) => {
     switch (action) {
       case 'search':
@@ -72,9 +79,15 @@ function Marker() {
       {isStartingPoint && coordinate && (
         <CoordinatesDisplay coordinates={coordinate} />
       )}
-      <div className='absolute left-12 bottom-80 z-10 cursor-pointer'>
-        <DropdownMenu onActionSelected={handleActionSelected} />
-      </div>
+      <DropDownMarker
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        onActionSelected={handleActionSelected}
+      >
+        <MarkerButton onClick={handleOpen}>
+          <RoomIcon />
+        </MarkerButton>
+      </DropDownMarker>
     </>
   );
 }

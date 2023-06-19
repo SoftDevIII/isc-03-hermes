@@ -1,6 +1,6 @@
 import Button from './Button';
 
-function ZoomButton({ children, onClick }: ZoomButtonProps) {
+function MarkerButton({ children, onClick }: MarkerButtonProps) {
   return (
     <Button
       onClick={onClick}
@@ -11,4 +11,4 @@ function ZoomButton({ children, onClick }: ZoomButtonProps) {
   );
 }
 
-export default ZoomButton;
+export default MarkerButton;

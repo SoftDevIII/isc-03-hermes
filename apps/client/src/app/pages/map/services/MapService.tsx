@@ -11,7 +11,7 @@ function createMap({ container }: CreateMapProps) {
   return new Map({
     accessToken: import.meta.env.VITE_PUBLIC_MAPBOX_TOKEN,
     container: container.current as HTMLElement,
-    style: 'mapbox://styles/mapbox/streets-v12',
+    style: 'mapbox://styles/mapbox/navigation-night-v1',
     center: [INIT_LONG, INIT_LAT],
     zoom: INIT_ZOOM
   });
