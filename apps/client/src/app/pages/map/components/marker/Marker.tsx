@@ -1,14 +1,15 @@
 import mapboxgl, { LngLat, Marker as MapBoxMarker } from 'mapbox-gl';
 import { useRef, useState } from 'react';
-import useMap from '../../context/MapState';
+import useMap from '../../context/map/MapState';
 import DropdownMenu from './components/DropdownMenu';
+import CoordinatesDisplay from './components/CoordinatesDisplay';
 
 function Marker() {
   const { map } = useMap();
 
   const marker = useRef<MapBoxMarker | null>();
-  const [coordinate, setCoordinate] = useState<LngLat>();
   const [isStartingPoint, setIsStartingPoint] = useState(false);
+  const [coordinate, setCoordinate] = useState<LngLat>();
 
   const removeMarker = () => {
     if (marker.current) {
@@ -48,6 +49,7 @@ function Marker() {
     removeMarker();
     setCoordinate(undefined);
   };
+
   const handleActionSelected = (action: string) => {
     switch (action) {
       case 'search':
@@ -66,9 +68,14 @@ function Marker() {
   };
 
   return (
-    <div className='absolute left-12 bottom-80 z-10 cursor-pointer'>
-      <DropdownMenu onActionSelected={handleActionSelected} />
-    </div>
+    <>
+      {isStartingPoint && coordinate && (
+        <CoordinatesDisplay coordinates={coordinate} />
+      )}
+      <div className='absolute left-12 bottom-80 z-10 cursor-pointer'>
+        <DropdownMenu onActionSelected={handleActionSelected} />
+      </div>
+    </>
   );
 }
 

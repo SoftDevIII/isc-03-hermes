@@ -6,7 +6,7 @@ type CoordinatesDisplayProps = {
 
 function CoordinatesDisplay({ coordinates }: CoordinatesDisplayProps) {
   return (
-    <div className='absolute bottom-36 text-center left-10 z-10 bg-black/80 p-4 rounded cursor-default w-[175px] '>
+    <div className='absolute bottom-2/4 text-center left-10 z-10 bg-black/80 p-4 rounded cursor-default w-[175px] '>
       <h2>Coordinates: </h2>
       <div>
         {coordinates.lng.toFixed(3)}, {coordinates.lat.toFixed(4)}
