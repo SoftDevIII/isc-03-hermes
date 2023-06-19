@@ -51,7 +51,6 @@ function Marker() {
   const handleActionSelected = (action: string) => {
     switch (action) {
       case 'search':
-        alert('Search');
         break;
       case 'selectStartLocation':
         setStartingPoint();
@@ -60,12 +59,10 @@ function Marker() {
         removeStartingPoint();
         break;
       case 'selectEndLocation':
-        alert('Select End Location');
         break;
       default:
         break;
     }
-    console.log('Action selected:', action);
   };
 
   return (
