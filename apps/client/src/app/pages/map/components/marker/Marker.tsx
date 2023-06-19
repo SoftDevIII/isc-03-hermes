@@ -1,9 +1,7 @@
 import mapboxgl, { LngLat, Marker as MapBoxMarker } from 'mapbox-gl';
 import { useRef, useState } from 'react';
-import useMap from '../../context/map/MapState';
-import startingPointIcon from './assets/starting-point.png';
-import CoordinatesDisplay from './components/CoordinatesDisplay';
-import StartingPointMarker from './components/StartingPointMarker';
+import useMap from '../../context/MapState';
+import DropdownMenu from './components/DropdownMenu';
 
 function Marker() {
   const { map } = useMap();
@@ -50,29 +48,30 @@ function Marker() {
     removeMarker();
     setCoordinate(undefined);
   };
+  const handleActionSelected = (action: string) => {
+    switch (action) {
+      case 'search':
+        alert('Search');
+        break;
+      case 'selectStartLocation':
+        setStartingPoint();
+        break;
+      case 'removeStartLocation':
+        removeStartingPoint();
+        break;
+      case 'selectEndLocation':
+        alert('Select End Location');
+        break;
+      default:
+        break;
+    }
+    console.log('Action selected:', action);
+  };
 
   return (
-    <>
-      {isStartingPoint && coordinate !== undefined && (
-        <StartingPointMarker onClick={removeStartingPoint} />
-      )}
-      {coordinate !== undefined && (
-        <CoordinatesDisplay coordinates={coordinate} />
-      )}
-      {!isStartingPoint && (
-        <button
-          className='absolute left-12 bottom-12 z-10 cursor-pointer'
-          onClick={setStartingPoint}
-          type='button'
-        >
-          <img
-            src={startingPointIcon}
-            alt='Starting Point'
-            className='w-16 h-16'
-          />
-        </button>
-      )}
-    </>
+    <div className='absolute left-12 bottom-80 z-10 cursor-pointer'>
+      <DropdownMenu onActionSelected={handleActionSelected} />
+    </div>
   );
 }
 
