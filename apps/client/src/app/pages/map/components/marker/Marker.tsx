@@ -1,16 +1,15 @@
 import mapboxgl, { LngLat, Marker as MapBoxMarker } from 'mapbox-gl';
 import { useRef, useState } from 'react';
 import useMap from '../../context/map/MapState';
-import startingPointIcon from './assets/starting-point.png';
+import DropdownMenu from './components/DropdownMenu';
 import CoordinatesDisplay from './components/CoordinatesDisplay';
-import StartingPointMarker from './components/StartingPointMarker';
 
 function Marker() {
   const { map } = useMap();
 
   const marker = useRef<MapBoxMarker | null>();
-  const [coordinate, setCoordinate] = useState<LngLat>();
   const [isStartingPoint, setIsStartingPoint] = useState(false);
+  const [coordinate, setCoordinate] = useState<LngLat>();
 
   const removeMarker = () => {
     if (marker.current) {
@@ -51,27 +50,31 @@ function Marker() {
     setCoordinate(undefined);
   };
 
+  const handleActionSelected = (action: string) => {
+    switch (action) {
+      case 'search':
+        break;
+      case 'selectStartLocation':
+        setStartingPoint();
+        break;
+      case 'removeStartLocation':
+        removeStartingPoint();
+        break;
+      case 'selectEndLocation':
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <>
-      {isStartingPoint && coordinate !== undefined && (
-        <StartingPointMarker onClick={removeStartingPoint} />
-      )}
-      {coordinate !== undefined && (
+      {isStartingPoint && coordinate && (
         <CoordinatesDisplay coordinates={coordinate} />
       )}
-      {!isStartingPoint && (
-        <button
-          className='absolute left-12 bottom-12 z-10 cursor-pointer'
-          onClick={setStartingPoint}
-          type='button'
-        >
-          <img
-            src={startingPointIcon}
-            alt='Starting Point'
-            className='w-16 h-16'
-          />
-        </button>
-      )}
+      <div className='absolute left-12 bottom-80 z-10 cursor-pointer'>
+        <DropdownMenu onActionSelected={handleActionSelected} />
+      </div>
     </>
   );
 }
