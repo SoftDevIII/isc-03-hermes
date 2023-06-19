@@ -1,14 +1,19 @@
 import MapComponent from './components/map/MapComponent';
 import Marker from './components/marker/Marker';
-import MapProvider from './context/MapProvider';
+import Zoom from './components/zoom/Zoom';
+import BoundsProvider from './context/bounds/BoundsProvider';
+import MapProvider from './context/map/MapProvider';
 
 function MapPage() {
   return (
     <div className='h-screen grid'>
-      <MapProvider>
-        <MapComponent />
-        <Marker />
-      </MapProvider>
+      <BoundsProvider>
+        <MapProvider>
+          <MapComponent />
+          <Zoom />
+          <Marker />
+        </MapProvider>
+      </BoundsProvider>
     </div>
   );
 }

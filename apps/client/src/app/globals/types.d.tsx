@@ -1,5 +1,5 @@
 import { Map as MapBox } from 'mapbox-gl';
-import { ReactNode, RefObject } from 'react';
+import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
 
 export {};
 
@@ -29,5 +29,21 @@ declare global {
 
   interface ConfigureMapProps {
     current: MapType['map'];
+  }
+
+  interface ButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+    className?: string;
+  }
+
+  interface ZoomButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+  }
+
+  interface BoundsContextValue {
+    isOutBounds: boolean;
+    setIsOutBounds: Dispatch<SetStateAction<boolean>>;
   }
 }
