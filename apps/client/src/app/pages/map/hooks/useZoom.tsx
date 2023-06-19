@@ -8,7 +8,6 @@ function useZoom() {
   function increaseZoom() {
     if (!map.current) return;
     if (map.current.getZoom() === map.current.getMaxZoom() && !isOutBounds) {
-      console.log('ugguygy');
       setIsOutBounds(true);
       return;
     }
