@@ -22,6 +22,21 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@": [
+        "src"
+      ],
+      "@/*": [
+        "src/*"
+      ],
+      "@resources": [
+        "src/resources"
+      ],
+      "@resources/*": [
+        "src/resources/*"
+      ]
+    }
   },
   "types": [
     "vitest/globals",

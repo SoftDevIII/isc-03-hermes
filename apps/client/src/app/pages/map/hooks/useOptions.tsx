@@ -1,14 +1,11 @@
-import { useState } from 'react';
-import fetchOptions from '../services/OptionsService';
+import { useEffect, useState } from 'react';
 
-function useOptions({ url }: UseOptionsProps) {
+function useOptions({ json }: UseOptionsProps) {
   const [options, setOptions] = useState<Option[]>([]);
 
-  fetchOptions({ url })
-    .then(res => setOptions(res))
-    .catch((err: Error) => {
-      throw new Error(err.message);
-    });
+  useEffect(() => {
+    setOptions(json || []);
+  }, [json]);
 
   return options;
 }

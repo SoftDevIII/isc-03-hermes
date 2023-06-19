@@ -67,40 +67,37 @@ declare global {
     title: string;
     action: string;
   };
-  interface FetchOptionsProps {
-    url: string;
-  }
 
   interface UseOptionsProps {
-    url: string;
+    json: Option[];
   }
 
   interface DropDownProps {
-    url: string;
     onActionSelected: (action: string) => void;
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     menuClassName: string;
+    json: Option[];
   }
 
   interface DropDownTopProps {
     children: ReactNode;
-    url: string;
     onActionSelected: (action: string) => void;
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     className: string;
     menuClassName: string;
+    json: Option[];
   }
 
   interface DropDownBottomProps {
     children: ReactNode;
-    url: string;
     onActionSelected: (action: string) => void;
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     className: string;
     menuClassName: string;
+    json: Option[];
   }
 
   interface DropDownMarkerProps {

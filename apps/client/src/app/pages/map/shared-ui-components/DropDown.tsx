@@ -2,13 +2,13 @@ import useOptions from '../hooks/useOptions';
 import OptionButton from './OptionButton';
 
 function DropDown({
-  url,
   onActionSelected,
   isOpen,
   setIsOpen,
-  menuClassName
+  menuClassName,
+  json
 }: DropDownProps) {
-  const options = useOptions({ url });
+  const options = useOptions({ json });
 
   function handleActionSelected(action: string) {
     onActionSelected(action);

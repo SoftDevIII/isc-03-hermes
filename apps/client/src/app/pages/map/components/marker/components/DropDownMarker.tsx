@@ -1,4 +1,5 @@
-import DropDownBottom from '../../../shared-ui-components/BottomDrownMenu';
+import markerOptions from '@resources/MarkerOptions.json';
+import DropDownBottom from '../../../shared-ui-components/DropDownBottom';
 
 function DropDownMarker({
   isOpen,
@@ -11,9 +12,9 @@ function DropDownMarker({
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       onActionSelected={onActionSelected}
-      url='/src/resources/MarkerOptions.json'
       className='absolute left-12 bottom-12'
       menuClassName='bottom-12 mb-2'
+      json={markerOptions}
     >
       {children}
     </DropDownBottom>

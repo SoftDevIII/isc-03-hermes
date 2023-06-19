@@ -2,12 +2,12 @@ import DropDown from './DropDown';
 
 function DropDownTop({
   children,
-  url,
   onActionSelected,
   isOpen,
   setIsOpen,
   className,
-  menuClassName
+  menuClassName,
+  json
 }: DropDownTopProps) {
   return (
     <div className={`${className} cursor-pointer`}>
@@ -16,8 +16,8 @@ function DropDownTop({
         onActionSelected={onActionSelected}
         isOpen={isOpen}
         menuClassName={menuClassName}
-        url={url}
         setIsOpen={setIsOpen}
+        json={json}
       />
     </div>
   );
