@@ -13,13 +13,13 @@ function Marker() {
   const [isStartingPoint, setIsStartingPoint] = useState(false);
   const [coordinate, setCoordinate] = useState<LngLat>();
   const [isOpen, setIsOpen] = useState(false);
-  const [hover, setHover] = useState<string | null>(null);
+  const [hover, setHover] = useState<string>('');
 
   useEffect(() => {
     if (isStartingPoint) {
       setHover('url(../../../../../../public/hover-icon.png), auto');
     } else {
-      setHover(null);
+      setHover('');
     }
   }, [isStartingPoint]);
 
@@ -84,24 +84,20 @@ function Marker() {
   };
 
   return (
-    <>
-      <div
-	      className='absolute inset-0 z-50 opacity-50'
-        style={{ cursor: hover }}>
-        {isStartingPoint && coordinate && (
-          <CoordinatesDisplay coordinates={coordinate} />
-        )}
-        <DropDownMarker
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          onActionSelected={handleActionSelected}
-        >
-          <MarkerButton onClick={handleOpen}>
-            <RoomIcon />
-          </MarkerButton>
-        </DropDownMarker>
-      </div>
-    </>
+    <div className='absolute inset-0 z-50 opacity-50' style={{ cursor: hover }}>
+      {isStartingPoint && coordinate && (
+        <CoordinatesDisplay coordinates={coordinate} />
+      )}
+      <DropDownMarker
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        onActionSelected={handleActionSelected}
+      >
+        <MarkerButton onClick={handleOpen}>
+          <RoomIcon />
+        </MarkerButton>
+      </DropDownMarker>
+    </div>
   );
 }
 
