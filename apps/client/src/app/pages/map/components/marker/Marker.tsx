@@ -1,6 +1,6 @@
 import RoomIcon from '@mui/icons-material/Room';
 import mapboxgl, { LngLat, Marker as MapBoxMarker } from 'mapbox-gl';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useMap from '../../context/map/MapState';
 import MarkerButton from '../../shared-ui-components/MarkerButton';
 import CoordinatesDisplay from './components/CoordinatesDisplay';
@@ -13,6 +13,15 @@ function Marker() {
   const [isStartingPoint, setIsStartingPoint] = useState(false);
   const [coordinate, setCoordinate] = useState<LngLat>();
   const [isOpen, setIsOpen] = useState(false);
+  const [hover, setHover] = useState<string>('');
+
+  useEffect(() => {
+    if (isStartingPoint) {
+      setHover('url(../../../../../../public/hover-icon.png), auto');
+    } else {
+      setHover('');
+    }
+  }, [isStartingPoint]);
 
   const removeMarker = () => {
     if (marker.current) {
@@ -75,7 +84,7 @@ function Marker() {
   };
 
   return (
-    <>
+    <div className='absolute inset-0 z-50 opacity-50' style={{ cursor: hover }}>
       {isStartingPoint && coordinate && (
         <CoordinatesDisplay coordinates={coordinate} />
       )}
@@ -88,7 +97,7 @@ function Marker() {
           <RoomIcon />
         </MarkerButton>
       </DropDownMarker>
-    </>
+    </div>
   );
 }
 
