@@ -6,9 +6,9 @@ import MarkerButton from '../../shared-ui-components/MarkerButton';
 import CoordinatesDisplay from './components/CoordinatesDisplay';
 import DropDownMarker from './components/DropDownMarker';
 
-function Marker() {
-  const { setEndPoint, removeEndPoint } = useEndMarker();
-  const { setStartPoint, removeStartPoint } = useStartMarker();
+function MarkerMenu() {
+  const { setEndMarker, removeEndMarker } = useEndMarker();
+  const { setStartMarker, removeStartMarker } = useStartMarker();
   const [isOpen, setIsOpen] = useState(false);
   const [hover, setHover] = useState<string>('');
 
@@ -23,16 +23,16 @@ function Marker() {
   const handleActionSelected = (action: string) => {
     switch (action) {
       case 'selectStartLocation':
-        setStartPoint();
+        setStartMarker();
         break;
       case 'removeStartLocation':
-        removeStartPoint();
+        removeStartMarker();
         break;
       case 'selectEndLocation':
-        setEndPoint();
+        setEndMarker();
         break;
       case 'removeEndLocation':
-        removeEndPoint();
+        removeEndMarker();
         break;
       default:
         break;
@@ -55,4 +55,4 @@ function Marker() {
   );
 }
 
-export default Marker;
+export default MarkerMenu;
