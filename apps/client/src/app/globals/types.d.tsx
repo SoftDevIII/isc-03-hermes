@@ -1,4 +1,4 @@
-import { Map as MapBox } from 'mapbox-gl';
+import { LngLat, Map as MapBox } from 'mapbox-gl';
 import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
 
 export {};
@@ -112,5 +112,20 @@ declare global {
     onActionSelected: (action: string) => void;
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface CoordinatesContextValue {
+    startCoordinates: LngLat;
+    setStartCoordinates: Dispatch<SetStateAction<LngLat>>;
+    endCoordinates: LngLat;
+    setEndCoordinates: Dispatch<SetStateAction<LngLat>>;
+  }
+
+  interface BoundsProviderProps {
+    children: ReactNode;
+  }
+
+  interface CoordinatesProviderProps {
+    children: ReactNode;
   }
 }

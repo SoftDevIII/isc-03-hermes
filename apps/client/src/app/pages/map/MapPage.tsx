@@ -5,6 +5,7 @@ import PopUp from './components/pop-up/PopUp';
 import SearchBar from './components/search-bar/SearchBar';
 import Zoom from './components/zoom/Zoom';
 import BoundsProvider from './context/bounds/BoundsProvider';
+import CoordinatesProvider from './context/coordinates/CoordinatesProvider';
 import MapProvider from './context/map/MapProvider';
 
 function MapPage() {
@@ -12,12 +13,14 @@ function MapPage() {
     <div className='h-screen grid'>
       <BoundsProvider>
         <MapProvider>
-          <MapComponent />
-          <SearchBar />
-          <Zoom />
-          <Marker />
-          <PopUp />
-          <Menu />
+          <CoordinatesProvider>
+            <MapComponent />
+            <SearchBar />
+            <Zoom />
+            <Marker />
+            <PopUp />
+            <Menu />
+          </CoordinatesProvider>
         </MapProvider>
       </BoundsProvider>
     </div>
