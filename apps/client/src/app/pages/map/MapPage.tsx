@@ -1,5 +1,5 @@
 import MapComponent from './components/map/MapComponent';
-import Marker from './components/marker/Marker';
+import MarkerMenu from './components/marker/MarkerMenu';
 import Menu from './components/menu/Menu';
 import PopUp from './components/pop-up/PopUp';
 import SearchBar from './components/search-bar/SearchBar';
@@ -17,7 +17,7 @@ function MapPage() {
             <MapComponent />
             <SearchBar />
             <Zoom />
-            <Marker />
+            <MarkerMenu />
             <PopUp />
             <Menu />
           </CoordinatesProvider>

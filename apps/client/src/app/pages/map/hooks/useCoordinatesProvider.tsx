@@ -10,14 +10,18 @@ function useCoordinatesProvider() {
     new LngLat(0, 0)
   );
 
+  const [isMarking, setIsMarking] = useState(false);
+
   const coordinatesProviderValue = useMemo(
     () => ({
       startCoordinates,
       setStartCoordinates,
       endCoordinates,
-      setEndCoordinates
+      setEndCoordinates,
+      isMarking,
+      setIsMarking
     }),
-    [startCoordinates, endCoordinates]
+    [startCoordinates, endCoordinates, isMarking]
   );
 
   return coordinatesProviderValue;

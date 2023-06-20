@@ -119,6 +119,8 @@ declare global {
     setStartCoordinates: Dispatch<SetStateAction<LngLat>>;
     endCoordinates: LngLat;
     setEndCoordinates: Dispatch<SetStateAction<LngLat>>;
+    isMarking: boolean;
+    setIsMarking: Dispatch<SetStateAction<boolean>>;
   }
 
   interface BoundsProviderProps {
@@ -127,5 +129,9 @@ declare global {
 
   interface CoordinatesProviderProps {
     children: ReactNode;
+  }
+
+  interface UseMarkerProps {
+    setCoordinates: Dispatch<SetStateAction<LngLat>>;
   }
 }
