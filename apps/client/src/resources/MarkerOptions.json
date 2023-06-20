@@ -1,42 +1,30 @@
 [
   {
     "id": 1,
-    "title": "Search",
-    "action": "search"
-  },
-
-  {
-    "id": 2,
     "title": "Select Start Location",
     "action": "selectStartLocation"
   },
 
   {
-    "id": 3,
+    "id": 2,
     "title": "Remove Start Location",
     "action": "removeStartLocation"
   },
 
   {
-    "id": 4,
+    "id": 3,
     "title": "Select End Location",
     "action": "selectEndLocation"
   },
 
   {
-    "id": 5,
+    "id": 4,
     "title": "Remove End Location",
     "action": "removeEndLocation"
   },
 
   {
-    "id": 6,
-    "title": "Get User Location",
-    "action": "getUserLocation"
-  },
-
-  {
-    "id": 7,
+    "id": 5,
     "title": "Exit",
     "action": "exit"
   }

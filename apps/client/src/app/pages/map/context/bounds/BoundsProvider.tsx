@@ -1,7 +1,7 @@
 import useBoundsProvider from '../../hooks/useBoundsProvider';
 import BoundsContext from './BoundsContext';
 
-function BoundsProvider({ children }: MapProviderProps) {
+function BoundsProvider({ children }: BoundsProviderProps) {
   const boundsProviderValue = useBoundsProvider();
 
   return (
