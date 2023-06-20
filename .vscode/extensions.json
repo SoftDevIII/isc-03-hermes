@@ -9,6 +9,7 @@
     "csstools.postcss",
     "zixuanchen.vitest-explorer",
     "orta.vscode-jest",
-    "usernamehw.errorlens"
+    "usernamehw.errorlens",
+    "sandipchitale.vscode-jwt-debugger"
   ],
 }
