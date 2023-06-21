@@ -59,7 +59,7 @@ declare global {
 
   interface OptionButtonProps {
     children: ReactNode;
-    onClick: () => void;
+    onClick?: () => void;
   }
 
   type Option = {
@@ -68,50 +68,12 @@ declare global {
     action: string;
   };
 
+  interface Options {
+    options: Option[];
+  }
+
   interface UseOptionsProps {
-    json: Option[];
-  }
-
-  interface DropDownProps {
-    onActionSelected: (action: string) => void;
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
-    menuClassName: string;
-    json: Option[];
-  }
-
-  interface DropDownTopProps {
-    children: ReactNode;
-    onActionSelected: (action: string) => void;
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
-    className: string;
-    menuClassName: string;
-    json: Option[];
-  }
-
-  interface DropDownBottomProps {
-    children: ReactNode;
-    onActionSelected: (action: string) => void;
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
-    className: string;
-    menuClassName: string;
-    json: Option[];
-  }
-
-  interface DropDownMarkerProps {
-    children: ReactNode;
-    onActionSelected: (action: string) => void;
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
-  }
-
-  interface DropDownMenuProps {
-    children: ReactNode;
-    onActionSelected: (action: string) => void;
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    json: Options;
   }
 
   interface CoordinatesContextValue {
@@ -133,5 +95,19 @@ declare global {
 
   interface UseMarkerProps {
     setCoordinates: Dispatch<SetStateAction<LngLat>>;
+    type: string;
+  }
+
+  interface DropDownMenuProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    className: string;
+    children: ReactNode;
+  }
+
+  interface DropDownListProps {
+    options: Option[];
+    className: string;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    onActionSelected: (action: string) => void;
   }
 }

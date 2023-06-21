@@ -1,5 +1,5 @@
 import MapComponent from './components/map/MapComponent';
-import MarkerMenu from './components/marker/MarkerMenu';
+import MarkerMenu from './components/marker-menu/MarkerMenu';
 import Menu from './components/menu/Menu';
 import PopUp from './components/pop-up/PopUp';
 import SearchBar from './components/search-bar/SearchBar';

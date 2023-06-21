@@ -4,7 +4,8 @@ import useMarker from './useMarker';
 function useEndMarker() {
   const { setStartCoordinates } = useCoordinates();
   const { setMarker, removeMarker } = useMarker({
-    setCoordinates: setStartCoordinates
+    setCoordinates: setStartCoordinates,
+    type: 'end'
   });
 
   return { setEndMarker: setMarker, removeEndMarker: removeMarker };

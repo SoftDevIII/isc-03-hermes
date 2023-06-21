@@ -30,11 +30,11 @@
       "@/*": [
         "src/*"
       ],
-      "@resources": [
-        "src/resources"
+      "@assets": [
+        "src/assets"
       ],
-      "@resources/*": [
-        "src/resources/*"
+      "@assets/*": [
+        "src/assets/*"
       ]
     }
   },

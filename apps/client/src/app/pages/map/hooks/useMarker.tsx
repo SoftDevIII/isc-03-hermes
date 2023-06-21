@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import useCoordinates from '../context/coordinates/CoordinatesState';
 import useMap from '../context/map/MapState';
 
-function useMarker({ setCoordinates }: UseMarkerProps) {
+function useMarker({ setCoordinates, type }: UseMarkerProps) {
   const { map } = useMap();
   const { isMarking, setIsMarking } = useCoordinates();
 
@@ -14,7 +14,10 @@ function useMarker({ setCoordinates }: UseMarkerProps) {
     if (!map.current) {
       return;
     }
-    marker.current = new Marker().setLngLat(lngLat).addTo(map.current);
+    marker.current = new Marker();
+    marker.current.setLngLat(lngLat);
+    marker.current.getElement().innerHTML = `<div><div class='animate-bounce'><div class='marker ${type}'></div></div><div class='shadow shadow-${type}'></div></div>`;
+    marker.current.addTo(map.current);
   };
 
   const handleClick = (event: MapMouseEvent) => {
@@ -35,8 +38,7 @@ function useMarker({ setCoordinates }: UseMarkerProps) {
     setIsMarked(true);
     setIsMarking(true);
     map.current.on('click', handleClick);
-    map.current.getCanvas().style.cursor =
-      'url(/assets/hover-icon.png), pointer';
+    map.current.getCanvas().style.cursor = `url(/src/assets/${type}-marker.png) 24 49, pointer`;
   };
 
   const removeMarker = () => {
