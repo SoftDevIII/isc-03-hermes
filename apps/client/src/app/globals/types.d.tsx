@@ -1,4 +1,4 @@
-import { Map as MapBox } from 'mapbox-gl';
+import { LngLat, Map as MapBox } from 'mapbox-gl';
 import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
 
 export {};
@@ -68,49 +68,55 @@ declare global {
     action: string;
   };
 
+  interface Options {
+    options: Option[];
+  }
+
   interface UseOptionsProps {
-    json: Option[];
+    json: Options;
   }
 
-  interface DropDownProps {
-    onActionSelected: (action: string) => void;
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
-    menuClassName: string;
-    json: Option[];
+  interface CoordinatesContextValue {
+    startCoordinates: LngLat;
+    setStartCoordinates: Dispatch<SetStateAction<LngLat>>;
+    endCoordinates: LngLat;
+    setEndCoordinates: Dispatch<SetStateAction<LngLat>>;
+    isMarking: boolean;
+    setIsMarking: Dispatch<SetStateAction<boolean>>;
   }
 
-  interface DropDownTopProps {
+  interface BoundsProviderProps {
     children: ReactNode;
-    onActionSelected: (action: string) => void;
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
-    className: string;
-    menuClassName: string;
-    json: Option[];
   }
 
-  interface DropDownBottomProps {
+  interface CoordinatesProviderProps {
     children: ReactNode;
-    onActionSelected: (action: string) => void;
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
-    className: string;
-    menuClassName: string;
-    json: Option[];
   }
 
-  interface DropDownMarkerProps {
-    children: ReactNode;
-    onActionSelected: (action: string) => void;
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  interface UseMarkerProps {
+    setCoordinates: Dispatch<SetStateAction<LngLat>>;
+    type: string;
+    icon: string;
   }
 
   interface DropDownMenuProps {
-    children: ReactNode;
-    onActionSelected: (action: string) => void;
-    isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+    className: string;
+    children: ReactNode;
+  }
+
+  interface DropDownListProps {
+    options: Option[];
+    className: string;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    onActionSelected: (action: string) => void;
+  }
+
+  interface UseRefMenuProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface MarkerMenuActions {
+    [key: string]: () => void;
   }
 }
