@@ -96,6 +96,7 @@ declare global {
   interface UseMarkerProps {
     setCoordinates: Dispatch<SetStateAction<LngLat>>;
     type: string;
+    icon: string;
   }
 
   interface DropDownMenuProps {
