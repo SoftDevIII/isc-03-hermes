@@ -59,7 +59,7 @@ declare global {
 
   interface OptionButtonProps {
     children: ReactNode;
-    onClick?: () => void;
+    onClick: () => void;
   }
 
   type Option = {
@@ -113,5 +113,9 @@ declare global {
 
   interface UseRefMenuProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface MarkerMenuActions {
+    [key: string]: () => void;
   }
 }

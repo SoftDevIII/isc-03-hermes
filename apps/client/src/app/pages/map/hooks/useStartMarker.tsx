@@ -2,13 +2,16 @@ import useCoordinates from '../context/coordinates/CoordinatesState';
 import useMarker from './useMarker';
 
 function useStartMarker() {
-  const { setEndCoordinates } = useCoordinates();
+  const { setStartCoordinates } = useCoordinates();
   const { setMarker, removeMarker } = useMarker({
-    setCoordinates: setEndCoordinates,
+    setCoordinates: setStartCoordinates,
     type: 'start'
   });
 
-  return { setStartMarker: setMarker, removeStartMarker: removeMarker };
+  return {
+    setStartMarker: setMarker,
+    removeStartMarker: removeMarker
+  };
 }
 
 export default useStartMarker;
