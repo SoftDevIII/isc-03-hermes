@@ -4,7 +4,7 @@ function useOptions({ json }: UseOptionsProps) {
   const [options, setOptions] = useState<Option[]>([]);
 
   useEffect(() => {
-    setOptions(json || []);
+    setOptions(json.options || []);
   }, [json]);
 
   return options;
