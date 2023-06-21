@@ -35,6 +35,7 @@ declare global {
     children: ReactNode;
     onClick: () => void;
     className?: string;
+    disabled?: boolean;
   }
 
   interface ZoomButtonProps {
@@ -123,5 +124,33 @@ declare global {
 
   interface MarkerMenuActions {
     [key: string]: () => void;
+  }
+
+  interface MenuListProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    isOpen: boolean;
+  }
+
+  interface ExitButtonProps {
+    onClick: () => void;
+    className: string;
+  }
+
+  interface OptionCancelButtonProps {
+    isOpen: boolean;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    onClick: () => void;
+    children: ReactNode;
+    disabled: boolean;
+  }
+
+  interface OptionMarkerButtonProps {
+    title: string;
+    isOpen: boolean;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    icon: string;
+    ajustImage?: string;
+    onClick: () => void;
+    disabled: boolean;
   }
 }
