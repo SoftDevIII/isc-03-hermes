@@ -1,44 +1,39 @@
-import * as jwt from 'jsonwebtoken';
-import * as Koa from 'koa';
-import * as Router from 'koa-router';
+import jwt, { Secret, SignOptions } from 'jsonwebtoken';
 
-const SECRET_KEY = 'some-secret-key'; // No usar una clave secreta fija en un entorno de producción.
+/**
+ * secretKey is a Key for the aplication jwt.
+ */
+const secretKey: Secret = 'your_secret_password';
 
-const app = new Koa();
-const router = new Router();
+/**
+ * Payload is an interface which contains the user data for the aplication jwt.
+ */
+interface Payload {
+  username: string;
+  password: string;
+}
 
-router.post('/login', async ctx => {
-  const { username, password } = ctx.request.body;
+/**
+ * generateToken function creates a jwt using user data recieved,
+ * an expiration time and app's key.
+ */
+const generateToken = (
+  username: string,
+  password: string,
+  expires: number
+): string => {
+  const payload: Payload = {
+    username,
+    password
+  };
 
-  if (username === 'user' && password === 'password') {
-    // Este es un ejemplo. No se debe usar autenticación estática en un entorno de producción.
-    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
-    ctx.body = { token };
-  } else {
-    ctx.status = 401;
-    ctx.body = { error: 'Invalid username or password' };
-  }
-});
+  const options: SignOptions = {
+    expiresIn: expires
+  };
 
-router.get('/protected', async ctx => {
-  const authHeader = ctx.headers.authorization;
+  const token: string = jwt.sign(payload, secretKey, options);
 
-  if (authHeader) {
-    const token = authHeader.split(' ')[1];
+  return token;
+};
 
-    try {
-      jwt.verify(token, SECRET_KEY);
-      ctx.body = { data: 'Protected data' };
-    } catch (err) {
-      ctx.status = 403;
-      ctx.body = { error: 'Invalid token' };
-    }
-  } else {
-    ctx.status = 401;
-    ctx.body = { error: 'No token provided' };
-  }
-});
-
-app.use(router.routes()).use(router.allowedMethods());
-
-app.listen(8080, () => console.log('Server running on http://localhost:8080'));
+export default generateToken;
