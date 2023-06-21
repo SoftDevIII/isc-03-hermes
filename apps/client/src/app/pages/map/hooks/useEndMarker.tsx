@@ -2,9 +2,9 @@ import useCoordinates from '../context/coordinates/CoordinatesState';
 import useMarker from './useMarker';
 
 function useEndMarker() {
-  const { setStartCoordinates } = useCoordinates();
+  const { setEndCoordinates } = useCoordinates();
   const { setMarker, removeMarker } = useMarker({
-    setCoordinates: setStartCoordinates,
+    setCoordinates: setEndCoordinates,
     type: 'end'
   });
 

@@ -3,22 +3,27 @@
     {
       "id": 1,
       "title": "Home",
-      "action": "home"
+      "action": "goHome"
     },
     {
       "id": 2,
       "title": "Profile",
-      "action": "profile"
+      "action": "goProfile"
     },
     {
       "id": 3,
       "title": "Settings",
-      "action": "settings"
+      "action": "goSettings"
     },
     {
       "id": 4,
       "title": "Help",
-      "action": "help"
+      "action": "goHelp"
+    },
+    {
+      "id": 5,
+      "title": "Exit",
+      "action": "goExit"
     }
   ]
 }

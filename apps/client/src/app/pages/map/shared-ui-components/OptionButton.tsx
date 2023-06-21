@@ -1,6 +1,6 @@
 import Button from './Button';
 
-function OptionButton({ children, onClick = () => {} }: OptionButtonProps) {
+function OptionButton({ children, onClick }: OptionButtonProps) {
   return (
     <Button
       onClick={onClick}
