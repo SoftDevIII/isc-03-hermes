@@ -1,17 +1,8 @@
-import { MutableRefObject, useEffect, useRef } from 'react';
+import { MutableRefObject } from 'react';
+import useRefMenu from '../hooks/useRefMenu';
 
 function DropDownMenu({ className, setIsOpen, children }: DropDownMenuProps) {
-  const ref = useRef<HTMLDivElement>();
-
-  useEffect(() => {
-    document.body.addEventListener('click', event => {
-      if (ref.current?.contains(event.target as Node)) {
-        return;
-      }
-
-      setIsOpen(false);
-    });
-  }, [setIsOpen]);
+  const { ref } = useRefMenu({ setIsOpen });
 
   return (
     <div

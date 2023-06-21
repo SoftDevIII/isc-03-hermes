@@ -110,4 +110,8 @@ declare global {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     onActionSelected: (action: string) => void;
   }
+
+  interface UseRefMenuProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
 }
