@@ -582,4 +582,14 @@ declare global {
     id: string;
     type: string;
   }
+
+  interface SearchButtonProps {
+    onClick: () => void;
+    className: string;
+  }
+
+  interface CloseButtonProps {
+    onClick: () => void;
+    className: string;
+  }
 }
