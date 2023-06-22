@@ -1,10 +1,13 @@
+import { LngLat } from 'mapbox-gl';
 import { useEffect, useState } from 'react';
+import useCoordinates from '../context/coordinates/CoordinatesState';
 import useMap from '../context/map/MapState';
 
 function useActualLocation() {
   const { map } = useMap();
   const [longitude, setLongitude] = useState<number | null>(null);
   const [latitude, setLatitude] = useState<number | null>(null);
+  const { setUserCoordinates } = useCoordinates();
 
   useEffect(() => {
     let geoWatchId: number | null = null;
@@ -15,6 +18,7 @@ function useActualLocation() {
           const long = position.coords.longitude;
           setLatitude(lat);
           setLongitude(long);
+          setUserCoordinates(new LngLat(long, lat));
         },
         error => {
           /* eslint-disable-next-line no-console */
@@ -30,12 +34,12 @@ function useActualLocation() {
         navigator.geolocation.clearWatch(geoWatchId);
       }
     };
-  }, [map]);
+  }, [map, setUserCoordinates]);
   function goToActualLocation() {
     if (map.current && longitude !== null && latitude !== null) {
       map.current.flyTo({
         center: [longitude, latitude],
-        zoom: 15
+        zoom: 14
       });
     }
   }

@@ -86,6 +86,8 @@ declare global {
     setStartCoordinates: Dispatch<SetStateAction<LngLat>>;
     endCoordinates: LngLat;
     setEndCoordinates: Dispatch<SetStateAction<LngLat>>;
+    userCoordinates: LngLat;
+    setUserCoordinates: Dispatch<SetStateAction<LngLat>>;
     isMarking: boolean;
     setIsMarking: Dispatch<SetStateAction<boolean>>;
   }
