@@ -14,6 +14,7 @@ function useMarker({
   const { isMarking, setIsMarking } = useCoordinates();
 
   const marker = useRef<Marker>(new Marker());
+  const marker = useRef<Marker>(new Marker());
   const [isMarked, setIsMarked] = useState(false);
 
   const createMarker = (lngLat: LngLat) => {
@@ -21,11 +22,7 @@ function useMarker({
       return;
     }
     marker.current = new Marker().setLngLat(lngLat);
-    if (isUserMarker) {
-      marker.current.getElement().innerHTML = `<div><div class='user-marker'></div><div class='user-shadow'></div></div>`;
-    } else {
-      marker.current.getElement().innerHTML = `<div><div class='animate-bounce'><div class='marker ${type}'></div></div><div class='shadow shadow-${type}'></div></div>`;
-    }
+    marker.current.getElement().innerHTML = `<div><div class='animate-bounce'><div class='marker ${type}'></div></div><div class='shadow shadow-${type}'></div></div>`;
     marker.current.addTo(map.current);
   };
 
@@ -43,11 +40,11 @@ function useMarker({
       map.current?.off('click', handleClick);
       return;
     }
-    setIsMarking(false);
     map.current.off('click', handleClick);
     map.current.getCanvas().style.cursor = '';
     setCoordinates(event.lngLat);
     createMarker(event.lngLat);
+    setIsMarking(false);
     setIsMarked(true);
   };
 
@@ -55,9 +52,9 @@ function useMarker({
     if (isMarked || !map.current || isMarking) {
       return;
     }
-    map.current.getCanvas().style.cursor = `url(${icon}) 18 30, pointer`;
-    map.current.on('click', handleClick);
     setIsMarking(true);
+    map.current.on('click', handleClick);
+    map.current.getCanvas().style.cursor = `url(${icon}) 24 49, pointer`;
   };
 
   const removePoint = () => {
@@ -65,7 +62,9 @@ function useMarker({
       return;
     }
     marker.current.remove();
+    marker.current.remove();
     setIsMarked(false);
+    setCoordinates(new LngLat(0, 0));
     setCoordinates(new LngLat(0, 0));
   };
 

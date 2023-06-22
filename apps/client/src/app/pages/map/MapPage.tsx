@@ -8,17 +8,21 @@ import MapProvider from '@map-contexts/map/MapProvider';
 
 function MapPage() {
   return (
-    <MapProvider>
-      <CoordinatesProvider>
-        <div className='h-screen grid'>
-          <MapComponent />
-          <SearchBar />
-          <MarkerMenu />
-          <ActualLocation />
-          <Zoom />
-        </div>
-      </CoordinatesProvider>
-    </MapProvider>
+    <BoundsProvider>
+      <MapProvider>
+        <CoordinatesProvider>
+          <div className='h-screen grid'>
+            <MapComponent />
+            <SearchBar />
+            <ActualLocation />
+            <Zoom />
+            <MarkerMenu />
+            <PopUp />
+            <Menu />
+          </div>
+        </CoordinatesProvider>
+      </MapProvider>
+    </BoundsProvider>
   );
 }
 
