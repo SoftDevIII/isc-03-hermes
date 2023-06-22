@@ -1,4 +1,3 @@
-import { Marker } from 'mapbox-gl';
 import useMap from '../context/map/MapState';
 
 function useActualLocation() {
