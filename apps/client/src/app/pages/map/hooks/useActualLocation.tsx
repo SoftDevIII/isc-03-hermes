@@ -3,11 +3,11 @@ import useMap from '../context/map/MapState';
 
 function useActualLocation() {
   const { map } = useMap();
-  const [longitude, setLongitude] = useState(null);
-  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState<number | null>(null);
+  const [latitude, setLatitude] = useState<number | null>(null);
 
   useEffect(() => {
-    let geoWatchId = null;
+    let geoWatchId: number | null = null;
     if (map.current) {
       geoWatchId = navigator.geolocation.watchPosition(
         position => {
@@ -17,6 +17,7 @@ function useActualLocation() {
           setLongitude(long);
         },
         error => {
+          /* eslint-disable-next-line no-console */
           console.log(error);
         },
         {
@@ -31,8 +32,8 @@ function useActualLocation() {
     };
   }, [map]);
   function goToActualLocation() {
-    if (map.current) {
-      map.current?.flyTo({
+    if (map.current && longitude !== null && latitude !== null) {
+      map.current.flyTo({
         center: [longitude, latitude],
         zoom: 15
       });
