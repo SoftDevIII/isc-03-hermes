@@ -1,5 +1,4 @@
 import closeIcon from '@assets/close-icon.png';
-import useCoordinates from '../context/coordinates/CoordinatesState';
 import Button from './Button';
 
 function OptionCancelButton({
@@ -7,16 +6,11 @@ function OptionCancelButton({
   handleClick,
   isMarked
 }: OptionCancelButtonProps) {
-  const { isMarking } = useCoordinates();
-
   return (
     <Button
       onClick={() => handleClick()}
-      className={`relative w-[105px] py-2 px-3.5 rounded-2xl bg-black/70
-      text-white font-semibold shadow-2xl flex items-center justify-between ${
-        isMarking ? '' : 'hover:bg-black/80 active:bg-black'
-      }`}
-      disabled={isMarking}
+      className='relative w-[105px] py-2 px-3.5 rounded-2xl bg-black/70
+      text-white font-semibold shadow-2xl flex items-center justify-between hover:bg-black/80 active:bg-black'
     >
       {children}
       {isMarked && (
