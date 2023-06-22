@@ -19,7 +19,6 @@ function LoginPage() {
         >
           LOGIN
         </Button>
-
         <div className='flex w-full'>
           <h1 className='text-left text-white'>Forgot password?</h1>
         </div>

@@ -15,4 +15,5 @@ function TextBoxEmail({ id }: TextBoxProps) {
     </div>
   );
 }
+
 export default TextBoxEmail;

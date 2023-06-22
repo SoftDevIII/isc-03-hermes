@@ -217,6 +217,7 @@ declare global {
   interface OptionImageProps {
     src: string;
   }
+
   interface TextFieldProps {
     className?: string;
     type: string;
