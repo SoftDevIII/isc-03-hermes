@@ -54,7 +54,7 @@ function useMarker({ setCoordinates, type, icon }: UseMarkerProps) {
     }
     setIsMarked(false);
     removeMarker();
-    setCoordinates(new LngLat(0, 0));
+    setCoordinates(null);
   };
 
   return { setMarker: setPoint, removeMarker: removePoint };

@@ -6,10 +6,24 @@ function OptionCancelButton({
   setIsOpen,
   onClick,
   children,
-  disabled
+  disabled,
+  isMarked,
+  title
 }: OptionCancelButtonProps) {
   const handleClick = () => {
-    onClick();
+    if (title === 'Start') {
+      if (!isMarked) {
+        onClick('setStartMarker');
+      } else {
+        onClick('removeStartMarker');
+      }
+    } else if (title === 'End') {
+      if (!isMarked) {
+        onClick('setEndMarker');
+      } else {
+        onClick('removeEndMarker');
+      }
+    }
     setIsOpen(!isOpen);
   };
 
@@ -23,7 +37,7 @@ function OptionCancelButton({
       disabled={disabled}
     >
       {children}
-      {isOpen && (
+      {isMarked && (
         <div className='absolute right-[7.3px] top-[6.3px] h-[8.5px] w-[8.5px] opacity-70 cursor-pointer'>
           <img src={xIcon} alt='exit icon' draggable='false' />
         </div>

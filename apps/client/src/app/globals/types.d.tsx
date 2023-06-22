@@ -83,10 +83,10 @@ declare global {
   }
 
   interface CoordinatesContextValue {
-    startCoordinates: LngLat;
-    setStartCoordinates: Dispatch<SetStateAction<LngLat>>;
-    endCoordinates: LngLat;
-    setEndCoordinates: Dispatch<SetStateAction<LngLat>>;
+    startCoordinates: LngLat | null;
+    setStartCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+    endCoordinates: LngLat | null;
+    setEndCoordinates: Dispatch<SetStateAction<LngLat | null>>;
     isMarking: boolean;
     setIsMarking: Dispatch<SetStateAction<boolean>>;
   }
@@ -100,7 +100,7 @@ declare global {
   }
 
   interface UseMarkerProps {
-    setCoordinates: Dispatch<SetStateAction<LngLat>>;
+    setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
     type: string;
     icon: string;
   }
@@ -139,9 +139,11 @@ declare global {
   interface OptionCancelButtonProps {
     isOpen: boolean;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
-    onClick: () => void;
+    onClick: (action: string) => void;
     children: ReactNode;
     disabled: boolean;
+    isMarked: boolean;
+    title: string;
   }
 
   interface OptionMarkerButtonProps {
@@ -150,7 +152,7 @@ declare global {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     icon: string;
     ajustImage?: string;
-    onClick: () => void;
+    onClick: (action: string) => void;
     disabled: boolean;
   }
 }
