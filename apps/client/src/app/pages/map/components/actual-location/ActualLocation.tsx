@@ -1,10 +1,10 @@
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { useState } from 'react';
-import ActualLocationButton from '../../shared-ui-components/ActualLocationButton';
 import useActualLocation from '../../hooks/useActualLocation';
+import ActualLocationButton from '../../shared-ui-components/ActualLocationButton';
 
 function ActualLocation() {
-  const { goToActualLocation } = useActualLocation();
+  const { goToActualLocation, toggleUserMarker } = useActualLocation();
   const [isActive, setIsActive] = useState(true);
 
   function toggleActive() {
@@ -12,6 +12,7 @@ function ActualLocation() {
     if (isActive) {
       goToActualLocation();
     }
+    toggleUserMarker();
   }
 
   return (
