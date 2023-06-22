@@ -42,6 +42,11 @@ declare global {
     onClick: () => void;
   }
 
+  interface ActualLocationButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+  }
+
   interface BoundsContextValue {
     isOutBounds: boolean;
     setIsOutBounds: Dispatch<SetStateAction<boolean>>;
