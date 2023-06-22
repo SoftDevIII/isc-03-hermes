@@ -336,4 +336,14 @@ declare global {
     setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
 >>>>>>> refactor: improve use location component
   }
+
+  interface SearchButtonProps {
+    onClick: () => void;
+    className: string;
+  }
+
+  interface CloseButtonProps {
+    onClick: () => void;
+    className: string;
+  }
 }
