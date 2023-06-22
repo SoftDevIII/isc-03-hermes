@@ -60,8 +60,12 @@ function useMarker({
       return;
     }
 
+<<<<<<< HEAD
     map.current.getCanvas().style.cursor = `url(${icon}) 24 49, pointer`;
 
+=======
+    map.current.getCanvas().style.cursor = `url(${icon}) 18 30, pointer`;
+>>>>>>> 5458f4f (fix: solve problems with remove buttons)
     map.current.on('click', handleClick);
     setIsMarking(true);
   };
