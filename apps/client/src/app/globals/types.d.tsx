@@ -432,4 +432,13 @@ declare global {
   interface ConvertCoordinatesToFeatProps {
     coordinates: LngLat;
   }
+
+  interface TextFieldProps {
+    className?: string;
+    type: string;
+    required?: boolean;
+    placeholder?: string;
+    onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
+    icon?: ReactElement;
+  }
 }

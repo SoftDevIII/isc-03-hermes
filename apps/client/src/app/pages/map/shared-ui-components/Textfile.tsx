@@ -3,8 +3,7 @@ function TextField({
   type,
   required,
   onInput,
-  placeholder,
-  id
+  placeholder
 }: TextFieldProps) {
   return (
     <div className={className}>
@@ -14,7 +13,6 @@ function TextField({
         className={className}
         onInput={onInput}
         placeholder={placeholder}
-        id={id}
       />
     </div>
   );
