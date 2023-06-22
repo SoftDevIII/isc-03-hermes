@@ -23,6 +23,7 @@ function useMarker({ setCoordinates, type, icon }: UseMarkerProps) {
     if (!map.current || isMarked) {
       return;
     }
+
     setIsMarked(true);
     setCoordinates(lngLat);
     createMarker(lngLat);
@@ -34,10 +35,12 @@ function useMarker({ setCoordinates, type, icon }: UseMarkerProps) {
       return;
     }
     setIsMarking(false);
+
     map.current.off('click', handleClick);
     map.current.getCanvas().style.cursor = '';
     setCoordinates(event.lngLat);
     createMarker(event.lngLat);
+
     setIsMarked(true);
   };
 
@@ -45,6 +48,7 @@ function useMarker({ setCoordinates, type, icon }: UseMarkerProps) {
     if (isMarked || !map.current || isMarking) {
       return;
     }
+
     map.current.getCanvas().style.cursor = `url(${icon}) 24 49, pointer`;
     map.current.on('click', handleClick);
     setIsMarking(true);
