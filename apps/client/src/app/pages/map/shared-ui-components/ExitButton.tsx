@@ -1,4 +1,4 @@
-import xIcon from '@assets/x-icon.png';
+import closeIcon from '@assets/minus-icon.png';
 import Button from './Button';
 
 function ExitButton({ onClick, className }: ExitButtonProps) {
@@ -7,7 +7,7 @@ function ExitButton({ onClick, className }: ExitButtonProps) {
       onClick={onClick}
       className={`rounded-full ' hover:opacity-80 active:opacity-90' ${className}`}
     >
-      <img src={xIcon} alt='exit icon' draggable='false' />
+      <img src={closeIcon} alt='exit icon' draggable='false' />
     </Button>
   );
 }

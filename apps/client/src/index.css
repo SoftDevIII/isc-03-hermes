@@ -84,6 +84,14 @@
   animation: bounce 1.5s infinite;
 }
 
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+}
+
 @keyframes pulsate {
   0% {
     transform: scale(0.1, 0.1);
