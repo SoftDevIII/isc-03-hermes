@@ -1,3 +1,4 @@
+import useCoordinates from '../../../context/coordinates/CoordinatesState';
 import OptionCancelButton from '../../../shared-ui-components/OptionCancelButton';
 
 function OptionMarkerButton({
@@ -9,12 +10,16 @@ function OptionMarkerButton({
   ajustImage = '',
   disabled
 }: OptionMarkerButtonProps) {
+  const { startCoordinates, endCoordinates } = useCoordinates();
+
   return (
     <OptionCancelButton
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       onClick={onClick}
       disabled={disabled}
+      isMarked={title === 'Start' ? !!startCoordinates : !!endCoordinates}
+      title={title}
     >
       <div className='flex justify-center items-center w-2/3'>
         <div>{title}</div>

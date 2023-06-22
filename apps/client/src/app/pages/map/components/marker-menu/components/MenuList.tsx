@@ -1,11 +1,13 @@
 import destination from '@assets/destination-icon.png';
 import start from '@assets/start-icon.png';
-import { useState } from 'react';
+import useCoordinates from '../../../context/coordinates/CoordinatesState';
+import useMarkerActions from '../../../hooks/useMarkerActions';
 import ExitButton from '../../../shared-ui-components/ExitButton';
 import OptionMarkerButton from './OptionMarkerButton';
 
 function MenuList({ setIsOpen, isOpen }: MenuListProps) {
-  const [disable, setDisable] = useState(true);
+  const { isMarking } = useCoordinates();
+  const { handleActionSelected } = useMarkerActions();
 
   return (
     <section className='absolute rounded-3xl bg-black/30 p-5 bottom-9 left-7 mb-2'>
@@ -19,18 +21,18 @@ function MenuList({ setIsOpen, isOpen }: MenuListProps) {
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           icon={start}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleActionSelected}
           ajustImage='mb-[0.75px]'
-          disabled={disable}
+          disabled={isMarking}
         />
         <OptionMarkerButton
           title='End'
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           icon={destination}
-          onClick={() => setDisable(!disable)}
+          onClick={handleActionSelected}
           ajustImage='mr-[0.75px] mt-[0.25px]'
-          disabled={false}
+          disabled={isMarking}
         />
       </li>
     </section>
