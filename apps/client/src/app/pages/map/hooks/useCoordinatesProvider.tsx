@@ -10,6 +10,10 @@ function useCoordinatesProvider() {
     new LngLat(0, 0)
   );
 
+  const [userCoordinates, setUserCoordinates] = useState<LngLat>(
+    new LngLat(0, 0)
+  );
+
   const [isMarking, setIsMarking] = useState(false);
 
   const coordinatesProviderValue = useMemo(
@@ -18,10 +22,12 @@ function useCoordinatesProvider() {
       setStartCoordinates,
       endCoordinates,
       setEndCoordinates,
+      userCoordinates,
+      setUserCoordinates,
       isMarking,
       setIsMarking
     }),
-    [startCoordinates, endCoordinates, isMarking]
+    [startCoordinates, endCoordinates, userCoordinates, isMarking]
   );
 
   return coordinatesProviderValue;
