@@ -1,5 +1,11 @@
 import { LngLat, Map as MapBox } from 'mapbox-gl';
-import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
+import {
+  Dispatch,
+  ReactElement,
+  ReactNode,
+  RefObject,
+  SetStateAction
+} from 'react';
 
 export {};
 
@@ -210,5 +216,13 @@ declare global {
 
   interface OptionImageProps {
     src: string;
+  }
+  interface TextFieldProps {
+    className?: string;
+    type: string;
+    required?: boolean;
+    placeholder?: string;
+    onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
+    icon?: ReactElement;
   }
 }
