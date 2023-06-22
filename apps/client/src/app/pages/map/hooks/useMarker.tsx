@@ -19,6 +19,15 @@ function useMarker({ setCoordinates, type, icon }: UseMarkerProps) {
     marker.current.addTo(map.current);
   };
 
+  const createMarkerFromCoordinates = (lngLat: LngLat) => {
+    if (!map.current || isMarked) {
+      return;
+    }
+    setIsMarked(true);
+    setCoordinates(lngLat);
+    createMarker(lngLat);
+  };
+
   const handleClick = (event: MapMouseEvent) => {
     if (!map.current || map.current.getCanvas().style.cursor === '') {
       map.current?.off('click', handleClick);
@@ -50,7 +59,11 @@ function useMarker({ setCoordinates, type, icon }: UseMarkerProps) {
     setCoordinates(new LngLat(0, 0));
   };
 
-  return { setMarker: setPoint, removeMarker: removePoint };
+  return {
+    setMarker: setPoint,
+    removeMarker: removePoint,
+    createMarkerFromCoordinates
+  };
 }
 
 export default useMarker;
