@@ -1,3 +1,4 @@
+import ActualLocation from './components/actual-location/ActualLocation';
 import MapComponent from './components/map/MapComponent';
 import MarkerMenu from './components/marker-menu/MarkerMenu';
 import Menu from './components/menu/Menu';
@@ -16,6 +17,7 @@ function MapPage() {
           <CoordinatesProvider>
             <MapComponent />
             <SearchBar />
+            <ActualLocation />
             <Zoom />
             <MarkerMenu />
             <PopUp />
