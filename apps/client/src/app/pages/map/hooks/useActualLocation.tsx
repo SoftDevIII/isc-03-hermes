@@ -58,13 +58,7 @@ function useActualLocation() {
         navigator.geolocation.clearWatch(geoWatchId);
       }
     };
-  }, [
-    map,
-    setUserCoordinates,
-    showUserMarker,
-    setUserMarker,
-    removeUserMarker
-  ]);
+  }, [map, setUserCoordinates, showUserMarker]);
 
   function goToActualLocation() {
     if (map.current && longitude !== null && latitude !== null) {
