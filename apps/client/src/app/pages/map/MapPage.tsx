@@ -10,20 +10,20 @@ import MapProvider from './context/map/MapProvider';
 
 function MapPage() {
   return (
-    <div className='h-screen grid'>
-      <BoundsProvider>
-        <MapProvider>
-          <CoordinatesProvider>
+    <BoundsProvider>
+      <MapProvider>
+        <CoordinatesProvider>
+          <div className='h-screen grid'>
             <MapComponent />
             <SearchBar />
             <Zoom />
             <MarkerMenu />
             <PopUp />
             <Menu />
-          </CoordinatesProvider>
-        </MapProvider>
-      </BoundsProvider>
-    </div>
+          </div>
+        </CoordinatesProvider>
+      </MapProvider>
+    </BoundsProvider>
   );
 }
 

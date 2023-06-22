@@ -78,10 +78,10 @@ declare global {
   }
 
   interface CoordinatesContextValue {
-    startCoordinates: LngLat | null;
-    setStartCoordinates: Dispatch<SetStateAction<LngLat | null>>;
-    endCoordinates: LngLat | null;
-    setEndCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+    startCoordinates: LngLat;
+    setStartCoordinates: Dispatch<SetStateAction<LngLat>>;
+    endCoordinates: LngLat;
+    setEndCoordinates: Dispatch<SetStateAction<LngLat>>;
     isMarking: boolean;
     setIsMarking: Dispatch<SetStateAction<boolean>>;
   }
@@ -95,9 +95,9 @@ declare global {
   }
 
   interface UseMarkerProps {
-    setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
     type: string;
     icon: string;
+    setCoordinates: Dispatch<SetStateAction<LngLat>>;
   }
 
   interface DropDownMenuProps {
@@ -121,9 +121,10 @@ declare global {
     [key: string]: () => void;
   }
 
-  interface MenuListProps {
+  interface MarkerMenuListProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     isOpen: boolean;
+    onActionSelected: (action: string) => void;
   }
 
   interface ExitButtonProps {
@@ -132,22 +133,26 @@ declare global {
   }
 
   interface OptionCancelButtonProps {
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
-    onClick: (action: string) => void;
     children: ReactNode;
-    disabled: boolean;
+    handleClick: () => void;
     isMarked: boolean;
-    title: string;
   }
 
   interface OptionMarkerButtonProps {
     title: string;
-    isOpen: boolean;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
     icon: string;
+    isMarked: boolean;
+    handleClick: () => void;
     ajustImage?: string;
-    onClick: (action: string) => void;
-    disabled: boolean;
+  }
+
+  interface EndMarkerButtonProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    onActionSelected: (action: string) => void;
+  }
+
+  interface StartMarkerButtonProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    onActionSelected: (action: string) => void;
   }
 }
