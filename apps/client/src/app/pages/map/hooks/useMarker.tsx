@@ -20,11 +20,13 @@ function useMarker({
       return;
     }
     marker.current = new Marker().setLngLat(lngLat);
+
     if (isUserMarker) {
       marker.current.getElement().innerHTML = `<div><div class='user-marker'></div><div class='user-shadow'></div></div>`;
     } else {
       marker.current.getElement().innerHTML = `<div><div class='animate-bounce'><div class='marker ${type}'></div></div><div class='shadow shadow-${type}'></div></div>`;
     }
+
     marker.current.addTo(map.current);
   };
 
