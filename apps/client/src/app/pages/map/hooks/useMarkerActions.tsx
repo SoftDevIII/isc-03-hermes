@@ -1,15 +1,26 @@
+import useMap from '../context/map/MapState';
 import useEndMarker from './useEndMarker';
 import useStartMarker from './useStartMarker';
+import useCoordinates from '../context/coordinates/CoordinatesState';
 
 function useMarkerActions() {
   const { setEndMarker, removeEndMarker } = useEndMarker();
   const { setStartMarker, removeStartMarker } = useStartMarker();
+  const { setIsMarking } = useCoordinates();
+  const { map } = useMap();
+
+  const stopMarking = () => {
+    if (!map.current) return;
+    map.current.getCanvas().style.cursor = '';
+    setIsMarking(false);
+  };
 
   const actions: MarkerMenuActions = {
     setStartMarker,
     removeStartMarker,
     setEndMarker,
-    removeEndMarker
+    removeEndMarker,
+    stopMarking
   };
 
   const handleActionSelected = (action: string) => {

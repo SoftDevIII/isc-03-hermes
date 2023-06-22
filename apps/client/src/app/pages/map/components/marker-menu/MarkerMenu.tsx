@@ -1,30 +1,36 @@
-import json from '@assets/marker-options.json';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import RoomIcon from '@mui/icons-material/Room';
 import { useState } from 'react';
+import useCoordinates from '../../context/coordinates/CoordinatesState';
 import useMarkerActions from '../../hooks/useMarkerActions';
-import useOptions from '../../hooks/useOptions';
-import DropDownList from '../../shared-ui-components/DropDownList';
 import DropDownMenu from '../../shared-ui-components/DropDownMenu';
 import MarkerButton from '../../shared-ui-components/MarkerButton';
+import MarkerMenuList from './components/MarkerMenuList';
 
 function MarkerMenu() {
-  const options = useOptions({ json });
   const [isOpen, setIsOpen] = useState(false);
   const { handleActionSelected } = useMarkerActions();
+  const { isMarking } = useCoordinates();
 
   return (
     <DropDownMenu setIsOpen={setIsOpen} className='bottom-12 left-12'>
       {isOpen && (
-        <DropDownList
-          options={options}
-          className='bottom-12 mb-2'
+        <MarkerMenuList
           setIsOpen={setIsOpen}
+          isOpen={isOpen}
           onActionSelected={handleActionSelected}
         />
       )}
-      <MarkerButton onClick={() => setIsOpen(!isOpen)}>
-        <RoomIcon />
-      </MarkerButton>
+      {!isMarking && (
+        <MarkerButton onClick={() => setIsOpen(!isOpen)}>
+          <RoomIcon fontSize='inherit' />
+        </MarkerButton>
+      )}
+      {isMarking && (
+        <MarkerButton onClick={() => handleActionSelected('stopMarking')}>
+          <DeleteForeverIcon fontSize='inherit' />
+        </MarkerButton>
+      )}
     </DropDownMenu>
   );
 }

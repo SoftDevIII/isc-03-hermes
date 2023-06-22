@@ -99,9 +99,9 @@ declare global {
   }
 
   interface UseMarkerProps {
-    setCoordinates: Dispatch<SetStateAction<LngLat>>;
     type: string;
     icon: string;
+    setCoordinates: Dispatch<SetStateAction<LngLat>>;
   }
 
   interface DropDownMenuProps {
@@ -123,5 +123,40 @@ declare global {
 
   interface MarkerMenuActions {
     [key: string]: () => void;
+  }
+
+  interface MarkerMenuListProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    isOpen: boolean;
+    onActionSelected: (action: string) => void;
+  }
+
+  interface ExitButtonProps {
+    onClick: () => void;
+    className: string;
+  }
+
+  interface OptionCancelButtonProps {
+    children: ReactNode;
+    handleClick: () => void;
+    isMarked: boolean;
+  }
+
+  interface OptionMarkerButtonProps {
+    title: string;
+    icon: string;
+    isMarked: boolean;
+    handleClick: () => void;
+    ajustImage?: string;
+  }
+
+  interface EndMarkerButtonProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    onActionSelected: (action: string) => void;
+  }
+
+  interface StartMarkerButtonProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    onActionSelected: (action: string) => void;
   }
 }
