@@ -35,7 +35,6 @@ declare global {
     children: ReactNode;
     onClick: () => void;
     className?: string;
-    disabled?: boolean;
   }
 
   interface ZoomButtonProps {

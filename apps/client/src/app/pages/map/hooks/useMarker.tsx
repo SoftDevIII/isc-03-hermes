@@ -20,14 +20,15 @@ function useMarker({ setCoordinates, type, icon }: UseMarkerProps) {
   };
 
   const handleClick = (event: MapMouseEvent) => {
-    if (!map.current) {
+    if (!map.current || map.current.getCanvas().style.cursor === '') {
+      map.current?.off('click', handleClick);
       return;
     }
+    setIsMarking(false);
     map.current.off('click', handleClick);
     map.current.getCanvas().style.cursor = '';
     setCoordinates(event.lngLat);
     createMarker(event.lngLat);
-    setIsMarking(false);
     setIsMarked(true);
   };
 
@@ -35,9 +36,9 @@ function useMarker({ setCoordinates, type, icon }: UseMarkerProps) {
     if (isMarked || !map.current || isMarking) {
       return;
     }
-    setIsMarking(true);
-    map.current.on('click', handleClick);
     map.current.getCanvas().style.cursor = `url(${icon}) 24 49, pointer`;
+    map.current.on('click', handleClick);
+    setIsMarking(true);
   };
 
   const removePoint = () => {
