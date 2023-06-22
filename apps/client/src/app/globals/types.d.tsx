@@ -2,7 +2,13 @@ import Language from '@enums/Language';
 import ShortCode from '@enums/ShortCode';
 import Wikidata from '@enums/Wikidata';
 import { LngLat, Map as MapBox } from 'mapbox-gl';
-import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
+import {
+  Dispatch,
+  ReactElement,
+  ReactNode,
+  RefObject,
+  SetStateAction
+} from 'react';
 
 export {};
 
@@ -410,5 +416,14 @@ declare global {
 
   interface ConvertCoordinatesToFeatProps {
     coordinates: LngLat;
+  }
+
+  interface TextFieldProps {
+    className?: string;
+    type: string;
+    required?: boolean;
+    placeholder?: string;
+    onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
+    icon?: ReactElement;
   }
 }
