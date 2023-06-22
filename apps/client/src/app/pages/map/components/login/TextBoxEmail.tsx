@@ -1,5 +1,5 @@
+import TextField from '@map-shared-components/Textfile';
 import EmailTwoToneIcon from '@mui/icons-material/EmailTwoTone';
-import TextField from '../../shared-ui-components/Textfile';
 
 function TextBoxEmail() {
   return (
@@ -9,5 +9,4 @@ function TextBoxEmail() {
     </div>
   );
 }
-
 export default TextBoxEmail;
