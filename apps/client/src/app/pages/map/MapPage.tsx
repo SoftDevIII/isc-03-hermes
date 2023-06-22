@@ -6,6 +6,8 @@ import Zoom from '@map-components/zoom/Zoom';
 import CoordinatesProvider from '@map-contexts/coordinates/CoordinatesProvider';
 import MapProvider from '@map-contexts/map/MapProvider';
 
+const array = ['hola1', 'hola2', 'hola3'];
+
 function MapPage() {
   return (
     <MapProvider>

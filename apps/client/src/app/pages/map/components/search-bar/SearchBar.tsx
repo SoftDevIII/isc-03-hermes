@@ -21,7 +21,21 @@ function SearchBar() {
         <h1 className='text-lg text-white/50 font-roboto'>Search</h1>
         <Menu />
       </div>
+      {filterData.length !== 0 && (
+        <div className='flex gap-3 bg-black/50 p-6 rounded-xl items-center w-[450px] mt-3 flex-col'>
+          {filterData.map((title, index) => (
+            <button
+              className='w-full bg-black/25 text-white text-lg py-2 px-3 rounded-lg'
+              key={index}
+              type='button'
+            >
+              {title}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
+
 export default SearchBar;

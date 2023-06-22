@@ -305,4 +305,14 @@ declare global {
     setSnackbarSeverity: Dispatch<SetStateAction<string>>;
     setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
   }
+
+  interface SearchButtonProps {
+    onClick: () => void;
+    className: string;
+  }
+
+  interface CloseButtonProps {
+    onClick: () => void;
+    className: string;
+  }
 }
