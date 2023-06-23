@@ -6,10 +6,10 @@ function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`cursor-pointer  ${className?.trim() || ''} ${
+      className={`${className?.trim() || ''} ${
         disabled
-          ? 'opacity-50'
-          : 'transition duration-100 active:transform active:scale-90'
+          ? 'opacity-50 cursor-default'
+          : 'transition duration-100 active:transform active:scale-90 cursor-pointer'
       }`}
       type='button'
       onClick={onClick}
