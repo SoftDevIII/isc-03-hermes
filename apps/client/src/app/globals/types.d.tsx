@@ -47,11 +47,6 @@ declare global {
     onClick: () => void;
   }
 
-  interface BoundsContextValue {
-    isOutBounds: boolean;
-    setIsOutBounds: Dispatch<SetStateAction<boolean>>;
-  }
-
   interface MarkerButtonProps {
     children: ReactNode;
     onClick: () => void;
@@ -90,10 +85,6 @@ declare global {
     setUserCoordinates: Dispatch<SetStateAction<LngLat>>;
     isMarking: boolean;
     setIsMarking: Dispatch<SetStateAction<boolean>>;
-  }
-
-  interface BoundsProviderProps {
-    children: ReactNode;
   }
 
   interface CoordinatesProviderProps {
