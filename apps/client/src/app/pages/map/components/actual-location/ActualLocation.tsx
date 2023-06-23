@@ -16,7 +16,7 @@ function ActualLocation() {
   }
 
   return (
-    <div className='absolute right-12 bottom-40 z-10 rounded-full'>
+    <div className='absolute right-12 bottom-48 z-10 rounded-full'>
       <ActualLocationButton
         onClick={() => {
           toggleActive();
