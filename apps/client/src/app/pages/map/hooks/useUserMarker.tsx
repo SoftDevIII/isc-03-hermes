@@ -1,4 +1,4 @@
-import userMarker from '@assets/user-marker.png';
+import userMarker from '@assets/start-marker.png';
 import useCoordinates from '../context/coordinates/CoordinatesState';
 import useMarker from './useMarker';
 
@@ -7,7 +7,8 @@ function useUserMarker() {
   const { setMarker, removeMarker, createMarkerFromCoordinates } = useMarker({
     setCoordinates: setUserCoordinates,
     type: 'user',
-    icon: userMarker
+    icon: userMarker,
+    isUserMarker: true
   });
 
   return {

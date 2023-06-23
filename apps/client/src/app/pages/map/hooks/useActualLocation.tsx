@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import useCoordinates from '../context/coordinates/CoordinatesState';
 import useMap from '../context/map/MapState';
 import useUserMarker from './useUserMarker';
+import { MAX_ZOOM } from '../utils/constants';
 
 function useActualLocation() {
   const { map } = useMap();
@@ -45,8 +46,7 @@ function useActualLocation() {
           setLongitude(long);
         },
         error => {
-          /* eslint-disable-next-line no-console */
-          console.log(error);
+          throw new Error(error.message);
         },
         {
           enableHighAccuracy: true
@@ -64,7 +64,7 @@ function useActualLocation() {
     if (map.current && longitude !== null && latitude !== null) {
       map.current.flyTo({
         center: [longitude, latitude],
-        zoom: 14
+        zoom: MAX_ZOOM
       });
     }
   }

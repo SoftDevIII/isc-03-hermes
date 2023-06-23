@@ -104,6 +104,7 @@ declare global {
     type: string;
     icon: string;
     setCoordinates: Dispatch<SetStateAction<LngLat>>;
+    isUserMarker?: boolean;
   }
 
   interface DropDownMenuProps {
