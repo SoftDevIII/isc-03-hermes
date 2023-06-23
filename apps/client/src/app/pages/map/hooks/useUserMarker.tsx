@@ -7,7 +7,8 @@ function useUserMarker() {
   const { setMarker, removeMarker, createMarkerFromCoordinates } = useMarker({
     setCoordinates: setUserCoordinates,
     type: 'user',
-    icon: userMarker
+    icon: userMarker,
+    isUserMarker: true
   });
 
   return {

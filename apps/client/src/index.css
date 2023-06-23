@@ -23,12 +23,12 @@
 }
 
 .start::before {
-  background: #57a3ff;
+  background: #ed5e5e;
   border: 3.5px solid #40396e;
 }
 
 .end::before {
-  background: #37c4ad;
+  background: #d5881c;
   border: 3.5px solid #40396e;
 }
 
@@ -73,11 +73,11 @@
 }
 
 .shadow-start::after {
-  box-shadow: 0 0 2px 2px #57a3ff;
+  box-shadow: 0 0 2px 2px #ed5e5e;
 }
 
 .shadow-end::after {
-  box-shadow: 0 0 2px 2px #37c4ad;
+  box-shadow: 0 0 2px 2px #d5881c;
 }
 
 .animate-bounce {
@@ -115,4 +115,51 @@
     transform: none;
     animation-timing-function: cubic-bezier(0,0,0.2,1);
   }
+}
+
+
+.user-marker {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #ffffff;
+  position: absolute;
+}
+
+.user-marker::before {
+  content: "";
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50% 50% 50% 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #0c8ce9;
+  border: 3.5px solid #40396e;
+}
+
+.user-marker::after {
+  content: "";
+  width: 40%;
+  height: 40%;
+  border-radius: 100%;
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.user-shadow {
+  position: absolute;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  animation: pulsate 1.5s ease-out;
+  animation-iteration-count: infinite;
+  margin: -0.25rem 0 0 -0.25rem;
+  box-shadow: 0 0 7px 7px #0c8ce9;
+  animation-delay: 1.5s;
 }

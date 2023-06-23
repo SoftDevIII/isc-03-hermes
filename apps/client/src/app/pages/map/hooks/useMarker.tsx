@@ -3,7 +3,12 @@ import { useRef, useState } from 'react';
 import useCoordinates from '../context/coordinates/CoordinatesState';
 import useMap from '../context/map/MapState';
 
-function useMarker({ setCoordinates, type, icon }: UseMarkerProps) {
+function useMarker({
+  setCoordinates,
+  type,
+  icon,
+  isUserMarker = false
+}: UseMarkerProps) {
   const { map } = useMap();
   const { isMarking, setIsMarking } = useCoordinates();
 
@@ -15,7 +20,11 @@ function useMarker({ setCoordinates, type, icon }: UseMarkerProps) {
       return;
     }
     marker.current = new Marker().setLngLat(lngLat);
-    marker.current.getElement().innerHTML = `<div><div class='animate-bounce'><div class='marker ${type}'></div></div><div class='shadow shadow-${type}'></div></div>`;
+    if (isUserMarker) {
+      marker.current.getElement().innerHTML = `<div><div class='user-marker'></div><div class='user-shadow'></div></div>`;
+    } else {
+      marker.current.getElement().innerHTML = `<div><div class='animate-bounce'><div class='marker ${type}'></div></div><div class='shadow shadow-${type}'></div></div>`;
+    }
     marker.current.addTo(map.current);
   };
 
