@@ -2,8 +2,8 @@ import { LngLat } from 'mapbox-gl';
 import { useEffect, useState } from 'react';
 import useCoordinates from '../context/coordinates/CoordinatesState';
 import useMap from '../context/map/MapState';
-import useUserMarker from './useUserMarker';
 import { MAX_ZOOM } from '../utils/constants';
+import useUserMarker from './useUserMarker';
 
 function useActualLocation() {
   const { map } = useMap();

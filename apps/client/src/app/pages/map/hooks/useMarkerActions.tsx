@@ -1,7 +1,7 @@
+import useCoordinates from '../context/coordinates/CoordinatesState';
 import useMap from '../context/map/MapState';
 import useEndMarker from './useEndMarker';
 import useStartMarker from './useStartMarker';
-import useCoordinates from '../context/coordinates/CoordinatesState';
 
 function useMarkerActions() {
   const { setEndMarker, removeEndMarker } = useEndMarker();
