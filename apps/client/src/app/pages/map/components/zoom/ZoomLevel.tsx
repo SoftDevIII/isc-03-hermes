@@ -1,7 +1,7 @@
-import useActualZoom from '../../hooks/useLevelZoom'; // Import the useActualZoom hook
+import useMap from '../../context/map/MapState';
 
 function ZoomLevel() {
-  const actualZoom = useActualZoom(); // Use the useActualZoom hook to get the actualZoom value
+  const { actualZoom } = useMap();
 
   return (
     <div className='rounded-full right-52'>

@@ -22,4 +22,19 @@ function configureMap({ current }: ConfigureMapProps) {
   current.setMaxZoom(MAX_ZOOM);
 }
 
-export { configureMap, createMap };
+const configureZoomPercentage = ({
+  current,
+  setActualZoom
+}: ConfigureZoomPercentage) => {
+  current.on('zoom', () => {
+    const zoom = current.getZoom();
+    if (typeof zoom === 'number') {
+      const percentage = Math.round(
+        ((zoom - MIN_ZOOM) / (MAX_ZOOM - MIN_ZOOM)) * 100
+      );
+      setActualZoom(percentage);
+    }
+  });
+};
+
+export { configureMap, configureZoomPercentage, createMap };

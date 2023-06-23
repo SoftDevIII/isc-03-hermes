@@ -17,6 +17,7 @@ declare global {
   interface MapContextValue {
     map: MapRef['map'];
     container: MapRef['container'];
+    actualZoom: number;
   }
 
   interface MapProviderProps {
@@ -152,5 +153,10 @@ declare global {
   interface StartMarkerButtonProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     onActionSelected: (action: string) => void;
+  }
+
+  interface ConfigureZoomPercentage {
+    current: MapType['map'];
+    setActualZoom: Dispatch<SetStateAction<number>>;
   }
 }
