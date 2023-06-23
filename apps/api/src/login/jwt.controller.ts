@@ -12,10 +12,14 @@ class LoginController {
   @Post()
   get(
     @Query('input1') input1: string,
-    @Query('input2') input2: string
-  ): string {
-    const expiresIn = 2;
-    const token = this.tokenService.generateToken(input1, input2, expiresIn);
+    @Query('input2') input2: string,
+    @Query('input3') input3: number
+  ): object {
+    const token: object = this.tokenService.generateToken(
+      input1,
+      input2,
+      input3
+    );
     return token;
   }
 }
