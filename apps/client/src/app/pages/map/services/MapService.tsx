@@ -29,12 +29,10 @@ const configureZoomPercentage = ({
 }: ConfigureZoomPercentage) => {
   current.on('zoom', () => {
     const zoom = current.getZoom();
-    if (typeof zoom === 'number') {
-      const percentage = Math.round(
-        ((zoom - MIN_ZOOM) / (MAX_ZOOM - MIN_ZOOM)) * PERCENTAGE
-      );
-      setActualZoom(percentage);
-    }
+    const percentage = Math.round(
+      ((zoom - MIN_ZOOM) / (MAX_ZOOM - MIN_ZOOM)) * PERCENTAGE
+    );
+    setActualZoom(percentage);
   });
 };
 
