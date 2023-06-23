@@ -6,4 +6,4 @@ import TokenService from './jwt.service';
   controllers: [LoginController],
   providers: [TokenService]
 })
-export default class ExampleModule {}
+export default class LoginModule {}
