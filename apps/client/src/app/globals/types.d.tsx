@@ -85,13 +85,10 @@ declare global {
     setStartCoordinates: Dispatch<SetStateAction<LngLat>>;
     endCoordinates: LngLat;
     setEndCoordinates: Dispatch<SetStateAction<LngLat>>;
-<<<<<<< HEAD
 
     userCoordinates: LngLat;
     setUserCoordinates: Dispatch<SetStateAction<LngLat>>;
 
-=======
->>>>>>> a5d6a4c (fix: solve problems with remove buttons)
     isMarking: boolean;
     setIsMarking: Dispatch<SetStateAction<boolean>>;
   }
@@ -104,11 +101,8 @@ declare global {
     type: string;
     icon: string;
     setCoordinates: Dispatch<SetStateAction<LngLat>>;
-<<<<<<< HEAD
 
     isUserMarker?: boolean;
-=======
->>>>>>> a5d6a4c (fix: solve problems with remove buttons)
   }
 
   interface DropDownMenuProps {
@@ -165,13 +159,10 @@ declare global {
   interface StartMarkerButtonProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     onActionSelected: (action: string) => void;
-<<<<<<< HEAD
   }
 
   interface ConfigureZoomPercentage {
     current: MapType['map'];
     setActualZoom: Dispatch<SetStateAction<number>>;
-=======
->>>>>>> a5d6a4c (fix: solve problems with remove buttons)
   }
 }
