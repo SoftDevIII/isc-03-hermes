@@ -5,11 +5,12 @@ import {
   configureZoomPercentage,
   createMap
 } from '../services/MapService';
+import { INIT_ZOOM_PERCENTAGE } from '../utils/constants';
 
 function useCreateMap() {
   const map = useRef<MapType['map']>();
   const container = useRef<MapType['container']>();
-  const [actualZoom, setActualZoom] = useState<number>(50);
+  const [actualZoom, setActualZoom] = useState<number>(INIT_ZOOM_PERCENTAGE);
 
   useEffect(() => {
     if (map.current) {
