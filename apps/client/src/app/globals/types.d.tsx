@@ -434,4 +434,10 @@ declare global {
     id?: string;
     ref?: RefObject<HTMLInputElement>;
   }
+
+  interface HeaderProps {
+    handleClick: () => void;
+    isLoggedIn: boolean;
+    username: string;
+  }
 }
