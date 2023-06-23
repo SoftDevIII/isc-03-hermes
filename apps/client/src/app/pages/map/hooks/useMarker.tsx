@@ -59,6 +59,7 @@ function useMarker({
     }
 
     map.current.getCanvas().style.cursor = `url(${icon}) 24 49, pointer`;
+
     map.current.on('click', handleClick);
     setIsMarking(true);
   };
