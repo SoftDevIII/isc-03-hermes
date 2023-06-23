@@ -3,16 +3,16 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity({ name: 'customer' })
 class Customer {
   @PrimaryGeneratedColumn()
-  CustomerID: number;
+  customer_id: number;
+
+  @Column({ nullable: true })
+  customer_name: string;
 
   @Column()
-  CustomerName: string;
+  password: string;
 
   @Column()
-  Password: string;
-
-  @Column()
-  Email: string;
+  email: string;
 }
 
 export default Customer;
