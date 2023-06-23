@@ -4,7 +4,8 @@ import {
   INIT_LONG,
   INIT_ZOOM,
   MAX_ZOOM,
-  MIN_ZOOM
+  MIN_ZOOM,
+  PERCENTAGE
 } from '../utils/constants';
 
 function createMap({ container }: CreateMapProps) {
@@ -30,7 +31,7 @@ const configureZoomPercentage = ({
     const zoom = current.getZoom();
     if (typeof zoom === 'number') {
       const percentage = Math.round(
-        ((zoom - MIN_ZOOM) / (MAX_ZOOM - MIN_ZOOM)) * 100
+        ((zoom - MIN_ZOOM) / (MAX_ZOOM - MIN_ZOOM)) * PERCENTAGE
       );
       setActualZoom(percentage);
     }
