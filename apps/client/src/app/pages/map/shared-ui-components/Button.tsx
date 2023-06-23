@@ -1,11 +1,19 @@
-function Button({ children, onClick, className }: ButtonProps) {
+function Button({
+  children,
+  onClick,
+  className,
+  disabled = false
+}: ButtonProps) {
   return (
     <button
-      className={`cursorPointer transition duration-100 active:transform active:scale-90 ${
-        className?.trim() || ''
+      className={`${className?.trim() || ''} ${
+        disabled
+          ? 'opacity-50 cursor-default'
+          : 'transition duration-100 active:transform active:scale-90 cursor-pointer'
       }`}
       type='button'
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>

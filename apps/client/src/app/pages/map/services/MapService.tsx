@@ -4,7 +4,8 @@ import {
   INIT_LONG,
   INIT_ZOOM,
   MAX_ZOOM,
-  MIN_ZOOM
+  MIN_ZOOM,
+  PERCENTAGE
 } from '../utils/constants';
 
 function createMap({ container }: CreateMapProps) {
@@ -22,4 +23,17 @@ function configureMap({ current }: ConfigureMapProps) {
   current.setMaxZoom(MAX_ZOOM);
 }
 
-export { configureMap, createMap };
+const configureZoomPercentage = ({
+  current,
+  setActualZoom
+}: ConfigureZoomPercentage) => {
+  current.on('zoom', () => {
+    const zoom = current.getZoom();
+    const percentage = Math.round(
+      ((zoom - MIN_ZOOM) / (MAX_ZOOM - MIN_ZOOM)) * PERCENTAGE
+    );
+    setActualZoom(percentage);
+  });
+};
+
+export { configureMap, configureZoomPercentage, createMap };

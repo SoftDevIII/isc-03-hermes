@@ -17,6 +17,7 @@ declare global {
   interface MapContextValue {
     map: MapRef['map'];
     container: MapRef['container'];
+    actualZoom: number;
   }
 
   interface MapProviderProps {
@@ -35,11 +36,13 @@ declare global {
     children: ReactNode;
     onClick: () => void;
     className?: string;
+    disabled?: boolean;
   }
 
   interface ZoomButtonProps {
     children: ReactNode;
     onClick: () => void;
+    disabled: boolean;
   }
 
   interface ActualLocationButtonProps {
@@ -152,5 +155,10 @@ declare global {
   interface StartMarkerButtonProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     onActionSelected: (action: string) => void;
+  }
+
+  interface ConfigureZoomPercentage {
+    current: MapType['map'];
+    setActualZoom: Dispatch<SetStateAction<number>>;
   }
 }
