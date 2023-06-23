@@ -55,13 +55,15 @@
 
 
   border-radius: 50%;
-  position: absolute;
+  position: relative;
   left: 50%;
   top: 50%;
 
 
+
   margin: 0.5rem 0 0 -0.559rem;
   box-shadow: 0px 0px 1.2px 1.2px rgb(0, 0, 0, 0.2);
+
 
 
   transform: rotateX(55deg);
@@ -76,8 +78,10 @@
   position: absolute;
 
 
+
   margin: -0.64rem 0 0 -0.575rem;
   box-shadow: 0 0 1px 1px #57a3ff;
+
 
 
   animation: pulsate 1.5s ease-out;
@@ -99,7 +103,9 @@
   background: white;
 
 
+
   margin: 1.7rem 0 0 0.0175rem;
+
 
 
   position: relative;
@@ -139,7 +145,9 @@
   border-radius: 50%;
 
 
+
   margin: -1.7776rem 0 0 -0.01rem;
+
 
 
   box-shadow: 0 0 6px 6px #0c8ce9;
@@ -152,22 +160,6 @@
   animation: bounce 1.5s ease-out;
   animation-iteration-count: infinite;
 
-}
-
-.mapboxgl-ctrl-logo {
-  display: none !important;
-}
-
-.mapboxgl-ctrl-bottom-right {
-  display: none;
-}
-
-.mapboxgl-ctrl-logo {
-  display: none !important;
-}
-
-.mapboxgl-ctrl-bottom-right {
-  display: none;
 
 }
 
@@ -177,6 +169,25 @@
 
 .mapboxgl-ctrl-bottom-right {
   display: none;
+}
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+
+
+}
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+
 }
 
 .mapboxgl-ctrl-logo {
