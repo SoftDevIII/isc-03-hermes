@@ -54,7 +54,7 @@ function useMarker({
     if (isMarked || !map.current || isMarking) {
       return;
     }
-    map.current.getCanvas().style.cursor = `url(${icon}) 17.5 33.5, pointer`;
+    map.current.getCanvas().style.cursor = `url(${icon}) 18 30, pointer`;
     map.current.on('click', handleClick);
     setIsMarking(true);
   };
