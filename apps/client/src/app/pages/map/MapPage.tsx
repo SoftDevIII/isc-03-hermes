@@ -6,7 +6,7 @@ import Zoom from '@map-components/zoom/Zoom';
 import CoordinatesProvider from '@map-contexts/coordinates/CoordinatesProvider';
 import MapProvider from '@map-contexts/map/MapProvider';
 
-const array = ['hola1', 'hola2', 'hola3'];
+const array = ['hello1', 'hello2', 'hello3'];
 
 function MapPage() {
   return (
