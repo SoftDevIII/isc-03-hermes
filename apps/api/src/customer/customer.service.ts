@@ -7,15 +7,14 @@ import Customer from './custumer.entity';
 class CustomerService {
   constructor(
     @InjectRepository(Customer)
-    private readonly testRepository: Repository<Customer>
+    private readonly customerRepository: Repository<Customer>
   ) {}
 
-  credentialVerification(email: string, password: string) {
-    console.log(this.testRepository);
-    return this.testRepository.findOne({
+  credentialVerification(userEmail: string, userPassword: string) {
+    return this.customerRepository.findOne({
       where: {
-        Email: email,
-        Password: password
+        email: userEmail,
+        password: userPassword
       }
     });
   }
