@@ -5,8 +5,12 @@ import useActualLocation from '../../hooks/useActualLocation';
 import ActualLocationButton from '../../shared-ui-components/ActualLocationButton';
 
 function ActualLocation() {
-  const { goToActualLocation, toggleUserMarker, isFetchingLocation } =
-    useActualLocation();
+  const {
+    goToActualLocation,
+    toggleUserMarker,
+    isFetchingLocation,
+    isLocationTimeout
+  } = useActualLocation();
   const [isActive, setIsActive] = useState(true);
 
   function toggleActive() {
@@ -23,7 +27,7 @@ function ActualLocation() {
         onClick={() => {
           toggleActive();
         }}
-        disabled={isFetchingLocation}
+        disabled={isFetchingLocation || isLocationTimeout}
       >
         {isFetchingLocation ? (
           <CircularProgress size={24} color='inherit' />
