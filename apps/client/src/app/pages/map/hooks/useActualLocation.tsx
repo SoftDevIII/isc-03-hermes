@@ -1,8 +1,7 @@
 import { LngLat } from 'mapbox-gl';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import useCoordinates from '../context/coordinates/CoordinatesState';
 import useMap from '../context/map/MapState';
-import { MAX_ZOOM } from '../utils/constants';
 import useUserMarker from './useUserMarker';
 
 function useActualLocation() {
@@ -11,8 +10,35 @@ function useActualLocation() {
   const [latitude, setLatitude] = useState<number | null>(null);
   const { setUserCoordinates } = useCoordinates();
   const [showUserMarker, setShowUserMarker] = useState(false);
-  const { setUserMarker, removeUserMarker, createMarkerFromCoordinates } =
-    useUserMarker();
+  const { removeUserMarker, createMarkerFromCoordinates } = useUserMarker();
+  const [isFetchingLocation, setIsFetchingLocation] = useState<boolean>(true);
+
+  const fetchUserLocation = useCallback(() => {
+    if (map.current) {
+      setIsFetchingLocation(true);
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+          setIsFetchingLocation(false);
+        },
+        error => {
+          /* eslint-disable-next-line no-console */
+          console.error(error);
+          setIsFetchingLocation(false);
+        },
+        {
+          enableHighAccuracy: true
+        }
+      );
+    }
+  }, [map, setIsFetchingLocation]);
+
+  useEffect(() => {
+    if (isFetchingLocation) {
+      fetchUserLocation();
+    }
+  }, [isFetchingLocation, fetchUserLocation]);
 
   useEffect(() => {
     if (latitude !== null && longitude !== null) {
@@ -31,13 +57,12 @@ function useActualLocation() {
     latitude,
     longitude,
     createMarkerFromCoordinates,
-    removeUserMarker,
-    setUserMarker
+    removeUserMarker
   ]);
 
   useEffect(() => {
     let geoWatchId: number | null = null;
-    if (map.current) {
+    if (!isFetchingLocation && map.current) {
       geoWatchId = navigator.geolocation.watchPosition(
         position => {
           const lat = position.coords.latitude;
@@ -46,7 +71,8 @@ function useActualLocation() {
           setLongitude(long);
         },
         error => {
-          throw new Error(error.message);
+          /* eslint-disable-next-line no-console */
+          console.log(error);
         },
         {
           enableHighAccuracy: true
@@ -58,19 +84,20 @@ function useActualLocation() {
         navigator.geolocation.clearWatch(geoWatchId);
       }
     };
-  }, [map, setUserCoordinates, showUserMarker]);
+  }, [map, setUserCoordinates, showUserMarker, isFetchingLocation]);
 
   function goToActualLocation() {
     if (map.current && longitude !== null && latitude !== null) {
       map.current.flyTo({
         center: [longitude, latitude],
-        zoom: MAX_ZOOM
+        zoom: 14
       });
     }
   }
   return {
     goToActualLocation,
-    toggleUserMarker: () => setShowUserMarker(!showUserMarker)
+    toggleUserMarker: () => setShowUserMarker(!showUserMarker),
+    isFetchingLocation
   };
 }
 
