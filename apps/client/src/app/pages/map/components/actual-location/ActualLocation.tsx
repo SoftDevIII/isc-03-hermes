@@ -1,10 +1,12 @@
 import MyLocationIcon from '@mui/icons-material/MyLocation';
+import { CircularProgress } from '@mui/material';
 import { useState } from 'react';
 import useActualLocation from '../../hooks/useActualLocation';
 import ActualLocationButton from '../../shared-ui-components/ActualLocationButton';
 
 function ActualLocation() {
-  const { goToActualLocation, toggleUserMarker } = useActualLocation();
+  const { goToActualLocation, toggleUserMarker, isFetchingLocation } =
+    useActualLocation();
   const [isActive, setIsActive] = useState(true);
 
   function toggleActive() {
@@ -21,8 +23,13 @@ function ActualLocation() {
         onClick={() => {
           toggleActive();
         }}
+        disabled={isFetchingLocation}
       >
-        <MyLocationIcon color={isActive ? 'inherit' : 'primary'} />
+        {isFetchingLocation ? (
+          <CircularProgress size={24} color='inherit' />
+        ) : (
+          <MyLocationIcon color={isActive ? 'inherit' : 'primary'} />
+        )}
       </ActualLocationButton>
     </div>
   );

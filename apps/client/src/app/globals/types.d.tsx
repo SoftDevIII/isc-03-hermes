@@ -48,6 +48,7 @@ declare global {
   interface ActualLocationButtonProps {
     children: ReactNode;
     onClick: () => void;
+    disabled: boolean;
   }
 
   interface MarkerButtonProps {
