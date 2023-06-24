@@ -12,6 +12,7 @@ function useActualLocation() {
   const [showUserMarker, setShowUserMarker] = useState(false);
   const { removeUserMarker, createMarkerFromCoordinates } = useUserMarker();
   const [isFetchingLocation, setIsFetchingLocation] = useState<boolean>(true);
+  const [isLocationTimeout, setIsLocationTimeout] = useState(false);
 
   const fetchUserLocation = useCallback(() => {
     if (map.current) {
@@ -23,12 +24,16 @@ function useActualLocation() {
           setIsFetchingLocation(false);
         },
         error => {
+          if (error.code === error.TIMEOUT) {
+            setIsLocationTimeout(true);
+          }
           /* eslint-disable-next-line no-console */
           console.error(error);
           setIsFetchingLocation(false);
         },
         {
-          enableHighAccuracy: true
+          enableHighAccuracy: true,
+          timeout: 50000
         }
       );
     }
@@ -71,11 +76,15 @@ function useActualLocation() {
           setLongitude(long);
         },
         error => {
+          if (error.code === error.TIMEOUT) {
+            setIsLocationTimeout(true);
+          }
           /* eslint-disable-next-line no-console */
           console.log(error);
         },
         {
-          enableHighAccuracy: true
+          enableHighAccuracy: true,
+          timeout: 50000
         }
       );
     }
@@ -97,7 +106,8 @@ function useActualLocation() {
   return {
     goToActualLocation,
     toggleUserMarker: () => setShowUserMarker(!showUserMarker),
-    isFetchingLocation
+    isFetchingLocation,
+    isLocationTimeout
   };
 }
 
