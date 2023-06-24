@@ -14,7 +14,7 @@ class RegexService {
 
   private lastNameRegex = /^[a-zA-Z]+$/;
 
-  private emailRegex = /^\S+@\S+\.\S+$/;
+  private emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
 
   private passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 

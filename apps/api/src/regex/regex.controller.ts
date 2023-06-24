@@ -8,14 +8,21 @@ class RegexController {
 
   @Post()
   inputValidation(@Body() regex: CreateRegexDto): string {
-    this.regexService.regexValidation(
-      regex.customer_name,
-      regex.customer_last_name,
-      regex.password,
-      regex.email,
-      regex.customer_country
-    );
-    return 'The data are valid';
+    try {
+      this.regexService.regexValidation(
+        regex.customer_name,
+        regex.customer_last_name,
+        regex.password,
+        regex.email,
+        regex.customer_country
+      );
+      return 'The data are valid';
+    } catch (error: any) {
+      if (error instanceof Error && error.message) {
+        return error.message;
+      }
+      return 'An error occurred';
+    }
   }
 }
 
