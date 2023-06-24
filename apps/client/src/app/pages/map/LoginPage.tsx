@@ -1,11 +1,7 @@
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import TextBoxEmail from './components/login/TextBoxEmail';
 import TextBoxPassword from './components/login/TextBoxPassword';
-<<<<<<< HEAD
 import useMenuActions from './hooks/useMenuActions';
-=======
-import PopUp from './components/pop-up/PopUp';
->>>>>>> 73f9680 (fix: click function)
 import Button from './shared-ui-components/Button';
 
 function LoginPage() {
@@ -20,11 +16,7 @@ function LoginPage() {
         <Button
           className='bottom-0 bg-[#194569] text-white w-full p-4 text-1xl'
           onClick={() => {
-<<<<<<< HEAD
             handleActionSelected('a');
-=======
-            PopUp();
->>>>>>> 73f9680 (fix: click function)
           }}
         >
           LOGIN
