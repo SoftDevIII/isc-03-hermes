@@ -13,29 +13,44 @@ function useActualLocation() {
   const { removeUserMarker, createMarkerFromCoordinates } = useUserMarker();
   const [isFetchingLocation, setIsFetchingLocation] = useState<boolean>(true);
   const [isLocationTimeout, setIsLocationTimeout] = useState(false);
+  const [hasGeoLocation, setHasGeoLocation] = useState(true);
+  const [hasGeoPermission, setHasGeoPermission] = useState(true);
 
   const fetchUserLocation = useCallback(() => {
     if (map.current) {
-      setIsFetchingLocation(true);
-      navigator.geolocation.getCurrentPosition(
-        position => {
-          setLatitude(position.coords.latitude);
-          setLongitude(position.coords.longitude);
-          setIsFetchingLocation(false);
-        },
-        error => {
-          if (error.code === error.TIMEOUT) {
-            setIsLocationTimeout(true);
+      if ('geolocation' in navigator) {
+        setIsFetchingLocation(true);
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+            setIsFetchingLocation(false);
+          },
+          error => {
+            if (error.code === error.TIMEOUT) {
+              setIsLocationTimeout(true);
+            }
+            if (error.code === error.PERMISSION_DENIED) {
+              /* eslint-disable-next-line no-alert */
+              alert(
+                'You have denied access to your location. Please allow access to your location to use this feature.'
+              );
+              setHasGeoPermission(false);
+            }
+            /* eslint-disable-next-line no-console */
+            console.error(error);
+            setIsFetchingLocation(false);
+          },
+          {
+            enableHighAccuracy: true,
+            timeout: 50000
           }
-          /* eslint-disable-next-line no-console */
-          console.error(error);
-          setIsFetchingLocation(false);
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 50000
-        }
-      );
+        );
+      } else {
+        /* eslint-disable-next-line no-alert */
+        alert('Geolocation is not supported by your browser');
+        setHasGeoLocation(false);
+      }
     }
   }, [map, setIsFetchingLocation]);
 
@@ -68,25 +83,36 @@ function useActualLocation() {
   useEffect(() => {
     let geoWatchId: number | null = null;
     if (!isFetchingLocation && map.current) {
-      geoWatchId = navigator.geolocation.watchPosition(
-        position => {
-          const lat = position.coords.latitude;
-          const long = position.coords.longitude;
-          setLatitude(lat);
-          setLongitude(long);
-        },
-        error => {
-          if (error.code === error.TIMEOUT) {
-            setIsLocationTimeout(true);
+      if ('geolocation' in navigator) {
+        geoWatchId = navigator.geolocation.watchPosition(
+          position => {
+            const lat = position.coords.latitude;
+            const long = position.coords.longitude;
+            setLatitude(lat);
+            setLongitude(long);
+          },
+          error => {
+            if (error.code === error.TIMEOUT) {
+              setIsLocationTimeout(true);
+            }
+            if (error.code === error.PERMISSION_DENIED) {
+              /* eslint-disable-next-line no-alert */
+              alert('User has denied location permissions.');
+              setHasGeoPermission(false);
+            }
+            /* eslint-disable-next-line no-console */
+            console.log(error);
+          },
+          {
+            enableHighAccuracy: true,
+            timeout: 50000
           }
-          /* eslint-disable-next-line no-console */
-          console.log(error);
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 50000
-        }
-      );
+        );
+      } else {
+        /* eslint-disable-next-line no-alert */
+        alert('Geolocation is not supported by your browser');
+        setHasGeoLocation(false);
+      }
     }
     return () => {
       if (geoWatchId) {
@@ -107,7 +133,9 @@ function useActualLocation() {
     goToActualLocation,
     toggleUserMarker: () => setShowUserMarker(!showUserMarker),
     isFetchingLocation,
-    isLocationTimeout
+    isLocationTimeout,
+    hasGeoLocation,
+    hasGeoPermission
   };
 }
 
