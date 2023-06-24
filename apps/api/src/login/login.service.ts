@@ -1,26 +1,31 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Request } from 'express';
-import jwt, { Jwt } from 'jsonwebtoken';
+import Jwt from 'passport-jwt';
 
 @Injectable()
 class TokenVerifyService {
   constructor(
     private jwtService: Jwt,
-    @Inject('REQUEST') private request: Request,
-    @Inject('RESPONSE') private response: Response
+    @Inject('REQUEST') private myRequest: Request,
+    @Inject('RESPONSE') private myResponse: Response
   ) {}
 
   private readonly secretKey: string = 'qwertyuiopasdfghjklñzxcvbnm';
 
   private readonly expireTime: number = 123;
 
-  verifyToken(token = this.request.cookies['jwt']): jwt.JwtPayload {
+  verifyToken(
+    token: string = this.myRequest.cookies.jwt as string
+  ): Jwt.Payload {
     try {
-      const verify: jwt.JwtPayload = jwt.verify(
-        token,
-        this.secretKey
-      ) as jwt.JwtPayload;
-      return verify;
+      if (token) {
+        const verify: Jwt.Payload = Jwt.verify(
+          token,
+          this.secretKey
+        ) as Jwt.Payload;
+        return verify;
+      }
+      return null;
     } catch (error) {
       return null;
     }

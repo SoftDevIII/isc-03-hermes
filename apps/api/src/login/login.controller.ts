@@ -10,9 +10,8 @@ class LogInController {
     const token = this.tokenService.verifyToken();
     if (token) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   }
 }
 

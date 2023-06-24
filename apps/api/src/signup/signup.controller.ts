@@ -6,11 +6,11 @@ class SignUpController {
   constructor(private readonly tokenService: TokenGenerateService) {}
 
   @Post()
-  async get(
+  get(
     @Query('input1') userName: string,
     @Query('input2') password: string
-  ): Promise<void> {
-    await this.tokenService.generateToken(userName, password);
+  ): void {
+    this.tokenService.generateToken(userName, password);
   }
 }
 
