@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import Regex from '../regex.entity';
+import RegexValidator from '../regex.enum';
 import RegexService from '../regex.service';
 
 describe('RegexService', () => {
@@ -33,7 +34,8 @@ describe('RegexService', () => {
           'lastName',
           'Password123',
           'email@test.com',
-          'Country'
+          'Country',
+          RegexValidator.SIGN_UP
         )
       ).toThrowError('The name can only contain letters');
     });
@@ -45,7 +47,8 @@ describe('RegexService', () => {
           '123',
           'Password123',
           'email@test.com',
-          'Country'
+          'Country',
+          RegexValidator.SIGN_UP
         )
       ).toThrowError('The last name can only contain letters');
     });
@@ -57,7 +60,8 @@ describe('RegexService', () => {
           'LastName',
           'Password123',
           'invalidEmail',
-          'Country'
+          'Country',
+          RegexValidator.SIGN_UP
         )
       ).toThrowError('The e-mail format is invalid');
     });
@@ -69,7 +73,8 @@ describe('RegexService', () => {
           'LastName',
           'password',
           'email@test.com',
-          'Country'
+          'Country',
+          RegexValidator.SIGN_UP
         )
       ).toThrowError(
         'The password must be at least 8 characters long, including a letter and a number'
@@ -83,7 +88,8 @@ describe('RegexService', () => {
           'LastName',
           'Password123',
           'email@test.com',
-          ''
+          '',
+          RegexValidator.SIGN_UP
         )
       ).toThrowError('The country cannot be empty');
     });
@@ -95,7 +101,8 @@ describe('RegexService', () => {
           'LastName',
           'Password123',
           'email@test.com',
-          'Country'
+          'Country',
+          RegexValidator.SIGN_UP
         )
       ).not.toThrow();
     });

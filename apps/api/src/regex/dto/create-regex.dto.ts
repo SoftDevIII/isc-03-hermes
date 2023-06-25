@@ -1,3 +1,5 @@
+import RegexValidator from '../regex.enum';
+
 class CreateRegexDto {
   customer_name: string;
 
@@ -8,6 +10,8 @@ class CreateRegexDto {
   password: string;
 
   customer_country: string;
+
+  login: RegexValidator;
 }
 
 export default CreateRegexDto;

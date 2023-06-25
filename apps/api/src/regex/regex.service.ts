@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import Regex from './regex.entity';
+import RegexValidator from './regex.enum';
 
 @Injectable()
 class RegexService {
@@ -19,32 +20,45 @@ class RegexService {
   private passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
   regexValidation(
-    name: string,
-    last_name: string,
-    userPassword: string,
-    userEmail: string,
-    country: string
+    name?: string,
+    last_name?: string,
+    userPassword?: string,
+    userEmail?: string,
+    country?: string,
+    login?: RegexValidator
   ) {
-    if (!this.nameRegex.test(name)) {
-      throw new Error('The name can only contain letters');
-    }
+    if (login === RegexValidator.LOGIN) {
+      if (!userEmail || !this.emailRegex.test(userEmail)) {
+        throw new Error(`The e-mail format is invalid `);
+      }
 
-    if (!this.lastNameRegex.test(last_name)) {
-      throw new Error('The last name can only contain letters');
-    }
+      if (!userPassword || !this.passwordRegex.test(userPassword)) {
+        throw new Error(
+          'The password must be at least 8 characters long, including a letter and a number'
+        );
+      }
+    } else if (login === RegexValidator.SIGN_UP) {
+      if (!name || !this.nameRegex.test(name)) {
+        throw new Error(`The name can only contain letters `);
+      }
 
-    if (!this.emailRegex.test(userEmail)) {
-      throw new Error('The e-mail format is invalid');
-    }
+      if (!last_name || !this.lastNameRegex.test(last_name)) {
+        throw new Error('The last name can only contain letters');
+      }
 
-    if (!this.passwordRegex.test(userPassword)) {
-      throw new Error(
-        'The password must be at least 8 characters long, including a letter and a number'
-      );
-    }
+      if (!userEmail || !this.emailRegex.test(userEmail)) {
+        throw new Error('The e-mail format is invalid');
+      }
 
-    if (!country) {
-      throw new Error('The country cannot be empty');
+      if (!userPassword || !this.passwordRegex.test(userPassword)) {
+        throw new Error(
+          'The password must be at least 8 characters long, including a letter and a number'
+        );
+      }
+
+      if (!country) {
+        throw new Error('The country cannot be empty');
+      }
     }
   }
 }
