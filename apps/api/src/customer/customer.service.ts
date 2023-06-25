@@ -10,12 +10,25 @@ class CustomerService {
     private readonly customerRepository: Repository<Customer>
   ) {}
 
-  credentialVerification(userEmail: string, userPassword: string) {
-    return this.customerRepository.findOne({
-      where: {
-        email: userEmail,
-        password: userPassword
-      }
+  credentialVerification(
+    userEmail: string,
+    userPassword: string
+  ): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      this.customerRepository
+        .findOne({
+          where: {
+            email: userEmail,
+            password: userPassword
+          }
+        })
+        .then((customer: Customer | null) => {
+          const isVerified = customer !== null;
+          resolve(isVerified);
+        })
+        .catch((error: any) => {
+          reject(error);
+        });
     });
   }
 }
