@@ -1,9 +1,9 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
-import DropDownList from './components/DropDownList';
 import MenuButton from './components/MenuButton';
+import MenuDropDownList from './components/MenuDropDownList';
 import useMenuActions from './hooks/useMenuActions';
-import useMultiRefs from './hooks/useMultiRefs';
+import useMultiRefs from '../../../../hooks/useMultiRefs';
 
 function Menu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ function Menu() {
   return (
     <div className='md:relative'>
       {isOpen && (
-        <DropDownList
+        <MenuDropDownList
           className=''
           setIsOpen={setIsOpen}
           onActionSelected={handleActionSelected}

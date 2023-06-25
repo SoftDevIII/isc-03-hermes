@@ -1,5 +1,5 @@
+import App from '@src/App';
 import { render } from '@testing-library/react';
-import App from '../../src/app/App';
 
 test('should display App', () => {
   beforeAll(() => render(<App />));

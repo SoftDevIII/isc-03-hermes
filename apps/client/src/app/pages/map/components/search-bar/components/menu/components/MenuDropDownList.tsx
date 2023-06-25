@@ -1,15 +1,15 @@
 import HelpIcon from '@mui/icons-material/Help';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
-import OptionButton from './OptionButton';
+import MenuOptionButton from './MenuOptionButton';
 import ProfileButton from './ProfileButton';
 
-function DropDownList({
+function MenuDropDownList({
   className,
   setIsOpen,
   onActionSelected,
   addRef
-}: DropDownListProps) {
+}: MenuDropDownListProps) {
   const handleActionSelected = (action: string) => {
     onActionSelected(action);
     setIsOpen(false);
@@ -37,29 +37,29 @@ function DropDownList({
           </div>
         </div>
         <li className='w-full bg-white shadow-xl rounded-b-2xl flex flex-col'>
-          <OptionButton
+          <MenuOptionButton
             title='Home'
             onClick={() => handleActionSelected('goHome')}
           >
             <HomeIcon fontSize='inherit' />
-          </OptionButton>
-          <OptionButton
+          </MenuOptionButton>
+          <MenuOptionButton
             title='Settings'
             onClick={() => handleActionSelected('goSettings')}
           >
             <SettingsIcon fontSize='inherit' />
-          </OptionButton>
-          <OptionButton
+          </MenuOptionButton>
+          <MenuOptionButton
             title='Help'
             onClick={() => handleActionSelected('goHelp')}
             last
           >
             <HelpIcon fontSize='inherit' />
-          </OptionButton>
+          </MenuOptionButton>
         </li>
       </div>
     </div>
   );
 }
 
-export default DropDownList;
+export default MenuDropDownList;

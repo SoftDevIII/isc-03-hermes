@@ -71,7 +71,7 @@ declare global {
     }) => void;
   }
 
-  interface OptionButtonProps {
+  interface MenuOptionButtonProps {
     children: ReactNode;
     title: string;
     onClick: () => void;
@@ -100,13 +100,13 @@ declare global {
     isUserMarker?: boolean;
   }
 
-  interface DropDownMenuProps {
+  interface MarkerDropDownMenuProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     className?: string;
     children: ReactNode;
   }
 
-  interface DropDownListProps {
+  interface MenuDropDownListProps {
     className: string;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     onActionSelected: (action: string) => void;
@@ -122,6 +122,10 @@ declare global {
   }
 
   interface MarkerMenuActions {
+    [key: string]: () => void;
+  }
+
+  interface MenuActions {
     [key: string]: () => void;
   }
 
@@ -175,5 +179,9 @@ declare global {
 
   interface ZoomLevelProps {
     actualZoom: number;
+  }
+
+  interface AddRefProps {
+    ref: HTMLDivElement | HTMLButtonElement | null;
   }
 }

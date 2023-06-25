@@ -3,8 +3,7 @@ import MapContext from './MapContext';
 
 function useMap() {
   const context = useContext(MapContext);
-  if (!context)
-    throw new Error('useGlobalState must be used within a GlobalState');
+  if (!context) throw new Error('useMap must be used within a MapProvider');
   return context;
 }
 

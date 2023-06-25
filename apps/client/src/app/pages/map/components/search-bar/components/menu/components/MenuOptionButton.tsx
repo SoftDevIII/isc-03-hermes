@@ -1,11 +1,11 @@
 import Button from '@map-shared-components/Button';
 
-function OptionButton({
+function MenuOptionButton({
   children,
   onClick,
   title,
   last = false
-}: OptionButtonProps) {
+}: MenuOptionButtonProps) {
   return (
     <div className={`hover:bg-[#4f5d73]/20 ${last ? 'rounded-b-2xl' : ''}`}>
       <Button
@@ -21,4 +21,4 @@ function OptionButton({
     </div>
   );
 }
-export default OptionButton;
+export default MenuOptionButton;

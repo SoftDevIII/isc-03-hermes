@@ -7,7 +7,7 @@ function useMenuActions() {
 
   function goHelp() {}
 
-  const actions: MarkerMenuActions = {
+  const actions: MenuActions = {
     goHome,
     goProfile,
     goSettings,

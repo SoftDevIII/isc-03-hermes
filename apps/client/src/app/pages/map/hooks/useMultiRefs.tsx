@@ -12,7 +12,7 @@ function useMultiRefs({ setIsOpen }: UseMultiRefsProps) {
     });
   }, [setIsOpen]);
 
-  function addRef({ ref }: { ref: HTMLDivElement | HTMLButtonElement | null }) {
+  function addRef({ ref }: AddRefProps) {
     if (!ref) {
       return;
     }
