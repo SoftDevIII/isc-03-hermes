@@ -425,5 +425,11 @@ declare global {
     placeholder?: string;
     onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
     icon?: ReactElement;
+    ref?: RefObject<HTMLInputElement>;
+    id: string;
+  }
+
+  interface TextBoxProps {
+    id: string;
   }
 }
