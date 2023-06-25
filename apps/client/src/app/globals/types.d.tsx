@@ -447,6 +447,19 @@ declare global {
   interface ReferenceButtonProps {
     ref?: string;
     content: string;
+  interface LabelTextFieldProps {
+    classNameTF?: string;
+    type: string;
+    required?: boolean;
+    placeholder?: string;
+    onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
+    classNameL?: string;
+    children: ReactNode;
+  }
+
+  interface LabelProps {
+    className?: string;
+    children: ReactNode;
   }
 
   interface SocialButtonProps {
