@@ -7,7 +7,9 @@ class CustomerController {
   constructor(private readonly userService: CustomerService) {}
 
   @Post()
-  credentialVerification(@Body() customer: CreateCustomerDto): Promise<boolean> {
+  credentialVerification(
+    @Body() customer: CreateCustomerDto
+  ): Promise<boolean> {
     return this.userService.credentialVerification(
       customer.email,
       customer.password
