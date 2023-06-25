@@ -27,7 +27,6 @@ function handleSignUp(
     password: passRef.value,
     confPassword: cPassRef.value
   };
-  console.log(userData);
   return userData;
 }
 
