@@ -1,5 +1,5 @@
+import useMap from '@map-contexts/map/MapState';
 import { LegacyRef } from 'react';
-import useMap from '../../context/map/MapState';
 
 function MapComponent() {
   const { container } = useMap();
@@ -7,7 +7,7 @@ function MapComponent() {
   return (
     <div
       ref={container as LegacyRef<HTMLDivElement>}
-      className='h-full w-full content-center'
+      className='h-full w-full content-center mapContainer'
     />
   );
 }

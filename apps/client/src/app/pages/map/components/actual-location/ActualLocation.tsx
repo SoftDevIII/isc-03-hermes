@@ -1,8 +1,8 @@
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { CircularProgress, Tooltip } from '@mui/material';
 import { useState } from 'react';
-import useActualLocation from '../../hooks/useActualLocation';
-import ActualLocationButton from '../../shared-ui-components/ActualLocationButton';
+import ActualLocationButton from './components/ActualLocationButton';
+import useActualLocation from './hooks/useActualLocation';
 
 function ActualLocation() {
   const {
@@ -41,7 +41,7 @@ function ActualLocation() {
     }
   }
   return (
-    <div className='absolute right-12 bottom-48 z-10 rounded-full'>
+    <div className='absolute right-6 bottom-40 rounded-full md:right-8 md:bottom-44'>
       <Tooltip title={title} placement='left'>
         <span>
           <ActualLocationButton
