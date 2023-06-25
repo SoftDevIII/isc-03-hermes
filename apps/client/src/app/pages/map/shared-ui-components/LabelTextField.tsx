@@ -7,7 +7,8 @@ function LabelTextField({
   placeholder,
   onInput,
   classNameL,
-  children
+  children,
+  id
 }: LabelTextFieldProps) {
   return (
     <div>
@@ -18,6 +19,7 @@ function LabelTextField({
         placeholder={placeholder}
         className={classNameTF}
         onInput={onInput}
+        id={id}
       />
     </div>
   );
