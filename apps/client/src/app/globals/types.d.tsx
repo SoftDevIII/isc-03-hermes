@@ -455,11 +455,7 @@ declare global {
     onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
     classNameL?: string;
     children: ReactNode;
-  }
-
-  interface LabelProps {
-    className?: string;
-    children: ReactNode;
+    id: string;
   }
 
   interface SocialButtonProps {

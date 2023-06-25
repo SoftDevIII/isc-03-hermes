@@ -1,9 +1,8 @@
-import useMenuActions from './hooks/useMenuActions';
+import handleSignUp from './hooks/useSignUp';
 import Button from './shared-ui-components/Button';
 import LabelTextField from './shared-ui-components/LabelTextField';
 
 function SignUpPage() {
-  const { handleActionSelected } = useMenuActions();
   return (
     <div className='bg-[#194569] min-h-screen flex flex-col justify-center items-center p-4 sm:p-8'>
       <div className='text-left w-full'>
@@ -18,6 +17,7 @@ function SignUpPage() {
             classNameTF='rounded w-full'
             classNameL='text-white'
             required
+            id='fName'
           >
             First Name
           </LabelTextField>
@@ -26,6 +26,7 @@ function SignUpPage() {
             classNameTF='rounded w-full'
             classNameL='text-white'
             required
+            id='lName'
           >
             Last Name
           </LabelTextField>
@@ -35,15 +36,17 @@ function SignUpPage() {
           classNameTF='rounded w-full'
           classNameL='text-white'
           required
+          id='email'
         >
           Email
         </LabelTextField>
         <div className='flex space-x-6'>
           <LabelTextField
-            type='string'
+            type='date'
             classNameTF='rounded w-full'
             classNameL='text-white'
             required
+            id='birthdate'
           >
             Birthdate
           </LabelTextField>
@@ -52,6 +55,7 @@ function SignUpPage() {
             classNameTF='rounded w-full'
             classNameL='text-white'
             required
+            id='country'
           >
             Country
           </LabelTextField>
@@ -67,6 +71,7 @@ function SignUpPage() {
             classNameTF='rounded w-full'
             classNameL='text-white'
             required
+            id='userName'
           >
             User name
           </LabelTextField>
@@ -75,6 +80,7 @@ function SignUpPage() {
             classNameTF='rounded w-full'
             classNameL='text-white'
             required
+            id='password'
           >
             Password
           </LabelTextField>
@@ -83,6 +89,7 @@ function SignUpPage() {
             classNameTF='rounded w-full'
             classNameL='text-white'
             required
+            id='confPassword'
           >
             Confirm Password
           </LabelTextField>
@@ -92,7 +99,16 @@ function SignUpPage() {
         <Button
           className='bg-white rounded w-full items-center'
           onClick={() => {
-            handleActionSelected('a');
+            handleSignUp(
+              'fName',
+              'lName',
+              'email',
+              'birthdate',
+              'country',
+              'userName',
+              'password',
+              'confPassword'
+            );
           }}
         >
           Sign Up
