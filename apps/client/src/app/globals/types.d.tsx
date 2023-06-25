@@ -439,4 +439,19 @@ declare global {
     id?: string;
     ref?: RefObject<HTMLInputElement>;
   }
+
+  interface LabelTextFieldProps {
+    classNameTF?: string;
+    type: string;
+    required?: boolean;
+    placeholder?: string;
+    onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
+    classNameL?: string;
+    children: ReactNode;
+  }
+
+  interface LabelProps {
+    className?: string;
+    children: ReactNode;
+  }
 }
