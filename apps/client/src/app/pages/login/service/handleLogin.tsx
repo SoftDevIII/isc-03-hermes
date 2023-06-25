@@ -5,7 +5,6 @@ function handleLogin(email: string, password: string) {
     email: emailRef.value,
     password: passwordRef.value
   };
-  return userData;
 }
 
 export default handleLogin;
