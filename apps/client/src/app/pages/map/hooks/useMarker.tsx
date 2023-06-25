@@ -20,13 +20,11 @@ function useMarker({
       return;
     }
     marker.current = new Marker().setLngLat(lngLat);
-
     if (isUserMarker) {
       marker.current.getElement().innerHTML = `<div><div class='user-marker'></div><div class='user-shadow'></div></div>`;
     } else {
       marker.current.getElement().innerHTML = `<div><div class='animate-bounce'><div class='marker ${type}'></div></div><div class='shadow shadow-${type}'></div></div>`;
     }
-
     marker.current.addTo(map.current);
   };
 
@@ -34,7 +32,6 @@ function useMarker({
     if (!map.current || isMarked) {
       return;
     }
-
     setIsMarked(true);
     setCoordinates(lngLat);
     createMarker(lngLat);
@@ -46,12 +43,10 @@ function useMarker({
       return;
     }
     setIsMarking(false);
-
     map.current.off('click', handleClick);
     map.current.getCanvas().style.cursor = '';
     setCoordinates(event.lngLat);
     createMarker(event.lngLat);
-
     setIsMarked(true);
   };
 
@@ -60,16 +55,8 @@ function useMarker({
       return;
     }
 
-<<<<<<< HEAD
-    map.current.getCanvas().style.cursor = `url(${icon}) 24 49, pointer`;
-
-=======
     map.current.getCanvas().style.cursor = `url(${icon}) 18 30, pointer`;
-<<<<<<< HEAD
->>>>>>> 5458f4f (fix: solve problems with remove buttons)
-=======
-
->>>>>>> a3ed513 (fix: solve problems with remove buttons)
+    map.current.getCanvas().style.cursor = `url(${icon}) 18 30, pointer`;
     map.current.on('click', handleClick);
     setIsMarking(true);
   };

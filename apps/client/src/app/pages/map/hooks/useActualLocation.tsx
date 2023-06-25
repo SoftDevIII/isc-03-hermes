@@ -2,8 +2,6 @@ import { LngLat } from 'mapbox-gl';
 import { useCallback, useEffect, useState } from 'react';
 import useCoordinates from '../context/coordinates/CoordinatesState';
 import useMap from '../context/map/MapState';
-
-import { MAX_ZOOM } from '../utils/constants';
 import useUserMarker from './useUserMarker';
 
 function useActualLocation() {
@@ -127,7 +125,7 @@ function useActualLocation() {
     if (map.current && longitude !== null && latitude !== null) {
       map.current.flyTo({
         center: [longitude, latitude],
-        zoom: MAX_ZOOM
+        zoom: 14
       });
     }
   }

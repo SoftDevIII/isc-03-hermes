@@ -1,5 +1,4 @@
 import closeIcon from '@assets/close-icon.png';
-
 import Button from './Button';
 
 function OptionCancelButton({

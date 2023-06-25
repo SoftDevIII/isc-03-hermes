@@ -2,6 +2,8 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import RoomIcon from '@mui/icons-material/Room';
 import { useState } from 'react';
 
+
+
 import useCoordinates from '../../context/coordinates/CoordinatesState';
 
 import useMarkerActions from '../../hooks/useMarkerActions';
@@ -12,7 +14,6 @@ import MarkerMenuList from './components/MarkerMenuList';
 function MarkerMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const { handleActionSelected } = useMarkerActions();
-
   const { isMarking } = useCoordinates();
 
   return (
@@ -24,7 +25,6 @@ function MarkerMenu() {
           onActionSelected={handleActionSelected}
         />
       )}
-
       {!isMarking && (
         <MarkerButton onClick={() => setIsOpen(!isOpen)}>
           <RoomIcon fontSize='inherit' />
