@@ -1,10 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { Request, response } from 'express';
-import Jwt from 'passport-jwt';
+import jwt from 'jsonwebtoken';
+
 @Injectable()
 class TokenGenerateService {
   constructor(
-    private jwtService: Jwt,
+    private jwtService: object,
     @Inject('REQUEST') private myRequest: Request,
     @Inject('RESPONSE') private myResponse: Response
   ) {}
@@ -15,9 +16,9 @@ class TokenGenerateService {
 
   generateToken(username: string, password: string): void {
     const payload = { username, password };
-    const options: Jwt.SignOptions = { expiresIn: this.expireTime };
+    const options: object = { expiresIn: this.expireTime };
 
-    const token: string = Jwt.sign(payload, this.secretKey, options);
+    const token: string = jwt.sign(payload, this.secretKey, options);
 
     response.cookie('jwt', token);
   }
