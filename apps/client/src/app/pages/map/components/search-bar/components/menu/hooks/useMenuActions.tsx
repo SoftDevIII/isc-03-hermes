@@ -7,11 +7,17 @@ function useMenuActions() {
 
   function goHelp() {}
 
+  function goLightMode() {}
+
+  function goLogout() {}
+
   const actions: MenuActions = {
     goHome,
     goProfile,
     goSettings,
-    goHelp
+    goHelp,
+    goLightMode,
+    goLogout
   };
 
   const handleActionSelected = (action: string) => {
