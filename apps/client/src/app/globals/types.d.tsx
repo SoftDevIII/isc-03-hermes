@@ -179,6 +179,10 @@ declare global {
     onClick: () => void;
   }
 
+  interface DropDownButtonProps {
+    onClick: () => void;
+  }
+
   interface UseMultiRefsProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
   }
@@ -189,5 +193,22 @@ declare global {
 
   interface AddRefProps {
     ref: HTMLDivElement | HTMLButtonElement | null;
+  }
+
+  interface MenuListProps {
+    handleActionSelected: (action: string) => void;
+  }
+
+  interface MenuUserProps {
+    handleActionSelected: (action: string) => void;
+  }
+
+  interface ImageProps {
+    src: string;
+    className?: string;
+  }
+
+  interface OptionImageProps {
+    src: string;
   }
 }
