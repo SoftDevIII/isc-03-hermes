@@ -8,6 +8,9 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <Routes>
+      <Route path='/map' element={<MapPage />} />
+      <Route path='/login' element={<LoginPage />} />
+      <Route path='/' element={<Navigate to='/map' />} />
       <Route path='*' element={<NotFound />} />
       <Route path='/' element={<Navigate to='/map' />} />
       <Route path='/map' element={<MapPage />} />
