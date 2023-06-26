@@ -463,4 +463,8 @@ declare global {
     ref?: string;
     content: string;
   }
+
+  interface FooterProps {
+    handleClick: () => void;
+  }
 }
