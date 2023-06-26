@@ -2,7 +2,8 @@ function Button({
   children,
   onClick,
   className,
-  disabled = false
+  disabled = false,
+  addRef = undefined
 }: ButtonProps) {
   return (
     <button
@@ -14,6 +15,7 @@ function Button({
       type='button'
       onClick={onClick}
       disabled={disabled}
+      ref={addRef ? ref => addRef({ ref }) : () => {}}
     >
       {children}
     </button>

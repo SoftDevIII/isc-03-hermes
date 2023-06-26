@@ -24,18 +24,36 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
-      "@": [
-        "src"
-      ],
       "@/*": [
         "src/*"
       ],
-      "@assets": [
-        "src/assets"
+      "@src/*": [
+        "src/app/*"
       ],
       "@assets/*": [
         "src/assets/*"
-      ]
+      ],
+      "@map-hooks/*": [
+        "src/app/pages/map/hooks/*"
+      ],
+      "@map-contexts/*": [
+        "src/app/pages/map/contexts/*"
+      ],
+      "@map-utils/*": [
+        "src/app/pages/map/utils/*"
+      ],
+      "@map-shared-components/*": [
+        "src/app/pages/map/shared-ui-components/*"
+      ],
+      "@map-components/*": [
+        "src/app/pages/map/components/*"
+      ],
+      "@map-assets/*": [
+        "src/app/pages/map/assets/*"
+      ],
+      "@map-styles/*": [
+        "src/app/pages/map/styles/*"
+      ],
     }
   },
   "types": [

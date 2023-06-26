@@ -1,0 +1,163 @@
+.marker {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50% 50% 0% 50%;
+  margin: -0.6rem 0 0 0;
+  rotate: 45deg;
+  background: white;
+  position: relative;
+}
+
+.marker::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50% 50% 0% 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.start::before {
+  background: #ed5e5e;
+  border: 2px solid #40396e;
+}
+
+.end::before {
+  background: #d5881c;
+  border: 2px solid #40396e;
+}
+
+.marker::after {
+  content: "";
+  width: 40%;
+  height: 40%;
+  border-radius: 100%;
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0.1rem 0.1rem 0.2rem 0.05rem rgba(0, 0, 0, 0.4);
+}
+
+.shadow {
+  height: 1rem;
+  width: 1.15rem;
+  background: rgb(0, 0, 0, 0.2);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 0.5rem 0 0 -0.559rem;
+  box-shadow: 0px 0px 1.2px 1.2px rgb(0, 0, 0, 0.2);
+  transform: rotateX(55deg);
+  z-index: -2;
+}
+
+.shadow::after {
+  content: "";
+  height: 2.25rem;
+  width: 2.25rem;
+  border-radius: 50%;
+  position: absolute;
+  margin: -0.64rem 0 0 -0.575rem;
+  box-shadow: 0 0 1px 1px #57a3ff;
+  animation: pulsate 1.5s ease-out;
+  animation-iteration-count: infinite;
+}
+
+.shadow-start::after {
+  box-shadow: 0 0 2px 2px #ed5e5e;
+}
+
+.shadow-end::after {
+  box-shadow: 0 0 2px 2px #d5881c;
+}
+
+.user-marker {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: white;
+  margin: 1.7rem 0 0 0.0175rem;
+  position: relative;
+}
+
+
+.user-marker::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #0c8ce9;
+  border: 2px solid #40396e;
+}
+
+.user-marker::after {
+  content: "";
+  width: 40%;
+  height: 40%;
+  border-radius: 100%;
+  background: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.2);
+}
+
+.user-shadow {
+  position: relative;
+  height: 1.8rem;
+  width: 1.8rem;
+  border-radius: 50%;
+  margin: -1.7776rem 0 0 -0.01rem;
+  box-shadow: 0 0 6px 6px #0c8ce9;
+  animation: pulsate 1.5s ease-out;
+  animation-iteration-count: infinite;
+  z-index: -2;
+}
+
+.animate-bounce {
+  animation: bounce 1.5s ease-out;
+  animation-iteration-count: infinite;
+}
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  display: none;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  100% {
+    transform: scale(1.2, 1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}

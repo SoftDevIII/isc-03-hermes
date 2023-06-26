@@ -18,6 +18,7 @@ declare global {
     map: MapRef['map'];
     container: MapRef['container'];
     actualZoom: number;
+    isLoading: boolean;
   }
 
   interface MapProviderProps {
@@ -32,11 +33,21 @@ declare global {
     current: MapType['map'];
   }
 
+  interface ConfigureMapLoading {
+    current: MapType['map'];
+    setIsLoading: Dispatch<SetStateAction<boolean>>;
+  }
+
   interface ButtonProps {
     children: ReactNode;
     onClick: () => void;
     className?: string;
     disabled?: boolean;
+    addRef?: ({
+      ref
+    }: {
+      ref: HTMLDivElement | HTMLButtonElement | null;
+    }) => void;
   }
 
   interface ZoomButtonProps {
@@ -59,25 +70,18 @@ declare global {
   interface MenuButtonProps {
     children: ReactNode;
     onClick: () => void;
+    addRef: ({
+      ref
+    }: {
+      ref: HTMLDivElement | HTMLButtonElement | null;
+    }) => void;
   }
 
-  interface OptionButtonProps {
+  interface MenuOptionButtonProps {
     children: ReactNode;
-    onClick: () => void;
-  }
-
-  type Option = {
-    id: number;
     title: string;
-    action: string;
-  };
-
-  interface Options {
-    options: Option[];
-  }
-
-  interface UseOptionsProps {
-    json: Options;
+    onClick: () => void;
+    last?: boolean;
   }
 
   interface CoordinatesContextValue {
@@ -102,17 +106,21 @@ declare global {
     isUserMarker?: boolean;
   }
 
-  interface DropDownMenuProps {
+  interface MarkerDropDownMenuProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
-    className: string;
+    className?: string;
     children: ReactNode;
   }
 
-  interface DropDownListProps {
-    options: Option[];
+  interface MenuDropDownListProps {
     className: string;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     onActionSelected: (action: string) => void;
+    addRef: ({
+      ref
+    }: {
+      ref: HTMLDivElement | HTMLButtonElement | null;
+    }) => void;
   }
 
   interface UseRefMenuProps {
@@ -120,6 +128,10 @@ declare global {
   }
 
   interface MarkerMenuActions {
+    [key: string]: () => void;
+  }
+
+  interface MenuActions {
     [key: string]: () => void;
   }
 
@@ -161,5 +173,21 @@ declare global {
   interface ConfigureZoomPercentage {
     current: MapType['map'];
     setActualZoom: Dispatch<SetStateAction<number>>;
+  }
+
+  interface ProfileButtonProps {
+    onClick: () => void;
+  }
+
+  interface UseMultiRefsProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface ZoomLevelProps {
+    actualZoom: number;
+  }
+
+  interface AddRefProps {
+    ref: HTMLDivElement | HTMLButtonElement | null;
   }
 }

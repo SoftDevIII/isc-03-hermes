@@ -1,7 +1,8 @@
+import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
+import useMap from '@map-contexts/map/MapState';
+import '@map-styles/marker.css';
 import { LngLat, MapMouseEvent, Marker } from 'mapbox-gl';
 import { useRef, useState } from 'react';
-import useCoordinates from '../context/coordinates/CoordinatesState';
-import useMap from '../context/map/MapState';
 
 function useMarker({
   setCoordinates,
