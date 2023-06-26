@@ -1,61 +1,61 @@
 import FacebookLogo from '@/assets/facebook-logo.png';
 import InstagramLogo from '@/assets/instagram-logo.png';
 import TwitterLogo from '@/assets/twitter-logo.png';
+import Button from '../map/shared-ui-components/Button';
 
-function Footer() {
+function Footer({ handleClick }: FooterProps) {
+  const handleFacebookClick = () => {
+    window.location.href = 'https://es-la.facebook.com/';
+  };
+  const handleTwitterClick = () => {
+    window.location.href = 'https://twitter.com/';
+  };
+  const handleInstagramClick = () => {
+    window.location.href = 'https://www.instagram.com/';
+  };
   return (
-    <footer className='bg-blue-950'>
+    <footer className='bg-[rgb(29,60,102)] text-[#CADEED] py-1 px-3]'>
       <div className='container mx-auto flex justify-center'>
-        <div className='w-full sm:w-1/2 md:w-auto'>
-          <ul className='text-center'>
-            <a href='https://es-la.facebook.com/'>
+        <div className='text-center m-1'>
+          <div className='w-full sm:w-1/2 md:w-auto '>
+            <Button onClick={handleFacebookClick}>
               <img
                 src={FacebookLogo}
                 alt='Facebook'
-                className='inline-block w-10 h-10 mr-5  bg-white rounded-full m-3 '
+                className='inline-block w-10 h-10 mr-5 bg-white rounded-full  '
               />
-            </a>
-            <a href='https://www.instagram.com/'>
+            </Button>
+            <Button onClick={handleInstagramClick}>
               <img
                 src={InstagramLogo}
                 alt='Instagram'
-                className='inline-block w-10 h-10 mr-5'
+                className='inline-block w-10 h-10 mr-5 bg-white rounded-full  p-0.5'
               />
-            </a>
-            <a href='https://twitter.com/?lang=ES'>
+            </Button>
+            <Button onClick={handleTwitterClick}>
               <img
                 src={TwitterLogo}
                 alt='Twitter'
-                className='inline-block w-10 h-10 mr-5 bg-white rounded-full '
+                className='inline-block w-10 h-10 mr-5 bg-white rounded-full p-0.5'
               />
-            </a>
-            <li className='text-white'>
-              <a href='/Info' className='hover:text-black m-0.5'>
-                Info
-              </a>
-              <span className='text-white'> · </span>
-              <a href='/Info' className='hover:text-black m-0.5'>
-                Support
-              </a>
-              <span className='text-white'> · </span>
-              <a href='/Info' className='hover:text-black m-0.5'>
-                Marketing
-              </a>
-            </li>
-            <li className='text-white'>
-              <a href='/Terms of Use' className='hover:text-black m-0.5'>
-                Terms of Use
-              </a>
-              <span className='text-white'> · </span>
-              <a href='/Terms of Use' className='hover:text-black m-0.5'>
-                Privacy Policy
-              </a>
-            </li>
-          </ul>
+            </Button>
+          </div>
+          <div className='w-full sm:w-1/2 md:w-auto m-1'>
+            <Button onClick={handleClick}>Info</Button>
+            <span className='text-[#CADEED]'> · </span>
+            <Button onClick={handleClick}>Support</Button>
+            <span className='text-[#CADEED]'> · </span>
+            <Button onClick={handleClick}>Marketing</Button>
+          </div>
+          <div className='w-full sm:w-1/2 md:w-auto'>
+            <Button onClick={handleClick}>Terms of Use</Button>
+            <span className='text-[#CADEED]'> · </span>
+            <Button onClick={handleClick}>Privacy Policy</Button>
+          </div>
+          <div>
+            <p className='text-[#000000] font-bold'>© Hermes 2023</p>
+          </div>
         </div>
-      </div>
-      <div className='text-center'>
-        <p className='text-gray-900'>© Hermes 2023</p>
       </div>
     </footer>
   );
