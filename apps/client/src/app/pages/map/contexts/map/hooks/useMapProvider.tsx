@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 import useCreateMap from './useCreateMap';
 
 function useMapProvider() {
-  const { map, container, actualZoom } = useCreateMap();
+  const { map, container, actualZoom, isLoading } = useCreateMap();
 
   const mapProviderValue = useMemo(
-    () => ({ map, container, actualZoom }),
-    [map, container, actualZoom]
+    () => ({ map, container, actualZoom, isLoading }),
+    [map, container, actualZoom, isLoading]
   );
 
   return mapProviderValue;

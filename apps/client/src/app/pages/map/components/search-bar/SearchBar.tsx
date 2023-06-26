@@ -1,7 +1,14 @@
 import SearchIcon from '@mui/icons-material/Search';
+import useMap from '../../contexts/map/MapState';
 import Menu from './components/menu/Menu';
 
 function SearchBar() {
+  const { isLoading } = useMap();
+
+  if (isLoading) {
+    return <div />;
+  }
+
   return (
     <div className='grid absolute w-full py-4 z-10'>
       <div

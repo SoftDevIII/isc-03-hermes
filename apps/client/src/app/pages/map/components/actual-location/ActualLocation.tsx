@@ -3,6 +3,7 @@ import { CircularProgress, Tooltip } from '@mui/material';
 import { useState } from 'react';
 import ActualLocationButton from './components/ActualLocationButton';
 import useActualLocation from './hooks/useActualLocation';
+import useMap from '../../contexts/map/MapState';
 
 function ActualLocation() {
   const {
@@ -14,6 +15,11 @@ function ActualLocation() {
     hasGeoPermission
   } = useActualLocation();
   const [isActive, setIsActive] = useState(true);
+  const { isLoading } = useMap();
+
+  if (isLoading) {
+    return <div />;
+  }
 
   function toggleActive() {
     setIsActive(prevIsActive => !prevIsActive);
