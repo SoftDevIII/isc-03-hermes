@@ -436,8 +436,7 @@ declare global {
   }
 
   interface HeaderProps {
-    handleClick: () => void;
     isLoggedIn: boolean;
-    username: string;
+    username?: string;
   }
 }
