@@ -18,8 +18,8 @@ const ContextMenu: React.FC<ContextMenuProps> = ({
   lngLat,
   hideMenu
 }) => {
-  const { setStartMarker } = useStartMarker();
-  const { setEndMarker } = useEndMarker();
+  const { removeStartMarker, setStartMarkerFromCoordinates } = useStartMarker();
+  const { setEndMarkerFromCoordinates, removeEndMarker } = useEndMarker();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -35,12 +35,14 @@ const ContextMenu: React.FC<ContextMenuProps> = ({
   }, [hideMenu]);
 
   const handleSetStartPoint = () => {
-    setStartMarker();
+    removeStartMarker();
+    setStartMarkerFromCoordinates(lngLat);
     hideMenu();
   };
 
   const handleSetEndPoint = () => {
-    setEndMarker();
+    removeEndMarker();
+    setEndMarkerFromCoordinates(lngLat);
     hideMenu();
   };
 
