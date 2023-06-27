@@ -1,4 +1,4 @@
-import { LngLat, Map as MapBox, Marker } from 'mapbox-gl';
+import { LngLat, Map as MapBox } from 'mapbox-gl';
 import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
 
 export {};
@@ -272,8 +272,6 @@ declare global {
   }
 
   interface UseUserMarkerProps {
-    marker: Marker;
-    setMarker: Dispatch<SetStateAction<Marker>>;
     setIsMarked: Dispatch<SetStateAction<boolean>>;
   }
 
