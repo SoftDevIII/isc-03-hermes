@@ -1,15 +1,23 @@
+import { LngLat } from 'mapbox-gl';
 import { useEffect, useRef } from 'react';
 import Button from '../../shared-ui-components/Button';
 import useEndMarker from '../marker/hooks/useEndMarker';
 import useStartMarker from '../marker/hooks/useStartMarker';
 
+/* eslint-disable react/prop-types */
 interface ContextMenuProps {
   x: number;
   y: number;
+  lngLat: LngLat;
   hideMenu: () => void;
 }
 
-const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, hideMenu }) => {
+const ContextMenu: React.FC<ContextMenuProps> = ({
+  x,
+  y,
+  lngLat,
+  hideMenu
+}) => {
   const { setStartMarker } = useStartMarker();
   const { setEndMarker } = useEndMarker();
   const ref = useRef<HTMLDivElement>(null);
@@ -46,10 +54,13 @@ const ContextMenu: React.FC<ContextMenuProps> = ({ x, y, hideMenu }) => {
       className='bg-black/50 text-white p-3  rounded-2xl absolute '
       style={{ top: y, left: x }}
     >
-      <p className='mb-3 border-b border-white/20'> Coordinates</p>
+      <p className='mb-3 border-b border-white/20'>
+        {' '}
+        {lngLat.lng.toFixed(4)}, {lngLat.lat.toFixed(4)}
+      </p>
       <Button
         onClick={handleSetStartPoint}
-        className='block w-full text-left mb-3 border-b border-white/20'
+        className='block w-full text-left mb-3 border-b border-white/20 '
       >
         Set as starting point
       </Button>
