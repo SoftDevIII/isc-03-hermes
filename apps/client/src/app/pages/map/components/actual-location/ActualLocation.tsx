@@ -6,6 +6,7 @@ import ActualLocationButton from './components/ActualLocationButton';
 import useActualLocation from './hooks/useActualLocation';
 
 function ActualLocation() {
+  const { isLoading } = useMap();
   const {
     goToActualLocation,
     toggleUserMarker,
@@ -16,16 +17,12 @@ function ActualLocation() {
     snackbarMessage,
     snackbarType
   } = useActualLocation();
+
   const [isActive, setIsActive] = useState(true);
-  const { isLoading } = useMap();
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   if (isLoading) {
     return <div />;
-  }
-
-  function handleShowSnackbar() {
-    setSnackbarOpen(true);
   }
 
   function toggleActive() {
@@ -48,10 +45,10 @@ function ActualLocation() {
         <ActualLocationButton
           onClick={() => {
             if (disabled) {
-              handleShowSnackbar();
+              setSnackbarOpen(true);
             } else {
               toggleActive();
-              handleShowSnackbar();
+              setSnackbarOpen(true);
             }
           }}
           disabled={disabled}
@@ -65,7 +62,7 @@ function ActualLocation() {
       </span>
       <Snackbar
         open={snackbarOpen}
-        autoHideDuration={6000}
+        autoHideDuration={2000}
         onClose={() => setSnackbarOpen(false)}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       >
