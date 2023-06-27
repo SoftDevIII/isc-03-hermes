@@ -8,28 +8,37 @@ function useSearch() {
   const [results, setResults] = useState<PlacesResponse['features']>([]);
   const [query, setQuery] = useState('');
   const { userCoordinates } = useCoordinates();
-  const debouncedQuery = useDebounce(query, 50000);
+  const [isLoading, setIsLoading] = useState(false);
+  const debouncedQuery = useDebounce(query, 5000);
 
   useEffect(() => {
     if (debouncedQuery.length === 0) {
       setResults([]); // clear results when query is empty
     } else if (userCoordinates) {
+      setIsLoading(true);
       searchAPI
         .get<PlacesResponse>(`/${debouncedQuery}.json`, {
           params: {
             proximity: `${userCoordinates.lng},${userCoordinates.lat}`
           }
         })
-        .then(({ data }) => setResults(data.features))
-        .catch(error => console.log(error));
+        .then(({ data }) => {
+          const five = data.features.slice(0, 5);
+          console.log(five);
+          setResults(five);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          console.log(error);
+          setIsLoading(false);
+        });
     }
   }, [debouncedQuery, userCoordinates]);
 
-  console.log(results);
-
   return {
     results,
-    search: setQuery
+    search: setQuery,
+    isLoading
   };
 }
 

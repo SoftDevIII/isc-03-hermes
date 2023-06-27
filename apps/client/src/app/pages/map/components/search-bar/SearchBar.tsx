@@ -1,14 +1,15 @@
 import SearchIcon from '@mui/icons-material/Search';
 import { ChangeEvent } from 'react';
 import useMap from '../../contexts/map/MapState';
+import SearchResults from './SearchResults';
 import Menu from './components/menu/Menu';
 import useSearch from './hooks/useSearch';
 
 function SearchBar() {
   const { isLoading } = useMap();
-  const { search, results } = useSearch();
+  const { search, results, isLoading: searchIsLoading } = useSearch();
 
-  if (isLoading) {
+  if (isLoading || searchIsLoading) {
     return <div />;
   }
 
@@ -28,9 +29,11 @@ function SearchBar() {
             type='text'
             placeholder='Search place'
             onChange={onQueryChange}
+            className='bg-transparent text-white text-[20px] md:text-[25px] w-full h-full outline-none'
           />
         </div>
         <Menu />
+        <SearchResults results={results} />
       </div>
     </div>
   );

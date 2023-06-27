@@ -1,5 +1,6 @@
 import { LngLat } from 'mapbox-gl';
 import { useMemo, useState } from 'react';
+import useSearch from '../../../components/search-bar/hooks/useSearch';
 
 function useCoordinatesProvider() {
   const [startCoordinates, setStartCoordinates] = useState<LngLat>(
@@ -16,6 +17,8 @@ function useCoordinatesProvider() {
 
   const [isMarking, setIsMarking] = useState(false);
 
+  const { results: searchResults, search: searchPlaces } = useSearch();
+
   const coordinatesProviderValue = useMemo(
     () => ({
       startCoordinates,
@@ -25,9 +28,18 @@ function useCoordinatesProvider() {
       userCoordinates,
       setUserCoordinates,
       isMarking,
-      setIsMarking
+      setIsMarking,
+      searchResults,
+      searchPlaces
     }),
-    [startCoordinates, endCoordinates, userCoordinates, isMarking]
+    [
+      startCoordinates,
+      endCoordinates,
+      userCoordinates,
+      isMarking,
+      searchResults,
+      searchPlaces
+    ]
   );
 
   return coordinatesProviderValue;

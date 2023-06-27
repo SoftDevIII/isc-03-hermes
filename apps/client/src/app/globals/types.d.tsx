@@ -1,5 +1,6 @@
 import { LngLat, Map as MapBox } from 'mapbox-gl';
 import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
+import { Feature } from '../pages/map/components/search-bar/interfaces/places';
 
 export {};
 
@@ -93,6 +94,8 @@ declare global {
     setUserCoordinates: Dispatch<SetStateAction<LngLat>>;
     isMarking: boolean;
     setIsMarking: Dispatch<SetStateAction<boolean>>;
+    searchResults: Feature[];
+    searchPlaces: (query: string) => void;
   }
 
   interface CoordinatesProviderProps {
