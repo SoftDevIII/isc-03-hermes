@@ -65,33 +65,15 @@ function useLocation({
     setSnackbarOpen(true);
   };
 
-  const watchPosition = ({
-    setSnackbarMessage,
-    setSnackbarSeverity,
-    setSnackbarOpen
-  }: WatchPositionProps) => {
+  const watchPosition = () => {
     setWatchID(
-      navigator.geolocation.watchPosition(
-        position => {
-          const coordinates = new LngLat(
-            position.coords.longitude,
-            position.coords.latitude
-          );
-          updateCoordinates({ coordinates });
-        },
-        error => {
-          handleErrors({
-            error,
-            setSnackbarMessage,
-            setSnackbarSeverity,
-            setSnackbarOpen
-          });
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 10000
-        }
-      )
+      navigator.geolocation.watchPosition(position => {
+        const coordinates = new LngLat(
+          position.coords.longitude,
+          position.coords.latitude
+        );
+        updateCoordinates({ coordinates });
+      })
     );
   };
 
@@ -117,11 +99,7 @@ function useLocation({
           setSnackbarSeverity
         });
         setIsFetching(false);
-        watchPosition({
-          setSnackbarMessage,
-          setSnackbarSeverity,
-          setSnackbarOpen
-        });
+        watchPosition();
       },
       error => {
         handleErrors({
