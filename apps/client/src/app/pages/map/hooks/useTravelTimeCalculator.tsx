@@ -29,5 +29,3 @@ const calculateTravelTime = async (
 
   return travelTimeInSeconds;
 };
-
-export default calculateTravelTime;
