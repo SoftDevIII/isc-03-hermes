@@ -419,17 +419,19 @@ declare global {
   }
 
   interface TextFieldProps {
-    className?: string;
+    classNameDiv?: string;
+    classNameInput?: string;
     type: string;
     required?: boolean;
     placeholder?: string;
     onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
     icon?: ReactElement;
     ref?: RefObject<HTMLInputElement>;
-    id: string;
+    id?: string;
   }
 
   interface TextBoxProps {
-    id: string;
+    id?: string;
+    ref?: RefObject<HTMLInputElement>;
   }
 }
