@@ -1,5 +1,6 @@
 import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
 import useMap from '@map-contexts/map/MapState';
+import { AlertColor } from '@mui/material';
 import { LngLat } from 'mapbox-gl';
 import { useCallback, useEffect, useState } from 'react';
 import useUserMarker from './useUserMarker';
@@ -13,43 +14,49 @@ function useActualLocation() {
   const { removeUserMarker, createMarkerFromCoordinates } = useUserMarker();
   const [isFetchingLocation, setIsFetchingLocation] = useState<boolean>(true);
   const [isLocationTimeout, setIsLocationTimeout] = useState(false);
-  const [hasGeoLocation, setHasGeoLocation] = useState(true);
-  const [hasGeoPermission, setHasGeoPermission] = useState(true);
+  const [hasGeoLocation, setHasGeoLocation] = useState(false);
+  const [hasGeoPermission, setHasGeoPermission] = useState<
+    boolean | 'unconfirmed'
+  >('unconfirmed');
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarType, setSnackbarType] = useState<AlertColor>('success');
 
   const fetchUserLocation = useCallback(() => {
     if (map.current) {
       if ('geolocation' in navigator) {
+        setHasGeoLocation(true);
         setIsFetchingLocation(true);
         navigator.geolocation.getCurrentPosition(
           position => {
             setLatitude(position.coords.latitude);
             setLongitude(position.coords.longitude);
             setIsFetchingLocation(false);
+            setHasGeoPermission(true);
+            setSnackbarType('success');
+            setSnackbarMessage('Location retrieved successfully');
           },
           error => {
+            setIsFetchingLocation(false);
             if (error.code === error.TIMEOUT) {
               setIsLocationTimeout(true);
+              setSnackbarMessage('Location retrieval timed out');
+              setSnackbarType('error');
             }
             if (error.code === error.PERMISSION_DENIED) {
-              /* eslint-disable-next-line no-alert */
-              alert(
-                'You have denied access to your location. Please allow access to your location to use this feature.'
-              );
               setHasGeoPermission(false);
+              setSnackbarType('error');
+              setSnackbarMessage('Location permission denied');
             }
-            /* eslint-disable-next-line no-console */
-            console.error(error);
-            setIsFetchingLocation(false);
           },
           {
             enableHighAccuracy: true,
-            timeout: 50000
+            timeout: 10000
           }
         );
       } else {
-        /* eslint-disable-next-line no-alert */
-        alert('Geolocation is not supported by your browser');
         setHasGeoLocation(false);
+        setSnackbarType('warning');
+        setSnackbarMessage('Geolocation is not supported by this browser');
       }
     }
   }, [map, setIsFetchingLocation]);
@@ -96,8 +103,6 @@ function useActualLocation() {
               setIsLocationTimeout(true);
             }
             if (error.code === error.PERMISSION_DENIED) {
-              /* eslint-disable-next-line no-alert */
-              alert('User has denied location permissions.');
               setHasGeoPermission(false);
             }
             /* eslint-disable-next-line no-console */
@@ -105,12 +110,10 @@ function useActualLocation() {
           },
           {
             enableHighAccuracy: true,
-            timeout: 50000
+            timeout: 10000
           }
         );
       } else {
-        /* eslint-disable-next-line no-alert */
-        alert('Geolocation is not supported by your browser');
         setHasGeoLocation(false);
       }
     }
@@ -135,7 +138,9 @@ function useActualLocation() {
     isFetchingLocation,
     isLocationTimeout,
     hasGeoLocation,
-    hasGeoPermission
+    hasGeoPermission,
+    snackbarMessage,
+    snackbarType
   };
 }
 
