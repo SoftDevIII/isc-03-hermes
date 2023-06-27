@@ -439,4 +439,13 @@ declare global {
     isLoggedIn: boolean;
     username?: string;
   }
+
+  interface IsLoggedInViewProps {
+    username?: string;
+  }
+
+  interface ReferenceButtonProps {
+    ref?: string;
+    content: string;
+  }
 }
