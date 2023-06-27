@@ -6,7 +6,7 @@ import TextBoxPassword from './components/TextBoxPassword';
 
 function LoginPage() {
   return (
-    <div className='flex flex-wrap mx-3 h-screen w-full justify-center font-roboto items-center bg-gradient-to-r from-[#194569] via-[#5F84A2] to-[#194569] p-4'>
+    <div className='min-h-screen w-screen flex flex-wrap justify-center items-center bg-gradient-to-r from-[#194569] via-[#5F84A2] to-[#194569] p-4'>
       <AccountCircleOutlinedIcon style={{ fontSize: 120 }} />
       <div className='flex flex-col items-center space-y-10'>
         <TextBoxEmail id='emailRef' />
