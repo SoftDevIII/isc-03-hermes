@@ -21,7 +21,7 @@ function MarkerMenu() {
   return (
     <MarkerDropDownMenu
       setIsOpen={setIsOpen}
-      className='absolute bottom-4 left-6 md:bottom-8 md:left-8'
+      className='absolute bottom-[72px] landscape:sm:bottom-[80px] left-6 md:left-8 md:bottom-20'
     >
       {isOpen && (
         <MarkerMenuList

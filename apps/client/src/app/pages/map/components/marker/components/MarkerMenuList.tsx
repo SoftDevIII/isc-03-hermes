@@ -8,7 +8,7 @@ function MarkerMenuList({
   onActionSelected
 }: MarkerMenuListProps) {
   return (
-    <section className='absolute rounded-3xl bg-black/30 p-5 bottom-9 left-7 mb-2'>
+    <section className='absolute rounded-3xl bg-black/30 p-[20px] bottom-9 left-7 mb-2 sm:mb-auto sm:bottom-0 sm:left-11'>
       <ExitButton
         className='absolute right-[15px] top-[9px] h-[18px] w-[18px] opacity-70'
         onClick={() => setIsOpen(!isOpen)}
