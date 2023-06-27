@@ -65,7 +65,10 @@
       ],
       "@home-sections/*": [
         "src/app/pages/home/sections/*"
-      ]
+      ],
+      "@home-components/*":[
+        "src/app/pages/home/header/components/*"
+      ],
     }
   },
   "types": [
