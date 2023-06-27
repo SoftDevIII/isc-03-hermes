@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { LngLat, Map as MapBox } from 'mapbox-gl';
 import {
   Dispatch,
@@ -6,6 +7,10 @@ import {
   RefObject,
   SetStateAction
 } from 'react';
+=======
+import { LngLat, Map as MapBox, Marker } from 'mapbox-gl';
+import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
+>>>>>>> refactor: improve use location component
 
 export {};
 
@@ -109,7 +114,6 @@ declare global {
     type: string;
     icon: string;
     setCoordinates: Dispatch<SetStateAction<LngLat>>;
-    isUserMarker?: boolean;
   }
 
   interface MarkerDropDownMenuProps {
@@ -218,6 +222,7 @@ declare global {
     src: string;
   }
 
+<<<<<<< HEAD
   interface TextFieldProps {
     className?: string;
     type: string;
@@ -231,5 +236,102 @@ declare global {
 
   interface TextBoxProps {
     id: string;
+=======
+  interface ReturnLocationProps {
+    setSnackbarMessage: Dispatch<SetStateAction<string>>;
+    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
+    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
+    setIsDisabled: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface GrantPermissionProps {
+    setSnackbarMessage: Dispatch<SetStateAction<string>>;
+    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
+    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
+    setIsDisabled: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface RevokePermissionsProps {
+    setSnackbarMessage: Dispatch<SetStateAction<string>>;
+    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
+    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface SuccessCurrentPositionProps {
+    coordinates: LngLat;
+    createUserMarker: ({ coordinates }: CreateUserMarkerProps) => void;
+    redirectToUserLocation: ({
+      coordinates
+    }: RedirectToUserLocationProps) => void;
+    setSnackbarMessage: Dispatch<SetStateAction<string>>;
+    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
+    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface RedirectToUserLocationProps {
+    coordinates: LngLat;
+  }
+
+  interface ErrorCurrentPositionProps {
+    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
+  }
+
+  interface SomethingWentWrongErrorProps {
+    setSnackbarMessage: Dispatch<SetStateAction<string>>;
+    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
+  }
+
+  interface LocationTimeoutErrorProps {
+    setSnackbarMessage: Dispatch<SetStateAction<string>>;
+    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
+  }
+
+  interface GeoPermissionDeniedErrorProps {
+    setSnackbarMessage: Dispatch<SetStateAction<string>>;
+    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
+  }
+
+  interface FetchUserLocationProps {
+    setSnackbarMessage: Dispatch<SetStateAction<string>>;
+    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
+    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface UseUserMarkerProps {
+    marker: Marker;
+    setMarker: Dispatch<SetStateAction<Marker>>;
+    setIsMarked: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface CreateMarkerProps {
+    coordinates: LngLat;
+  }
+
+  interface CreateUserMarkerProps {
+    coordinates: LngLat;
+  }
+
+  interface UseLocationProps {
+    createUserMarker: ({ coordinates }: CreateMarkerProps) => void;
+    updateCoordinates: ({ coordinates }: UpdateCoordinatesProps) => void;
+    removeUserMarker: () => void;
+  }
+
+  interface UpdateCoordinatesProps {
+    coordinates: LngLat;
+  }
+
+  interface HandleErrorsProps {
+    error: GeolocationPositionError;
+    setSnackbarMessage: Dispatch<SetStateAction<string>>;
+    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
+    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface WatchPositionProps {
+    setSnackbarMessage: Dispatch<SetStateAction<string>>;
+    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
+    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
+>>>>>>> refactor: improve use location component
   }
 }
