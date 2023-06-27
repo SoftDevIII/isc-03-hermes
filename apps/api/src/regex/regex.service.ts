@@ -26,7 +26,7 @@ class RegexService {
     userEmail?: string,
     country?: string,
     login?: RegexValidator
-  ) {
+  ): boolean {
     if (login === RegexValidator.LOGIN) {
       if (!userEmail || !this.emailRegex.test(userEmail)) {
         throw new Error(`The e-mail format is invalid `);
@@ -37,7 +37,10 @@ class RegexService {
           'The password must be at least 8 characters long, including a letter and a number'
         );
       }
-    } else if (login === RegexValidator.SIGN_UP) {
+      return true;
+    }
+
+    if (login === RegexValidator.SIGN_UP) {
       if (!name || !this.nameRegex.test(name)) {
         throw new Error(`The name can only contain letters `);
       }
@@ -59,7 +62,9 @@ class RegexService {
       if (!country) {
         throw new Error('The country cannot be empty');
       }
+      return true;
     }
+    return false;
   }
 }
 

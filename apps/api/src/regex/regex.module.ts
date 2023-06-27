@@ -7,6 +7,7 @@ import RegexService from './regex.service';
 @Module({
   imports: [TypeOrmModule.forFeature([Regex])],
   controllers: [RegexController],
-  providers: [RegexService]
+  providers: [RegexService],
+  exports: [RegexService]
 })
 export default class RegexModule {}

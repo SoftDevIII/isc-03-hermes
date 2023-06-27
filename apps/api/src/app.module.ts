@@ -4,12 +4,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 
 import { DataSourceConfig } from './config/data.source';
-import ExampleModule from './example/example.module';
-<<<<<<< HEAD
 import CustomerModule from './customer/customer.module';
-=======
+import ExampleModule from './example/example.module';
 import RegexModule from './regex/regex.module';
->>>>>>> feat: implement regex account creation validation
 
 @Module({
   imports: [
@@ -20,11 +17,8 @@ import RegexModule from './regex/regex.module';
       ...DataSourceConfig
     }),
     ExampleModule,
-<<<<<<< HEAD
-    CustomerModule
-=======
+    CustomerModule,
     RegexModule
->>>>>>> feat: implement regex account creation validation
   ]
 })
 export default class AppModule {}
