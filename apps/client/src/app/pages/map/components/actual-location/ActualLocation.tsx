@@ -1,9 +1,9 @@
 import MyLocationIcon from '@mui/icons-material/MyLocation';
-import { CircularProgress, Tooltip } from '@mui/material';
+import { Alert, CircularProgress, Snackbar } from '@mui/material';
 import { useState } from 'react';
+import useMap from '../../contexts/map/MapState';
 import ActualLocationButton from './components/ActualLocationButton';
 import useActualLocation from './hooks/useActualLocation';
-import useMap from '../../contexts/map/MapState';
 
 function ActualLocation() {
   const {
@@ -12,13 +12,20 @@ function ActualLocation() {
     isFetchingLocation,
     isLocationTimeout,
     hasGeoLocation,
-    hasGeoPermission
+    hasGeoPermission,
+    snackbarMessage,
+    snackbarType
   } = useActualLocation();
   const [isActive, setIsActive] = useState(true);
   const { isLoading } = useMap();
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   if (isLoading) {
     return <div />;
+  }
+
+  function handleShowSnackbar() {
+    setSnackbarOpen(true);
   }
 
   function toggleActive() {
@@ -34,36 +41,38 @@ function ActualLocation() {
     isLocationTimeout ||
     !hasGeoLocation ||
     !hasGeoPermission;
-  let title = '';
-  if (disabled) {
-    if (!hasGeoLocation) {
-      title = 'Geolocation is not supported by your device or browser';
-    } else if (!hasGeoPermission) {
-      title = 'Location permission is not granted';
-    } else if (isLocationTimeout) {
-      title = 'Location retrieval has timed out';
-    } else if (isFetchingLocation) {
-      title = 'Retrieving location...';
-    }
-  }
+
   return (
     <div className='absolute right-6 bottom-40 rounded-full md:right-8 md:bottom-44'>
-      <Tooltip title={title} placement='left'>
-        <span>
-          <ActualLocationButton
-            onClick={() => {
+      <span>
+        <ActualLocationButton
+          onClick={() => {
+            if (disabled) {
+              handleShowSnackbar();
+            } else {
               toggleActive();
-            }}
-            disabled={disabled}
-          >
-            {isFetchingLocation ? (
-              <CircularProgress size={24} color='inherit' />
-            ) : (
-              <MyLocationIcon color={isActive ? 'inherit' : 'primary'} />
-            )}
-          </ActualLocationButton>
-        </span>
-      </Tooltip>
+              handleShowSnackbar();
+            }
+          }}
+          disabled={disabled}
+        >
+          {isFetchingLocation ? (
+            <CircularProgress size={24} color='inherit' />
+          ) : (
+            <MyLocationIcon color={isActive ? 'inherit' : 'primary'} />
+          )}
+        </ActualLocationButton>
+      </span>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={() => setSnackbarOpen(false)}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert onClose={() => setSnackbarOpen(false)} severity={snackbarType}>
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
