@@ -1,15 +1,24 @@
+import { LngLat } from 'mapbox-gl';
+
+interface DirectionsResponse {
+  routes: {
+    distance: number;
+  }[];
+}
+
 const calculateDistanceByBike = async (
-  start: number[],
-  end: number[]
+  start: LngLat,
+  end: LngLat
 ): Promise<number> => {
   const response = await fetch(
-    `https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${
-      start[1]
-    };${end[0]},${end[1]}?access_token=${
+    `https://api.mapbox.com/directions/v5/mapbox/cycling/${start.lat},${
+      start.lng
+    };${end.lat},${end.lng}?access_token=${
       import.meta.env.VITE_PUBLIC_MAPBOX_TOKEN
     }`
   );
-  const data = await response.json();
+
+  const data = (await response.json()) as DirectionsResponse;
 
   const { distance } = data.routes[0];
   const distanceInKilometers = Math.round((distance / 1000) * 100) / 100;
