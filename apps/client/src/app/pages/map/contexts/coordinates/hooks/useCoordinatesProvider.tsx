@@ -6,7 +6,15 @@ function useCoordinatesProvider() {
 
   const [endCoordinates, setEndCoordinates] = useState<LngLat | null>(null);
 
-  const [userCoordinates, setUserCoordinates] = useState<LngLat | null>(null);
+  const [userCoordinates, setUserCoordinates] = useState<LngLat>(
+    new LngLat(0, 0)
+  );
+
+  const [contextMenuCoordinates, setContextMenuCoordinates] = useState<LngLat>(
+    new LngLat(0, 0)
+  );
+
+  const [isMarking, setIsMarking] = useState(false);
 
   const coordinatesProviderValue = useMemo(
     () => ({
@@ -15,9 +23,19 @@ function useCoordinatesProvider() {
       endCoordinates,
       setEndCoordinates,
       userCoordinates,
-      setUserCoordinates
+      setUserCoordinates,
+      isMarking,
+      setIsMarking,
+      contextMenuCoordinates,
+      setContextMenuCoordinates
     }),
-    [startCoordinates, endCoordinates, userCoordinates]
+    [
+      startCoordinates,
+      endCoordinates,
+      userCoordinates,
+      isMarking,
+      contextMenuCoordinates
+    ]
   );
 
   return coordinatesProviderValue;

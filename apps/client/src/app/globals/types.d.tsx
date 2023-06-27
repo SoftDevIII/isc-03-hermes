@@ -130,6 +130,8 @@ declare global {
     }: UpdateCoordinatesProps) => void;
     isMarking: boolean;
     setIsMarking: Dispatch<SetStateAction<boolean>>;
+    contextMenuCoordinates: LngLat;
+    setContextMenuCoordinates: Dispatch<SetStateAction<LngLat>>;
   }
 
   interface MarkersProviderProps {

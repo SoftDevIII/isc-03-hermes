@@ -5,8 +5,12 @@ const CoordinatesContext = createContext<CoordinatesContextValue>({
   setStartCoordinates: () => {},
   endCoordinates: null,
   setEndCoordinates: () => {},
-  userCoordinates: null,
-  setUserCoordinates: () => {}
+  userCoordinates: new LngLat(0, 0),
+  setUserCoordinates: () => {},
+  isMarking: false,
+  setIsMarking: () => {},
+  contextMenuCoordinates: new LngLat(0, 0),
+  setContextMenuCoordinates: () => {}
 });
 
 export default CoordinatesContext;
