@@ -1,13 +1,20 @@
 import SearchIcon from '@mui/icons-material/Search';
+import { ChangeEvent } from 'react';
 import useMap from '../../contexts/map/MapState';
 import Menu from './components/menu/Menu';
+import useSearch from './hooks/useSearch';
 
 function SearchBar() {
   const { isLoading } = useMap();
+  const { search, results } = useSearch();
 
   if (isLoading) {
     return <div />;
   }
+
+  const onQueryChange = (event: ChangeEvent<HTMLInputElement>) => {
+    search(event.target.value);
+  };
 
   return (
     <div className='grid absolute w-full py-4 z-10'>
@@ -17,8 +24,12 @@ function SearchBar() {
       >
         <div className='text-[25px] md:text-[30px] grid h-full place-items-center'>
           <SearchIcon className='text-white' fontSize='inherit' />
+          <input
+            type='text'
+            placeholder='Search place'
+            onChange={onQueryChange}
+          />
         </div>
-        <h1 className='text-lg text-white/50 font-roboto'>Search</h1>
         <Menu />
       </div>
     </div>
