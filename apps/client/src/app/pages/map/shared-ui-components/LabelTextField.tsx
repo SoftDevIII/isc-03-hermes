@@ -1,7 +1,9 @@
 import TextField from './Textfile';
 
 function LabelTextField({
-  classNameTF,
+  classNameTFI,
+  classNameTFD,
+  classNameDiv,
   type,
   required,
   placeholder,
@@ -11,13 +13,14 @@ function LabelTextField({
   id
 }: LabelTextFieldProps) {
   return (
-    <div>
+    <div className={classNameDiv}>
       <h1 className={classNameL}>{children}</h1>
       <TextField
         type={type}
         required={required}
         placeholder={placeholder}
-        className={classNameTF}
+        classNameDiv={classNameTFD}
+        classNameInput={classNameTFI}
         onInput={onInput}
         id={id}
       />
