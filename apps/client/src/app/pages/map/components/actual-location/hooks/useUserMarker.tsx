@@ -13,7 +13,7 @@ function useUserMarker({ marker, setMarker, setIsMarked }: UseUserMarkerProps) {
     }
 
     const newMarker = new Marker().setLngLat(coordinates);
-    newMarker.getElement().innerHTML = `<div><div class='user-marker'></div><div class='user-shadow'></div></div>`;
+    // newMarker.getElement().innerHTML = `<div><div class='user-marker'></div><div class='user-shadow'></div></div>`;
     newMarker.addTo(map.current);
     setMarker(newMarker);
   };
