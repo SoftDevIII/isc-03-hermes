@@ -1,15 +1,13 @@
-import Section1 from './sections/Section1';
-import Section2 from './sections/Section2';
-import Section3 from './sections/Section3';
+import AboutSection from '@home-sections/AboutSection';
+import FunctionsSection from '@home-sections/FunctionsSection';
+import HomeSection from '@home-sections/HomeSection';
 
 function HomePage() {
   return (
-    <div className='h-screen grid'>
-      <div>
-        <Section1 />
-        <Section2 />
-        <Section3 />
-      </div>
+    <div className='w-full grid'>
+      <HomeSection />
+      <AboutSection />
+      <FunctionsSection />
     </div>
   );
 }

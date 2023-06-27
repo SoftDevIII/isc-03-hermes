@@ -54,6 +54,12 @@
       "@map-styles/*": [
         "src/app/pages/map/styles/*"
       ],
+      "@home-assets/*": [
+        "src/app/pages/home/assets/*"
+      ],
+      "@home-sections/*": [
+        "src/app/pages/home/sections/*"
+      ]
     }
   },
   "types": [
