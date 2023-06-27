@@ -448,7 +448,9 @@ declare global {
     ref?: string;
     content: string;
   interface LabelTextFieldProps {
-    classNameTF?: string;
+    classNameTFI?: string;
+    classNameTFD?: string;
+    classNameDiv?: string;
     type: string;
     required?: boolean;
     placeholder?: string;
