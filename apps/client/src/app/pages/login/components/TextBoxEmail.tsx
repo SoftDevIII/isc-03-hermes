@@ -1,5 +1,5 @@
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import TextField from '../shared-ui-components/Textfile';
+import TextField from '../../map/shared-ui-components/Textfile';
 
 function TextBoxEmail({ id, ref }: TextBoxProps) {
   return (
