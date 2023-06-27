@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import useCoordinates from '../../../contexts/coordinates/CoordinatesState';
+import { INIT_LAT, INIT_LONG } from '../../../utils/constants';
 import searchAPI from '../apis/searchApi';
 import { PlacesResponse } from '../interfaces/places';
 import useDebounce from './useDebounce';
@@ -12,19 +13,26 @@ function useSearch() {
   const debouncedQuery = useDebounce(query, 5000);
 
   useEffect(() => {
+    if (query.length === 0) {
+      setResults([]); // clear results when query is empty
+    }
+  }, [query]);
+
+  useEffect(() => {
     if (debouncedQuery.length === 0) {
       setResults([]); // clear results when query is empty
-    } else if (userCoordinates) {
+    } else {
       setIsLoading(true);
       searchAPI
         .get<PlacesResponse>(`/${debouncedQuery}.json`, {
           params: {
-            proximity: `${userCoordinates.lng},${userCoordinates.lat}`
+            proximity: `${userCoordinates ? userCoordinates.lng : INIT_LONG},${
+              userCoordinates ? userCoordinates.lat : INIT_LAT
+            }`
           }
         })
         .then(({ data }) => {
           const five = data.features.slice(0, 5);
-          console.log(five);
           setResults(five);
           setIsLoading(false);
         })
