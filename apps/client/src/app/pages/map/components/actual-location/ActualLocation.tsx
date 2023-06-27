@@ -1,6 +1,7 @@
 import useMap from '@map-contexts/map/MapState';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { Alert, AlertColor, CircularProgress, Snackbar } from '@mui/material';
+import { Marker } from 'mapbox-gl';
 import { useEffect, useState } from 'react';
 import ActualLocationButton from './components/ActualLocationButton';
 import useLocation from './hooks/useLocation';
@@ -13,10 +14,13 @@ function ActualLocation() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [snackbarSeverity, setSnackbarSeverity] = useState('');
+  const [marker, setMarker] = useState<Marker>(new Marker());
   const [isMarked, setIsMarked] = useState(false);
 
   const { createUserMarker, removeUserMarker, updateCoordinates } =
     useUserMarker({
+      marker,
+      setMarker,
       setIsMarked
     });
   const { isFetching, fetchUserLocation, getPermissions, removeLocation } =
@@ -65,13 +69,11 @@ function ActualLocation() {
           onClick={() => handleFetchLocation()}
           disabled={isDisabled || isFetching}
         >
-          <div className='sm:w-10 sm:h-10 sm:text-[24px] grid place-items-center'>
-            {isFetching ? (
-              <CircularProgress size={24} color='inherit' />
-            ) : (
-              <MyLocationIcon color={isMarked ? 'primary' : 'inherit'} />
-            )}
-          </div>
+          {isFetching ? (
+            <CircularProgress size={24} color='inherit' />
+          ) : (
+            <MyLocationIcon color={isMarked ? 'primary' : 'inherit'} />
+          )}
         </ActualLocationButton>
       </span>
       <Snackbar
@@ -83,7 +85,6 @@ function ActualLocation() {
         <Alert
           onClose={() => setSnackbarOpen(false)}
           severity={snackbarSeverity as AlertColor}
-          style={{ backgroundColor: '#14171b', color: 'white', opacity: 0.9 }}
         >
           {snackbarMessage}
         </Alert>

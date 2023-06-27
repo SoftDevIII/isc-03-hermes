@@ -1,5 +1,5 @@
-import StatusMessage from '@enums/LocationStatus';
-import Status from '@enums/Status';
+import StatusMessage from '../enums/LocationStatus';
+import Status from '../enums/Status';
 
 const grantPermission = ({
   setSnackbarMessage,
