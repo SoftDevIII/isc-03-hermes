@@ -6,7 +6,7 @@ interface SearchResultsProps {
 
 function SearchResults({ results }: SearchResultsProps) {
   return (
-    <ul className='absolute w-5/6 md:w-4/6 bg-white rounded-2xl overflow-hidden'>
+    <ul className='flex-row w-5/6 md:w-4/6 bg-white rounded-2xl overflow-hidden '>
       {results.map(result => (
         <li key={result.id} className='border-b p-4'>
           <h6 className='font-bold'> {result.text_es} </h6>
