@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { LngLat, Map as MapBox } from 'mapbox-gl';
 import {
   Dispatch,
@@ -9,6 +10,9 @@ import {
 } from 'react';
 =======
 import { LngLat, Map as MapBox, Marker } from 'mapbox-gl';
+=======
+import { LngLat, Map as MapBox } from 'mapbox-gl';
+>>>>>>> refactor: change to use Ref
 import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
 >>>>>>> refactor: improve use location component
 
@@ -298,8 +302,6 @@ declare global {
   }
 
   interface UseUserMarkerProps {
-    marker: Marker;
-    setMarker: Dispatch<SetStateAction<Marker>>;
     setIsMarked: Dispatch<SetStateAction<boolean>>;
   }
 
