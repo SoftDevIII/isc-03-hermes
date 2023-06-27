@@ -1,18 +1,30 @@
 function TextField({
-  className,
+  classNameDiv,
+  classNameInput,
   type,
   required,
   onInput,
+<<<<<<< HEAD
   placeholder
+=======
+  placeholder,
+  id,
+  ref
+>>>>>>> 525d4bc (fix: solution to comment problems)
 }: TextFieldProps) {
   return (
-    <div className={className}>
+    <div className={classNameDiv}>
       <input
         type={type}
         required={required}
-        className={className}
+        className={classNameInput}
         onInput={onInput}
         placeholder={placeholder}
+<<<<<<< HEAD
+=======
+        id={id}
+        ref={ref}
+>>>>>>> 525d4bc (fix: solution to comment problems)
       />
     </div>
   );

@@ -1,5 +1,9 @@
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+<<<<<<< HEAD
 import TextField from '../shared-ui-components/Textfile';
+=======
+import TextField from '../../map/shared-ui-components/Textfile';
+>>>>>>> 525d4bc (fix: solution to comment problems)
 
 function TextBoxPassword({ id, ref }: TextBoxProps) {
   return (

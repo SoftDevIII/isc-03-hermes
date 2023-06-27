@@ -424,7 +424,8 @@ declare global {
   }
 
   interface TextFieldProps {
-    className?: string;
+    classNameDiv?: string;
+    classNameInput?: string;
     type: string;
     required?: boolean;
     placeholder?: string;
