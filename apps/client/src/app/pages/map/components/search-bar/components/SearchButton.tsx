@@ -1,5 +1,5 @@
+import Button from '@map-shared-components/Button';
 import SearchIcon from '@mui/icons-material/Search';
-import Button from './Button';
 
 function SearchButton({ onClick, className }: SearchButtonProps) {
   return (

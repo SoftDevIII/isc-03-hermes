@@ -315,4 +315,28 @@ declare global {
     onClick: () => void;
     className: string;
   }
+
+  interface UseSearchInputProps {
+    data: string[];
+    setFilterData: Dispatch<SetStateAction<string[]>>;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    isOpen: boolean;
+  }
+
+  interface SearchInputProps {
+    data: string[];
+  }
+
+  interface SearchDataProps {
+    filterData: string[];
+  }
+
+  interface UseSearchRefProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface AutoCompleteButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+  }
 }

@@ -6,7 +6,7 @@ import Zoom from '@map-components/zoom/Zoom';
 import CoordinatesProvider from '@map-contexts/coordinates/CoordinatesProvider';
 import MapProvider from '@map-contexts/map/MapProvider';
 
-const array = ['hello1', 'hello2', 'hello3'];
+const array = ['hello1', 'hello2', 'hello3', 'hello12', 'hello13'];
 
 function MapPage() {
   return (
@@ -14,7 +14,7 @@ function MapPage() {
       <CoordinatesProvider>
         <div className='h-screen grid'>
           <MapComponent />
-          <SearchBar />
+          <SearchBar data={array} />
           <MarkerMenu />
           <ActualLocation />
           <Zoom />
