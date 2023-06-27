@@ -1,7 +1,6 @@
 import useMap from '@map-contexts/map/MapState';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { Alert, AlertColor, CircularProgress, Snackbar } from '@mui/material';
-import { Marker } from 'mapbox-gl';
 import { useEffect, useState } from 'react';
 import ActualLocationButton from './components/ActualLocationButton';
 import useLocation from './hooks/useLocation';
@@ -14,13 +13,10 @@ function ActualLocation() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [snackbarSeverity, setSnackbarSeverity] = useState('');
-  const [marker, setMarker] = useState<Marker>(new Marker());
   const [isMarked, setIsMarked] = useState(false);
 
   const { createUserMarker, removeUserMarker, updateCoordinates } =
     useUserMarker({
-      marker,
-      setMarker,
       setIsMarked
     });
   const { isFetching, fetchUserLocation, getPermissions, removeLocation } =

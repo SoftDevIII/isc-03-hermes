@@ -527,8 +527,6 @@ declare global {
   }
 
   interface UseUserMarkerProps {
-    marker: Marker;
-    setMarker: Dispatch<SetStateAction<Marker>>;
     setIsMarked: Dispatch<SetStateAction<boolean>>;
   }
 
