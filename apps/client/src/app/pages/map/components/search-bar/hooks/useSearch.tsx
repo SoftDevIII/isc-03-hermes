@@ -10,7 +10,7 @@ function useSearch() {
   const [query, setQuery] = useState('');
   const { userCoordinates } = useCoordinates();
   const [isLoading, setIsLoading] = useState(false);
-  const debouncedQuery = useDebounce(query, 5000);
+  const debouncedQuery = useDebounce(query, 0);
 
   useEffect(() => {
     if (query.length === 0) {
