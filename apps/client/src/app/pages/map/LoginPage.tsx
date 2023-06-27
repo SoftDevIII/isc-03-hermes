@@ -14,14 +14,11 @@ function LoginPage() {
     email: string,
     password: string
   ): Promise<void> => {
-    let postRequest: AxiosResponse;
-    try {
-      postRequest = await axios.post('/api/customer', { email, password });
-      setIsCredentialValid(Boolean(postRequest.data));
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('POST request failed:', error);
-    }
+    const postRequest: AxiosResponse<any, any> = await axios.post(
+      '/api/customer',
+      { email, password }
+    );
+    setIsCredentialValid(Boolean(postRequest.data));
   };
   useEffect(() => {
     if (isCredentialValid) {
@@ -48,8 +45,7 @@ function LoginPage() {
             const userData = handleLogin('emailRef', 'passwordRef');
             userCredentialHandle(userData.email, userData.password).catch(
               error => {
-                // eslint-disable-next-line no-console
-                console.error('POST request failed:', error);
+                throw error;
               }
             );
             setIsCredentialError(isCredentialValid);
