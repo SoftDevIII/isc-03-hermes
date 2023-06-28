@@ -17,7 +17,7 @@ function useSearchInput({
   const ref: RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
 
   const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value.trim();
+    const { value } = event.target;
     setSearch(value);
 
     if (value === '') {
