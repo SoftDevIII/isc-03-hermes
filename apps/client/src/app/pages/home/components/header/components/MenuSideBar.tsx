@@ -1,4 +1,4 @@
-import ReferenceButton from '@/app/pages/home/components/header/components/ReferenceButton';
+import ReferenceButton from '@header-components/ReferenceButton';
 import MenuBar from '@home-assets/menu-bar.png';
 import { useState } from 'react';
 
