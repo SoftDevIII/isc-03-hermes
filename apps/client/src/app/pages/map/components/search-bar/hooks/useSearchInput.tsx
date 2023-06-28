@@ -1,6 +1,10 @@
 import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
 import { ChangeEvent, RefObject, useRef, useState } from 'react';
-import fetchMapBoxPlaces from '../services/SearchBarService';
+import {
+  convertCoordinatesToFeat,
+  convertRegexToCoordinates,
+  fetchMapBoxPlaces
+} from '../services/SearchBarService';
 
 function useSearchInput({
   setFilterData,
@@ -13,15 +17,27 @@ function useSearchInput({
   const ref: RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
 
   const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
+    const value = event.target.value.trim();
     setSearch(value);
 
-    if (value.trim() === '') {
+    if (value === '') {
       setFilterData([]);
       return;
     }
 
     if (!isOpen) setIsOpen(true);
+
+    const coordinatesSearch = convertRegexToCoordinates({
+      coordinates: value
+    });
+
+    if (coordinatesSearch) {
+      const newFeat = convertCoordinatesToFeat({
+        coordinates: coordinatesSearch
+      });
+      setFilterData([newFeat]);
+      return;
+    }
 
     fetchMapBoxPlaces({
       query: value,
