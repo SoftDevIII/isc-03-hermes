@@ -1,6 +1,6 @@
-import AboutSection from '@home-components/sections/AboutSection';
-import FunctionsSection from '@home-components/sections/FunctionsSection';
-import HomeSection from '@home-components/sections/HomeSection';
+import AboutSection from '@home-sections/AboutSection';
+import FunctionsSection from '@home-sections/FunctionsSection';
+import HomeSection from '@home-sections/HomeSection';
 
 function HomePage() {
   return (
