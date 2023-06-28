@@ -1,7 +1,7 @@
-import IsLoggedInView from '@header-components/IsLoggedInVIew';
-import IsNotLoggedInView from '@header-components/IsNotLoggedInView';
-import MenuSideBar from '@header-components/MenuSideBar';
-import ReferenceButton from '@header-components/ReferenceButton';
+import IsLoggedInView from './components/IsLoggedInVIew';
+import IsNotLoggedInView from './components/IsNotLoggedInView';
+import MenuSideBar from './components/MenuSideBar';
+import ReferenceButton from './components/ReferenceButton';
 
 function Header({ isLoggedIn, username = 'Guest' }: HeaderProps) {
   return (

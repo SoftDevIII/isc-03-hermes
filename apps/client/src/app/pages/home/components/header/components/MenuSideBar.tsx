@@ -1,6 +1,6 @@
-import ReferenceButton from '@header-components/ReferenceButton';
 import MenuBar from '@home-assets/menu-bar.png';
 import { useState } from 'react';
+import ReferenceButton from './ReferenceButton';
 
 function MenuSideBar() {
   const [isOpen, setIsOpen] = useState(false);
