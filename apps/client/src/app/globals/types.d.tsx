@@ -18,7 +18,6 @@ declare global {
     map: MapRef['map'];
     container: MapRef['container'];
     actualZoom: number;
-    isLoading: boolean;
   }
 
   interface MapProviderProps {
@@ -31,11 +30,6 @@ declare global {
 
   interface ConfigureMapProps {
     current: MapType['map'];
-  }
-
-  interface ConfigureMapLoading {
-    current: MapType['map'];
-    setIsLoading: Dispatch<SetStateAction<boolean>>;
   }
 
   interface ButtonProps {

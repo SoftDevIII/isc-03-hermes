@@ -1,16 +1,19 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/home/HomePage';
+import CoordinatesProvider from '@map-contexts/coordinates/CoordinatesProvider';
+import MapProvider from '@map-contexts/map/MapProvider';
+import { Route, Routes } from 'react-router-dom';
 import MapPage from './pages/map/MapPage';
 import NotFound from './pages/not-found/NotFound';
 
 function App() {
   return (
-    <Routes>
-      <Route path='/map' element={<MapPage />} />
-      <Route path='/' element={<Navigate to='/map' />} />
-      <Route path='*' element={<NotFound />} />
-      <Route path='/home' element={<HomePage />} />
-    </Routes>
+    <MapProvider>
+      <CoordinatesProvider>
+        <Routes>
+          <Route path='/map' element={<MapPage />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </CoordinatesProvider>
+    </MapProvider>
   );
 }
 

@@ -6,17 +6,11 @@ import MarkerButton from './components/MarkerButton';
 import MarkerDropDownMenu from './components/MarkerDropDownMenu';
 import MarkerMenuList from './components/MarkerMenuList';
 import useMarkerActions from './hooks/useMarkerActions';
-import useMap from '../../contexts/map/MapState';
 
 function MarkerMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const { handleActionSelected } = useMarkerActions();
   const { isMarking } = useCoordinates();
-  const { isLoading } = useMap();
-
-  if (isLoading) {
-    return <div />;
-  }
 
   return (
     <MarkerDropDownMenu

@@ -36,18 +36,4 @@ const configureZoomPercentage = ({
   });
 };
 
-const configureMapLoading = ({
-  current,
-  setIsLoading
-}: ConfigureMapLoading) => {
-  current.on('load', () => {
-    setIsLoading(false);
-  });
-};
-
-export {
-  configureMap,
-  configureMapLoading,
-  configureZoomPercentage,
-  createMap
-};
+export { configureMap, configureZoomPercentage, createMap };
