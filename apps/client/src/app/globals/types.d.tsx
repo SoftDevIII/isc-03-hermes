@@ -462,6 +462,8 @@ declare global {
   interface ReferenceButtonProps {
     ref?: string;
     content: string;
+  }
+
   interface LabelTextFieldProps {
     classNameTFI?: string;
     classNameTFD?: string;
