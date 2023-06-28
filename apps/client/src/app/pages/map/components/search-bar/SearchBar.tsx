@@ -1,5 +1,6 @@
-import SearchIcon from '@mui/icons-material/Search';
+import '@map-styles/scroll-bar.css';
 import useMap from '../../contexts/map/MapState';
+import SearchInput from './components/SearchInput';
 import Menu from './components/menu/Menu';
 
 function SearchBar() {
@@ -12,16 +13,14 @@ function SearchBar() {
   return (
     <div className='grid absolute w-full py-4 z-10'>
       <div
-        className='flex bg-black/50 py-2 md:py-3 px-4 w-5/6 md:w-4/6 rounded-2xl
-      justify-between place-items-center m-auto'
+        className='flex bg-black/50 py-[5px] md:py-3 px-4 w-5/6 md:w-8/12 rounded-2xl
+          m-auto gap-4 justify-between landscape:sm:py-[5px] portrait:md:py-[5px]'
       >
-        <div className='text-[25px] md:text-[30px] grid h-full place-items-center'>
-          <SearchIcon className='text-white' fontSize='inherit' />
-        </div>
-        <h1 className='text-lg text-white/50 font-roboto'>Search</h1>
+        <SearchInput />
         <Menu />
       </div>
     </div>
   );
 }
+
 export default SearchBar;

@@ -1,7 +1,7 @@
+import useMap from '@map-contexts/map/MapState';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { Alert, AlertColor, CircularProgress, Snackbar } from '@mui/material';
 import { useEffect, useState } from 'react';
-import useMap from '../../contexts/map/MapState';
 import ActualLocationButton from './components/ActualLocationButton';
 import useLocation from './hooks/useLocation';
 import useUserMarker from './hooks/useUserMarker';
@@ -59,17 +59,19 @@ function ActualLocation() {
   }
 
   return (
-    <div className='absolute right-6 bottom-40 rounded-full md:right-8 md:bottom-44'>
+    <div className='absolute left-6 bottom-4 rounded-full md:left-8 md:bottom-8'>
       <span>
         <ActualLocationButton
           onClick={() => handleFetchLocation()}
           disabled={isDisabled || isFetching}
         >
-          {isFetching ? (
-            <CircularProgress size={24} color='inherit' />
-          ) : (
-            <MyLocationIcon color={isMarked ? 'primary' : 'inherit'} />
-          )}
+          <div className='sm:w-10 sm:h-10 sm:text-[24px]'>
+            {isFetching ? (
+              <CircularProgress size={24} color='inherit' />
+            ) : (
+              <MyLocationIcon color={isMarked ? 'primary' : 'inherit'} />
+            )}
+          </div>
         </ActualLocationButton>
       </span>
       <Snackbar

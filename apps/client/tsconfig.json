@@ -39,9 +39,6 @@
       "@map-contexts/*": [
         "src/app/pages/map/contexts/*"
       ],
-      "@map-utils/*": [
-        "src/app/pages/map/utils/*"
-      ],
       "@map-shared-components/*": [
         "src/app/pages/map/shared-ui-components/*"
       ],
@@ -53,6 +50,15 @@
       ],
       "@map-styles/*": [
         "src/app/pages/map/styles/*"
+      ],
+      "@enums/*": [
+        "src/app/enums/*"
+      ],
+      "@api/*": [
+        "src/app/api/*"
+      ],
+      "@utils/*": [
+        "src/app/utils/*"
       ],
     }
   },

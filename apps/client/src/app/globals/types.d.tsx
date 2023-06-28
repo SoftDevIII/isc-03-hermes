@@ -1,3 +1,6 @@
+import Language from '@enums/Language';
+import ShortCode from '@enums/ShortCode';
+import Wikidata from '@enums/Wikidata';
 import { LngLat, Map as MapBox } from 'mapbox-gl';
 import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
 
@@ -304,5 +307,108 @@ declare global {
     setSnackbarMessage: Dispatch<SetStateAction<string>>;
     setSnackbarSeverity: Dispatch<SetStateAction<string>>;
     setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface SearchButtonProps {
+    onClick: () => void;
+    className: string;
+  }
+
+  interface CloseButtonProps {
+    onClick: () => void;
+    className: string;
+  }
+
+  interface UseSearchInputProps {
+    setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    isOpen: boolean;
+  }
+
+  interface SearchDataProps {
+    filterData: (Feature | Coordinates)[];
+  }
+
+  interface UseSearchRefProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface AutoCompleteButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+  }
+
+  interface PlacesResponse {
+    type: string;
+    query: string[];
+    features: Feature[];
+    attribution: string;
+  }
+
+  interface Feature {
+    id: string;
+    type: string;
+    place_type: string[];
+    relevance: number;
+    properties: Properties;
+    text_es: string;
+    place_name_es: string;
+    text: string;
+    place_name: string;
+    bbox?: number[];
+    center: number[];
+    geometry: Geometry;
+    context: Context[];
+  }
+
+  interface Coordinates {
+    id: string;
+    place_name_es: string;
+    geometry: Geometry;
+  }
+
+  interface Context {
+    id: string;
+    wikidata?: Wikidata;
+    short_code?: ShortCode;
+    text_es: string;
+    language_es?: Language;
+    text: string;
+    language?: Language;
+  }
+
+  interface Geometry {
+    type: string;
+    coordinates: number[];
+  }
+
+  interface Properties {
+    foursquare?: string;
+    landmark?: boolean;
+    category?: string;
+    maki?: string;
+    address?: string;
+  }
+
+  interface FetchMapBoxPlacesProps {
+    query: string;
+    coordinates: LngLat;
+    setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
+  }
+
+  interface FetchMapBoxPlacesResponse {
+    response: PlacesResponse;
+  }
+
+  interface CoordinatesRegexProps {
+    coordinates: string;
+  }
+
+  interface ConvertRegexToCoordinatesProps {
+    coordinates: string;
+  }
+
+  interface ConvertCoordinatesToFeatProps {
+    coordinates: LngLat;
   }
 }
