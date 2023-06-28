@@ -1,5 +1,5 @@
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import Button from '../map/shared-ui-components/Button';
+import Button from '@map-shared-components/Button';
 import TextBoxEmail from './components/TextBoxEmail';
 import TextBoxPassword from './components/TextBoxPassword';
 import handleLogin from './service/handleLogin';
