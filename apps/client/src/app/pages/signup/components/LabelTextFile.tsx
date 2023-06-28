@@ -1,4 +1,4 @@
-import TextField from './Textfile';
+import TextField from '../../login/shared-ui-components/Textfile';
 
 function LabelTextField({
   classNameTFI,
