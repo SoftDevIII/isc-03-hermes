@@ -3,7 +3,7 @@ import useMap from '../../contexts/map/MapState';
 import SearchInput from './components/SearchInput';
 import Menu from './components/menu/Menu';
 
-function SearchBar({ data }: { data: string[] }) {
+function SearchBar() {
   const { isLoading } = useMap();
 
   if (isLoading) {
@@ -16,7 +16,7 @@ function SearchBar({ data }: { data: string[] }) {
         className='flex bg-black/50 py-[5px] md:py-3 px-4 w-5/6 md:w-8/12 rounded-2xl
           m-auto gap-4 justify-between landscape:sm:py-[5px] portrait:md:py-[5px]'
       >
-        <SearchInput data={data} />
+        <SearchInput />
         <Menu />
       </div>
     </div>

@@ -1,3 +1,6 @@
+import Language from '@enums/Language';
+import ShortCode from '@enums/ShortCode';
+import Wikidata from '@enums/Wikidata';
 import { LngLat, Map as MapBox } from 'mapbox-gl';
 import { Dispatch, ReactNode, RefObject, SetStateAction } from 'react';
 
@@ -317,18 +320,13 @@ declare global {
   }
 
   interface UseSearchInputProps {
-    data: string[];
-    setFilterData: Dispatch<SetStateAction<string[]>>;
+    setFilterData: Dispatch<SetStateAction<Feature[]>>;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     isOpen: boolean;
   }
 
-  interface SearchInputProps {
-    data: string[];
-  }
-
   interface SearchDataProps {
-    filterData: string[];
+    filterData: Feature[];
   }
 
   interface UseSearchRefProps {
@@ -338,5 +336,61 @@ declare global {
   interface AutoCompleteButtonProps {
     children: ReactNode;
     onClick: () => void;
+  }
+
+  interface PlacesResponse {
+    type: string;
+    query: string[];
+    features: Feature[];
+    attribution: string;
+  }
+
+  interface Feature {
+    id: string;
+    type: string;
+    place_type: string[];
+    relevance: number;
+    properties: Properties;
+    text_es: string;
+    place_name_es: string;
+    text: string;
+    place_name: string;
+    bbox?: number[];
+    center: number[];
+    geometry: Geometry;
+    context: Context[];
+  }
+
+  interface Context {
+    id: string;
+    wikidata?: Wikidata;
+    short_code?: ShortCode;
+    text_es: string;
+    language_es?: Language;
+    text: string;
+    language?: Language;
+  }
+
+  interface Geometry {
+    type: string;
+    coordinates: number[];
+  }
+
+  interface Properties {
+    foursquare?: string;
+    landmark?: boolean;
+    category?: string;
+    maki?: string;
+    address?: string;
+  }
+
+  interface FetchMapBoxPlacesProps {
+    query: string;
+    coordinates: LngLat;
+    setFilterData: Dispatch<SetStateAction<Feature[]>>;
+  }
+
+  interface FetchMapBoxPlacesResponse {
+    response: PlacesResponse;
   }
 }

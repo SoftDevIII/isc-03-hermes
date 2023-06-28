@@ -5,12 +5,11 @@ import CloseButton from './CloseButton';
 import SearchButton from './SearchButton';
 import SearchData from './SearchData';
 
-function SearchInput({ data }: SearchInputProps) {
-  const [filterData, setFilterData] = useState<string[]>([]);
+function SearchInput() {
+  const [filterData, setFilterData] = useState<Feature[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
   const { search, onInputChange, ref, clearInput } = useSearchInput({
-    data,
     setFilterData,
     setIsOpen,
     isOpen

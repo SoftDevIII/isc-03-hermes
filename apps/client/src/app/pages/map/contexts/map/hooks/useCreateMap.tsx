@@ -1,4 +1,4 @@
-import { INIT_ZOOM_PERCENTAGE } from '@map-utils/constants';
+import { INIT_ZOOM_PERCENTAGE } from '@utils/constants';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useEffect, useRef, useState } from 'react';
 import {
