@@ -1,73 +1,47 @@
 import Button from '../map/shared-ui-components/Button';
-import LabelTextField from './components/LabelTextFile';
+import SignUpInput from './components/SignUpInput';
 import handleSignUp from './service/HandleSignUp';
 
 function SignUpPage() {
   return (
     <form className='bg-[#194569] min-h-screen w-screen flex flex-col justify-center items-center '>
       <div className='text-left w-full'>
-        <h1 className='text-left text-white px-3 text-2xl'>
+        <h1 className='text-left text-white px-16 text-2xl'>
           Personal information
         </h1>
       </div>
       <div className='w-1/2'>
         <div className='flex w-full items-center flex-wrap justify-between'>
-          <LabelTextField
-            type='string'
-            classNameTFI='rounded w-full'
-            classNameTFD=''
-            classNameDiv='w-full md:w-1/2'
-            classNameL='text-white'
-            required
-            id='fName'
-          >
+          <SignUpInput type='string' classNameDiv='w-full md:w-1/2' id='fName'>
             First Name
-          </LabelTextField>
-          <LabelTextField
+          </SignUpInput>
+
+          <SignUpInput
             type='string'
-            classNameTFI='rounded w-full'
-            classNameTFD='w-full'
             classNameDiv='w-full md:w-1/2 md:pl-3'
-            classNameL='text-white'
-            required
             id='lName'
           >
             Last Name
-          </LabelTextField>
+          </SignUpInput>
         </div>
-        <LabelTextField
-          type='string'
-          classNameTFI='rounded w-full'
-          classNameTFD='w-full'
-          classNameL='text-white'
-          required
-          id='email'
-        >
+        <SignUpInput type='string' id='email'>
           Email
-        </LabelTextField>
+        </SignUpInput>
         <div className='flex w-full flex-col md:flex-row justify-between'>
-          <LabelTextField
-            type='date'
-            classNameTFI='rounded w-full'
-            classNameTFD='w-full'
-            classNameL='text-white'
+          <SignUpInput
             classNameDiv='w-full md:w-1/2'
-            required
+            type='date'
             id='birthdate'
           >
             Birthdate
-          </LabelTextField>
-          <LabelTextField
+          </SignUpInput>
+          <SignUpInput
             type='string'
-            classNameTFI='rounded w-full'
-            classNameTFD='w-full'
-            classNameL='text-white'
-            classNameDiv='w-full md:w-1/2 md:pl-3'
-            required
             id='country'
+            classNameDiv='w-full md:w-1/2 md:pl-3'
           >
             Country
-          </LabelTextField>
+          </SignUpInput>
         </div>
       </div>
       <div className='text-left w-full'>
@@ -75,37 +49,15 @@ function SignUpPage() {
       </div>
       <div className='space-y-6 w-1/2 items-center'>
         <div className='w-full md:w-1/2 '>
-          <LabelTextField
-            type='string'
-            classNameTFI='rounded w-full'
-            classNameTFD='w-full'
-            classNameL='text-white'
-            required
-            id='userName'
-          >
+          <SignUpInput id='userName' type='string'>
             User name
-          </LabelTextField>
-          <LabelTextField
-            type='Password'
-            classNameTFI='rounded w-full'
-            classNameTFD='w-full'
-            classNameL='text-white'
-            required
-            id='password'
-          >
+          </SignUpInput>
+          <SignUpInput id='password' type='Password'>
             Password
-          </LabelTextField>
-          <LabelTextField
-            type='Password'
-            classNameTFI='rounded w-full'
-            classNameTFD='w-full'
-            classNameDiv='w-full'
-            classNameL='text-white'
-            required
-            id='confPassword'
-          >
+          </SignUpInput>
+          <SignUpInput id='confPassword' type='Password' classNameDiv='w-full'>
             Confirm Password
-          </LabelTextField>
+          </SignUpInput>
         </div>
       </div>
       <div className='w-1/2 p-5'>
