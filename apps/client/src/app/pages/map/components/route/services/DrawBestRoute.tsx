@@ -31,7 +31,7 @@ const drawBestRoute = (map: mapboxgl.Map, routeData: { route: any[] }) => {
   });
 
   const bounds = coordinates.reduce((bounds: LngLatBounds, coord: number[]) => {
-    return bounds.extend(coord);
+    return bounds.extend(coord);i
   }, new LngLatBounds(coordinates[0], coordinates[0]));
   map.fitBounds(bounds, { padding: 50 });
 };
