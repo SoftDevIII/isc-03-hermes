@@ -434,4 +434,18 @@ declare global {
     id?: string;
     ref?: RefObject<HTMLInputElement>;
   }
+
+  interface HeaderProps {
+    isLoggedIn: boolean;
+    username?: string;
+  }
+
+  interface IsLoggedInViewProps {
+    username?: string;
+  }
+
+  interface ReferenceButtonProps {
+    ref?: string;
+    content: string;
+  }
 }
