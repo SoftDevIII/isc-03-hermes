@@ -452,4 +452,9 @@ declare global {
   interface FooterProps {
     oneClick: () => void;
   }
+
+  interface SocialButtonProps {
+    icon: string;
+    onClick: () => void;
+  }
 }
