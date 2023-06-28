@@ -60,14 +60,18 @@ function HomeSection() {
             id='f1'
             className='h-1/3 md:h-1/2 lg:h-5/6 sm:w-full md:w-1/2 lg:w-1/4 pl-4 flex flex-row items-center justify-center'
           >
-            <img src={ubi} alt='ubi' className='h-4/6 mr-3' />
+            <img src={ubi} alt='ubi' className='h-3/6 lg:h-4/6 mr-3' />
             <p className='w-2/3 '>Explore the world at your fingertips</p>
           </div>
           <div
             id='f2'
             className='h-1/3 md:h-1/2 lg:h-5/6 sm:w-full md:w-1/2 lg:w-1/4 pl-4 flex flex-row items-center justify-center'
           >
-            <img src={coverage} alt='coverage' className='h-4/6 mr-3' />
+            <img
+              src={coverage}
+              alt='coverage'
+              className='h-3/6 lg:h-4/6 mr-3'
+            />
             <p className='w-2/3'>
               Extensive coverage of maps and points of interest
             </p>
@@ -76,7 +80,7 @@ function HomeSection() {
             id='f3'
             className='h-1/3 md:h-1/2 lg:h-5/6 sm:w-full md:w-1/2 lg:w-1/4 pl-4 flex flex-row items-center justify-center'
           >
-            <img src={mas} alt='more' className='h-4/6 mr-3' />
+            <img src={mas} alt='more' className='h-3/6 lg:h-4/6 mr-3' />
             <p className='w-2/3'>Additional features and customization</p>
           </div>
         </div>
