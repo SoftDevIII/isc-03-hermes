@@ -465,6 +465,6 @@ declare global {
   }
 
   interface FooterProps {
-    handleClick: () => void;
+    oneClick: () => void;
   }
 }
