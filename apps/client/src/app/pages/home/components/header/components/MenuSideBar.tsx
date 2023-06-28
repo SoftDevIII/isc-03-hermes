@@ -1,5 +1,5 @@
+import ReferenceButton from '@/app/pages/home/components/header/components/ReferenceButton';
 import MenuBar from '@home-assets/menu-bar.png';
-import ReferenceButton from '@home-components/ReferenceButton';
 import { useState } from 'react';
 
 function MenuSideBar() {
@@ -16,7 +16,7 @@ function MenuSideBar() {
       </button>
       <div
         className={` ${
-          isOpen ? 'translate-x-0' : 'hidden'
+          isOpen ? 'translate-x-2' : 'hidden'
         } sm:text-base text-sm`}
       >
         <div className='flex flex-col p-1'>

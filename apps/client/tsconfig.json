@@ -69,6 +69,9 @@
       "@home-components/*":[
         "src/app/pages/home/header/components/*"
       ],
+      "@header-components/*":[
+        "src/app/pages/home/components/header/components/*"
+      ],
     }
   },
   "types": [
