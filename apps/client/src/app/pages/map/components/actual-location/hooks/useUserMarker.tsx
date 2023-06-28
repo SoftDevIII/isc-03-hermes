@@ -1,20 +1,45 @@
-import userMarker from '@map-assets/start-marker.png';
 import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
-import useMarker from '@map-hooks/useMarker';
+import useMap from '@map-contexts/map/MapState';
+import '@map-styles/marker.css';
+import { LngLat, Marker } from 'mapbox-gl';
+import { useRef } from 'react';
 
-function useUserMarker() {
+function useUserMarker({ setIsMarked }: UseUserMarkerProps) {
   const { setUserCoordinates } = useCoordinates();
-  const { setMarker, removeMarker, createMarkerFromCoordinates } = useMarker({
-    setCoordinates: setUserCoordinates,
-    type: 'user',
-    icon: userMarker,
-    isUserMarker: true
-  });
+  const { map } = useMap();
+  const marker = useRef<Marker>();
+
+  const createMarker = ({ coordinates }: CreateMarkerProps) => {
+    if (!map.current) {
+      return;
+    }
+
+    marker.current = new Marker().setLngLat(coordinates);
+    marker.current.getElement().innerHTML = `<div><div class='user-marker'></div><div class='user-shadow'></div></div>`;
+    marker.current.addTo(map.current);
+  };
+
+  const createUserMarker = ({ coordinates }: CreateUserMarkerProps) => {
+    setUserCoordinates(coordinates);
+    createMarker({ coordinates });
+    setIsMarked(true);
+  };
+
+  const removeUserMarker = () => {
+    marker.current?.remove();
+    setUserCoordinates(new LngLat(0, 0));
+    setIsMarked(false);
+  };
+
+  const updateCoordinates = ({ coordinates }: UpdateCoordinatesProps) => {
+    marker.current?.setLngLat(coordinates);
+    setUserCoordinates(coordinates);
+  };
 
   return {
-    setUserMarker: setMarker,
-    removeUserMarker: removeMarker,
-    createMarkerFromCoordinates
+    createUserMarker,
+    removeUserMarker,
+    updateCoordinates
   };
 }
 

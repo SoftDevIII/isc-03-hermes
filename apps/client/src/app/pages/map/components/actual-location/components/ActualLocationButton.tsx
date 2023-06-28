@@ -9,7 +9,8 @@ function ActualLocationButton({
     <Button
       onClick={onClick}
       disabled={disabled}
-      className='h-12 w-12 rounded-full bg-black/50 hover:bg-black/70 active:bg-black/90 text-white'
+      className={`h-12 w-12 rounded-full bg-black/50  text-white grid place-content-center
+      ${!disabled ? 'hover:bg-black/70 active:bg-black/90' : ''}`}
     >
       {children}
     </Button>

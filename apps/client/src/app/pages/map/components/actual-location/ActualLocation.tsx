@@ -1,69 +1,90 @@
 import MyLocationIcon from '@mui/icons-material/MyLocation';
-import { CircularProgress, Tooltip } from '@mui/material';
-import { useState } from 'react';
-import ActualLocationButton from './components/ActualLocationButton';
-import useActualLocation from './hooks/useActualLocation';
+import { Alert, AlertColor, CircularProgress, Snackbar } from '@mui/material';
+import { useEffect, useState } from 'react';
 import useMap from '../../contexts/map/MapState';
+import ActualLocationButton from './components/ActualLocationButton';
+import useLocation from './hooks/useLocation';
+import useUserMarker from './hooks/useUserMarker';
 
 function ActualLocation() {
-  const {
-    goToActualLocation,
-    toggleUserMarker,
-    isFetchingLocation,
-    isLocationTimeout,
-    hasGeoLocation,
-    hasGeoPermission
-  } = useActualLocation();
-  const [isActive, setIsActive] = useState(true);
   const { isLoading } = useMap();
+
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarSeverity, setSnackbarSeverity] = useState('');
+  const [isMarked, setIsMarked] = useState(false);
+
+  const { createUserMarker, removeUserMarker, updateCoordinates } =
+    useUserMarker({
+      setIsMarked
+    });
+  const { isFetching, fetchUserLocation, getPermissions, removeLocation } =
+    useLocation({
+      createUserMarker,
+      removeUserMarker,
+      updateCoordinates
+    });
+
+  const handleFetchLocation = () => {
+    if (isMarked) {
+      removeLocation();
+      return;
+    }
+
+    fetchUserLocation({
+      setSnackbarMessage,
+      setSnackbarOpen,
+      setSnackbarSeverity
+    });
+  };
+
+  useEffect(() => {
+    getPermissions({
+      setSnackbarMessage,
+      setSnackbarOpen,
+      setSnackbarSeverity,
+      setIsDisabled
+    })
+      .then()
+      .catch((error: Error) => {
+        throw new Error(error.message);
+      });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (isLoading) {
     return <div />;
   }
 
-  function toggleActive() {
-    setIsActive(prevIsActive => !prevIsActive);
-    if (isActive) {
-      goToActualLocation();
-    }
-    toggleUserMarker();
-  }
-
-  const disabled =
-    isFetchingLocation ||
-    isLocationTimeout ||
-    !hasGeoLocation ||
-    !hasGeoPermission;
-  let title = '';
-  if (disabled) {
-    if (!hasGeoLocation) {
-      title = 'Geolocation is not supported by your device or browser';
-    } else if (!hasGeoPermission) {
-      title = 'Location permission is not granted';
-    } else if (isLocationTimeout) {
-      title = 'Location retrieval has timed out';
-    } else if (isFetchingLocation) {
-      title = 'Retrieving location...';
-    }
-  }
   return (
     <div className='absolute right-6 bottom-40 rounded-full md:right-8 md:bottom-44'>
-      <Tooltip title={title} placement='left'>
-        <span>
-          <ActualLocationButton
-            onClick={() => {
-              toggleActive();
-            }}
-            disabled={disabled}
-          >
-            {isFetchingLocation ? (
-              <CircularProgress size={24} color='inherit' />
-            ) : (
-              <MyLocationIcon color={isActive ? 'inherit' : 'primary'} />
-            )}
-          </ActualLocationButton>
-        </span>
-      </Tooltip>
+      <span>
+        <ActualLocationButton
+          onClick={() => handleFetchLocation()}
+          disabled={isDisabled || isFetching}
+        >
+          {isFetching ? (
+            <CircularProgress size={24} color='inherit' />
+          ) : (
+            <MyLocationIcon color={isMarked ? 'primary' : 'inherit'} />
+          )}
+        </ActualLocationButton>
+      </span>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={1500}
+        onClose={() => setSnackbarOpen(false)}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert
+          onClose={() => setSnackbarOpen(false)}
+          severity={snackbarSeverity as AlertColor}
+        >
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }
