@@ -220,6 +220,21 @@ declare global {
     src: string;
   }
 
+  interface TextFieldProps {
+    className?: string;
+    type: string;
+    required?: boolean;
+    placeholder?: string;
+    onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
+    icon?: ReactElement;
+    ref?: RefObject<HTMLInputElement>;
+    id: string;
+  }
+
+  interface TextBoxProps {
+    id: string;
+  }
+
   interface ReturnLocationProps {
     setSnackbarMessage: Dispatch<SetStateAction<string>>;
     setSnackbarSeverity: Dispatch<SetStateAction<string>>;
@@ -326,13 +341,13 @@ declare global {
   }
 
   interface UseSearchInputProps {
-    setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
+    setFilterData: Dispatch<SetStateAction<Feature[]>>;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     isOpen: boolean;
   }
 
   interface SearchDataProps {
-    filterData: (Feature | Coordinates)[];
+    filterData: Feature[];
   }
 
   interface UseSearchRefProps {
@@ -367,12 +382,6 @@ declare global {
     context: Context[];
   }
 
-  interface Coordinates {
-    id: string;
-    place_name_es: string;
-    geometry: Geometry;
-  }
-
   interface Context {
     id: string;
     wikidata?: Wikidata;
@@ -399,197 +408,10 @@ declare global {
   interface FetchMapBoxPlacesProps {
     query: string;
     coordinates: LngLat;
-    setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
+    setFilterData: Dispatch<SetStateAction<Feature[]>>;
   }
 
   interface FetchMapBoxPlacesResponse {
     response: PlacesResponse;
-  }
-
-  interface CoordinatesRegexProps {
-    coordinates: string;
-  }
-
-  interface ConvertRegexToCoordinatesProps {
-    coordinates: string;
-  }
-
-  interface ConvertCoordinatesToFeatProps {
-    coordinates: LngLat;
-  }
-
-  interface TextFieldProps {
-    classNameDiv?: string;
-    classNameInput?: string;
-  }
-
-  interface TextFieldProps {
-    className?: string;
-    type: string;
-    required?: boolean;
-    placeholder?: string;
-    onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
-    icon?: ReactElement;
-    ref?: RefObject<HTMLInputElement>;
-    id?: string;
-  }
-
-  interface TextBoxProps {
-    id?: string;
-    ref?: RefObject<HTMLInputElement>;
-  }
-
-  interface HeaderProps {
-    isLoggedIn?: boolean;
-    username?: string;
-  }
-
-  interface IsLoggedInViewProps {
-    username?: string;
-  }
-
-  interface ReferenceButtonProps {
-    ref?: string;
-    content: string;
-  }
-
-  interface LabelTextFieldProps {
-    classNameTFI?: string;
-    classNameTFD?: string;
-    classNameDiv?: string;
-    type: string;
-    required?: boolean;
-    placeholder?: string;
-    onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
-    classNameL?: string;
-    children: ReactNode;
-    id: string;
-  }
-
-  interface ReturnLocationProps {
-    setSnackbarMessage: Dispatch<SetStateAction<string>>;
-    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
-    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
-    setIsDisabled: Dispatch<SetStateAction<boolean>>;
-  }
-
-  interface GrantPermissionProps {
-    setSnackbarMessage: Dispatch<SetStateAction<string>>;
-    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
-    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
-    setIsDisabled: Dispatch<SetStateAction<boolean>>;
-  }
-
-  interface RevokePermissionsProps {
-    setSnackbarMessage: Dispatch<SetStateAction<string>>;
-    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
-    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
-  }
-
-  interface SuccessCurrentPositionProps {
-    coordinates: LngLat;
-    createUserMarker: ({ coordinates }: CreateUserMarkerProps) => void;
-    redirectToUserLocation: ({
-      coordinates
-    }: RedirectToUserLocationProps) => void;
-    setSnackbarMessage: Dispatch<SetStateAction<string>>;
-    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
-    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
-  }
-
-  interface RedirectToUserLocationProps {
-    coordinates: LngLat;
-  }
-
-  interface ErrorCurrentPositionProps {
-    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
-  }
-
-  interface SomethingWentWrongErrorProps {
-    setSnackbarMessage: Dispatch<SetStateAction<string>>;
-    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
-  }
-
-  interface LocationTimeoutErrorProps {
-    setSnackbarMessage: Dispatch<SetStateAction<string>>;
-    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
-  }
-
-  interface GeoPermissionDeniedErrorProps {
-    setSnackbarMessage: Dispatch<SetStateAction<string>>;
-    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
-  }
-
-  interface FetchUserLocationProps {
-    setSnackbarMessage: Dispatch<SetStateAction<string>>;
-    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
-    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
-  }
-
-  interface UseUserMarkerProps {
-    setIsMarked: Dispatch<SetStateAction<boolean>>;
-  }
-
-  interface CreateMarkerProps {
-    coordinates: LngLat;
-  }
-
-  interface CreateUserMarkerProps {
-    coordinates: LngLat;
-  }
-
-  interface UseLocationProps {
-    createUserMarker: ({ coordinates }: CreateMarkerProps) => void;
-    updateCoordinates: ({ coordinates }: UpdateCoordinatesProps) => void;
-    removeUserMarker: () => void;
-  }
-
-  interface UpdateCoordinatesProps {
-    coordinates: LngLat;
-  }
-
-  interface HandleErrorsProps {
-    error: GeolocationPositionError;
-    setSnackbarMessage: Dispatch<SetStateAction<string>>;
-    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
-    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
-  }
-
-  interface WatchPositionProps {
-    setSnackbarMessage: Dispatch<SetStateAction<string>>;
-    setSnackbarSeverity: Dispatch<SetStateAction<string>>;
-    setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
-  }
-
-  interface SocialButtonProps {
-    icon: string;
-    onClick: () => void;
-  }
-  interface SocialMediaButtonProps {
-    src: string;
-    alt: string;
-    urlConnection: string;
-  }
-
-  interface SupportButtonProps {
-    title: string;
-    isLast?: boolean;
-  }
-
-  interface SignUpImputProps {
-    classNameDiv?: string;
-    children: ReactNode;
-    id: string;
-    type: string;
-  }
-
-  interface SearchButtonProps {
-    onClick: () => void;
-    className: string;
-  }
-
-  interface CloseButtonProps {
-    onClick: () => void;
-    className: string;
   }
 }

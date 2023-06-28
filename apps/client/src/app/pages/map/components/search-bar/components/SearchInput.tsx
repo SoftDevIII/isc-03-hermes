@@ -6,7 +6,7 @@ import SearchButton from './SearchButton';
 import SearchData from './SearchData';
 
 function SearchInput() {
-  const [filterData, setFilterData] = useState<(Feature | Coordinates)[]>([]);
+  const [filterData, setFilterData] = useState<Feature[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
   const { search, onInputChange, ref, clearInput } = useSearchInput({

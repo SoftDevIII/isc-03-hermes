@@ -60,12 +60,6 @@
       "@utils/*": [
         "src/app/utils/*"
       ],
-      "@home-assets/*": [
-        "src/app/pages/home/assets/*"
-      ],
-      "@home-components/*": [
-        "src/app/pages/home/components/*"
-      ],
     }
   },
   "types": [
