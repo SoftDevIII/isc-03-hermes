@@ -20,6 +20,6 @@
     "apps/*"
   ],
   "devDependencies": {
-    "turbo": "1.10.3"
+    "turbo": "1.10.6"
   }
 }
