@@ -1,4 +1,4 @@
-import AutoCompleteButton from './AutoCompletButton';
+import AutoCompleteButton from './AutoCompleteButton';
 
 function SearchData({ filterData }: SearchDataProps) {
   return (
@@ -10,9 +10,9 @@ function SearchData({ filterData }: SearchDataProps) {
         className='overflow-y-scroll scrollbar-thin scrollbar-thumb scrollbar-track pr-[7px] flex flex-col gap-[6px]
       h-full max-h-[160px] landscape:sm:max-h-[100px]'
       >
-        {filterData.map(title => (
-          <AutoCompleteButton key={title} onClick={() => {}}>
-            {title}
+        {filterData.map(feature => (
+          <AutoCompleteButton key={feature.id} onClick={() => {}}>
+            {feature.place_name_es}
           </AutoCompleteButton>
         ))}
       </div>

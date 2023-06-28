@@ -1,27 +1,33 @@
+import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
 import { ChangeEvent, RefObject, useRef, useState } from 'react';
+import fetchMapBoxPlaces from '../services/SearchBarService';
 
 function useSearchInput({
-  data,
   setFilterData,
   setIsOpen,
   isOpen
 }: UseSearchInputProps) {
+  const { userCoordinates } = useCoordinates();
+
   const [search, setSearch] = useState<string>('');
   const ref: RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
 
   const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setSearch(value);
+
     if (value.trim() === '') {
       setFilterData([]);
       return;
     }
+
     if (!isOpen) setIsOpen(true);
 
-    const newData = data.filter(title => {
-      return title.toLowerCase().includes(value.toLowerCase().trim());
+    fetchMapBoxPlaces({
+      query: value,
+      coordinates: userCoordinates,
+      setFilterData
     });
-    setFilterData(newData);
   };
 
   const clearInput = () => {

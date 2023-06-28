@@ -1,7 +1,7 @@
+import useMap from '@map-contexts/map/MapState';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { Alert, AlertColor, CircularProgress, Snackbar } from '@mui/material';
 import { useEffect, useState } from 'react';
-import useMap from '../../contexts/map/MapState';
 import ActualLocationButton from './components/ActualLocationButton';
 import useLocation from './hooks/useLocation';
 import useUserMarker from './hooks/useUserMarker';
