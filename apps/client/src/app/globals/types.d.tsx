@@ -320,13 +320,13 @@ declare global {
   }
 
   interface UseSearchInputProps {
-    setFilterData: Dispatch<SetStateAction<Feature[]>>;
+    setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     isOpen: boolean;
   }
 
   interface SearchDataProps {
-    filterData: Feature[];
+    filterData: (Feature | Coordinates)[];
   }
 
   interface UseSearchRefProps {
@@ -361,6 +361,12 @@ declare global {
     context: Context[];
   }
 
+  interface Coordinates {
+    id: string;
+    place_name_es: string;
+    geometry: Geometry;
+  }
+
   interface Context {
     id: string;
     wikidata?: Wikidata;
@@ -387,10 +393,22 @@ declare global {
   interface FetchMapBoxPlacesProps {
     query: string;
     coordinates: LngLat;
-    setFilterData: Dispatch<SetStateAction<Feature[]>>;
+    setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
   }
 
   interface FetchMapBoxPlacesResponse {
     response: PlacesResponse;
+  }
+
+  interface CoordinatesRegexProps {
+    coordinates: string;
+  }
+
+  interface ConvertRegexToCoordinatesProps {
+    coordinates: string;
+  }
+
+  interface ConvertCoordinatesToFeatProps {
+    coordinates: LngLat;
   }
 }
