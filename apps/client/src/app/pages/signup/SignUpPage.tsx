@@ -1,10 +1,10 @@
-import handleSignUp from '../map/hooks/useSignUp';
 import Button from '../map/shared-ui-components/Button';
-import LabelTextField from '../map/shared-ui-components/LabelTextField';
+import LabelTextField from './components/LabelTextFile';
+import handleSignUp from './service/HandleSignUp';
 
 function SignUpPage() {
   return (
-    <div className='bg-[#194569] min-h-screen w-screen flex flex-col justify-center items-center '>
+    <form className='bg-[#194569] min-h-screen w-screen flex flex-col justify-center items-center '>
       <div className='text-left w-full'>
         <h1 className='text-left text-white px-3 text-2xl'>
           Personal information
@@ -127,7 +127,7 @@ function SignUpPage() {
           Sign Up
         </Button>
       </div>
-    </div>
+    </form>
   );
 }
 
