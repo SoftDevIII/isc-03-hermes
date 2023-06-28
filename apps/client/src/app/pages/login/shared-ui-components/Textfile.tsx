@@ -4,6 +4,7 @@ function TextField({
   type,
   required,
   onInput,
+  placeholder
   placeholder,
   id,
   ref

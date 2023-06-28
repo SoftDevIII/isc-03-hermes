@@ -1,8 +1,8 @@
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import handleLogin from '../map/hooks/useHandleLogin';
 import Button from '../map/shared-ui-components/Button';
 import TextBoxEmail from './components/TextBoxEmail';
 import TextBoxPassword from './components/TextBoxPassword';
+import handleLogin from './service/handleLogin';
 
 function LoginPage() {
   return (
