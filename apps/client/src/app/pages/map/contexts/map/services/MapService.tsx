@@ -5,7 +5,7 @@ import {
   MAX_ZOOM,
   MIN_ZOOM,
   PERCENTAGE
-} from '@map-utils/constants';
+} from '@utils/constants';
 import { Map } from 'mapbox-gl';
 
 function createMap({ container }: CreateMapProps) {
