@@ -1,5 +1,5 @@
 import Button from '@map-shared-components/Button';
-import SocialMediaButtons from './components/SocialMediaButton';
+import SocialMediaButtons from './components/SocialMediaButtons';
 
 function Footer({ oneClick }: FooterProps) {
   return (
