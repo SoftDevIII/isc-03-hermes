@@ -65,7 +65,7 @@ function ActualLocation() {
           onClick={() => handleFetchLocation()}
           disabled={isDisabled || isFetching}
         >
-          <div className='sm:w-10 sm:h-10 sm:text-[24px]'>
+          <div className='sm:w-10 sm:h-10 sm:text-[24px] grid place-items-center'>
             {isFetching ? (
               <CircularProgress size={24} color='inherit' />
             ) : (
@@ -83,6 +83,7 @@ function ActualLocation() {
         <Alert
           onClose={() => setSnackbarOpen(false)}
           severity={snackbarSeverity as AlertColor}
+          style={{ backgroundColor: '#14171b', color: 'white', opacity: 0.9 }}
         >
           {snackbarMessage}
         </Alert>
