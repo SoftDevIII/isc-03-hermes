@@ -30,9 +30,6 @@
       "@src/*": [
         "src/app/*"
       ],
-      "@assets/*": [
-        "src/assets/*"
-      ],
       "@map-hooks/*": [
         "src/app/pages/map/hooks/*"
       ],
@@ -63,7 +60,7 @@
       "@home-assets/*": [
         "src/app/pages/home/assets/*"
       ],
-      "@home-components/*":[
+      "@home-components/*": [
         "src/app/pages/home/components/*"
       ],
     }
