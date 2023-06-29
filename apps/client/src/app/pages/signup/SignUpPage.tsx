@@ -1,6 +1,5 @@
-import Button from '../map/shared-ui-components/Button';
+import ButtonSignUp from './components/ButtonSignUp';
 import SignUpInput from './components/SignUpInput';
-import handleSignUp from './service/HandleSignUp';
 
 function SignUpPage() {
   return (
@@ -60,25 +59,7 @@ function SignUpPage() {
           </SignUpInput>
         </div>
       </div>
-      <div className='w-1/2 p-5'>
-        <Button
-          className='bg-white rounded w-full items-center'
-          onClick={() => {
-            handleSignUp(
-              'fName',
-              'lName',
-              'email',
-              'birthdate',
-              'country',
-              'userName',
-              'password',
-              'confPassword'
-            );
-          }}
-        >
-          Sign Up
-        </Button>
-      </div>
+      <ButtonSignUp />
     </form>
   );
 }
