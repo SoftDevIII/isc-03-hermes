@@ -47,16 +47,16 @@ declare global {
     setIsLoading: Dispatch<SetStateAction<boolean>>;
   }
 
+  interface DivButtonNull {
+    ref: HTMLDivElement | HTMLButtonElement | null;
+  }
+
   interface ButtonProps {
     children: ReactNode;
     onClick: () => void;
     className?: string;
     disabled?: boolean;
-    addRef?: ({
-      ref
-    }: {
-      ref: HTMLDivElement | HTMLButtonElement | null;
-    }) => void;
+    addRef?: ({ ref }: { ref: DivButtonNull }) => void;
   }
 
   interface ZoomButtonProps {
@@ -466,6 +466,7 @@ declare global {
     icon: string;
     onClick: () => void;
   }
+
   interface SocialMediaButtonProps {
     src: string;
     alt: string;
