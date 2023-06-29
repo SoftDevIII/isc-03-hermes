@@ -445,7 +445,7 @@ declare global {
   }
 
   interface ReferenceButtonProps {
-    ref?: string;
+    href?: string;
     content: string;
   }
 

@@ -5,6 +5,7 @@ import bbl3 from '@home-assets/bubbles3.svg';
 function AboutSection() {
   return (
     <div
+      id='About'
       className='h-screen w-full flex bg-gradient-to-b
       from-blue-200 to-indigo-950 font-roboto text-blue-200'
     >
