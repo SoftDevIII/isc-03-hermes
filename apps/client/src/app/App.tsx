@@ -4,6 +4,7 @@ import MapPage from '@pages/map/MapPage';
 import NotFound from '@pages/not-found/NotFound';
 import SignUpPage from '@pages/sign-up/SignUpPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import DisasterForm from './pages/disasterForm/disasterForm';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path='/home' element={<HomePage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/sign-up' element={<SignUpPage />} />
+      <Route path='/disaster-form' element={<DisasterForm />} />
     </Routes>
   );
 }
