@@ -475,6 +475,8 @@ declare global {
   interface SupportButtonProps {
     title: string;
     isLast?: boolean;
+  }
+
   interface SignUpImputProps {
     classNameDiv?: string;
     children: ReactNode;
