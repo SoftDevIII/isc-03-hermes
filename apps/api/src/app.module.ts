@@ -5,6 +5,7 @@ import { join } from 'path';
 
 import { DataSourceConfig } from './config/data.source';
 import ExampleModule from './example/example.module';
+import RegexModule from './regex/regex.module';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import ExampleModule from './example/example.module';
     TypeOrmModule.forRoot({
       ...DataSourceConfig
     }),
-    ExampleModule
+    ExampleModule,
+    RegexModule
   ]
 })
 export default class AppModule {}
