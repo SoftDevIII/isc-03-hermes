@@ -4,9 +4,6 @@ import MapPage from '@pages/map/MapPage';
 import NotFound from '@pages/not-found/NotFound';
 import SignUpPage from '@pages/sign-up/SignUpPage';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import MapPage from './pages/map/MapPage';
-import NotFound from './pages/not-found/NotFound';
-import LoginPage from './pages/map/LoginPage';
 
 function App() {
   return (
