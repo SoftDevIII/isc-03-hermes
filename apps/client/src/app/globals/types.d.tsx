@@ -496,4 +496,10 @@ declare global {
     value: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   }
+
+  interface DirectionsResponse {
+    routes: {
+      distance: number;
+    }[];
+  }
 }

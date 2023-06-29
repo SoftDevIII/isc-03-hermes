@@ -1,11 +1,5 @@
 import { LngLat } from 'mapbox-gl';
 
-interface DirectionsResponse {
-  routes: {
-    distance: number;
-  }[];
-}
-
 const calculateDistanceByBike = async (
   start: LngLat,
   end: LngLat
@@ -20,8 +14,13 @@ const calculateDistanceByBike = async (
 
   const data = (await response.json()) as DirectionsResponse;
 
+  const distanceMeters = 1000;
+  const roundOut = 100;
+  const percent = 100;
+
   const { distance } = data.routes[0];
-  const distanceInKilometers = Math.round((distance / 1000) * 100) / 100;
+  const distanceInKilometers =
+    Math.round((distance / distanceMeters) * percent) / roundOut;
 
   return distanceInKilometers;
 };
