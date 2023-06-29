@@ -3,7 +3,7 @@ import IsNotLoggedInView from './components/IsNotLoggedInView';
 import MenuSideBar from './components/MenuSideBar';
 import ReferenceButton from './components/ReferenceButton';
 
-function Header({ isLoggedIn, username = 'Guest' }: HeaderProps) {
+function Header({ isLoggedIn = false, username = 'Guest' }: HeaderProps) {
   return (
     <div className='flex items-center justify-between bg-[#1D3C66] text-[#CADEED] py-4 px-6 font-roboto'>
       <div className='block sm:hidden'>
