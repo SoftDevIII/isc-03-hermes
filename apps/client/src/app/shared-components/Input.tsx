@@ -1,10 +1,10 @@
-function SignInput({
+function Input({
   isPassword = false,
   children,
   name,
   value,
   onChange
-}: SignInputProps) {
+}: InputProps) {
   return (
     <div className='flex flex-col gap-1'>
       <p className='text-white'>{children}</p>
@@ -22,4 +22,4 @@ function SignInput({
   );
 }
 
-export default SignInput;
+export default Input;
