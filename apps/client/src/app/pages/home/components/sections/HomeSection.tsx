@@ -7,7 +7,10 @@ import ubi from '@home-assets/ubi.svg';
 
 function HomeSection() {
   return (
-    <div className='w-full flex bg-gradient-to-b from-blue-200 to-indigo-950 font-roboto'>
+    <div
+      id='Home'
+      className='w-full flex bg-gradient-to-b from-blue-200 to-indigo-950 font-roboto'
+    >
       <div className='w-full min-h-screen h-auto md:h-auto lg:h-screen flex flex-col'>
         <div id='head' className='h-32 md:h-40 lg:h-1/6 flex'>
           <div className='w-1/3 md:w-auto lg:w-auto lg:ml-12 md:ml-6 ml-3 flex items-center justify-center'>

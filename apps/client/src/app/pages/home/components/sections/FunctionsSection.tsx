@@ -3,7 +3,10 @@ import things from '@home-assets/typeOfMovements.svg';
 
 function FunctionsSection() {
   return (
-    <div className='w-full flex bg-gradient-to-b from-blue-200 to-indigo-950 font-roboto'>
+    <div
+      id='Functions'
+      className='w-full flex bg-gradient-to-b from-blue-200 to-indigo-950 font-roboto'
+    >
       <div
         className='w-full min-h-screen h-auto md:h-auto lg:h-screen flex flex-col
       text-xl md:text-3xl lg:text-5xl text-center'
