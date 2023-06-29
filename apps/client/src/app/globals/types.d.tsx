@@ -483,4 +483,18 @@ declare global {
     id: string;
     type: string;
   }
+
+  interface FormSignUpData {
+    userName: string;
+    password: string;
+    confirmPassword: string;
+  }
+
+  interface SignInputProps {
+    isPassword?: boolean;
+    children: ReactNode;
+    name: string;
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  }
 }
