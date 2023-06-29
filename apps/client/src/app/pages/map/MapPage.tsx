@@ -10,7 +10,7 @@ function MapPage() {
   return (
     <MapProvider>
       <CoordinatesProvider>
-        <div className='h-screen grid'>
+        <div className='h-screen grid font-roboto'>
           <MapComponent />
           <SearchBar />
           <MarkerMenu />
