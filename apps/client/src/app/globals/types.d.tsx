@@ -464,12 +464,18 @@ declare global {
     content: string;
   }
 
-  interface FooterProps {
-    oneClick: () => void;
-  }
-
   interface SocialButtonProps {
     icon: string;
     onClick: () => void;
+  }
+  interface SocialMediaButtonProps {
+    src: string;
+    alt: string;
+    urlConnection: string;
+  }
+
+  interface SupportButtonProps {
+    title: string;
+    isLast?: boolean;
   }
 }
