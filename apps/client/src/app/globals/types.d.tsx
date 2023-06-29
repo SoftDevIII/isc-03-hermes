@@ -449,4 +449,53 @@ declare global {
     id?: string;
     ref?: RefObject<HTMLInputElement>;
   }
+
+  interface HeaderProps {
+    isLoggedIn?: boolean;
+    username?: string;
+  }
+
+  interface IsLoggedInViewProps {
+    username?: string;
+  }
+
+  interface ReferenceButtonProps {
+    ref?: string;
+    content: string;
+  }
+
+  interface LabelTextFieldProps {
+    classNameTFI?: string;
+    classNameTFD?: string;
+    classNameDiv?: string;
+    type: string;
+    required?: boolean;
+    placeholder?: string;
+    onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
+    classNameL?: string;
+    children: ReactNode;
+    id: string;
+  }
+
+  interface SocialButtonProps {
+    icon: string;
+    onClick: () => void;
+  }
+  interface SocialMediaButtonProps {
+    src: string;
+    alt: string;
+    urlConnection: string;
+  }
+
+  interface SupportButtonProps {
+    title: string;
+    isLast?: boolean;
+  }
+
+  interface SignUpImputProps {
+    classNameDiv?: string;
+    children: ReactNode;
+    id: string;
+    type: string;
+  }
 }

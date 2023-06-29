@@ -63,9 +63,9 @@
       "@home-assets/*": [
         "src/app/pages/home/assets/*"
       ],
-      "@home-sections/*": [
-        "src/app/pages/home/sections/*"
-      ]
+      "@home-components/*": [
+        "src/app/pages/home/components/*"
+      ],
     }
   },
   "types": [

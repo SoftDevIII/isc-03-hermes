@@ -14,16 +14,16 @@ function useUserMarker({ setIsMarked }: UseUserMarkerProps) {
       return;
     }
 
-<<<<<<< HEAD
     const newMarker = new Marker().setLngLat(coordinates);
     newMarker.getElement().innerHTML = `<div><div class='user-marker'></div><div class='user-shadow'></div></div>`;
     newMarker.addTo(map.current);
     setMarker(newMarker);
-=======
     marker.current = new Marker().setLngLat(coordinates);
     marker.current.getElement().innerHTML = `<div><div class='user-marker'></div><div class='user-shadow'></div></div>`;
     marker.current.addTo(map.current);
->>>>>>> refactor: change to use Ref
+    marker.current = new Marker().setLngLat(coordinates);
+    marker.current.getElement().innerHTML = `<div><div class='user-marker'></div><div class='user-shadow'></div></div>`;
+    marker.current.addTo(map.current);
   };
 
   const createUserMarker = ({ coordinates }: CreateUserMarkerProps) => {
