@@ -8,9 +8,7 @@ const CoordinatesContext = createContext<CoordinatesContextValue>({
   userCoordinates: new LngLat(0, 0),
   setUserCoordinates: () => {},
   isMarking: false,
-  setIsMarking: () => {},
-  contextMenuCoordinates: new LngLat(0, 0),
-  setContextMenuCoordinates: () => {}
+  setIsMarking: () => {}
 });
 
 export default CoordinatesContext;
