@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import LeftControl from './components/left-control/LeftControl';
 import RightControl from './components/right-control/RightControl';
 import MapStyle from './map-style/MapStyle';
+import PopUpForRouteInformation from './route/components/pop-up/PopUpForRouteInformation';
 
 function MapPage() {
   const { long, lat } = useParams();
@@ -22,6 +23,7 @@ function MapPage() {
             <SearchBar long={long} lat={lat} />
             <LeftControl />
             <RightControl />
+            <PopUpForRouteInformation />
           </div>
         </MarkersProvider>
       </CoordinatesProvider>
