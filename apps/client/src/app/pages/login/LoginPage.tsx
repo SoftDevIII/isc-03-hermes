@@ -30,7 +30,7 @@ function LoginPage() {
             value={formData.userName}
             onChange={event => onChange(event)}
           >
-            User Name:
+            Email:
           </Input>
           <Input
             name='password'

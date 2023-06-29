@@ -10,7 +10,7 @@ function Input({
       <p className='text-white'>{children}</p>
       <div className='flex gap-2 w-full bg-black/40 py-[6px] px-3 rounded-lg'>
         <input
-          type={`${isPassword ? 'password' : 'text'}`}
+          type={`${isPassword ? 'password' : 'email'}`}
           className='text-white w-full h-full outline-none bg-transparent'
           name={name}
           value={value}
