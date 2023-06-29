@@ -30,6 +30,9 @@
       "@src/*": [
         "src/app/*"
       ],
+      "@pages/*": [
+        "src/app/pages/*"
+      ],
       "@map-hooks/*": [
         "src/app/pages/map/hooks/*"
       ],

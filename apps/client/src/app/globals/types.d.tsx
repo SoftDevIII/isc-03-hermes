@@ -449,6 +449,19 @@ declare global {
     content: string;
   }
 
+  interface LabelTextFieldProps {
+    classNameTFI?: string;
+    classNameTFD?: string;
+    classNameDiv?: string;
+    type: string;
+    required?: boolean;
+    placeholder?: string;
+    onInput?: (event: React.FormEvent<HTMLInputElement>) => void;
+    classNameL?: string;
+    children: ReactNode;
+    id: string;
+  }
+
   interface SocialButtonProps {
     icon: string;
     onClick: () => void;
@@ -462,5 +475,12 @@ declare global {
   interface SupportButtonProps {
     title: string;
     isLast?: boolean;
+  }
+
+  interface SignUpImputProps {
+    classNameDiv?: string;
+    children: ReactNode;
+    id: string;
+    type: string;
   }
 }
