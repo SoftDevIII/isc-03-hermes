@@ -12,8 +12,8 @@ function Menu({ x, y, lngLat, hideMenu, left, top }: ContextMenuProps) {
     <div
       ref={contextRef}
       className={`bg-black/50 text-white p-3  rounded-2xl absolute  ${
-        top ? 'mt-[-150px]' : ''
-      } ${left ? 'ml-[-175px]' : ''}`}
+        top ? 'mt-[-165px]' : ''
+      } ${left ? 'ml-[-165px]' : ''}`}
       style={{ top: y, left: x }}
     >
       <p className='mb-3 border-b border-white/20'>

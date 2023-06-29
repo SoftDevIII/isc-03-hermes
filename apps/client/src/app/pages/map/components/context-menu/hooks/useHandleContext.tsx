@@ -19,7 +19,7 @@ const useHandleContext = ({ setMenu }: UseHandleContextMenuProps) => {
     let left = false;
     let up = false;
 
-    if (e.clientX > 1000) {
+    if (e.clientX > 950) {
       left = true;
     }
 
