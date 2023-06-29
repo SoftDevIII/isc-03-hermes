@@ -211,4 +211,10 @@ declare global {
   interface OptionImageProps {
     src: string;
   }
+
+  interface DirectionsResponse {
+    routes: {
+      distance: number;
+    }[];
+  }
 }
