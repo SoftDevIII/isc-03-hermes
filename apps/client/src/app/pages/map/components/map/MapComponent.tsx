@@ -7,11 +7,11 @@ function MapComponent() {
 
   return (
     <div>
+      {isLoading && <Loading />}
       <div
         ref={container as LegacyRef<HTMLDivElement>}
         className='absolute z-0 h-full w-full content-center mapContainer'
       />
-      {isLoading && <Loading />}
     </div>
   );
 }
