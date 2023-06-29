@@ -1,6 +1,7 @@
 import useMap from '@map-contexts/map/MapState';
+import RoomIcon from '@mui/icons-material/Room';
 import { useState } from 'react';
-import Button from '../../shared-ui-components/Button';
+import MarkerButton from '../marker/components/MarkerButton';
 import RouteSelectorDropDown from './components/RouteSelectorDropDown';
 import RouteSelectorList from './components/RouteSelectorList';
 
@@ -12,21 +13,16 @@ function RouteSelector() {
     return <div />;
   }
 
-  const onCLick = () => {};
-
   return (
-    <div className='absolute bottom-8 left-8 w-10 h-10 bg-black'>
-      <Button className='w-12 h-12' onClick={onCLick}>
-        <RouteSelectorDropDown
-          setIsOpen={setIsOpen}
-          className='bg-black absolute bottom-4 left-6 md:bottom-8 md:left-8 z-10'
-        >
-          {isOpen && (
-            <RouteSelectorList setIsOpen={setIsOpen} isOpen={isOpen} />
-          )}
-        </RouteSelectorDropDown>
-      </Button>
-    </div>
+    <RouteSelectorDropDown
+      setIsOpen={setIsOpen}
+      className='absolute bottom-4 left-6 w-10 h-10'
+    >
+      <MarkerButton onClick={() => setIsOpen(!isOpen)}>
+        <RoomIcon fontSize='inherit' />
+      </MarkerButton>
+      {isOpen && <RouteSelectorList setIsOpen={setIsOpen} isOpen={isOpen} />}
+    </RouteSelectorDropDown>
   );
 }
 
