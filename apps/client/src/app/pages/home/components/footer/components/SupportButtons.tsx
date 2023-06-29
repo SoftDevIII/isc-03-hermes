@@ -12,7 +12,7 @@ function SupportButtons() {
         <SupportButton title='Privacy Policy' />
         <SupportButton title='Legal Information' isLast />
       </div>
-      <p className='text-[#000000] text-center'>© Hermes 2023</p>
+      <p className='text-center text-white font-roboto'>© Hermes 2023</p>
     </div>
   );
 }
