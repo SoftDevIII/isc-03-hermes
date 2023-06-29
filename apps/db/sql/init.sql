@@ -114,3 +114,14 @@ CREATE TABLE IF NOT EXISTS RoutePoints
   PRIMARY KEY (RoutePointsID),
   FOREIGN KEY (DestinationID) REFERENCES Destination(DestinationID)
 );
+
+CREATE TABLE IF NOT EXISTS Disaster
+(
+  disaster_id SERIAL,
+  disasterName VARCHAR(30) NOT NULL,
+  duraton time NOT NULL,
+  insertionHour  time DEFAULT CURRENT_TIME NOT NULL,
+  latitude INT NOT NULL,
+  longitude INT NOT NULL
+  PRIMARY KEY (RoutDisasterID)
+)
