@@ -608,4 +608,38 @@ declare global {
     children: ReactNode;
     last?: boolean;
   }
+
+  interface BicycleButtonProps {
+    className?: string;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface WalkButtonProps {
+    className?: string;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface CarButtonProps {
+    className?: string;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface SelectorButtonProps {
+    handleClick?: () => void;
+    icon: string;
+    alt: string;
+    ajustImage?: string;
+    className?: string;
+  }
+
+  interface RouteSelectorDropDownProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    className?: string;
+    children: ReactNode;
+  }
+
+  interface RouteSelectorListProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    isOpen: boolean;
+  }
 }

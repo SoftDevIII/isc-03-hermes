@@ -1,7 +1,8 @@
 import useMap from '@map-contexts/map/MapState';
+import RouteSelector from '../route-selector/RouteSelector';
 import ActualLocation from './actual-location/ActualLocation';
-import MarkerMenu from './marker/MarkerMenu';
 import Compass from './compass/Compass';
+import MarkerMenu from './marker/MarkerMenu';
 
 function LeftControl() {
   const { isLoading } = useMap();
@@ -16,6 +17,7 @@ function LeftControl() {
     absolute left-8 bottom-4 rounded-full md:left-8 md:bottom-5'
     >
       <Compass />
+      <RouteSelector />
       <MarkerMenu />
       <ActualLocation />
     </div>
