@@ -436,7 +436,7 @@ declare global {
   }
 
   interface HeaderProps {
-    isLoggedIn: boolean;
+    isLoggedIn?: boolean;
     username?: string;
   }
 
