@@ -1,6 +1,6 @@
+import Input from '@shared-components/Input';
+import SubmitButton from '@shared-components/SubmitButton';
 import { useState } from 'react';
-import SignInput from './components/SignInput';
-import SubmitButton from './components/SubmitButton';
 
 function SignUpPage() {
   const [formData, setFormData] = useState<FormSignUpData>({
@@ -26,29 +26,29 @@ function SignUpPage() {
       >
         <p className='text-white px-16 text-2xl font-bold'>Sign Up</p>
         <div className='flex flex-col gap-1'>
-          <SignInput
+          <Input
             name='userName'
             value={formData.userName}
             onChange={event => onChange(event)}
           >
             User Name:
-          </SignInput>
-          <SignInput
+          </Input>
+          <Input
             name='password'
             value={formData.password}
             onChange={event => onChange(event)}
             isPassword
           >
             Password:
-          </SignInput>
-          <SignInput
+          </Input>
+          <Input
             name='confirmPassword'
             value={formData.confirmPassword}
             onChange={event => onChange(event)}
             isPassword
           >
             Confirm Password:
-          </SignInput>
+          </Input>
           <SubmitButton />
         </div>
       </form>

@@ -477,20 +477,18 @@ declare global {
     isLast?: boolean;
   }
 
-  interface SignUpImputProps {
-    classNameDiv?: string;
-    children: ReactNode;
-    id: string;
-    type: string;
-  }
-
   interface FormSignUpData {
     userName: string;
     password: string;
     confirmPassword: string;
   }
 
-  interface SignInputProps {
+  interface FormLoginData {
+    userName: string;
+    password: string;
+  }
+
+  interface InputProps {
     isPassword?: boolean;
     children: ReactNode;
     name: string;

@@ -66,6 +66,9 @@
       "@home-components/*": [
         "src/app/pages/home/components/*"
       ],
+      "@shared-components/*": [
+        "src/app/shared-components/*"
+      ]
     }
   },
   "types": [
