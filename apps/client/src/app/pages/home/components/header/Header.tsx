@@ -12,9 +12,9 @@ function Header({ isLoggedIn = false, username = 'Guest' }: HeaderProps) {
       <div className='flex items-center space-x-4'>
         <h1 className='text-sm font-bold sm:text-xl p-1'>Hermes</h1>
         <div className='space-x-4 hidden sm:flex'>
-          <ReferenceButton content='Home' />
-          <ReferenceButton content='About' />
-          <ReferenceButton content='Functions' />
+          <ReferenceButton href='/home#Home' content='Home' />
+          <ReferenceButton href='/home#About' content='About' />
+          <ReferenceButton href='/home#Functions' content='Functions' />
         </div>
       </div>
       <div>
