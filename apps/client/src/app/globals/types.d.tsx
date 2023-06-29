@@ -130,8 +130,6 @@ declare global {
     }: UpdateCoordinatesProps) => void;
     isMarking: boolean;
     setIsMarking: Dispatch<SetStateAction<boolean>>;
-    contextMenuCoordinates: LngLat;
-    setContextMenuCoordinates: Dispatch<SetStateAction<LngLat>>;
   }
 
   interface MarkersProviderProps {
@@ -559,5 +557,40 @@ declare global {
     setIsMarking: Dispatch<SetStateAction<boolean>>;
     coordinates: LngLat | null;
     setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+  }
+
+  interface ContextMenuProps {
+    x: number;
+    y: number;
+    lngLat: LngLat;
+    hideMenu: () => void;
+    left: boolean;
+    top: boolean;
+  }
+
+  interface ContextMenu {
+    x: number;
+    y: number;
+    lngLat: LngLat;
+    up: boolean;
+    left: boolean;
+  }
+
+  interface UseContextRefProps {
+    hideMenu: () => void;
+  }
+
+  interface UseHandleContextProps {
+    hideMenu: () => void;
+  }
+
+  interface ContextButtonProps {
+    handleClick: () => void;
+    children: ReactNode;
+    last?: boolean;
+  }
+
+  interface UseHandleContextMenuProps {
+    setMenu: Dispatch<SetStateAction<ContextMenu | null>>;
   }
 }
