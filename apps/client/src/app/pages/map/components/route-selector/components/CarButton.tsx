@@ -1,15 +1,16 @@
 import carIcon from '@map-assets/car-icon.png';
 import SelectorButton from './SelectorButton';
 
-function CarButton({ className = '', setIsOpen }: CarButtonProps) {
+function CarButton({ className = '', setIsOpen, setType }: CarButtonProps) {
   const onClick = () => {
+    setType('car');
     setIsOpen(false);
   };
 
   return (
     <SelectorButton
       alt='Car Icon'
-      handleClick={() => onClick}
+      onClick={() => onClick()}
       icon={carIcon}
       className={`${className}`}
     />

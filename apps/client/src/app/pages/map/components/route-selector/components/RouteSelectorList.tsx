@@ -3,7 +3,11 @@ import BicycleButton from './BicycleButton';
 import CarButton from './CarButton';
 import WalkButton from './WalkButton';
 
-function RouteSelectorList({ setIsOpen, isOpen }: RouteSelectorListProps) {
+function RouteSelectorList({
+  setIsOpen,
+  isOpen,
+  setType
+}: RouteSelectorListProps) {
   return (
     <section className='absolute rounded-3xl bg-black/30 p-5 bottom-9 left-7 mb-2'>
       <ExitButton
@@ -11,9 +15,9 @@ function RouteSelectorList({ setIsOpen, isOpen }: RouteSelectorListProps) {
         onClick={() => setIsOpen(!isOpen)}
       />
       <li className='flex flex-col gap-2 mt-1 mr-1'>
-        <BicycleButton setIsOpen={setIsOpen} />
-        <WalkButton setIsOpen={setIsOpen} />
-        <CarButton setIsOpen={setIsOpen} />
+        <BicycleButton setIsOpen={setIsOpen} setType={setType} />
+        <WalkButton setIsOpen={setIsOpen} setType={setType} />
+        <CarButton setIsOpen={setIsOpen} setType={setType} />
       </li>
     </section>
   );

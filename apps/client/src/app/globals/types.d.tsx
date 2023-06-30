@@ -761,20 +761,23 @@ declare global {
   interface BicycleButtonProps {
     className?: string;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+    setType: Dispatch<SetStateAction<string>>;
   }
 
   interface WalkButtonProps {
     className?: string;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+    setType: Dispatch<SetStateAction<string>>;
   }
 
   interface CarButtonProps {
     className?: string;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+    setType: Dispatch<SetStateAction<string>>;
   }
 
   interface SelectorButtonProps {
-    handleClick?: () => void;
+    onClick: () => void;
     icon: string;
     alt: string;
     ajustImage?: string;
@@ -790,5 +793,11 @@ declare global {
   interface RouteSelectorListProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     isOpen: boolean;
+    setType: Dispatch<SetStateAction<string>>;
+  }
+
+  interface TypeRouteButton {
+    children: ReactNode;
+    handleClick: () => void;
   }
 }
