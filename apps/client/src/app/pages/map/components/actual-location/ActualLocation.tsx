@@ -1,9 +1,9 @@
+import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
 import useMap from '@map-contexts/map/MapState';
+import useMarkers from '@map-contexts/markers/MarkersState';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { Alert, AlertColor, CircularProgress, Snackbar } from '@mui/material';
 import { useEffect, useState } from 'react';
-import useCoordinates from '../../contexts/coordinates/CoordinatesState';
-import useMarkers from '../../contexts/markers/MarkersState';
 import ActualLocationButton from './components/ActualLocationButton';
 import useLocation from './hooks/useLocation';
 

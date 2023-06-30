@@ -439,7 +439,7 @@ declare global {
 
   interface FetchMapBoxPlacesProps {
     query: string;
-    coordinates: LngLat;
+    coordinates: LngLat | null;
     setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
   }
 
