@@ -1,18 +1,15 @@
-import { LngLat } from 'mapbox-gl';
-import { useMemo, useState } from 'react';
+import { LngLat, Marker } from 'mapbox-gl';
+import { useMemo, useRef, useState } from 'react';
 
 function useCoordinatesProvider() {
-  const [startCoordinates, setStartCoordinates] = useState<LngLat>(
-    new LngLat(0, 0)
-  );
+  const [startCoordinates, setStartCoordinates] = useState<LngLat | null>(null);
+  const startMarker = useRef<Marker>(new Marker());
 
-  const [endCoordinates, setEndCoordinates] = useState<LngLat>(
-    new LngLat(0, 0)
-  );
+  const [endCoordinates, setEndCoordinates] = useState<LngLat | null>(null);
+  const endMarker = useRef<Marker>(new Marker());
 
-  const [userCoordinates, setUserCoordinates] = useState<LngLat>(
-    new LngLat(0, 0)
-  );
+  const [userCoordinates, setUserCoordinates] = useState<LngLat | null>(null);
+  const userMarker = useRef<Marker>(new Marker());
 
   const [isMarking, setIsMarking] = useState(false);
 
@@ -20,14 +17,25 @@ function useCoordinatesProvider() {
     () => ({
       startCoordinates,
       setStartCoordinates,
+      startMarker,
       endCoordinates,
       setEndCoordinates,
+      endMarker,
       userCoordinates,
       setUserCoordinates,
+      userMarker,
       isMarking,
       setIsMarking
     }),
-    [startCoordinates, endCoordinates, userCoordinates, isMarking]
+    [
+      startCoordinates,
+      startMarker,
+      endCoordinates,
+      endMarker,
+      userCoordinates,
+      userMarker,
+      isMarking
+    ]
   );
 
   return coordinatesProviderValue;

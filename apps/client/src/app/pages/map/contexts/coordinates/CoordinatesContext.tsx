@@ -1,13 +1,16 @@
-import { LngLat } from 'mapbox-gl';
-import { createContext } from 'react';
+import { Marker } from 'mapbox-gl';
+import { createContext, createRef } from 'react';
 
 const CoordinatesContext = createContext<CoordinatesContextValue>({
-  startCoordinates: new LngLat(0, 0),
+  startCoordinates: null,
   setStartCoordinates: () => {},
-  endCoordinates: new LngLat(0, 0),
+  startMarker: createRef<Marker>(),
+  endCoordinates: null,
   setEndCoordinates: () => {},
-  userCoordinates: new LngLat(0, 0),
+  endMarker: createRef<Marker>(),
+  userCoordinates: null,
   setUserCoordinates: () => {},
+  userMarker: createRef<Marker>(),
   isMarking: false,
   setIsMarking: () => {}
 });

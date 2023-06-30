@@ -24,15 +24,15 @@ const revokePermission = ({
 };
 
 const successCurrentPosition = ({
-  coordinates,
-  createUserMarker,
+  coordinatesToMark,
+  createUserMarkerCoordinates,
   redirectToUserLocation,
   setSnackbarMessage,
   setSnackbarSeverity,
   setSnackbarOpen
 }: SuccessCurrentPositionProps) => {
-  createUserMarker({ coordinates });
-  redirectToUserLocation({ coordinates });
+  createUserMarkerCoordinates({ coordinatesToMark });
+  redirectToUserLocation({ coordinatesToMark });
   setSnackbarMessage(StatusMessage.SUCCESS);
   setSnackbarSeverity(Status.SUCCESS);
   setSnackbarOpen(true);

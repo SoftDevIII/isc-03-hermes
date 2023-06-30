@@ -10,8 +10,8 @@ import {
 } from '../services/ActualLocationService';
 
 function useLocation({
-  createUserMarker,
-  updateCoordinates,
+  createUserMarkerCoordinates,
+  updateUserMarkerCoordinates,
   removeUserMarker
 }: UseLocationProps) {
   const { map } = useMap();
@@ -20,14 +20,14 @@ function useLocation({
   const [watchId, setWatchID] = useState<number>();
 
   const redirectToUserLocation = ({
-    coordinates
+    coordinatesToMark
   }: RedirectToUserLocationProps) => {
     if (!map.current) {
       return;
     }
 
     map.current.flyTo({
-      center: coordinates,
+      center: coordinatesToMark,
       zoom: 16
     });
   };
@@ -68,11 +68,11 @@ function useLocation({
   const watchPosition = () => {
     setWatchID(
       navigator.geolocation.watchPosition(position => {
-        const coordinates = new LngLat(
+        const coordinatesToUpdate = new LngLat(
           position.coords.longitude,
           position.coords.latitude
         );
-        updateCoordinates({ coordinates });
+        updateUserMarkerCoordinates({ coordinatesToUpdate });
       })
     );
   };
@@ -86,13 +86,13 @@ function useLocation({
 
     navigator.geolocation.getCurrentPosition(
       position => {
-        const coordinates = new LngLat(
+        const coordinatesToMark = new LngLat(
           position.coords.longitude,
           position.coords.latitude
         );
         successCurrentPosition({
-          coordinates,
-          createUserMarker,
+          coordinatesToMark,
+          createUserMarkerCoordinates,
           redirectToUserLocation,
           setSnackbarMessage,
           setSnackbarOpen,
