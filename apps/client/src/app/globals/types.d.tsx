@@ -72,6 +72,28 @@ declare global {
     disabled: boolean;
   }
 
+  interface ShareButtonProps {
+    children?: ReactNode;
+    onClick: () => void;
+  }
+
+  interface CopyLinkButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+  }
+
+  interface ShareLinkProps {
+    long: number;
+    lat: number;
+    placeName: string;
+  }
+
+  interface ShareModalProps {
+    link: string;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    placeName: string;
+  }
+
   interface MarkerButtonProps {
     children: ReactNode;
     onClick: () => void;
