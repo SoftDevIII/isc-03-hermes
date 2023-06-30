@@ -19,7 +19,7 @@ function RouteSelector() {
   return (
     <RouteSelectorDropDown
       setIsOpen={setIsOpen}
-      className='absolute bottom-16 mb-10 left-8 w-10 h-10'
+      className='absolute bottom-[90px] mb-10 landscape:sm:bottom-[88px] left-6 md:left-8 md:bottom-20'
     >
       <TypeRouteButton handleClick={() => setIsOpen(!isOpen)}>
         {routeType === 'walk' && <DirectionsRunIcon fontSize='inherit' />}
