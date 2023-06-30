@@ -12,7 +12,7 @@ function MapPage() {
     <MapProvider>
       <CoordinatesProvider>
         <MarkersProvider>
-          <div className='h-screen grid font-roboto'>
+          <div className='h-full grid font-roboto'>
             <MapComponent />
             <SearchBar />
             <MarkerMenu />

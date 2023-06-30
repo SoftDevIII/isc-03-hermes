@@ -10,7 +10,7 @@ function MapComponent() {
       {isLoading && <Loading />}
       <div
         ref={container as LegacyRef<HTMLDivElement>}
-        className='absolute z-0 h-full w-full content-center mapContainer'
+        className='absolute z-0 h-screen w-full mapContainer'
       />
     </div>
   );
