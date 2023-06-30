@@ -4,22 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import * as React from 'react';
 
-const options = [
-  'None',
-  'Atria',
-  'Callisto',
-  'Dione',
-  'Ganymede',
-  'Hangouts Call',
-  'Luna',
-  'Oberon',
-  'Phobos',
-  'Pyxis',
-  'Sedna',
-  'Titania',
-  'Triton',
-  'Umbriel'
-];
+const options = ['None', 'Atria', 'Callisto', 'Dione', 'Ganymede'];
 
 const ITEM_HEIGHT = 48;
 
@@ -37,6 +22,7 @@ function Favorites({
   const handleSelection = () => {
     setAnchorEl(null);
   };
+  title.toLowerCase();
   return (
     <div
       className={`hover:bg-[#4f5d73]/20 ${
@@ -50,10 +36,11 @@ function Favorites({
         startIcon={
           <Star style={{ color: 'rgb(79, 93, 115)' }} fontSize='medium' />
         }
+        style={{ paddingLeft: '20%' }}
       >
         <div className='grid col-span-1 h-full'>{children}</div>
-        <p className='col-span-4 portrait:md:text-xl text-white font-roboto'>
-          {title.toLowerCase()}
+        <p className='col-span-4 portrait:md:text-lg text-white font-roboto'>
+          {title}
         </p>
       </Button>
       <Menu

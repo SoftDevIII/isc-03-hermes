@@ -10,7 +10,7 @@ import OptionImage from './OptionImage';
 
 function MenuList({ handleActionSelected }: MenuListProps) {
   return (
-    <li className='w-full shadow-xl rounded-b-2xl flex flex-col'>
+    <li className='w-full shadow-xl rounded-b-2xl place-items-start  flex flex-col'>
       <MenuOptionButton
         title='Home'
         onClick={() => handleActionSelected('goHome')}
@@ -18,7 +18,7 @@ function MenuList({ handleActionSelected }: MenuListProps) {
         <OptionImage src={home} />
       </MenuOptionButton>
       <Favorites
-        title='Favorite Places'
+        title='Favorites'
         onClick={() => handleActionSelected('showFavorites')}
       >
         <span />
