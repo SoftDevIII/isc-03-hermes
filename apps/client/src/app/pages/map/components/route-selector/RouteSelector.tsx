@@ -1,13 +1,16 @@
 import useMap from '@map-contexts/map/MapState';
-import RoomIcon from '@mui/icons-material/Room';
+import DirectionsBikeIcon from '@mui/icons-material/DirectionsBike';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import { useState } from 'react';
-import MarkerButton from '../marker/components/MarkerButton';
 import RouteSelectorDropDown from './components/RouteSelectorDropDown';
 import RouteSelectorList from './components/RouteSelectorList';
+import TypeRouteButton from './components/TypeRouteButton';
 
 function RouteSelector() {
   const [isOpen, setIsOpen] = useState(false);
   const { isLoading } = useMap();
+  const [routeType, setType] = useState('walk');
 
   if (isLoading) {
     return <div />;
@@ -16,12 +19,20 @@ function RouteSelector() {
   return (
     <RouteSelectorDropDown
       setIsOpen={setIsOpen}
-      className='absolute bottom-4 left-6 w-10 h-10'
+      className='absolute bottom-16 mb-10 left-8 w-10 h-10'
     >
-      <MarkerButton onClick={() => setIsOpen(!isOpen)}>
-        <RoomIcon fontSize='inherit' />
-      </MarkerButton>
-      {isOpen && <RouteSelectorList setIsOpen={setIsOpen} isOpen={isOpen} />}
+      <TypeRouteButton handleClick={() => setIsOpen(!isOpen)}>
+        {routeType === 'walk' && <DirectionsRunIcon fontSize='inherit' />}
+        {routeType === 'bicycle' && <DirectionsBikeIcon fontSize='inherit' />}
+        {routeType === 'car' && <DirectionsCarIcon fontSize='inherit' />}
+      </TypeRouteButton>
+      {isOpen && (
+        <RouteSelectorList
+          setType={setType}
+          setIsOpen={setIsOpen}
+          isOpen={isOpen}
+        />
+      )}
     </RouteSelectorDropDown>
   );
 }
