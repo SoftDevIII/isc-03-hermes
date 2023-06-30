@@ -64,7 +64,7 @@ function ShareModal({ link, setIsOpen, placeName }: ShareModalProps) {
         <Alert
           onClose={handleSnackbarClose}
           severity={Status.SUCCESS}
-          sx={{ width: '100%' }}
+          style={{ backgroundColor: '#14171b', color: 'white', opacity: 0.9 }}
         >
           Link copied successfully
         </Alert>
