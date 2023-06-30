@@ -1,11 +1,10 @@
-import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
 import useMap from '@map-contexts/map/MapState';
-import useMarkers from '../../../contexts/markers/MarkersState';
+import useMarkers from '@map-contexts/markers/MarkersState';
 
 function useMarkerActions() {
   const { setStartMarker, removeStartMarker, setEndMarker, removeEndMarker } =
     useMarkers();
-  const { setIsMarking } = useCoordinates();
+  const { setIsMarking } = useMarkers();
   const { map } = useMap();
 
   const stopMarking = () => {
