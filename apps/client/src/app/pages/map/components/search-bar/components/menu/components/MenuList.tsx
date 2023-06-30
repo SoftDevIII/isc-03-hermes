@@ -3,6 +3,7 @@ import home from '@map-assets/home.png';
 import lightMode from '@map-assets/light-mode.png';
 import settings from '@map-assets/settings.png';
 import logout from '@map-assets/sign-out.png';
+import Favorites from './Favorites';
 import Line from './Line';
 import MenuOptionButton from './MenuOptionButton';
 import OptionImage from './OptionImage';
@@ -16,6 +17,12 @@ function MenuList({ handleActionSelected }: MenuListProps) {
       >
         <OptionImage src={home} />
       </MenuOptionButton>
+      <Favorites
+        title='Favorite Places'
+        onClick={() => handleActionSelected('showFavorites')}
+      >
+        <span />
+      </Favorites>
       <MenuOptionButton
         title='Profile Settings'
         onClick={() => handleActionSelected('goSettings')}

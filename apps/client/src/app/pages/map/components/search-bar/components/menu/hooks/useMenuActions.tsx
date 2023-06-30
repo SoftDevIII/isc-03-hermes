@@ -11,13 +11,16 @@ function useMenuActions() {
 
   function goLogout() {}
 
+  function showFavorites() {}
+
   const actions: MenuActions = {
     goHome,
     goProfile,
     goSettings,
     goHelp,
     goLightMode,
-    goLogout
+    goLogout,
+    showFavorites
   };
 
   const handleActionSelected = (action: string) => {
