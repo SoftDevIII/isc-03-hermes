@@ -97,15 +97,10 @@ declare global {
   interface CoordinatesContextValue {
     startCoordinates: LngLat | null;
     setStartCoordinates: Dispatch<SetStateAction<LngLat | null>>;
-    startMarker: RefObject<Marker>;
     endCoordinates: LngLat | null;
     setEndCoordinates: Dispatch<SetStateAction<LngLat | null>>;
-    endMarker: RefObject<Marker>;
     userCoordinates: LngLat | null;
     setUserCoordinates: Dispatch<SetStateAction<LngLat | null>>;
-    userMarker: RefObject<Marker>;
-    isMarking: boolean;
-    setIsMarking: Dispatch<SetStateAction<boolean>>;
   }
 
   interface MarkersContextValue {
