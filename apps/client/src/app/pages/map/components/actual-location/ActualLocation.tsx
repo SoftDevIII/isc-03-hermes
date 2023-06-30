@@ -1,33 +1,34 @@
+import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
 import useMap from '@map-contexts/map/MapState';
+import useMarkers from '@map-contexts/markers/MarkersState';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { Alert, AlertColor, CircularProgress, Snackbar } from '@mui/material';
 import { useEffect, useState } from 'react';
 import ActualLocationButton from './components/ActualLocationButton';
 import useLocation from './hooks/useLocation';
-import useUserMarker from './hooks/useUserMarker';
 
 function ActualLocation() {
   const { isLoading } = useMap();
+  const {
+    createUserMarkerCoordinates,
+    removeUserMarker,
+    updateUserMarkerCoordinates
+  } = useMarkers();
+  const { userCoordinates } = useCoordinates();
 
   const [isDisabled, setIsDisabled] = useState(true);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [snackbarSeverity, setSnackbarSeverity] = useState('');
-  const [isMarked, setIsMarked] = useState(false);
-
-  const { createUserMarker, removeUserMarker, updateCoordinates } =
-    useUserMarker({
-      setIsMarked
-    });
   const { isFetching, fetchUserLocation, getPermissions, removeLocation } =
     useLocation({
-      createUserMarker,
+      createUserMarkerCoordinates,
       removeUserMarker,
-      updateCoordinates
+      updateUserMarkerCoordinates
     });
 
   const handleFetchLocation = () => {
-    if (isMarked) {
+    if (userCoordinates) {
       removeLocation();
       return;
     }
@@ -69,7 +70,7 @@ function ActualLocation() {
             {isFetching ? (
               <CircularProgress size={24} color='inherit' />
             ) : (
-              <MyLocationIcon color={isMarked ? 'primary' : 'inherit'} />
+              <MyLocationIcon color={userCoordinates ? 'primary' : 'inherit'} />
             )}
           </div>
         </ActualLocationButton>

@@ -1,4 +1,5 @@
 import Language from '@enums/Language';
+import MarkerType from '@enums/Marker';
 import ShortCode from '@enums/ShortCode';
 import Wikidata from '@enums/Wikidata';
 import { LngLat, Map as MapBox } from 'mapbox-gl';
@@ -94,24 +95,62 @@ declare global {
   }
 
   interface CoordinatesContextValue {
-    startCoordinates: LngLat;
-    setStartCoordinates: Dispatch<SetStateAction<LngLat>>;
-    endCoordinates: LngLat;
-    setEndCoordinates: Dispatch<SetStateAction<LngLat>>;
-    userCoordinates: LngLat;
-    setUserCoordinates: Dispatch<SetStateAction<LngLat>>;
+    startCoordinates: LngLat | null;
+    setStartCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+    endCoordinates: LngLat | null;
+    setEndCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+    userCoordinates: LngLat | null;
+    setUserCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+  }
+
+  interface MarkersContextValue {
+    setStartMarker: () => void;
+    removeStartMarker: () => void;
+    createStartMarkerCoordinates: ({
+      coordinatesToMark
+    }: CreateMarkerCoordinatesProps) => void;
+    updateStartMarkerCoordinates: ({
+      coordinatesToUpdate
+    }: UpdateCoordinatesProps) => void;
+    setEndMarker: () => void;
+    removeEndMarker: () => void;
+    createEndMarkerCoordinates: ({
+      coordinatesToMark
+    }: CreateMarkerCoordinatesProps) => void;
+    updateEndMarkerCoordinates: ({
+      coordinatesToUpdate
+    }: UpdateCoordinatesProps) => void;
+    setUserMarker: () => void;
+    removeUserMarker: () => void;
+    createUserMarkerCoordinates: ({
+      coordinatesToMark
+    }: CreateMarkerCoordinatesProps) => void;
+    updateUserMarkerCoordinates: ({
+      coordinatesToUpdate
+    }: UpdateCoordinatesProps) => void;
     isMarking: boolean;
     setIsMarking: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface MarkersProviderProps {
+    children: ReactNode;
   }
 
   interface CoordinatesProviderProps {
     children: ReactNode;
   }
 
+  interface CreateMarkerCoordinatesProps {
+    coordinatesToMark: LngLat;
+  }
+
   interface UseMarkerProps {
-    type: string;
-    icon: string;
-    setCoordinates: Dispatch<SetStateAction<LngLat>>;
+    coordinates: LngLat | null;
+    setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+    isMarking: boolean;
+    setIsMarking: Dispatch<SetStateAction<boolean>>;
+    type?: MarkerType;
+    icon?: string;
   }
 
   interface MarkerDropDownMenuProps {
@@ -241,10 +280,12 @@ declare global {
   }
 
   interface SuccessCurrentPositionProps {
-    coordinates: LngLat;
-    createUserMarker: ({ coordinates }: CreateUserMarkerProps) => void;
+    coordinatesToMark: LngLat;
+    createUserMarkerCoordinates: ({
+      coordinatesToMark
+    }: CreateUserMarkerProps) => void;
     redirectToUserLocation: ({
-      coordinates
+      coordinatesToMark
     }: RedirectToUserLocationProps) => void;
     setSnackbarMessage: Dispatch<SetStateAction<string>>;
     setSnackbarSeverity: Dispatch<SetStateAction<string>>;
@@ -252,7 +293,7 @@ declare global {
   }
 
   interface RedirectToUserLocationProps {
-    coordinates: LngLat;
+    coordinatesToMark: LngLat;
   }
 
   interface ErrorCurrentPositionProps {
@@ -280,26 +321,26 @@ declare global {
     setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
   }
 
-  interface UseUserMarkerProps {
-    setIsMarked: Dispatch<SetStateAction<boolean>>;
-  }
-
   interface CreateMarkerProps {
     coordinates: LngLat;
   }
 
   interface CreateUserMarkerProps {
-    coordinates: LngLat;
+    coordinatesToMark: LngLat;
   }
 
   interface UseLocationProps {
-    createUserMarker: ({ coordinates }: CreateMarkerProps) => void;
-    updateCoordinates: ({ coordinates }: UpdateCoordinatesProps) => void;
+    createUserMarkerCoordinates: ({
+      coordinatesToMark
+    }: CreateUserMarkerProps) => void;
+    updateUserMarkerCoordinates: ({
+      coordinatesToUpdate
+    }: UpdateCoordinatesProps) => void;
     removeUserMarker: () => void;
   }
 
   interface UpdateCoordinatesProps {
-    coordinates: LngLat;
+    coordinatesToUpdate: LngLat;
   }
 
   interface HandleErrorsProps {
@@ -398,7 +439,7 @@ declare global {
 
   interface FetchMapBoxPlacesProps {
     query: string;
-    coordinates: LngLat;
+    coordinates: LngLat | null;
     setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
   }
 
@@ -495,5 +536,26 @@ declare global {
     name: string;
     value: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+
+  interface UseEndMarkerProps {
+    isMarking: boolean;
+    setIsMarking: Dispatch<SetStateAction<boolean>>;
+    coordinates: LngLat | null;
+    setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+  }
+
+  interface UseUserMarkerProps {
+    isMarking: boolean;
+    setIsMarking: Dispatch<SetStateAction<boolean>>;
+    coordinates: LngLat | null;
+    setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+  }
+
+  interface UseStartMarkerProps {
+    isMarking: boolean;
+    setIsMarking: Dispatch<SetStateAction<boolean>>;
+    coordinates: LngLat | null;
+    setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
   }
 }
