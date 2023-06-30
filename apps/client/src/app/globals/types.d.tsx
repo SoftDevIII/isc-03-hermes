@@ -2,7 +2,7 @@ import Language from '@enums/Language';
 import MarkerType from '@enums/Marker';
 import ShortCode from '@enums/ShortCode';
 import Wikidata from '@enums/Wikidata';
-import { LngLat, Map as MapBox, Marker } from 'mapbox-gl';
+import { LngLat, Map as MapBox } from 'mapbox-gl';
 import {
   Dispatch,
   ReactElement,
