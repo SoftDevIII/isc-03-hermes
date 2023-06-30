@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 
 import { DataSourceConfig } from './config/data.source';
+import CustomerModule from './customer/customer.module';
 import ExampleModule from './example/example.module';
 
 @Module({
@@ -14,7 +15,8 @@ import ExampleModule from './example/example.module';
     TypeOrmModule.forRoot({
       ...DataSourceConfig
     }),
-    ExampleModule
+    ExampleModule,
+    CustomerModule
   ]
 })
 export default class AppModule {}

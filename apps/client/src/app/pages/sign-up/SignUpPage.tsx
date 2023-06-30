@@ -1,21 +1,42 @@
 import Input from '@shared-components/Input';
 import SubmitButton from '@shared-components/SubmitButton';
+import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function SignUpPage() {
+  const [isEquals, setIsEquals] = useState(false);
   const [formData, setFormData] = useState<FormSignUpData>({
     userName: '',
     password: '',
     confirmPassword: ''
   });
-
+  const navigate = useNavigate();
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   }
 
+  function verifyPassword() {
+    setIsEquals(formData.password === formData.confirmPassword);
+  }
+
+  async function userAddition() {
+    await axios.post<void>('/api/customer/signup', {
+      email: formData.userName,
+      password: formData.password
+    });
+  }
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    verifyPassword();
+    if (isEquals) {
+      userAddition().catch(error => {
+        throw error;
+      });
+      navigate('/login');
+    }
   }
 
   return (

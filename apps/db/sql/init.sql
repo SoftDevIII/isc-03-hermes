@@ -10,11 +10,10 @@ CREATE TABLE IF NOT EXISTS Test
 
 CREATE TABLE IF NOT EXISTS Customer
 (
-    CustomerID SERIAL,
-    CustomerName VARCHAR(50) NOT NULL,
-    Password VARCHAR(50) NOT NULL,
+    customer_id SERIAL,
     Email VARCHAR(50) NOT NULL,
-    PRIMARY KEY (CustomerID)
+    Password VARCHAR(50) NOT NULL,
+    PRIMARY KEY (customer_id)
 );
 
 CREATE TABLE IF NOT EXISTS Place
@@ -64,48 +63,48 @@ CREATE TABLE IF NOT EXISTS Attention
 
 CREATE TABLE IF NOT EXISTS VisitedPlace
 (
-  CustomerID INT NOT NULL,
+  customer_id INT NOT NULL,
   PlaceID INT NOT NULL,
   visitDate DATE NOT NULL,
   IsFavorite BOOLEAN NOT NULL,
-  PRIMARY KEY (CustomerID, PlaceID),
-  FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+  PRIMARY KEY (customer_id, PlaceID),
+  FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
   FOREIGN KEY (PlaceID) REFERENCES Place(PlaceID)
 );
 
 CREATE TABLE IF NOT EXISTS Review
 (
   ReviewID SERIAL,
-  CustomerID INT NOT NULL,
+  customer_id INT NOT NULL,
   PlaceID INT NOT NULL,
   ReviewDate DATE NOT NULL,
   ReviewText VARCHAR(50) NOT NULL,
   Rating DECIMAL(2,1) NOT NULL,
   CONSTRAINT chk_Ratings CHECK (Rating >= 0 AND Rating <= 5),
   PRIMARY KEY (ReviewID),
-  FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+  FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
   FOREIGN KEY (PlaceID) REFERENCES Place(PlaceID)
 );
 
 CREATE TABLE IF NOT EXISTS Destination
 (
   DestinationID SERIAL,
-  CustomerID INT NOT NULL,
+  customer_id INT NOT NULL,
   PlaceID INT NOT NULL,
   StartPoint GEOMETRY(Point, 4326),
   EndPoint GEOMETRY(Point, 4326),
   ArrivalMethod arrival_enum NOT NULL,
   PRIMARY KEY (DestinationID),
-  FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+  FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
   FOREIGN KEY (PlaceID) REFERENCES Place(PlaceID)
 );
 
 CREATE TABLE IF NOT EXISTS Authentication
 (
   AuthenticationID SERIAL,
-  CustomerID INT NOT NULL,
+  customer_id INT NOT NULL,
   PRIMARY KEY (AuthenticationID),
-  FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
+  FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
 );
 
 CREATE TABLE IF NOT EXISTS RoutePoints
