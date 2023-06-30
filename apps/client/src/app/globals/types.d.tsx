@@ -57,6 +57,25 @@ declare global {
     setIsLoading: Dispatch<SetStateAction<boolean>>;
   }
 
+  interface AddDisastersProps {
+    current: MapType['map'];
+  }
+
+  interface GraphDisasterProps {
+    current: MapType['map'];
+    disaster: Disaster;
+  }
+
+  interface Disasters {
+    disasters: Disaster[];
+  }
+
+  interface Disaster {
+    id: number;
+    longitude: number;
+    latitude: number;
+  }
+
   interface ButtonProps {
     children: ReactNode;
     onClick: () => void;

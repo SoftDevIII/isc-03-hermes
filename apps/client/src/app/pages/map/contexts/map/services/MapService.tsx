@@ -6,7 +6,7 @@ import {
   MIN_ZOOM,
   PERCENTAGE
 } from '@utils/constants';
-import { Map } from 'mapbox-gl';
+import { LngLat, Map, Marker } from 'mapbox-gl';
 
 function createMap({ container }: CreateMapProps) {
   return new Map({
@@ -46,7 +46,32 @@ const configureMapLoading = ({
   });
 };
 
+const fetchDisasters = async () => {
+  // TODO: read Data base Disasters
+  const response = await fetch('/src/assets/data/disasters.json');
+  const data = (await response.json()) as Disasters;
+  return data;
+};
+
+const graphDisaster = ({ current, disaster }: GraphDisasterProps) => {
+  const coordinates = new LngLat(disaster.longitude, disaster.latitude);
+  const marker = new Marker().setLngLat(coordinates);
+  // TODO: add style
+  marker.addTo(current);
+};
+
+const addDisasters = ({ current }: AddDisastersProps) => {
+  fetchDisasters()
+    .then(data =>
+      data.disasters.forEach(disaster => graphDisaster({ current, disaster }))
+    )
+    .catch((error: Error) => {
+      throw new Error(error.message);
+    });
+};
+
 export {
+  addDisasters,
   configureMap,
   configureMapLoading,
   configureZoomPercentage,
