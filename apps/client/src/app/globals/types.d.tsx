@@ -660,4 +660,10 @@ declare global {
     address: string;
     coordinates: number[];
   }
+
+  interface DirectionsResponse {
+    routes: {
+      distance: number;
+    }[];
+  }
 }
