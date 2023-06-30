@@ -1,4 +1,5 @@
-import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
+import useMap from '@map-contexts/map/MapState';
+import useMarkers from '@map-contexts/markers/MarkersState';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import RoomIcon from '@mui/icons-material/Room';
 import { useState } from 'react';
@@ -6,12 +7,11 @@ import MarkerButton from './components/MarkerButton';
 import MarkerDropDownMenu from './components/MarkerDropDownMenu';
 import MarkerMenuList from './components/MarkerMenuList';
 import useMarkerActions from './hooks/useMarkerActions';
-import useMap from '../../contexts/map/MapState';
 
 function MarkerMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const { handleActionSelected } = useMarkerActions();
-  const { isMarking } = useCoordinates();
+  const { isMarking } = useMarkers();
   const { isLoading } = useMap();
 
   if (isLoading) {
