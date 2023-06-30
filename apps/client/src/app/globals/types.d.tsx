@@ -220,6 +220,7 @@ declare global {
     src: string;
   }
 
+<<<<<<< HEAD
   interface ReturnLocationProps {
     setSnackbarMessage: Dispatch<SetStateAction<string>>;
     setSnackbarSeverity: Dispatch<SetStateAction<string>>;
@@ -497,6 +498,8 @@ declare global {
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   }
 
+=======
+>>>>>>> 3360b679b975dc781d9c66742a19ee3ff2692e6e
   interface DirectionsResponse {
     routes: {
       distance: number;
