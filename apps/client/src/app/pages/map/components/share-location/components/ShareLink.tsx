@@ -1,10 +1,16 @@
 import { useState } from 'react';
+import useMap from '@map-contexts/map/MapState';
 import ShareButton from './ShareButton';
 import ShareModal from './ShareModal';
 
 function ShareLink({ long, lat, placeName }: ShareLinkProps) {
   const [isOpen, setIsOpen] = useState(false);
   const link = `${window.location.origin}/map?long=${long}&lat=${lat}`;
+  const { isLoading } = useMap();
+
+  if (isLoading) {
+    return <div />;
+  }
   return (
     <>
       {isOpen && (
