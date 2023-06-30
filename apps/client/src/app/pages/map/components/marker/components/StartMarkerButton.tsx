@@ -9,7 +9,7 @@ function StartMarkerButton({
   const { startCoordinates } = useCoordinates();
 
   const handleClick = () => {
-    if (startCoordinates.lat !== 0 && startCoordinates.lng !== 0) {
+    if (startCoordinates !== null) {
       onActionSelected('removeStartMarker');
     } else {
       onActionSelected('setStartMarker');
@@ -21,7 +21,7 @@ function StartMarkerButton({
     <OptionMarkerButton
       title='Start'
       icon={start}
-      isMarked={startCoordinates.lat !== 0 && startCoordinates.lng !== 0}
+      isMarked={startCoordinates !== null}
       handleClick={handleClick}
       ajustImage='mb-[1.2px]'
     />

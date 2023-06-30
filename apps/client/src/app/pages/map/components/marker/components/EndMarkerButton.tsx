@@ -9,7 +9,7 @@ function EndMarkerButton({
   const { endCoordinates } = useCoordinates();
 
   const handleClick = () => {
-    if (endCoordinates.lat !== 0 && endCoordinates.lng !== 0) {
+    if (endCoordinates !== null) {
       onActionSelected('removeEndMarker');
     } else {
       onActionSelected('setEndMarker');
@@ -21,7 +21,7 @@ function EndMarkerButton({
     <OptionMarkerButton
       title='End'
       icon={destination}
-      isMarked={endCoordinates.lat !== 0 && endCoordinates.lng !== 0}
+      isMarked={endCoordinates !== null}
       handleClick={handleClick}
       ajustImage='mr-[0.75px] mt-[0.25px]'
     />
