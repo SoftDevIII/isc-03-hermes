@@ -608,4 +608,10 @@ declare global {
     children: ReactNode;
     last?: boolean;
   }
+
+  interface SocialShareButtonProps {
+    name: string;
+    image: string;
+    onClick: () => void;
+  }
 }
