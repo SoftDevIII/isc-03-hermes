@@ -370,10 +370,27 @@ declare global {
     setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     isOpen: boolean;
+    createMarker: (lngLat: number[]) => void;
+    setIsContextOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface CloseButtonContextProps {
+    removeMarker: () => void;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface UseContextRefProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+  }
+
+  interface HandleSearchProps {
+    coordinates: number[];
   }
 
   interface SearchDataProps {
     filterData: (Feature | Coordinates)[];
+    handleSearch: ({ coordinates }: HandleSearchProps) => void;
   }
 
   interface UseSearchRefProps {
@@ -559,38 +576,30 @@ declare global {
     setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
   }
 
+  interface MenuProps {
+    coordinates: LngLat;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+  }
+
+  interface SearchInputProps {
+    createMarker: (lngLat: number[]) => void;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
   interface ContextMenuProps {
-    x: number;
-    y: number;
-    lngLat: LngLat;
-    hideMenu: () => void;
-    left: boolean;
-    top: boolean;
+    coordinates: LngLat;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
   }
 
-  interface ContextMenu {
-    x: number;
-    y: number;
-    lngLat: LngLat;
-    up: boolean;
-    left: boolean;
-  }
-
-  interface UseContextRefProps {
-    hideMenu: () => void;
-  }
-
-  interface UseHandleContextProps {
-    hideMenu: () => void;
+  interface UseSearchMarkerProps {
+    setCoordinates: Dispatch<SetStateAction<LngLat>>;
   }
 
   interface ContextButtonProps {
     handleClick: () => void;
     children: ReactNode;
     last?: boolean;
-  }
-
-  interface UseHandleContextMenuProps {
-    setMenu: Dispatch<SetStateAction<ContextMenu | null>>;
   }
 }
