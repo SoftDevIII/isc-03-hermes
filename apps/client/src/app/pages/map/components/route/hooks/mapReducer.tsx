@@ -1,5 +1,10 @@
 import { Map, Marker } from 'mapbox-gl';
-import { MapState } from './DrawBestRoute';
+
+export interface MapState {
+  isMapReady: boolean;
+  map?: Map;
+  markers: Marker[];
+}
 
 type MapAction =
   | { type: 'setMap'; payload: Map }
