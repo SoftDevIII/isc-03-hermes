@@ -7,7 +7,8 @@ import SearchData from './SearchData';
 
 function SearchInput({
   createMarker,
-  setIsOpen: setIsContextOpen
+  setIsOpen: setIsContextOpen,
+  setFeature
 }: SearchInputProps) {
   const [filterData, setFilterData] = useState<(Feature | Coordinates)[]>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,8 @@ function SearchInput({
       setIsOpen,
       isOpen,
       createMarker,
-      setIsContextOpen
+      setIsContextOpen,
+      setFeature
     });
   const { searchRef } = useSearchRef({ setIsOpen });
 

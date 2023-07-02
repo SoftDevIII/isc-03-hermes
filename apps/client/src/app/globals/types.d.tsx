@@ -83,8 +83,7 @@ declare global {
   }
 
   interface ShareLinkProps {
-    long: number;
-    lat: number;
+    coordinates: LngLat;
     placeName: string;
   }
 
@@ -394,6 +393,7 @@ declare global {
     isOpen: boolean;
     createMarker: (lngLat: number[]) => void;
     setIsContextOpen: Dispatch<SetStateAction<boolean>>;
+    setFeature: Dispatch<SetStateAction<Feature | Coordinates | null>>;
   }
 
   interface UseHandleClickProps {
@@ -413,12 +413,12 @@ declare global {
   }
 
   interface HandleSearchProps {
-    coordinates: number[];
+    feature: Feature | Coordinates;
   }
 
   interface SearchDataProps {
     filterData: (Feature | Coordinates)[];
-    handleSearch: ({ coordinates }: HandleSearchProps) => void;
+    handleSearch: ({ feature }: HandleSearchProps) => void;
   }
 
   interface UseSearchRefProps {
@@ -608,17 +608,20 @@ declare global {
     coordinates: LngLat;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     removeMarker: () => void;
+    feature: Feature | Coordinates | null;
   }
 
   interface SearchInputProps {
     createMarker: (lngLat: number[]) => void;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+    setFeature: Dispatch<SetStateAction<Feature | Coordinates | null>>;
   }
 
   interface ContextMenuProps {
     coordinates: LngLat;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     removeMarker: () => void;
+    feature: Feature | Coordinates | null;
   }
 
   interface UseSearchMarkerProps {
@@ -633,7 +636,7 @@ declare global {
 
   interface SocialShareButtonProps {
     name: string;
-    image: string;
+    children: ReactNode;
     onClick: () => void;
   }
 
