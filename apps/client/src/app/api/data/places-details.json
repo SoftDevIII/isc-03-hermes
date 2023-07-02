@@ -439,6 +439,226 @@
         -66.157198,
         -17.395509
       ]
+    },
+    {
+      "id": 41,
+      "name": "La Casona Santivañez, Calle Santivañez, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Historia, Museo",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.15908,
+        -17.393924
+      ]
+    },
+    {
+      "id": 42,
+      "name": "Museo Convento Santa Teresa, Baptista #344, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Historia, Museo",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.159434,
+        -17.376624
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Parque De La Familia, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Exteriores, Parque",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.161468,
+        -17.386355
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Parque Vial, Av. Ramon Rivero, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Exteriores, Parque",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.154113,
+        -17.38091
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Parque La Torre, Aurelio Melean, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Exteriores, Parque",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.145374,
+        -17.385819
+      ]
+    },
+    {
+      "id": 46,
+      "name": "Parque Mariscal Santa Cruz, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Piscina",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.172533,
+        -17.400523999999997
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Parque del Poeta, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Exteriores, Parque",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.166917,
+        -17.390844
+      ]
+    },
+    {
+      "id": 48,
+      "name": "Parque Demetrio Canelas, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Exteriores, Parque",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.175179,
+        -17.379873
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Parque de Santa Ana de Mayorazgo, Av Beijing, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Exteriores, Parque",
+      "description": "",
+      "address": "Av. Beijing",
+      "coordinates": [
+        -66.177923,
+        -17.361254
+      ]
+    },
+    {
+      "id": 50,
+      "name": "Parque Ex-combatientes, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Exteriores, Parque",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.171641,
+        -17.385535
+      ]
+    },
+    {
+      "id": 51,
+      "name": "Jardín botánico Martín Cárdenas, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Centro de Jardinería",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.1402875,
+        -17.377766
+      ]
+    },
+    {
+      "id": 52,
+      "name": "Cristo De La Concordia, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Sitio Histórico",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.143177,
+        -17.383952
+      ]
+    },
+    {
+      "id": 53,
+      "name": "Cine Center, Av Ramón Rivero, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Cine",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.15134,
+        -17.380202
+      ]
+    },
+    {
+      "id": 54,
+      "name": "Jalasoft Building, Melchor Perez, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Software, Negocios",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.175615,
+        -17.366102
+      ]
+    },
+    {
+      "id": 55,
+      "name": "UMSS Universidad Mayor de San Simón, Avenida Oquendo, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Universidad",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.1457285,
+        -17.393487999999998
+      ]
+    },
+    {
+      "id": 56,
+      "name": "Unifranz, Av. Gualberto Villarroel, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Universidad",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.158495,
+        -17.375274
+      ]
+    },
+    {
+      "id": 57,
+      "name": "Universidad Privada Del Valle, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Universidad",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.158824,
+        -17.394381
+      ]
+    },
+    {
+      "id": 58,
+      "name": "Universidad Católica Boliviana, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Universidad",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.1436,
+        -17.371891
+      ]
+    },
+    {
+      "id": 59,
+      "name": "Universidad Privada Domingo Savio, Calle Irigoyen #1555, Cochabamba, Departamento de Cochabamba, Bolivia",
+      "category": "Universidad",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.183812,
+        -17.376451
+      ]
+    },
+    {
+      "id": 60,
+      "name": "Universidad Privada Boliviana, Colcapirhua, Departamento de Cochabamba, Bolivia",
+      "category": "Universidad",
+      "description": "",
+      "address": "",
+      "coordinates": [
+        -66.218381,
+        -17.398573
+      ]
     }
   ]
 }
