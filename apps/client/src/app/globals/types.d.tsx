@@ -683,4 +683,29 @@ declare global {
   interface GetPlaceDetailsByNameProps {
     name: string;
   }
+  interface FormDisasterData {
+    disasterName: string;
+    duration: string;
+    location: string;
+  }
+  interface InputDisasterProps {
+    isTime?: boolean;
+    children: ReactNode;
+    name: string;
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+  interface SearchDisasterDataProps {
+    filterData: (Feature | Coordinates)[];
+    handleLocationClick: (coordinates: number[]) => void;
+  }
+
+  interface InputDisasterLocationProps {
+    children: ReactNode;
+    name: string;
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onFocus?: () => void;
+    ref?: React.RefObject<HTMLInputElement>;
+  }
 }
