@@ -1,23 +1,23 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity({ name: 'RoutDisaster' })
+@Entity({ name: 'disaster' })
 class Disaster {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   disaster_id: number;
 
-  @Column()
-  disasterName: string;
+  @Column({ type: 'varchar', length: 30 })
+  disaster_name: string;
 
-  @Column()
-  duracion: string;
+  @Column({ type: 'time' })
+  duration: string;
 
-  @Column()
-  insertionHour: string;
+  @Column({ type: 'time', default: () => 'CURRENT_TIME' })
+  insertion_hour: string;
 
-  @Column()
+  @Column({ type: 'decimal' })
   latitude: number;
 
-  @Column()
+  @Column({ type: 'decimal' })
   longitude: number;
 }
 

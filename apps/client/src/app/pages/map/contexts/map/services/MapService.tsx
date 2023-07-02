@@ -6,6 +6,7 @@ import {
   MIN_ZOOM,
   PERCENTAGE
 } from '@utils/constants';
+import axios from 'axios';
 import { LngLat, Map, Marker } from 'mapbox-gl';
 
 function createMap({ container }: CreateMapProps) {
@@ -47,23 +48,22 @@ const configureMapLoading = ({
 };
 
 const fetchDisasters = async () => {
-  // TODO: read Data base Disasters
-  const response = await fetch('/src/assets/data/disasters.json');
-  const data = (await response.json()) as Disasters;
+  const response = await axios.get('/api/Disaster');
+  const data = response.data as Disaster[];
   return data;
 };
 
 const graphDisaster = ({ current, disaster }: GraphDisasterProps) => {
   const coordinates = new LngLat(disaster.longitude, disaster.latitude);
   const marker = new Marker().setLngLat(coordinates);
-  // TODO: add style
+  marker.getElement().innerHTML = `<div class='disaster-marker'></div>`;
   marker.addTo(current);
 };
 
 const addDisasters = ({ current }: AddDisastersProps) => {
   fetchDisasters()
     .then(data =>
-      data.disasters.forEach(disaster => graphDisaster({ current, disaster }))
+      data.forEach(disaster => graphDisaster({ current, disaster }))
     )
     .catch((error: Error) => {
       throw new Error(error.message);

@@ -5,6 +5,7 @@ import { join } from 'path';
 
 import { DataSourceConfig } from './config/data.source';
 import CustomerModule from './customer/customer.module';
+import DisasterModule from './disasterForm/disaster.module';
 import ExampleModule from './example/example.module';
 
 @Module({
@@ -17,6 +18,7 @@ import ExampleModule from './example/example.module';
     }),
     ExampleModule,
     CustomerModule
+    DisasterModule
   ]
 })
 export default class AppModule {}

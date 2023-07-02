@@ -115,13 +115,14 @@ CREATE TABLE IF NOT EXISTS RoutePoints
   FOREIGN KEY (DestinationID) REFERENCES Destination(DestinationID)
 );
 
-CREATE TABLE IF NOT EXISTS Disaster
+CREATE TABLE IF NOT EXISTS disaster
 (
   disaster_id SERIAL,
-  disasterName VARCHAR(30) NOT NULL,
-  duraton time NOT NULL,
-  insertionHour  time DEFAULT CURRENT_TIME NOT NULL,
-  latitude INT NOT NULL,
-  longitude INT NOT NULL
-  PRIMARY KEY (RoutDisasterID)
-)
+  disaster_name VARCHAR(30) NOT NULL,
+  duration time NOT NULL,
+  insertion_hour time DEFAULT CURRENT_TIME NOT NULL,
+  latitude DECIMAL NOT NULL,
+  longitude DECIMAL NOT NULL,
+  PRIMARY KEY (disaster_id)
+);
+

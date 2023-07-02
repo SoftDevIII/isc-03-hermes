@@ -1,9 +1,9 @@
 class CreateDisasterDto {
-  disasterName: string;
+  disaster_name: string;
 
-  duracion: string;
+  duration: string;
 
-  insertionHour: string;
+  insertion_hour: string;
 
   latitude: number;
 

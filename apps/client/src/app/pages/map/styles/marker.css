@@ -8,6 +8,14 @@
   position: relative;
 }
 
+.disaster-marker {
+  background-image: url('../assets/disaster-marker.png');
+  background-size: cover;
+  width: 1.5rem;
+  height: 2rem;
+  position: relative;
+}
+
 .marker::before {
   content: "";
   width: 1.5rem;
@@ -143,6 +151,7 @@
 .mapboxgl-ctrl-bottom-right {
   display: none;
 }
+
 
 @keyframes pulsate {
   0% {

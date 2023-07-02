@@ -1,18 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import RoutDisaster from './disaster.entity';
+import Disaster from './disaster.entity';
 import CreateDisasterDto from './dto/disaster.dto';
 
 @Injectable()
 class DisasterService {
   constructor(
-    @InjectRepository(RoutDisaster)
-    private readonly disasterRepository: Repository<RoutDisaster>
+    @InjectRepository(Disaster)
+    private readonly disasterRepository: Repository<Disaster>
   ) {}
 
   getDisasters() {
-    return this.disasterRepository.find();
+    const disasters = this.disasterRepository.find();
+    return disasters;
   }
 
   saveDisaster(disaster: CreateDisasterDto) {

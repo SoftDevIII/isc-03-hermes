@@ -72,8 +72,11 @@ declare global {
 
   interface Disaster {
     id: number;
-    longitude: number;
+    disaster_name: string;
+    duration: string;
+    insertion_hour: string;
     latitude: number;
+    longitude: number;
   }
 
   interface ButtonProps {
