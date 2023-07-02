@@ -1,4 +1,3 @@
-import useMap from '@map-contexts/map/MapState';
 import useMarkers from '@map-contexts/markers/MarkersState';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import RoomIcon from '@mui/icons-material/Room';
@@ -12,17 +11,9 @@ function MarkerMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const { handleActionSelected } = useMarkerActions();
   const { isMarking } = useMarkers();
-  const { isLoading } = useMap();
-
-  if (isLoading) {
-    return <div />;
-  }
 
   return (
-    <MarkerDropDownMenu
-      setIsOpen={setIsOpen}
-      className='absolute bottom-[72px] landscape:sm:bottom-[80px] left-6 md:left-8 md:bottom-20'
-    >
+    <MarkerDropDownMenu setIsOpen={setIsOpen}>
       {isOpen && (
         <MarkerMenuList
           setIsOpen={setIsOpen}

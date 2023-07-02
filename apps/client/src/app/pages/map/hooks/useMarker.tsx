@@ -1,7 +1,6 @@
 import MarkerType from '@enums/Marker';
 import defaultIcon from '@map-assets/start-marker.png';
 import useMap from '@map-contexts/map/MapState';
-import '@map-styles/marker.css';
 import { LngLat, MapMouseEvent, Marker } from 'mapbox-gl';
 import { useRef } from 'react';
 
@@ -55,7 +54,7 @@ function useMarker({
     if (coordinates === null) {
       return;
     }
-    marker.current?.remove();
+    marker.current.remove();
     setCoordinates(null);
   };
 
@@ -63,7 +62,7 @@ function useMarker({
     coordinatesToMark
   }: CreateMarkerCoordinatesProps) => {
     if (coordinates !== null) {
-      return;
+      marker.current.remove();
     }
     setCoordinates(coordinatesToMark);
     createMarker(coordinatesToMark);
@@ -72,7 +71,7 @@ function useMarker({
   const updateCoordinates = ({
     coordinatesToUpdate
   }: UpdateCoordinatesProps) => {
-    marker.current?.setLngLat(coordinatesToUpdate);
+    marker.current.setLngLat(coordinatesToUpdate);
     setCoordinates(coordinatesToUpdate);
   };
 

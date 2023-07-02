@@ -1,5 +1,4 @@
 import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
-import useMap from '@map-contexts/map/MapState';
 import useMarkers from '@map-contexts/markers/MarkersState';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
 import { Alert, AlertColor, CircularProgress, Snackbar } from '@mui/material';
@@ -8,7 +7,6 @@ import ActualLocationButton from './components/ActualLocationButton';
 import useLocation from './hooks/useLocation';
 
 function ActualLocation() {
-  const { isLoading } = useMap();
   const {
     createUserMarkerCoordinates,
     removeUserMarker,
@@ -55,12 +53,8 @@ function ActualLocation() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (isLoading) {
-    return <div />;
-  }
-
   return (
-    <div className='absolute left-6 bottom-4 rounded-full md:left-8 md:bottom-8'>
+    <div>
       <span>
         <ActualLocationButton
           onClick={() => handleFetchLocation()}
