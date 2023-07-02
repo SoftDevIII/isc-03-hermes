@@ -648,4 +648,17 @@ declare global {
     extra: string | null;
     url2: string | null;
   }
+
+  interface PublicPlaces {
+    places: PublicPlace[];
+  }
+
+  interface PublicPlace {
+    id: number;
+    name: string;
+    category: string;
+    description: string;
+    address: string;
+    coordinates: number[];
+  }
 }
