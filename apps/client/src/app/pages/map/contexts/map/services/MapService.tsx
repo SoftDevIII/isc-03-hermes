@@ -14,7 +14,8 @@ function createMap({ container }: CreateMapProps) {
     container: container.current as HTMLElement,
     style: 'mapbox://styles/mapbox/navigation-night-v1',
     center: [INIT_LONG, INIT_LAT],
-    zoom: INIT_ZOOM
+    zoom: INIT_ZOOM,
+    pitchWithRotate: false
   });
 }
 
