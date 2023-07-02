@@ -9,7 +9,9 @@ import {
 function useSearchInput({
   setFilterData,
   setIsOpen,
-  isOpen
+  isOpen,
+  createMarker,
+  setIsContextOpen
 }: UseSearchInputProps) {
   const { userCoordinates } = useCoordinates();
 
@@ -52,7 +54,15 @@ function useSearchInput({
     ref.current?.focus();
   };
 
-  return { search, onInputChange, ref, clearInput };
+  const handleSearch = ({ coordinates }: HandleSearchProps) => {
+    setSearch('');
+    setFilterData([]);
+    createMarker(coordinates);
+    setIsContextOpen(true);
+    setIsOpen(false);
+  };
+
+  return { search, onInputChange, ref, clearInput, handleSearch };
 }
 
 export default useSearchInput;
