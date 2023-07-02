@@ -1,4 +1,4 @@
-import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
+import useCoordinates from '../../../contexts/coordinates/CoordinatesState';
 import MenuOptions from './components/MenuOptions';
 import StartButton from './components/StartButton';
 
@@ -6,10 +6,10 @@ function PopUpForRouteInformation() {
   const { startCoordinates, endCoordinates } = useCoordinates();
 
   if (
-    startCoordinates.lng === 0 ||
-    startCoordinates.lat === 0 ||
-    endCoordinates.lng === 0 ||
-    endCoordinates.lat === 0
+    startCoordinates?.lat === undefined ||
+    startCoordinates?.lng === undefined ||
+    endCoordinates?.lat === undefined ||
+    endCoordinates?.lng === undefined
   ) {
     return <div />;
   }
