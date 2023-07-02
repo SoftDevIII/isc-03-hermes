@@ -5,15 +5,21 @@ import CloseButton from './CloseButton';
 import SearchButton from './SearchButton';
 import SearchData from './SearchData';
 
-function SearchInput() {
+function SearchInput({
+  createMarker,
+  setIsOpen: setIsContextOpen
+}: SearchInputProps) {
   const [filterData, setFilterData] = useState<(Feature | Coordinates)[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const { search, onInputChange, ref, clearInput } = useSearchInput({
-    setFilterData,
-    setIsOpen,
-    isOpen
-  });
+  const { search, onInputChange, ref, clearInput, handleSearch } =
+    useSearchInput({
+      setFilterData,
+      setIsOpen,
+      isOpen,
+      createMarker,
+      setIsContextOpen
+    });
   const { searchRef } = useSearchRef({ setIsOpen });
 
   return (
@@ -42,7 +48,7 @@ function SearchInput() {
         )}
       </div>
       {isOpen && filterData.length !== 0 && (
-        <SearchData filterData={filterData} />
+        <SearchData filterData={filterData} handleSearch={handleSearch} />
       )}
     </div>
   );

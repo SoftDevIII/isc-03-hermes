@@ -15,17 +15,17 @@ function ActualLocation() {
     updateUserMarkerCoordinates
   } = useMarkers();
   const { userCoordinates } = useCoordinates();
-
-  const [isDisabled, setIsDisabled] = useState(true);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState('');
-  const [snackbarSeverity, setSnackbarSeverity] = useState('');
   const { isFetching, fetchUserLocation, getPermissions, removeLocation } =
     useLocation({
       createUserMarkerCoordinates,
       removeUserMarker,
       updateUserMarkerCoordinates
     });
+
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarSeverity, setSnackbarSeverity] = useState('');
 
   const handleFetchLocation = () => {
     if (userCoordinates) {
