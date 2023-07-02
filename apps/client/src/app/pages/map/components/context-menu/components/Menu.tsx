@@ -20,13 +20,20 @@ function Menu({ x, y, lngLat, hideMenu, left, top }: ContextMenuProps) {
         {' '}
         {lngLat.lng.toFixed(4)}, {lngLat.lat.toFixed(4)}
       </p>
-      <ContextButton handleClick={handleSetStartPoint}>
+      <ContextButton
+        handleClick={() => handleSetStartPoint({ coordinates: lngLat })}
+      >
         Set as starting point
       </ContextButton>
-      <ContextButton handleClick={handleSetEndPoint}>
+      <ContextButton
+        handleClick={() => handleSetEndPoint({ coordinates: lngLat })}
+      >
         Set as destiny point
       </ContextButton>
-      <ContextButton handleClick={handleShowInfo} last>
+      <ContextButton
+        handleClick={() => handleShowInfo({ coordinates: lngLat })}
+        last
+      >
         Marker Information
       </ContextButton>
     </div>
