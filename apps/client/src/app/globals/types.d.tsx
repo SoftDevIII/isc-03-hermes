@@ -91,6 +91,7 @@ declare global {
     link: string;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     placeName: string;
+    setLink: Dispatch<SetStateAction<string>>;
   }
 
   interface MarkerButtonProps {
@@ -456,6 +457,7 @@ declare global {
   interface Coordinates {
     id: string;
     place_name_es: string;
+    text: string;
     geometry: Geometry;
   }
 

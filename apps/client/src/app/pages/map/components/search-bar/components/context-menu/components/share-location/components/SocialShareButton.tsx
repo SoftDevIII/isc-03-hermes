@@ -13,7 +13,7 @@ function SocialShareButton({
       >
         {children}
       </Button>
-      <span className='font-roboto text-center text-base'>{name}</span>
+      <span className='font-roboto text-center text-sm'>{name}</span>
     </div>
   );
 }

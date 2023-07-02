@@ -7,8 +7,13 @@ import { useState } from 'react';
 import CopyLinkButton from './CopyLinkButton';
 import SocialLocationSharing from './SocialLocationSharing';
 
-function ShareModal({ link, setIsOpen, placeName }: ShareModalProps) {
+function ShareModal({ link, setIsOpen, placeName, setLink }: ShareModalProps) {
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
+
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLink(event.target.value);
+  };
+
   const handleClick = () => {
     navigator.clipboard
       .writeText(link)
@@ -25,29 +30,31 @@ function ShareModal({ link, setIsOpen, placeName }: ShareModalProps) {
   };
 
   return (
-    <div className='z-20 fixed grid bg-black/30 left-0 right-0 top-0 bottom-0'>
+    <div className='z-20 fixed grid bg-black/30 left-0 right-0 top-0 bottom-0 place-items-center'>
       <div
-        className='flex flex-col bg-black/60 p-4
-        rounded-2xl w-1/3 m-auto text-white gap-6 relative'
+        className='flex flex-col bg-black/60
+        rounded-2xl w-11/12 relative p-4 gap-5 landscape:sm:flex-row landscape:md:flex-col
+        portrait:w-3/4 landscape:md:w-1/3 portrait:md:w-2/4'
       >
         <Button
           onClick={() => setIsOpen(false)}
-          className='absolute grid right-2'
+          className='absolute grid right-2 top-2'
         >
           <HighlightOffIcon />
         </Button>
-        <p className='block text-2xl text-center mt-4'>{placeName}</p>
+        <p className='block text-2xl text-center mt-5'>{placeName}</p>
         <div className='grid place-items-center'>
           <div className='grid w-11/12'>
-            <p className='text-lg font-bold text-start'>Link to share</p>
-            <div className='grid grid-cols-6'>
+            <p className='font-bold text-start'>Link to share</p>
+            <div className='flex justify-between gap-2 '>
               <input
-                className='flex col-span-5 bg-black/70 py-[6px] px-3 rounded-lg
-              text-white outline-none landscape:sm:text-[16px]'
+                className='flex col-span-5 bg-black/70 py-[6px] px-2 rounded-lg
+              text-white outline-none w-full'
                 type='text'
                 id='link-input'
                 name='link-input'
                 value={link}
+                onChange={onChange}
               />
               <CopyLinkButton onClick={handleClick}>
                 <ContentCopyIcon fontSize='inherit' />

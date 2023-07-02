@@ -5,7 +5,9 @@ import ShareModal from './components/ShareModal';
 
 function ShareLink({ coordinates, placeName }: ShareLinkProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const link = `${window.location.origin}/map?long=${coordinates.lng}&lat=${coordinates.lat}`;
+  const [link, setLink] = useState(
+    `${window.location.origin}/map?long=${coordinates.lng}&lat=${coordinates.lat}`
+  );
   const { isLoading } = useMap();
 
   if (isLoading) {
@@ -15,7 +17,12 @@ function ShareLink({ coordinates, placeName }: ShareLinkProps) {
   return (
     <>
       {isOpen && (
-        <ShareModal link={link} setIsOpen={setIsOpen} placeName={placeName} />
+        <ShareModal
+          link={link}
+          setIsOpen={setIsOpen}
+          placeName={placeName}
+          setLink={setLink}
+        />
       )}
       <div className='absolute right-2 bottom-1'>
         <span>
