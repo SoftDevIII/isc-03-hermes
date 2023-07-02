@@ -1,10 +1,12 @@
 import walkIcon from '@map-assets/walking-icon.png';
+import useRouteType from '@map-contexts/route-selector/RouteTypeState';
 import SelectorButton from './SelectorButton';
 
-function WalkButton({ className = '', setIsOpen, setType }: WalkButtonProps) {
+function WalkButton({ className = '', setIsOpen }: WalkButtonProps) {
+  const { setRouteType } = useRouteType();
   const onClick = () => {
-    setType('walk');
     setIsOpen(false);
+    setRouteType('walk');
   };
 
   return (

@@ -1,8 +1,8 @@
 import useMap from '@map-contexts/map/MapState';
-import RouteSelector from '../route-selector/RouteSelector';
 import ActualLocation from './actual-location/ActualLocation';
 import Compass from './compass/Compass';
 import MarkerMenu from './marker/MarkerMenu';
+import RouteSelector from './route-selector/RouteSelector';
 
 function LeftControl() {
   const { isLoading } = useMap();

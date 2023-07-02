@@ -6,18 +6,21 @@ import MarkersProvider from '@map-contexts/markers/MarkersProvider';
 import '@map-styles/marker.css';
 import LeftControl from './components/left-control/LeftControl';
 import RightControl from './components/right-control/RightControl';
+import RouteTypeProvider from './contexts/route-selector/RouteTypeProvider';
 
 function MapPage() {
   return (
     <MapProvider>
       <CoordinatesProvider>
         <MarkersProvider>
-          <div className='h-full grid font-roboto'>
-            <MapComponent />
-            <SearchBar />
-            <LeftControl />
-            <RightControl />
-          </div>
+          <RouteTypeProvider>
+            <div className='h-full grid font-roboto'>
+              <MapComponent />
+              <SearchBar />
+              <LeftControl />
+              <RightControl />
+            </div>
+          </RouteTypeProvider>
         </MarkersProvider>
       </CoordinatesProvider>
     </MapProvider>
