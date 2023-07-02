@@ -26,10 +26,7 @@ function Menu({ coordinates, setIsOpen, removeMarker, feature }: MenuProps) {
       <ContextButton handleClick={() => handleInfoClick()} last>
         Marker Information
       </ContextButton>
-      <ShareLink
-        coordinates={coordinates}
-        placeName={feature?.place_name_es || ''}
-      />
+      <ShareLink coordinates={coordinates} placeName={feature?.text || ''} />
     </div>
   );
 }
