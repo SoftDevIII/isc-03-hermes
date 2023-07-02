@@ -1,4 +1,4 @@
-import PlaceDetailsAPI from "@api/PlaceDetailsAPI";
+import PlaceDetailsAPI from '@api/PlaceDetailsAPI';
 import { INIT_LAT, INIT_LONG, MAX_RESULTS } from '@utils/constants';
 
 function fetchPlaceDetails({
