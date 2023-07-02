@@ -648,4 +648,64 @@ declare global {
     extra: string | null;
     url2: string | null;
   }
+
+  interface CoordinatesProps {
+    id: string;
+  }
+
+  interface PublicPlacesFeaturesProps {
+    place_id:
+      | CoordinatesProps
+      | {
+          latitude: number;
+          longitude: number;
+        };
+    place_name: string;
+    place_description: string;
+    place_address: string;
+    place_coordinates:
+      | CoordinatesProps
+      | {
+          latitude: number;
+          longitude: number;
+        };
+    place_photos: string[];
+    place_reviews: PlaceReviewProps[];
+    place_category: string;
+    place_contact: PlaceContactProps;
+    place_openingHours: PlaceOpeningHours;
+  }
+
+  interface PlaceReviewProps {
+    username: string;
+    rating: number;
+    comment: string;
+    timestamp: string;
+  }
+
+  interface PlaceContactProps {
+    phone: string;
+    email: string;
+    website: string;
+  }
+
+  interface PlaceOpeningHours {
+    weekdays: string;
+    weekends: string;
+  }
+
+  interface FetchPlaceDetailsProps {
+    query: string;
+    coordinates: LngLat | null;
+    setFilterData: Dispatch<
+      SetStateAction<(PublicPlacesFeaturesProps | CoordinatesProps)[]>
+    >;
+  }
+
+  interface PublicPlacesResponseProps {
+    type: string;
+    query: string[];
+    features: PublicPlacesFeaturesProps[];
+    attribution: string;
+  }
 }
