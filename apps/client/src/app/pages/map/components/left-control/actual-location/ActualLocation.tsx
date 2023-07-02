@@ -1,7 +1,7 @@
 import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
 import useMarkers from '@map-contexts/markers/MarkersState';
 import MyLocationIcon from '@mui/icons-material/MyLocation';
-import { Alert, AlertColor, CircularProgress, Snackbar } from '@mui/material';
+import { Alert, CircularProgress, Snackbar } from '@mui/material';
 import { useEffect, useState } from 'react';
 import ActualLocationButton from './components/ActualLocationButton';
 import useLocation from './hooks/useLocation';
@@ -77,7 +77,7 @@ function ActualLocation() {
       >
         <Alert
           onClose={() => setSnackbarOpen(false)}
-          severity={snackbarSeverity as AlertColor}
+          severity={snackbarSeverity === 'success' ? 'success' : 'error'}
           style={{ backgroundColor: '#14171b', color: 'white', opacity: 0.9 }}
         >
           {snackbarMessage}

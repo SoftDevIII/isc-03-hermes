@@ -72,6 +72,28 @@ declare global {
     disabled: boolean;
   }
 
+  interface ShareButtonProps {
+    children?: ReactNode;
+    onClick: () => void;
+  }
+
+  interface CopyLinkButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+  }
+
+  interface ShareLinkProps {
+    coordinates: LngLat;
+    placeName: string;
+  }
+
+  interface ShareModalProps {
+    link: string;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    placeName: string;
+    setLink: Dispatch<SetStateAction<string>>;
+  }
+
   interface MarkerButtonProps {
     children: ReactNode;
     onClick: () => void;
@@ -372,6 +394,7 @@ declare global {
     isOpen: boolean;
     createMarker: (lngLat: number[]) => void;
     setIsContextOpen: Dispatch<SetStateAction<boolean>>;
+    setFeature: Dispatch<SetStateAction<Feature | Coordinates | null>>;
   }
 
   interface UseHandleClickProps {
@@ -391,12 +414,12 @@ declare global {
   }
 
   interface HandleSearchProps {
-    coordinates: number[];
+    feature: Feature | Coordinates;
   }
 
   interface SearchDataProps {
     filterData: (Feature | Coordinates)[];
-    handleSearch: ({ coordinates }: HandleSearchProps) => void;
+    handleSearch: ({ feature }: HandleSearchProps) => void;
   }
 
   interface UseSearchRefProps {
@@ -434,6 +457,7 @@ declare global {
   interface Coordinates {
     id: string;
     place_name_es: string;
+    text: string;
     geometry: Geometry;
   }
 
@@ -586,17 +610,20 @@ declare global {
     coordinates: LngLat;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     removeMarker: () => void;
+    feature: Feature | Coordinates | null;
   }
 
   interface SearchInputProps {
     createMarker: (lngLat: number[]) => void;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+    setFeature: Dispatch<SetStateAction<Feature | Coordinates | null>>;
   }
 
   interface ContextMenuProps {
     coordinates: LngLat;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     removeMarker: () => void;
+    feature: Feature | Coordinates | null;
   }
 
   interface UseSearchMarkerProps {
@@ -607,5 +634,18 @@ declare global {
     handleClick: () => void;
     children: ReactNode;
     last?: boolean;
+  }
+
+  interface SocialShareButtonProps {
+    name: string;
+    children: ReactNode;
+    onClick: () => void;
+  }
+
+  interface HandleShareSocialProps {
+    msg: string;
+    url: string;
+    extra: string | null;
+    url2: string | null;
   }
 }

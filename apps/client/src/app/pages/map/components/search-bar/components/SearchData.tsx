@@ -13,9 +13,7 @@ function SearchData({ filterData, handleSearch }: SearchDataProps) {
         {filterData.map(feature => (
           <AutoCompleteButton
             key={feature.id}
-            onClick={() =>
-              handleSearch({ coordinates: feature.geometry.coordinates })
-            }
+            onClick={() => handleSearch({ feature })}
           >
             {feature.place_name_es}
           </AutoCompleteButton>

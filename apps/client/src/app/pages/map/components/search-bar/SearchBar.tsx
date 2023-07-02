@@ -11,6 +11,7 @@ function SearchBar() {
   const { isLoading } = useMap();
   const [isOpen, setIsOpen] = useState(false);
   const [coordinates, setCoordinates] = useState<LngLat>(new LngLat(0, 0));
+  const [feature, setFeature] = useState<Feature | Coordinates | null>(null);
   const { createMarker, removeMarker } = useSearchMarker({ setCoordinates });
 
   if (isLoading) {
@@ -24,6 +25,7 @@ function SearchBar() {
           setIsOpen={setIsOpen}
           coordinates={coordinates}
           removeMarker={removeMarker}
+          feature={feature}
         />
       )}
       <div className='grid absolute w-full py-4 z-10'>
@@ -31,7 +33,11 @@ function SearchBar() {
           className='flex bg-black/50 py-[5px] md:py-3 px-4 w-5/6 md:w-8/12 rounded-2xl
           m-auto gap-4 justify-between landscape:sm:py-[5px] portrait:md:py-[5px]'
         >
-          <SearchInput createMarker={createMarker} setIsOpen={setIsOpen} />
+          <SearchInput
+            createMarker={createMarker}
+            setIsOpen={setIsOpen}
+            setFeature={setFeature}
+          />
           <Menu />
         </div>
       </div>

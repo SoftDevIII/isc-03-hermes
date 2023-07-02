@@ -11,7 +11,8 @@ function useSearchInput({
   setIsOpen,
   isOpen,
   createMarker,
-  setIsContextOpen
+  setIsContextOpen,
+  setFeature
 }: UseSearchInputProps) {
   const { userCoordinates } = useCoordinates();
 
@@ -54,10 +55,11 @@ function useSearchInput({
     ref.current?.focus();
   };
 
-  const handleSearch = ({ coordinates }: HandleSearchProps) => {
+  const handleSearch = ({ feature }: HandleSearchProps) => {
     setSearch('');
     setFilterData([]);
-    createMarker(coordinates);
+    createMarker(feature.geometry.coordinates);
+    setFeature(feature);
     setIsContextOpen(true);
     setIsOpen(false);
   };

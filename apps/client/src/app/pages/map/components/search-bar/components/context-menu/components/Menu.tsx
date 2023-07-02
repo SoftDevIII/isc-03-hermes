@@ -1,8 +1,9 @@
 import useHandleClick from '../hooks/useHandleClick';
 import CloseButtonContext from './CloseButtonContext';
 import ContextButton from './ContextButton';
+import ShareLink from './share-location/ShareLink';
 
-function Menu({ coordinates, setIsOpen, removeMarker }: MenuProps) {
+function Menu({ coordinates, setIsOpen, removeMarker, feature }: MenuProps) {
   const { handleStartClick, handleEndClick, handleInfoClick } = useHandleClick({
     coordinates,
     setIsOpen,
@@ -25,6 +26,7 @@ function Menu({ coordinates, setIsOpen, removeMarker }: MenuProps) {
       <ContextButton handleClick={() => handleInfoClick()} last>
         Marker Information
       </ContextButton>
+      <ShareLink coordinates={coordinates} placeName={feature?.text || ''} />
     </div>
   );
 }

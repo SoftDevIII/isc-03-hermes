@@ -11,7 +11,8 @@ function convertCoordinatesToFeat({
     geometry: {
       type: 'coordinates',
       coordinates: [coordinates.lng, coordinates.lat]
-    }
+    },
+    text: `Coordinates: ${coordinates.lng.toString()}, ${coordinates.lat.toString()}`
   };
 }
 
