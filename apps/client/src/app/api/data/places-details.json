@@ -1,0 +1,86 @@
+{
+  "places": [
+    {
+      "id": {
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      },
+      "name": "Example Place 1",
+      "description": "This is an example place with various amenities.",
+      "address": "123 Example Street, City, Country",
+      "coordinates": {
+        "latitude": 40.7128,
+        "longitude": -74.0060
+      },
+      "photos": [
+        "photo1.jpg",
+        "photo2.jpg"
+      ],
+      "reviews": [
+        {
+          "username": "User1",
+          "rating": 4.5,
+          "comment": "Great place to visit!",
+          "timestamp": "2023-06-30T10:30:00Z"
+        },
+        {
+          "username": "User2",
+          "rating": 3.8,
+          "comment": "Decent place, but could be better.",
+          "timestamp": "2023-06-29T14:45:00Z"
+        }
+      ],
+      "category": "Restaurant",
+      "contact": {
+        "phone": "+1234567890",
+        "email": "info@example.com",
+        "website": "example.com"
+      },
+      "openingHours": {
+        "weekdays": "9:00 AM - 6:00 PM",
+        "weekends": "10:00 AM - 4:00 PM"
+      }
+    },
+    {
+      "id": {
+        "latitude": 41.8781,
+        "longitude": -87.6298
+      },
+      "name": "Example Place 2",
+      "description": "This is another example place with different features.",
+      "address": "456 Example Street, City, Country",
+      "coordinates": {
+        "latitude": 41.8781,
+        "longitude": -87.6298
+      },
+      "photos": [
+        "photo3.jpg",
+        "photo4.jpg"
+      ],
+      "reviews": [
+        {
+          "username": "User3",
+          "rating": 4.2,
+          "comment": "Nice place to hang out!",
+          "timestamp": "2023-06-30T11:15:00Z"
+        },
+        {
+          "username": "User4",
+          "rating": 4.8,
+          "comment": "Absolutely loved it!",
+          "timestamp": "2023-06-29T16:30:00Z"
+        }
+      ],
+      "category": "Park",
+      "contact": {
+        "phone": "+9876543210",
+        "email": "info@example.com",
+        "website": "example.com"
+      },
+      "openingHours": {
+        "weekdays": "8:00 AM - 6:00 PM",
+        "weekends": "10:00 AM - 2:00 PM"
+      }
+    }
+  ]
+}
