@@ -6,12 +6,14 @@ import { useNavigate } from 'react-router-dom';
 
 function SignUpPage() {
   const [isEquals, setIsEquals] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState<FormSignUpData>({
     userName: '',
     password: '',
     confirmPassword: ''
   });
   const navigate = useNavigate();
+
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -22,7 +24,7 @@ function SignUpPage() {
   }
 
   async function userAddition() {
-    await axios.post<void>('/api/customer/signup', {
+    await axios.post('/api/customer/signup', {
       email: formData.userName,
       password: formData.password
     });
@@ -36,6 +38,9 @@ function SignUpPage() {
         throw error;
       });
       navigate('/login');
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
     }
   }
 
@@ -46,6 +51,9 @@ function SignUpPage() {
         onSubmit={handleSubmit}
       >
         <p className='text-white px-16 text-2xl font-bold'>Sign Up</p>
+        {isVisible && !isEquals && (
+          <p className='text-red-500 text-sm'>Passwords must match.</p>
+        )}
         <div className='flex flex-col gap-1'>
           <Input
             name='userName'

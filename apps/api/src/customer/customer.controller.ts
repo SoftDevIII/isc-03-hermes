@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  ParseIntPipe,
-  Post
-} from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import CustomerService from './customer.service';
 import Customer from './custumer.entity';
 import CreateCustomerDto from './dto/create-customer.dto';
@@ -14,9 +7,9 @@ import CreateCustomerDto from './dto/create-customer.dto';
 class CustomerController {
   constructor(private readonly userService: CustomerService) {}
 
-  @Get(':id')
-  getCustomers(@Param('id', ParseIntPipe) id: number): Promise<Customer> {
-    return this.userService.getCustomers(id);
+  @Get()
+  getCustomers(): Promise<Customer[]> {
+    return this.userService.getCustomers();
   }
 
   @Post()

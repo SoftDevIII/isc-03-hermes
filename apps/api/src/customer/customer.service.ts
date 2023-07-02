@@ -33,12 +33,8 @@ class CustomerService {
     });
   }
 
-  getCustomers(id: number) {
-    return this.customerRepository.findOne({
-      where: {
-        customer_id: id
-      }
-    });
+  getCustomers() {
+    return this.customerRepository.find();
   }
 
   signUpSave(customer: CreateCustomerDto) {
