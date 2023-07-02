@@ -1,6 +1,7 @@
 import useMap from '@map-contexts/map/MapState';
 import ActualLocation from './actual-location/ActualLocation';
 import MarkerMenu from './marker/MarkerMenu';
+import Compass from './compass/Compass';
 
 function LeftControl() {
   const { isLoading } = useMap();
@@ -14,6 +15,7 @@ function LeftControl() {
       className='flex flex-col gap-2
     absolute left-8 bottom-4 rounded-full md:left-8 md:bottom-5'
     >
+      <Compass />
       <MarkerMenu />
       <ActualLocation />
     </div>

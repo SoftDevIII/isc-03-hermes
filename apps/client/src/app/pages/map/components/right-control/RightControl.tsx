@@ -9,7 +9,7 @@ function RightControl() {
   }
 
   return (
-    <div className='absolute right-8 bottom-4 rounded-full md:right-8 md:bottom-5'>
+    <div className='absolute right-8 bottom-4 md:right-8 md:bottom-5'>
       <Zoom />
     </div>
   );
