@@ -26,7 +26,7 @@ function SignUpPage() {
   }
   const [filterData, setFilterData] = useState<(Feature | Coordinates)[]>([]);
   const [isOpen, setIsOpen] = useState(false);
-  const { search, onInputChange, ref, clearInput } = useSearchInput({
+  const { search, onInputChange, ref } = useSearchInput({
     setFilterData,
     setIsOpen,
     isOpen
