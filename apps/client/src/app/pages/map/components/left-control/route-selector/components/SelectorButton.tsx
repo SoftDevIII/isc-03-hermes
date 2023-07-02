@@ -1,4 +1,4 @@
-import Button from '../../../shared-ui-components/Button';
+import Button from '../../../../shared-ui-components/Button';
 
 function SelectorButton({
   icon,

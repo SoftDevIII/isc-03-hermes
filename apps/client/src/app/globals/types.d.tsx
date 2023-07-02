@@ -130,6 +130,11 @@ declare global {
     setUserCoordinates: Dispatch<SetStateAction<LngLat | null>>;
   }
 
+  interface RouteTypeContextValue {
+    routeType: string;
+    setRouteType: Dispatch<SetStateAction<string>>;
+  }
+
   interface MarkersContextValue {
     setStartMarker: () => void;
     removeStartMarker: () => void;
@@ -160,6 +165,10 @@ declare global {
   }
 
   interface MarkersProviderProps {
+    children: ReactNode;
+  }
+
+  interface RouteTypeProviderProps {
     children: ReactNode;
   }
 
@@ -761,19 +770,16 @@ declare global {
   interface BicycleButtonProps {
     className?: string;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
-    setType: Dispatch<SetStateAction<string>>;
   }
 
   interface WalkButtonProps {
     className?: string;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
-    setType: Dispatch<SetStateAction<string>>;
   }
 
   interface CarButtonProps {
     className?: string;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
-    setType: Dispatch<SetStateAction<string>>;
   }
 
   interface SelectorButtonProps {
@@ -793,7 +799,6 @@ declare global {
   interface RouteSelectorListProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     isOpen: boolean;
-    setType: Dispatch<SetStateAction<string>>;
   }
 
   interface TypeRouteButton {

@@ -1,10 +1,12 @@
 import carIcon from '@map-assets/car-icon.png';
+import useRouteType from '@map-contexts/route-selector/RouteTypeState';
 import SelectorButton from './SelectorButton';
 
-function CarButton({ className = '', setIsOpen, setType }: CarButtonProps) {
+function CarButton({ className = '', setIsOpen }: CarButtonProps) {
+  const { setRouteType } = useRouteType();
   const onClick = () => {
-    setType('car');
     setIsOpen(false);
+    setRouteType('car');
   };
 
   return (

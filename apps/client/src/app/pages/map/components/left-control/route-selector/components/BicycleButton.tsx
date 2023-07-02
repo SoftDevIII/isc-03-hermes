@@ -1,14 +1,12 @@
 import bicycleIcon from '@map-assets/bicycle-icon.png';
+import useRouteType from '@map-contexts/route-selector/RouteTypeState';
 import SelectorButton from './SelectorButton';
 
-function BicycleButton({
-  className = '',
-  setIsOpen,
-  setType
-}: BicycleButtonProps) {
+function BicycleButton({ className = '', setIsOpen }: BicycleButtonProps) {
+  const { setRouteType } = useRouteType();
   const onClick = () => {
-    setType('bicycle');
     setIsOpen(false);
+    setRouteType('bicycle');
   };
 
   return (
