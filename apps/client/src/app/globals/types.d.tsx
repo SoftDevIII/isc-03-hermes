@@ -636,4 +636,11 @@ declare global {
     image: string;
     onClick: () => void;
   }
+
+  interface HandleShareSocialProps {
+    msg: string;
+    url: string;
+    extra: string | null;
+    url2: string | null;
+  }
 }
