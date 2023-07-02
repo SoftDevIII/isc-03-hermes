@@ -374,6 +374,12 @@ declare global {
     setIsContextOpen: Dispatch<SetStateAction<boolean>>;
   }
 
+  interface UseHandleClickProps {
+    coordinates: LngLat;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+  }
+
   interface CloseButtonContextProps {
     removeMarker: () => void;
     setIsOpen: Dispatch<SetStateAction<boolean>>;

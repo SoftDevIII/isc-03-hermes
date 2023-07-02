@@ -1,7 +1,14 @@
+import useHandleClick from '../hooks/useHandleClick';
 import CloseButtonContext from './CloseButtonContext';
 import ContextButton from './ContextButton';
 
 function Menu({ coordinates, setIsOpen, removeMarker }: MenuProps) {
+  const { handleStartClick, handleEndClick, handleInfoClick } = useHandleClick({
+    coordinates,
+    setIsOpen,
+    removeMarker
+  });
+
   return (
     <div className='bg-black/50 text-white p-5  rounded-2xl text-center'>
       <CloseButtonContext setIsOpen={setIsOpen} removeMarker={removeMarker} />
@@ -9,13 +16,13 @@ function Menu({ coordinates, setIsOpen, removeMarker }: MenuProps) {
         {' '}
         {coordinates.lng.toFixed(4)}, {coordinates.lat.toFixed(4)}
       </p>
-      <ContextButton handleClick={() => () => {}}>
+      <ContextButton handleClick={() => handleStartClick()}>
         Set as starting point
       </ContextButton>
-      <ContextButton handleClick={() => () => {}}>
+      <ContextButton handleClick={() => handleEndClick()}>
         Set as destiny point
       </ContextButton>
-      <ContextButton handleClick={() => () => {}} last>
+      <ContextButton handleClick={() => handleInfoClick()} last>
         Marker Information
       </ContextButton>
     </div>

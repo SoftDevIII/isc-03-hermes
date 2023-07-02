@@ -21,6 +21,7 @@ function useSearchMarker({ setCoordinates }: UseSearchMarkerProps) {
     setCoordinates(lngLat);
     marker.current.setLngLat(lngLat);
     marker.current.addTo(map.current);
+    marker.current.getElement().innerHTML = `<div><div class='animate-bounce'><div class='marker info'></div></div><div class='shadow shadow-info'></div></div>`;
     map.current.flyTo({ center: lngLat, zoom: 15 });
   };
 

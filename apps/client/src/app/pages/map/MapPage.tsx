@@ -1,11 +1,11 @@
-import ActualLocation from '@map-components/actual-location/ActualLocation';
 import MapComponent from '@map-components/map/MapComponent';
-import MarkerMenu from '@map-components/marker/MarkerMenu';
 import SearchBar from '@map-components/search-bar/SearchBar';
-import Zoom from '@map-components/zoom/Zoom';
 import CoordinatesProvider from '@map-contexts/coordinates/CoordinatesProvider';
 import MapProvider from '@map-contexts/map/MapProvider';
 import MarkersProvider from '@map-contexts/markers/MarkersProvider';
+import '@map-styles/marker.css';
+import LeftControl from './components/left-control/LeftControl';
+import RightControl from './components/right-control/RightControl';
 
 function MapPage() {
   return (
@@ -15,9 +15,8 @@ function MapPage() {
           <div className='h-full grid font-roboto'>
             <MapComponent />
             <SearchBar />
-            <MarkerMenu />
-            <ActualLocation />
-            <Zoom />
+            <LeftControl />
+            <RightControl />
           </div>
         </MarkersProvider>
       </CoordinatesProvider>
