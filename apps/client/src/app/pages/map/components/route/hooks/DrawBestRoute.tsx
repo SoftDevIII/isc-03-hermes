@@ -1,66 +1,84 @@
-import { useContext, useEffect, useReducer } from "react";
-import { AnySourceData, LngLatBounds, Map, Marker, Popup } from 'mapbox-gl';
-import { directionsApi } from "../../apis";
-import { DirectionsResponse } from "../../interfaces/direction";
+import { AnySourceData, LngLatBounds, Map, Marker } from 'mapbox-gl';
+import { useReducer } from 'react';
+import directionsApi from './directionsApi';
+import { DirectionsResponse } from './interfaces';
+import { mapReducer } from './mapReducer';
 
-const getRouteBetweenPoints = async(start: [number, number], end: [number, number]) => {
-  const resp = await directionsApi.get<DirectionsResponse>(`/${start.join(',')};${end.join(',')}`);
-  const { distance, duration, geometry } = resp.data.routes[0];
-  const {coordinates: coords} = geometry;
+export interface MapState {
+  isMapReady: boolean;
+  map?: Map;
+  markers: Marker[];
+}
 
-  let kms = distance / 1000;
-      kms = Math.round(kms * 100);
-      kms /= 100;
-  
-  const minutes = Math.floor (duration / 60);
-  console.log({ kms, minutes });
+const INITIAL_STATE: MapState = {
+  isMapReady: false,
+  map: undefined,
+  markers: []
+};
 
-  const bounds = new LngLatBounds(start, start);
+interface Props {
+  children: JSX.Element | JSX.Element[];
+}
 
-  for (const coord of coords) {
+export function MapProvider({ children }: Props) {
+  const [state, dispatch] = useReducer(mapReducer, INITIAL_STATE);
+
+  const getRouteBetweenPoints = async (
+    start: [number, number],
+    end: [number, number]
+  ) => {
+    const resp = await directionsApi.get<DirectionsResponse>(
+      `/${start.join(',')};${end.join(',')}`
+    );
+    const { distance, duration, geometry } = resp.data.routes[0];
+    const { coordinates: coords } = geometry;
+
+    const bounds = new LngLatBounds(start, start);
+
+    coords.forEach(coord => {
       const newCoord: [number, number] = [coord[0], coord[1]];
-      bounds.extend( newCoord );
-  }
+      bounds.extend(newCoord);
+    });
 
-  state.map?.fitBounds ( bounds, {
+    state.map?.fitBounds(bounds, {
       padding: 200
-  });      
+    });
 
-  const sourceData: AnySourceData = {
+    const sourceData: AnySourceData = {
       type: 'geojson',
       data: {
-          type: 'FeatureCollection',
-          features: [
-              {
-                  type: 'Feature',
-                  properties: {},
-                  geometry: {
-                      type: 'LineString',
-                      coordinates: coords
-                  }
-
-              }
-          ]
+        type: 'FeatureCollection',
+        features: [
+          {
+            type: 'Feature',
+            properties: {},
+            geometry: {
+              type: 'LineString',
+              coordinates: coords
+            }
+          }
+        ]
       }
-  }
-  
-  if (state.map?.getLayer('RouteString')) {
+    };
+
+    if (state.map?.getLayer('RouteString')) {
       state.map?.removeLayer('RouteString');
       state.map.removeSource('RouteString');
-  }
+    }
 
-   state.map?.addSource('RouteString', sourceData);
-   state.map?.addLayer({
+    state.map?.addSource('RouteString', sourceData);
+    state.map?.addLayer({
       id: 'RouteString',
       type: 'line',
       source: 'RouteString',
       layout: {
-          'line-cap': 'round',
-          'line-join': 'round'
+        'line-cap': 'round',
+        'line-join': 'round'
       },
       paint: {
-          'line-color': 'white',
-          'line-width': 3,
+        'line-color': 'white',
+        'line-width': 3
       }
-   })
-};
+    });
+  };
+}
