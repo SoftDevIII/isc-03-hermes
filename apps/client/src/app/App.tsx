@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path='*' element={<NotFound />} />
         <Route path='/' element={<Navigate to='/map' />} />
+        <Route path='/map/:long/:lat' element={<MapPage />} />
         <Route path='/map' element={<MapPage />} />
         <Route path='/home' element={<HomePage />} />
         <Route path='/login' element={<LoginPage />} />

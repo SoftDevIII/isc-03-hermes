@@ -387,6 +387,11 @@ declare global {
     className: string;
   }
 
+  interface UseSearchBarProps {
+    long: string | undefined;
+    lat: string | undefined;
+  }
+
   interface UseSearchInputProps {
     setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
     setIsOpen: Dispatch<SetStateAction<boolean>>;

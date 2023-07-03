@@ -5,7 +5,9 @@ import ShareModal from './components/ShareModal';
 
 function ShareLink({ coordinates, placeName }: ShareLinkProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const link = `${window.location.origin}/map?long=${coordinates.lng}&lat=${coordinates.lat}`;
+  const link = `${window.location.origin}/map/${
+    Number(coordinates.lng.toFixed(4)) * 10000
+  }/${Number(coordinates.lat.toFixed(4)) * 10000}`;
 
   const { isLoading } = useMap();
 
