@@ -743,9 +743,4 @@ declare global {
     onFocus?: () => void;
     ref?: React.RefObject<HTMLInputElement>;
   }
-  interface UseSearchDisasterInputProps {
-    setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
-    setIsOpen: Dispatch<SetStateAction<boolean>>;
-    isOpen: boolean;
-  }
 }
