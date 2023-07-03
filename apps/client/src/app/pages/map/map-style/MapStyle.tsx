@@ -8,7 +8,7 @@ function MapStyle() {
     usePanelMapStyle();
 
   return (
-    <div className='absolute left-6 bottom-[128px] rounded-full md:left-8 md:bottom-30 lg:left-10 lg:bottom-40'>
+    <div className='absolute right-5 bottom-[140px] rounded-full md:right-8 md:bottom-30 lg:right-8 lg:bottom-30'>
       <MapStyleButton onClick={togglePanel} disabled={isPanelVisible}>
         <LoopOutlined />
       </MapStyleButton>
