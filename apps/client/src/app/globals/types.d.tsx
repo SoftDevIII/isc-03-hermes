@@ -410,6 +410,20 @@ declare global {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
   }
 
+  interface CloseButtonPlaceProps {
+    removeMarker: () => void;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    setIsPlace: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface CommonPlaceProps {
+    setIsCommonPlace: Dispatch<SetStateAction<boolean>>;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+    feature: Feature | Coordinates | null;
+    coordinates: LngLat;
+  }
+
   interface UseContextRefProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     removeMarker: () => void;
