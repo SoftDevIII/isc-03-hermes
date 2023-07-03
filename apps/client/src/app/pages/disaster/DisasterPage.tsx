@@ -9,10 +9,20 @@ function SignUpPage() {
   const [formData, setFormData] = useState<FormDisasterData>({
     disasterName: '',
     duration: '',
-    location: ''
+    latitude: 0,
+    longitude: 0
   });
 
   const handleClickLocation = (coordinates: number[]) => {
+    const latitude = coordinates[1];
+    const longitude = coordinates[0];
+
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      latitude,
+      longitude
+    }));
+
     return coordinates;
   };
 

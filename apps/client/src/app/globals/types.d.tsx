@@ -686,7 +686,8 @@ declare global {
   interface FormDisasterData {
     disasterName: string;
     duration: string;
-    location: string;
+    latitude: number;
+    longitude: number;
   }
   interface InputDisasterProps {
     isTime?: boolean;
