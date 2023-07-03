@@ -39,7 +39,10 @@ function SignUpPage() {
   const { search, onInputChange, ref } = useSearchInput({
     setFilterData,
     setIsOpen,
-    isOpen
+    isOpen,
+    createMarker: () => {},
+    setIsContextOpen: () => {},
+    setFeature: () => {}
   });
 
   return (
