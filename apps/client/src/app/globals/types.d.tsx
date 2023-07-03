@@ -66,6 +66,12 @@ declare global {
     disabled: boolean;
   }
 
+  interface MapStyleButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+    disabled: boolean;
+  }
+
   interface ActualLocationButtonProps {
     children: ReactNode;
     onClick: () => void;

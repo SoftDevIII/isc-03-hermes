@@ -7,6 +7,7 @@ import '@map-styles/marker.css';
 import { useParams } from 'react-router-dom';
 import LeftControl from './components/left-control/LeftControl';
 import RightControl from './components/right-control/RightControl';
+import MapStyle from './map-style/MapStyle';
 
 function MapPage() {
   const { long, lat } = useParams();
@@ -17,6 +18,7 @@ function MapPage() {
         <MarkersProvider>
           <div className='h-full grid font-roboto'>
             <MapComponent />
+            <MapStyle />
             <SearchBar long={long} lat={lat} />
             <LeftControl />
             <RightControl />
