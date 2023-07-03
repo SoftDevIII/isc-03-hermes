@@ -1,18 +1,14 @@
 import Status from '@enums/Status';
 import Button from '@map-shared-components/Button';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import CancelIcon from '@mui/icons-material/Cancel';
 import { Alert, Snackbar } from '@mui/material';
 import { useState } from 'react';
 import CopyLinkButton from './CopyLinkButton';
 import SocialLocationSharing from './SocialLocationSharing';
 
-function ShareModal({ link, setIsOpen, placeName, setLink }: ShareModalProps) {
+function ShareModal({ link, setIsOpen, placeName }: ShareModalProps) {
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
-
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLink(event.target.value);
-  };
 
   const handleClick = () => {
     navigator.clipboard
@@ -40,7 +36,7 @@ function ShareModal({ link, setIsOpen, placeName, setLink }: ShareModalProps) {
           onClick={() => setIsOpen(false)}
           className='absolute grid right-2 top-2'
         >
-          <HighlightOffIcon />
+          <CancelIcon />
         </Button>
         <p className='block text-2xl text-center mt-5'>{placeName}</p>
         <div className='grid place-items-center'>
@@ -54,7 +50,7 @@ function ShareModal({ link, setIsOpen, placeName, setLink }: ShareModalProps) {
                 id='link-input'
                 name='link-input'
                 value={link}
-                onChange={onChange}
+                onChange={() => {}}
               />
               <CopyLinkButton onClick={handleClick}>
                 <ContentCopyIcon fontSize='inherit' />

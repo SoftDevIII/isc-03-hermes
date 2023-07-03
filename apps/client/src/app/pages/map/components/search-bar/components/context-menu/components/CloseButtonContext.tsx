@@ -13,7 +13,7 @@ function CloseButtonContext({
   return (
     <Button
       onClick={() => handleCloseButton()}
-      className='grid absolute right-2 top-2'
+      className='grid absolute right-1 top-1'
     >
       <CancelIcon fontSize='inherit' />
     </Button>
