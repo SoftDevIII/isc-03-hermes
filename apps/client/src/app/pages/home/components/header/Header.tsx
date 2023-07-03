@@ -16,7 +16,6 @@ function Header({ isLoggedIn = false, username = 'Guest' }: HeaderProps) {
           <ReferenceButton href='/home#About' content='About' />
           <ReferenceButton href='/home#Functions' content='Functions' />
           <ReferenceButton href='/map' content='Go Map' />
-          {!isLoggedIn && <ReferenceButton href='/sign-up' content='Sign Up' />}
         </div>
       </div>
       <div>

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import SearchDataDisaster from './Service/SearchDisasterData';
 import useSearchDisasterInput from './hooks/useSearchDisasterInput';
 
-function SignUpPage() {
+function DisasterPage() {
   const [formData, setFormData] = useState<FormDisasterData>({
     disasterName: '',
     duration: '',
@@ -86,4 +86,4 @@ function SignUpPage() {
   );
 }
 
-export default SignUpPage;
+export default DisasterPage;
