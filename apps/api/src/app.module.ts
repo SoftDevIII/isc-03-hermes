@@ -6,7 +6,6 @@ import { join } from 'path';
 import { DataSourceConfig } from './config/data.source';
 import CustomerModule from './customer/customer.module';
 import ExampleModule from './example/example.module';
-import CustomerModule from './customer/customer.module';
 
 @Module({
   imports: [
