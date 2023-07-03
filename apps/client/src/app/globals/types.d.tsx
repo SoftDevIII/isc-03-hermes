@@ -660,4 +660,27 @@ declare global {
     address: string;
     coordinates: number[];
   }
+
+  interface FetchWeatherProps {
+    coordinates: LngLat;
+    setWeather: Dispatch<SetStateAction<Weather | null>>;
+  }
+
+  interface WeatherResponse {
+    main: MainWeather;
+    temperature: number;
+    description: string;
+  }
+
+  interface MainWeather {
+    temp: number;
+  }
+
+  interface Weather {
+    temperature: number;
+  }
+
+  interface GetPlaceDetailsByNameProps {
+    name: string;
+  }
 }

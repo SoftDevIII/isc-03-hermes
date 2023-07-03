@@ -16,8 +16,8 @@ function LeftControl() {
     absolute left-8 bottom-4 rounded-full md:left-8 md:bottom-5'
     >
       <Compass />
-      <MarkerMenu />
       <ActualLocation />
+      <MarkerMenu />
     </div>
   );
 }
