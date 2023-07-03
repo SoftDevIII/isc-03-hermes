@@ -23,7 +23,7 @@ class CustomerController {
   }
 
   @Post('signup')
-  signUpSave(@Body() customer: CreateCustomerDto): Promise<Customer> {
+  signUpSave(@Body() customer: CreateCustomerDto): Promise<boolean> {
     return this.userService.signUpSave(customer);
   }
 }

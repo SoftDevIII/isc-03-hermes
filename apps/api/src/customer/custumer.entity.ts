@@ -5,9 +5,6 @@ class Customer {
   @PrimaryGeneratedColumn()
   customer_id: number;
 
-  @Column({ nullable: true })
-  customer_name: string;
-
   @Column()
   password: string;
 
