@@ -3,9 +3,9 @@
     {
       "id": 1,
       "name": "Plaza 14 de septiembre, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Plaza, Parque",
-      "description": "Plaza Principal de la Ciudad de Cochabamba",
-      "address": "Entre la Calle Baptista y Gnral. Acha",
+      "category": "Monumentos Históricos",
+      "description": "Plaza Histórica y Principal de la Ciudad de Cochabamba",
+      "address": "Entre Calle Baptista y Gnral. Acha",
       "coordinates": [
         -66.157828,
         -17.3936815
@@ -14,9 +14,9 @@
     {
       "id": 2,
       "name": "Plaza Colón, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Plaza, Parque",
-      "description": "Bella plaza llena de árboles",
-      "address": "Entre la Calle 25 de Mayo y San Martín",
+      "category": "Monumentos Históricos",
+      "description": "Bella Plaza llena de Árboles frente a instalaciones de la Alcaldía",
+      "address": "Entre Calle 25 de Mayo y San Martín",
       "coordinates": [
         -66.155011,
         -17.389113
@@ -25,9 +25,9 @@
     {
       "id": 3,
       "name": "Plaza de Las Banderas, Av. Ballivian, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Plaza, Parque",
-      "description": "Plaza rodeada de banderas nacionales e internacionales",
-      "address": "Final Av. Ballivian y el Puente Cala Cala",
+      "category": "Monumentos Históricos",
+      "description": "Plaza rodeada de Banderas Nacionales e Internacionales",
+      "address": "Final Av. Ballivian e inicio del Puente Cala Cala",
       "coordinates": [
         -66.159609,
         -17.38267
@@ -36,7 +36,7 @@
     {
       "id": 4,
       "name": "Plaza Ubaldo Anze, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Plaza, Parque",
+      "category": "Monumentos Históricos",
       "description": "Rotonda ubicada frente a la Iglesia de La Recoleta",
       "address": "Iniciando la Av. Pando",
       "coordinates": [
@@ -47,8 +47,8 @@
     {
       "id": 5,
       "name": "Plazuela Corazonistas, Heroinas, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Plaza, Parque",
-      "description": "Realizada en honor a la virgen con un gran y bello monumento",
+      "category": "Monumentos Históricos",
+      "description": "Realizada en honor a la Virgen con un gran y bello monumento en ella",
       "address": "Av. Heroinas y Calle Hamiraya",
       "coordinates": [
         -66.161556,
@@ -58,9 +58,9 @@
     {
       "id": 6,
       "name": "Plazuela Quintanilla, Oquendo, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Plaza, Parque",
-      "description": "Pequeña plaza en la Av. Oquendo",
-      "address": "Av. Oquendo",
+      "category": "Plazuela, Parque",
+      "description": "Pequeña plaza redonda llena de árboles y flores",
+      "address": "Av. Oquendo frente al Colegio Don Bosco",
       "coordinates": [
         -66.151857,
         -17.382218
@@ -69,8 +69,8 @@
     {
       "id": 7,
       "name": "Plazuela Constitucion, Salamanca, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Plaza, Parque",
-      "description": "Rotonda en la Av. Salamanca",
+      "category": "Plazuela, Parque",
+      "description": "Rotonda que cuenta con árboles en la Av. Salamanca",
       "address": "Av. Salamanca 560",
       "coordinates": [
         -66.153349,
@@ -80,9 +80,9 @@
     {
       "id": 8,
       "name": "Plazuela Tarija, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Plaza, Parque",
-      "description": "Plazuela en forma circular llena de árboles",
-      "address": "Av. América 1359",
+      "category": "Plazuela, Parque",
+      "description": "Plazuela en forma circular llena de árboles y bellas flores",
+      "address": "Av. América 1359 frente al Colegio San Agustín",
       "coordinates": [
         -66.14286,
         -17.373724
@@ -91,9 +91,9 @@
     {
       "id": 9,
       "name": "Iglesia Santa Teresa, Baptista, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Iglesia",
-      "description": "",
-      "address": "Av. Baptista",
+      "category": "Espiritualidad y Fe",
+      "description": "Centros de Adoración y Alabanza",
+      "address": "Calle Baptista y Ecuador",
       "coordinates": [
         -66.157801,
         -17.390388
@@ -102,8 +102,8 @@
     {
       "id": 10,
       "name": "Iglesia Cristo Rey, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Iglesia",
-      "description": "",
+      "category": "Espiritualidad y Fe",
+      "description": "Centros de Adoración y Alabanza",
       "address": "Calle Diego de Almagro",
       "coordinates": [
         -66.172071,
@@ -113,8 +113,8 @@
     {
       "id": 11,
       "name": "Iglesia de San Pedro, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Iglesia",
-      "description": "",
+      "category": "Espiritualidad y Fe",
+      "description": "Centros de Adoración y Alabanza",
       "address": "Final Av. Heroínas y la Parque La Torre",
       "coordinates": [
         -66.145877,
@@ -124,8 +124,8 @@
     {
       "id": 12,
       "name": "Iglesia Verbo Divino, Batallón Colorados, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Iglesia",
-      "description": "",
+      "category": "Espiritualidad y Fe",
+      "description": "Centros de Adoración y Alabanza",
       "address": "Batallón Colorados",
       "coordinates": [
         -66.174098,
@@ -135,9 +135,9 @@
     {
       "id": 13,
       "name": "Parroquia Del Hospicio, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Iglesia",
-      "description": "",
-      "address": "Calle Mayor Rocha",
+      "category": "Espiritualidad y Fe",
+      "description": "Centros de Adoración y Alabanza",
+      "address": "Calle Mayor Rocha frente a la Plaza Colón",
       "coordinates": [
         -66.155431,
         -17.388846
@@ -146,8 +146,8 @@
     {
       "id": 14,
       "name": "Parroquia Divino Maestro, Calancha, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Iglesia",
-      "description": "",
+      "category": "Espiritualidad y Fe",
+      "description": "Centros de Adoración y Alabanza",
       "address": "Av. Calancha",
       "coordinates": [
         -66.16686,
@@ -157,8 +157,8 @@
     {
       "id": 15,
       "name": "Parroquia San Ildefonso, Quillacollo, Departamento de Cochabamba, Bolivia",
-      "category": "Iglesia",
-      "description": "",
+      "category": "Espiritualidad y Fe",
+      "description": "Centros de Adoración y Alabanza",
       "address": "Quillacollo",
       "coordinates": [
         -66.281393,
@@ -168,8 +168,8 @@
     {
       "id": 16,
       "name": "Templo de La Recoleta, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Iglesia",
-      "description": "",
+      "category": "Espiritualidad y Fe",
+      "description": "Centros de Adoración y Alabanza",
       "address": "Inicio Av. Pando y Beni",
       "coordinates": [
         -66.152003,
@@ -179,9 +179,9 @@
     {
       "id": 17,
       "name": "Templo Santa Clara, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Iglesia",
-      "description": "",
-      "address": "Av. 25 De Mayo y Heroínas",
+      "category": "Espiritualidad y Fe",
+      "description": "Centros de Adoración y Alabanza",
+      "address": "Calle 25 De Mayo y Av. Heroínas",
       "coordinates": [
         -66.155643,
         -17.391356
@@ -190,9 +190,9 @@
     {
       "id": 18,
       "name": "Templo Virgen De Guadalupe, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Iglesia",
-      "description": "",
-      "address": "",
+      "category": "Espiritualidad y Fe",
+      "description": "Centros de Adoración y Alabanza",
+      "address": "Cochabamba",
       "coordinates": [
         -66.181122,
         -17.349006
@@ -201,8 +201,8 @@
     {
       "id": 19,
       "name": "Clinica Aranjuez, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
       "address": "Calle Carrillo y 16 de Julio",
       "coordinates": [
         -66.153575,
@@ -212,8 +212,8 @@
     {
       "id": 20,
       "name": "Clinica Belga, Calle Antezana, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
       "address": "Calle Antezana",
       "coordinates": [
         -66.153348,
@@ -223,9 +223,9 @@
     {
       "id": 21,
       "name": "Seguro Social Universitario, Av. Aniceto Arce, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
-      "address": "Av. Aniceto Arce",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
+      "address": "Av. Aniceto Arce frente al Parque La Torre",
       "coordinates": [
         -66.147815,
         -17.388707
@@ -234,8 +234,8 @@
     {
       "id": 22,
       "name": "Clinica Maria de los Angeles, Av. Papa Paulo, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
       "address": "Av. Papa Paulo",
       "coordinates": [
         -66.149053,
@@ -245,8 +245,8 @@
     {
       "id": 23,
       "name": "Clinica Los Olivos, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
       "address": "Av. Melchor Pérez",
       "coordinates": [
         -66.179688,
@@ -256,9 +256,9 @@
     {
       "id": 24,
       "name": "Clinica San Pedro, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
-      "address": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
+      "address": "Av. Heroínas y Calle Aurelio Melean",
       "coordinates": [
         -66.14794,
         -17.39115
@@ -267,8 +267,8 @@
     {
       "id": 25,
       "name": "Hospital Viedma, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
       "address": "Calle Venezuela y German Urquidi",
       "coordinates": [
         -66.148901,
@@ -278,9 +278,9 @@
     {
       "id": 26,
       "name": "Hospital Quillacollo, Quillacollo, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
-      "address": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
+      "address": "Quillacollo",
       "coordinates": [
         -66.281434,
         -17.387748
@@ -289,8 +289,8 @@
     {
       "id": 27,
       "name": "Caja Nacional De Salud, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
       "address": "Av. Blanco Galindo Km. 5",
       "coordinates": [
         -66.205269,
@@ -300,8 +300,8 @@
     {
       "id": 28,
       "name": "COSSMIL Hospital y Seguro Militar, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
       "address": "Av. Ramón Rivero y Calle Morales",
       "coordinates": [
         -66.145115,
@@ -311,8 +311,8 @@
     {
       "id": 29,
       "name": "Cordes Policlinico Dental, Carlos Davis, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Dentista",
-      "description": "",
+      "category": "Servicios de Salud Dental",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
       "address": "Calle Carlos Davis",
       "coordinates": [
         -66.144787,
@@ -322,8 +322,8 @@
     {
       "id": 30,
       "name": "Caja Petrolera De Salud, Av. San Martin, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
       "address": "Av. San Martin y Calle Bolivar",
       "coordinates": [
         -66.154113,
@@ -333,8 +333,8 @@
     {
       "id": 31,
       "name": "Caja De Salud De La Banca Privada, Hamiraya, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
       "address": "Calle Hamiraya",
       "coordinates": [
         -66.160625,
@@ -344,8 +344,8 @@
     {
       "id": 32,
       "name": "Caja CORDES, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Hospital",
-      "description": "",
+      "category": "Servicios de Salud",
+      "description": "Brindar Atención y Diagnóstico a Pacientes",
       "address": "Calle Nestor Galindo y Obispo Anaya",
       "coordinates": [
         -66.162788,
@@ -355,8 +355,8 @@
     {
       "id": 33,
       "name": "Laguna Alalay, Circuito Bolivia, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Lagos, Naturaleza",
-      "description": "Paisajes Naturales",
+      "category": "Áreas Turísticas",
+      "description": "Espacio de Relajación, mejorando la calidad de vida",
       "address": "",
       "coordinates": [
         -66.143789,
@@ -366,8 +366,8 @@
     {
       "id": 34,
       "name": "Laguna Pampa, Sacaba, Departamento de Cochabamba, Bolivia",
-      "category": "Lagos, Naturaleza",
-      "description": "Paisajes Naturales",
+      "category": "Áreas Turísticas",
+      "description": "Espacio de Relajación, mejorando la calidad de vida",
       "address": "Sacaba",
       "coordinates": [
         -66.042342,
@@ -377,8 +377,8 @@
     {
       "id": 35,
       "name": "Laguna Carmen, San Benito, Departamento de Cochabamba, Bolivia",
-      "category": "Lagos, Naturaleza",
-      "description": "Paisajes Naturales",
+      "category": "Áreas Turísticas",
+      "description": "Espacio de Relajación, mejorando la calidad de vida",
       "address": "San Benito",
       "coordinates": [
         -65.885831,
@@ -388,8 +388,8 @@
     {
       "id": 36,
       "name": "Teatro Acha, España, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Teatro",
-      "description": "Espacio para eventos culturales",
+      "category": "Artes Escénicas o Culturales",
+      "description": "Presentación de Obras, Ópera o Espectáculos",
       "address": "Calle España",
       "coordinates": [
         -66.156683,
@@ -399,9 +399,9 @@
     {
       "id": 37,
       "name": "Teatro Adela Zamudio, Av.Heroinas, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Teatro",
-      "description": "Espacio para eventos culturales",
-      "address": "Av. Heroinas",
+      "category": "Artes Escénicas o Culturales",
+      "description": "Presentación de Obras, Ópera o Espectáculos",
+      "address": "Av. Heroinas y Calle 25 de Mayo",
       "coordinates": [
         -66.156018,
         -17.391972
@@ -410,8 +410,8 @@
     {
       "id": 38,
       "name": "Cine Teatro Capitol, 25 De Mayo, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Cine",
-      "description": "Espacio para eventos culturales además de reproducción de películas",
+      "category": "Entretenimiento, Artes Escénicas o Culturales",
+      "description": "Presentación de Obras, Ópera o Espectáculos y Películas",
       "address": "Av. 25 De Mayo",
       "coordinates": [
         -66.155821,
@@ -421,8 +421,8 @@
     {
       "id": 39,
       "name": "Cine Norte, Avenida d'Orbigny, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Cine",
-      "description": "Espacio de reproducción de películas",
+      "category": "Entretenimiento",
+      "description": "Proyección de Películas",
       "address": "Av. d'Orbigny",
       "coordinates": [
         -66.180192,
@@ -432,9 +432,9 @@
     {
       "id": 40,
       "name": "Museo U.M.S.S., Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Historia, Museo",
-      "description": "Piezas e historia de Bolivia",
-      "address": "",
+      "category": "Historia, Espacios Culturales",
+      "description": "Preservación y Exhibición de Objetos de Valor Cultural",
+      "address": "Calle Jordan y Nataniel Aguirre",
       "coordinates": [
         -66.157198,
         -17.395509
@@ -443,9 +443,9 @@
     {
       "id": 41,
       "name": "La Casona Santivañez, Calle Santivañez, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Historia, Museo",
-      "description": "",
-      "address": "",
+      "category": "Historia, Espacios Culturales",
+      "description": "Preservación y Exhibición de Objetos de Valor Cultural",
+      "address": "Calle Santivañez entre Av. Ayacucho y Junín",
       "coordinates": [
         -66.15908,
         -17.393924
@@ -454,9 +454,9 @@
     {
       "id": 42,
       "name": "Museo Convento Santa Teresa, Baptista #344, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Historia, Museo",
-      "description": "",
-      "address": "",
+      "category": "Historia, Espacios Culturales",
+      "description": "Preservación y Exhibición de Objetos de Valor Cultural",
+      "address": "Calle Baptista",
       "coordinates": [
         -66.159434,
         -17.376624
@@ -465,9 +465,9 @@
     {
       "id": 43,
       "name": "Parque De La Familia, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Exteriores, Parque",
-      "description": "",
-      "address": "",
+      "category": "Exteriores, Actividades Recreativas",
+      "description": "Área de Esparcimiento y Compartir",
+      "address": "Calle Hamiraya",
       "coordinates": [
         -66.161468,
         -17.386355
@@ -476,9 +476,9 @@
     {
       "id": 44,
       "name": "Parque Vial, Av. Ramon Rivero, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Exteriores, Parque",
-      "description": "",
-      "address": "",
+      "category": "Exteriores, Actividades Recreativas",
+      "description": "Área de Esparcimiento y Compartir",
+      "address": "Av. Ramón Rivero y Papa Paulo",
       "coordinates": [
         -66.154113,
         -17.38091
@@ -487,9 +487,9 @@
     {
       "id": 45,
       "name": "Parque La Torre, Aurelio Melean, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Exteriores, Parque",
-      "description": "",
-      "address": "",
+      "category": "Exteriores, Actividades Recreativas",
+      "description": "Área de Esparcimiento y Compartir",
+      "address": "Av. Heroinas junto al Templo San Pedro",
       "coordinates": [
         -66.145374,
         -17.385819
@@ -498,9 +498,9 @@
     {
       "id": 46,
       "name": "Parque Mariscal Santa Cruz, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Piscina",
-      "description": "",
-      "address": "",
+      "category": "Natación, Áreas Turísticas",
+      "description": "Área de Esparcimiento y Compartir",
+      "address": "Calle Hernan Morales",
       "coordinates": [
         -66.172533,
         -17.400523999999997
@@ -509,9 +509,9 @@
     {
       "id": 47,
       "name": "Parque del Poeta, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Exteriores, Parque",
-      "description": "",
-      "address": "",
+      "category": "Exteriores, Actividades Recreativas",
+      "description": "Área de Esparcimiento y Compartir",
+      "address": "Pje del Cabildo y Parque de Poeta",
       "coordinates": [
         -66.166917,
         -17.390844
@@ -520,9 +520,9 @@
     {
       "id": 48,
       "name": "Parque Demetrio Canelas, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Exteriores, Parque",
-      "description": "",
-      "address": "",
+      "category": "Exteriores, Actividades Recreativas",
+      "description": "Área de Esparcimiento y Compartir",
+      "address": "Av. Carlos Medinacelli esquina Parque Demetrio Canelas",
       "coordinates": [
         -66.175179,
         -17.379873
@@ -531,8 +531,8 @@
     {
       "id": 49,
       "name": "Parque de Santa Ana de Mayorazgo, Av Beijing, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Exteriores, Parque",
-      "description": "",
+      "category": "Exteriores, Actividades Recreativas",
+      "description": "Área de Esparcimiento y Compartir",
       "address": "Av. Beijing",
       "coordinates": [
         -66.177923,
@@ -542,9 +542,9 @@
     {
       "id": 50,
       "name": "Parque Ex-combatientes, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Exteriores, Parque",
-      "description": "",
-      "address": "",
+      "category": "Exteriores, Actividades Recreativas",
+      "description": "Área de Esparcimiento y Compartir",
+      "address": "Av. Perú esquina Av. Excombatientes",
       "coordinates": [
         -66.171641,
         -17.385535
@@ -553,9 +553,9 @@
     {
       "id": 51,
       "name": "Jardín botánico Martín Cárdenas, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Centro de Jardinería",
-      "description": "",
-      "address": "",
+      "category": "Áreas Turísticas",
+      "description": "Preservación y Exhibición de Especies de Flora (Plantas)",
+      "address": "Av. Ruben Dario y Calle R. Rivero Torrez",
       "coordinates": [
         -66.1402875,
         -17.377766
@@ -564,9 +564,9 @@
     {
       "id": 52,
       "name": "Cristo De La Concordia, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Sitio Histórico",
-      "description": "",
-      "address": "",
+      "category": "Áreas Turísticas",
+      "description": "Exhibición de un Monumento de Valor Cultural además de las Vistas de la Ciudad",
+      "address": "Av. Ruben Dario y Serranía de San Pedro",
       "coordinates": [
         -66.143177,
         -17.383952
@@ -575,9 +575,9 @@
     {
       "id": 53,
       "name": "Cine Center, Av Ramón Rivero, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Cine",
-      "description": "",
-      "address": "",
+      "category": "Entretenimiento",
+      "description": "Proyección de Películas",
+      "address": "Av. Ramón Rivero",
       "coordinates": [
         -66.15134,
         -17.380202
@@ -587,8 +587,8 @@
       "id": 54,
       "name": "Jalasoft Building, Melchor Perez, Cochabamba, Departamento de Cochabamba, Bolivia",
       "category": "Software, Negocios",
-      "description": "",
-      "address": "",
+      "description": "Desarrollo e Investigación de la Tecnología",
+      "address": "Av. Melchor Pérez esquina Av. Simón López",
       "coordinates": [
         -66.175615,
         -17.366102
@@ -597,9 +597,9 @@
     {
       "id": 55,
       "name": "UMSS Universidad Mayor de San Simón, Avenida Oquendo, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Universidad",
-      "description": "",
-      "address": "",
+      "category": "Centros de Enseñanza Superior e Investigación",
+      "description": "Intercambio de Habilidades Académicas y Profesionales",
+      "address": "Av. Oquendo y Calle Jordan",
       "coordinates": [
         -66.1457285,
         -17.393487999999998
@@ -608,9 +608,9 @@
     {
       "id": 56,
       "name": "Unifranz, Av. Gualberto Villarroel, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Universidad",
-      "description": "",
-      "address": "",
+      "category": "Centros de Enseñanza Superior e Investigación",
+      "description": "Intercambio de Habilidades Académicas y Profesionales",
+      "address": "Av. G. Villaroel y Calle Tomas Oconor",
       "coordinates": [
         -66.158495,
         -17.375274
@@ -619,9 +619,9 @@
     {
       "id": 57,
       "name": "Universidad Privada Del Valle, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Universidad",
-      "description": "",
-      "address": "",
+      "category": "Centros de Enseñanza Superior e Investigación",
+      "description": "Intercambio de Habilidades Académicas y Profesionales",
+      "address": "Av. América casi Av. Libertador",
       "coordinates": [
         -66.158824,
         -17.394381
@@ -630,9 +630,9 @@
     {
       "id": 58,
       "name": "Universidad Católica Boliviana, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Universidad",
-      "description": "",
-      "address": "",
+      "category": "Centros de Enseñanza Superior e Investigación",
+      "description": "Intercambio de Habilidades Académicas y Profesionales",
+      "address": "Calle M.M.Marques atrás del Colegio San Agustín",
       "coordinates": [
         -66.1436,
         -17.371891
@@ -641,9 +641,9 @@
     {
       "id": 59,
       "name": "Universidad Privada Domingo Savio, Calle Irigoyen #1555, Cochabamba, Departamento de Cochabamba, Bolivia",
-      "category": "Universidad",
-      "description": "",
-      "address": "",
+      "category": "Centros de Enseñanza Superior e Investigación",
+      "description": "Intercambio de Habilidades Académicas y Profesionales",
+      "address": "Calle Irigoyen 1555",
       "coordinates": [
         -66.183812,
         -17.376451
@@ -652,9 +652,9 @@
     {
       "id": 60,
       "name": "Universidad Privada Boliviana, Colcapirhua, Departamento de Cochabamba, Bolivia",
-      "category": "Universidad",
-      "description": "",
-      "address": "",
+      "category": "Centros de Enseñanza Superior e Investigación",
+      "description": "Intercambio de Habilidades Académicas y Profesionales",
+      "address": "Av Juan Pablo II, Colcapirhua",
       "coordinates": [
         -66.218381,
         -17.398573
