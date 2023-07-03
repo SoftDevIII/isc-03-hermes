@@ -680,4 +680,8 @@ declare global {
   interface Weather {
     temperature: number;
   }
+
+  interface GetPlaceDetailsByNameProps {
+    name: string;
+  }
 }

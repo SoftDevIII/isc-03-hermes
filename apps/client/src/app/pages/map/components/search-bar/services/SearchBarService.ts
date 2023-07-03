@@ -1,5 +1,6 @@
 import PlacesAPI from '@api/PlacesAPI';
 import WeatherAPI from '@api/WeatherAPI';
+import PlacesDetails from '@api/data/places-details.json';
 import { INIT_LAT, INIT_LONG, MAX_RESULTS } from '@utils/constants';
 import { LngLat } from 'mapbox-gl';
 
@@ -76,9 +77,20 @@ const fetchWeatherByCoordinates = ({
     });
 };
 
+const fetchPlacesDetails = () => {
+  const data = PlacesDetails as PublicPlaces;
+  return data.places;
+};
+
+const getPlaceDetailsByName = ({ name }: GetPlaceDetailsByNameProps) => {
+  const places = fetchPlacesDetails();
+  return places.find(place => place.name === name);
+};
+
 export {
   convertCoordinatesToFeat,
   convertRegexToCoordinates,
   fetchMapBoxPlaces,
-  fetchWeatherByCoordinates
+  fetchWeatherByCoordinates,
+  getPlaceDetailsByName
 };
