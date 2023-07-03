@@ -1,4 +1,5 @@
 import PlacesAPI from '@api/PlacesAPI';
+import WeatherAPI from '@api/WeatherAPI';
 import { INIT_LAT, INIT_LONG, MAX_RESULTS } from '@utils/constants';
 import { LngLat } from 'mapbox-gl';
 
@@ -55,8 +56,29 @@ function convertRegexToCoordinates({
   return new LngLat(parseFloat(lng), parseFloat(lat));
 }
 
+const fetchWeatherByCoordinates = ({
+  coordinates,
+  setWeather
+}: FetchWeatherProps) => {
+  WeatherAPI.get<WeatherResponse>('', {
+    params: {
+      lat: coordinates.lat,
+      lon: coordinates.lng
+    }
+  })
+    .then(({ data }: { data: WeatherResponse }) => {
+      setWeather({
+        temperature: data.main.temp
+      });
+    })
+    .catch((error: Error) => {
+      throw new Error(error.message);
+    });
+};
+
 export {
   convertCoordinatesToFeat,
   convertRegexToCoordinates,
-  fetchMapBoxPlaces
+  fetchMapBoxPlaces,
+  fetchWeatherByCoordinates
 };
