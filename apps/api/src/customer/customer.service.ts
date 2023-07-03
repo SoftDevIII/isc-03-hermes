@@ -39,7 +39,17 @@ class CustomerService {
 
   signUpSave(customer: CreateCustomerDto) {
     const newCustomer = this.customerRepository.create(customer);
-    return this.customerRepository.save(newCustomer);
+    return new Promise<boolean>((resolve, reject) => {
+      this.customerRepository
+        .save(newCustomer)
+        .then((dataCustomer: Customer | null) => {
+          const isVerified = dataCustomer !== null;
+          resolve(isVerified);
+        })
+        .catch((error: any) => {
+          reject(error);
+        });
+    });
   }
 }
 
