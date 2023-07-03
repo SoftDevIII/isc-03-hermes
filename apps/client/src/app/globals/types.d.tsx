@@ -424,6 +424,14 @@ declare global {
     coordinates: LngLat;
   }
 
+  interface UncommonPlaceProps {
+    setIsUncommonPlace: Dispatch<SetStateAction<boolean>>;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+    feature: Feature | Coordinates | null;
+    coordinates: LngLat;
+  }
+
   interface UseContextRefProps {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     removeMarker: () => void;

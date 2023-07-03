@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Menu from './components/Menu';
 import CommonPlace from './components/place/CommonPlace';
+import UncommonPlace from './components/place/UncommonPlace';
 
 function ContextMenu({
   setIsOpen,
@@ -32,7 +33,15 @@ function ContextMenu({
           coordinates={coordinates}
         />
       )}
-      {uncommonPlace && <div>uncommon</div>}
+      {uncommonPlace && (
+        <UncommonPlace
+          removeMarker={removeMarker}
+          setIsUncommonPlace={setIsUncommonPlace}
+          setIsOpen={setIsOpen}
+          feature={feature}
+          coordinates={coordinates}
+        />
+      )}
     </div>
   );
 }
