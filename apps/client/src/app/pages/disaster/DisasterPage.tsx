@@ -2,6 +2,7 @@ import GoBackButton from '@shared-components/GoBackButton';
 import InputDisaster from '@shared-components/InputDisaster';
 import InputLocation from '@shared-components/InputLocation';
 import SubmitButton from '@shared-components/SubmitButton';
+import axios from 'axios';
 import { useState } from 'react';
 import SearchDataDisaster from './Service/SearchDisasterData';
 import useSearchDisasterInput from './hooks/useSearchDisasterInput';
@@ -41,7 +42,19 @@ function DisasterPage() {
     setFormData({ ...formData, [name]: value });
   }
 
+  async function saveDisaster() {
+    await axios.post<void>('/api/Disaster', {
+      disaster_name: formData.disasterName,
+      duration: formData.duration,
+      latitude: formData.latitude,
+      longitude: formData.longitude
+    });
+  }
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    saveDisaster().catch((error: Error) => {
+      throw new Error(error.message);
+    });
     event.preventDefault();
   }
 
