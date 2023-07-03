@@ -11,8 +11,9 @@ CREATE TABLE IF NOT EXISTS Test
 CREATE TABLE IF NOT EXISTS Customer
 (
     customer_id SERIAL,
-    Email VARCHAR(50) NOT NULL,
-    Password VARCHAR(50) NOT NULL,
+    customer_name VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     PRIMARY KEY (customer_id)
 );
 
@@ -67,8 +68,13 @@ CREATE TABLE IF NOT EXISTS VisitedPlace
   PlaceID INT NOT NULL,
   visitDate DATE NOT NULL,
   IsFavorite BOOLEAN NOT NULL,
+<<<<<<< HEAD
   PRIMARY KEY (customer_id, PlaceID),
   FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
+=======
+  PRIMARY KEY (CustomerID, PlaceID),
+  FOREIGN KEY (CustomerID) REFERENCES Customer(customer_id),
+>>>>>>> 681e6a5 (feat: implement user credential verificacion with login UI)
   FOREIGN KEY (PlaceID) REFERENCES Place(PlaceID)
 );
 
@@ -82,7 +88,11 @@ CREATE TABLE IF NOT EXISTS Review
   Rating DECIMAL(2,1) NOT NULL,
   CONSTRAINT chk_Ratings CHECK (Rating >= 0 AND Rating <= 5),
   PRIMARY KEY (ReviewID),
+<<<<<<< HEAD
   FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
+=======
+  FOREIGN KEY (CustomerID) REFERENCES Customer(customer_id),
+>>>>>>> 681e6a5 (feat: implement user credential verificacion with login UI)
   FOREIGN KEY (PlaceID) REFERENCES Place(PlaceID)
 );
 
@@ -95,7 +105,11 @@ CREATE TABLE IF NOT EXISTS Destination
   EndPoint GEOMETRY(Point, 4326),
   ArrivalMethod arrival_enum NOT NULL,
   PRIMARY KEY (DestinationID),
+<<<<<<< HEAD
   FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
+=======
+  FOREIGN KEY (CustomerID) REFERENCES Customer(customer_id),
+>>>>>>> 681e6a5 (feat: implement user credential verificacion with login UI)
   FOREIGN KEY (PlaceID) REFERENCES Place(PlaceID)
 );
 
@@ -104,7 +118,11 @@ CREATE TABLE IF NOT EXISTS Authentication
   AuthenticationID SERIAL,
   customer_id INT NOT NULL,
   PRIMARY KEY (AuthenticationID),
+<<<<<<< HEAD
   FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+=======
+  FOREIGN KEY (CustomerID) REFERENCES Customer(customer_id)
+>>>>>>> 681e6a5 (feat: implement user credential verificacion with login UI)
 );
 
 CREATE TABLE IF NOT EXISTS RoutePoints

@@ -1,22 +1,42 @@
 import Input from '@shared-components/Input';
 import SubmitButton from '@shared-components/SubmitButton';
-import { useState } from 'react';
+import axios, { AxiosResponse } from 'axios';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
   const [formData, setFormData] = useState<FormLoginData>({
     userName: '',
     password: ''
   });
+  const [isCredentialValid, setIsCredentialValid] = useState(false);
+  const navigate = useNavigate();
 
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  async function userVerification() {
+    const postRequest: AxiosResponse = await axios.post<boolean>(
+      '/api/customer',
+      { email: formData.userName, password: formData.password }
+    );
+    setIsCredentialValid(Boolean(postRequest.data));
   }
 
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    userVerification().catch(error => {
+      throw error;
+    });
+  }
+
+  useEffect(() => {
+    if (isCredentialValid) {
+      navigate('/map');
+    }
+  }, [isCredentialValid, navigate]);
   return (
     <div className='bg-gradient-to-r from-slate-900 to-slate-700 h-screen grid place-items-center content-center'>
       <form
@@ -47,5 +67,4 @@ function LoginPage() {
     </div>
   );
 }
-
 export default LoginPage;
