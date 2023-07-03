@@ -38,10 +38,7 @@ function SignUpPage() {
   const { search, onInputChange, ref } = useSearchDisasterInput({
     setFilterData,
     setIsOpen,
-    isOpen,
-    createMarker: () => {},
-    setIsContextOpen: () => {},
-    setFeature: () => {}
+    isOpen
   });
 
   return (

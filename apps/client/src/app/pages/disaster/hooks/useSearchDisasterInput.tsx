@@ -35,7 +35,15 @@ function useSearchDisasterInput({
       const newFeat = convertCoordinatesToFeat({
         coordinates: coordinatesSearch
       });
-      setFilterData([newFeat]);
+      setFilterData([
+        {
+          ...newFeat,
+          temperature: 0,
+          category: '',
+          description: '',
+          address: ''
+        }
+      ]);
       return;
     }
 
