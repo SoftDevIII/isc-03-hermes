@@ -1,3 +1,4 @@
+import DisasterPage from '@pages/disaster/DisasterPage';
 import HomePage from '@pages/home/HomePage';
 import LoginPage from '@pages/login/LoginPage';
 import MapPage from '@pages/map/MapPage';
@@ -15,6 +16,7 @@ function App() {
         <Route path='/home' element={<HomePage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/sign-up' element={<SignUpPage />} />
+        <Route path='/disaster' element={<DisasterPage />} />
       </Routes>
     </div>
   );
