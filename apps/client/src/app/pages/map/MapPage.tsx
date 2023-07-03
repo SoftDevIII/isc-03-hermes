@@ -5,6 +5,7 @@ import SearchBar from '@map-components/search-bar/SearchBar';
 import Zoom from '@map-components/zoom/Zoom';
 import CoordinatesProvider from '@map-contexts/coordinates/CoordinatesProvider';
 import MapProvider from '@map-contexts/map/MapProvider';
+import MapStyle from './map-style/MapStyle';
 
 function MapPage() {
   return (
@@ -14,6 +15,7 @@ function MapPage() {
           <MapComponent />
           <SearchBar />
           <MarkerMenu />
+          <MapStyle />
           <ActualLocation />
           <Zoom />
         </div>
