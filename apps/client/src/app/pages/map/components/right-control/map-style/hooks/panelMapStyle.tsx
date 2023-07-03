@@ -6,10 +6,10 @@ import { useState } from 'react';
 import useMapStyle from './useMapStyle';
 
 const imageStyles: Record<string, { style: string; imgSrc: string }> = {
-  streets: { style: 'streets', imgSrc: streets },
-  light: { style: 'light', imgSrc: light },
-  dark: { style: 'dark', imgSrc: dark },
-  satellite: { style: 'satellite', imgSrc: satellite }
+  Streets: { style: 'streets', imgSrc: streets },
+  Light: { style: 'light', imgSrc: light },
+  Dark: { style: 'dark', imgSrc: dark },
+  Satellite: { style: 'satellite', imgSrc: satellite }
 };
 
 function usePanelMapStyle() {
@@ -24,7 +24,13 @@ function usePanelMapStyle() {
     setPanelVisible(!isPanelVisible);
   };
 
-  return { isPanelVisible, togglePanel, handleImageClick, imageStyles };
+  return {
+    isPanelVisible,
+    togglePanel,
+    handleImageClick,
+    imageStyles,
+    setPanelVisible
+  };
 }
 
 export default usePanelMapStyle;

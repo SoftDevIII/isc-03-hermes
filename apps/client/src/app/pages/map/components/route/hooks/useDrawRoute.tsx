@@ -1,7 +1,7 @@
 import { LngLat } from 'mapbox-gl';
-import useCoordinates from '../../../../contexts/coordinates/CoordinatesState';
-import useMap from '../../../../contexts/map/MapState';
-import useRouteType from '../../../../contexts/route-selector/RouteTypeState';
+import useCoordinates from '../../../contexts/coordinates/CoordinatesState';
+import useMap from '../../../contexts/map/MapState';
+import useRouteType from '../../../contexts/route-selector/RouteTypeState';
 import { calculateRoute, drawRoute } from './useGetRoute';
 
 function useDrawRoute() {

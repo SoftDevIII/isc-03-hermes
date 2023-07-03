@@ -7,7 +7,7 @@ function StartButton() {
   const handleOnClick = useDrawRoute();
 
   return (
-    <div className='bg-white rounded-xl font-roboto flex shadow-2xl mr-[16.5px]'>
+    <div className='bg-black/50 rounded-xl text-white font-bold font-roboto flex shadow-2xl mr-[16.5px]'>
       <Button
         className='px-5 py-2 font-roboto flex gap-2 items-center shadow-2xl'
         onClick={() => handleOnClick()}

@@ -219,6 +219,10 @@ declare global {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
   }
 
+  interface UseRefPanelProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
   interface MarkerMenuActions {
     [key: string]: () => void;
   }
