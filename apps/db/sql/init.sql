@@ -82,7 +82,8 @@ CREATE TABLE IF NOT EXISTS Review
   Rating DECIMAL(2,1) NOT NULL,
   CONSTRAINT chk_Ratings CHECK (Rating >= 0 AND Rating <= 5),
   PRIMARY KEY (ReviewID),
-  FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+  FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
+  FOREIGN KEY (PlaceID) REFERENCES Place(PlaceID)
 );
 
 CREATE TABLE IF NOT EXISTS Destination
