@@ -1,5 +1,5 @@
-import useCoordinates from '../../../contexts/coordinates/CoordinatesState';
-import useMap from '../../../contexts/map/MapState';
+import useCoordinates from '../../contexts/coordinates/CoordinatesState';
+import useMap from '../../contexts/map/MapState';
 import StartButton from './components/StartButton';
 import { deleteRoute } from './hooks/useGetRoute';
 
@@ -11,14 +11,7 @@ function PopUpForRouteInformation() {
     return <div />;
   }
 
-  if (
-    startCoordinates?.lat === undefined ||
-    startCoordinates?.lng === undefined
-  ) {
-    deleteRoute(map.current);
-  }
-
-  if (endCoordinates?.lat === undefined || endCoordinates?.lng === undefined) {
+  if (endCoordinates === null || startCoordinates === null) {
     deleteRoute(map.current);
     return <div />;
   }

@@ -9,7 +9,7 @@ function Zoom() {
 
   return (
     <div>
-      <div className='flex flex-col space-y-1 justify-center items-center landscape:sm:space-y-[1px]'>
+      <div className='flex flex-col gap-1 justify-center items-center landscape:sm:space-y-[1px]'>
         <ZoomButton onClick={increaseZoom} disabled={actualZoom === 100}>
           <AddIcon />
         </ZoomButton>
