@@ -57,24 +57,16 @@ function convertRegexToCoordinates({
   return new LngLat(parseFloat(lng), parseFloat(lat));
 }
 
-const fetchWeatherByCoordinates = ({
-  coordinates,
-  setWeather
+const fetchWeatherByCoordinates = async ({
+  coordinates
 }: FetchWeatherProps) => {
-  WeatherAPI.get<WeatherResponse>('', {
+  const data = await WeatherAPI.get<WeatherResponse>('', {
     params: {
       lat: coordinates.lat,
       lon: coordinates.lng
     }
-  })
-    .then(({ data }: { data: WeatherResponse }) => {
-      setWeather({
-        temperature: data.main.temp
-      });
-    })
-    .catch((error: Error) => {
-      throw new Error(error.message);
-    });
+  });
+  return data.data.main.temp;
 };
 
 const fetchPlacesDetails = () => {

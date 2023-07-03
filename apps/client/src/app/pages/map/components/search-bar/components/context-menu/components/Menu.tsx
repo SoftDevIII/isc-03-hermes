@@ -3,11 +3,21 @@ import CloseButtonContext from './CloseButtonContext';
 import ContextButton from './ContextButton';
 import ShareLink from './share-location/ShareLink';
 
-function Menu({ coordinates, setIsOpen, removeMarker, feature }: MenuProps) {
+function Menu({
+  coordinates,
+  setIsOpen,
+  removeMarker,
+  feature,
+  setIsCommonPlace,
+  setIsUncommonPlace
+}: MenuProps) {
   const { handleStartClick, handleEndClick, handleInfoClick } = useHandleClick({
     coordinates,
     setIsOpen,
-    removeMarker
+    removeMarker,
+    feature,
+    setIsCommonPlace,
+    setIsUncommonPlace
   });
 
   return (
