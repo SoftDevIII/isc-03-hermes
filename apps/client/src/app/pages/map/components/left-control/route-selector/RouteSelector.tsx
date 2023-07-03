@@ -20,9 +20,9 @@ function RouteSelector() {
   return (
     <RouteSelectorDropDown setIsOpen={setIsOpen}>
       <TypeRouteButton handleClick={() => setIsOpen(!isOpen)}>
-        {routeType === 'walk' && <DirectionsRunIcon fontSize='inherit' />}
-        {routeType === 'bicycle' && <DirectionsBikeIcon fontSize='inherit' />}
-        {routeType === 'car' && <DirectionsCarIcon fontSize='inherit' />}
+        {routeType === 'walking' && <DirectionsRunIcon fontSize='inherit' />}
+        {routeType === 'cycling' && <DirectionsBikeIcon fontSize='inherit' />}
+        {routeType === 'driving' && <DirectionsCarIcon fontSize='inherit' />}
       </TypeRouteButton>
       {isOpen && <RouteSelectorList setIsOpen={setIsOpen} isOpen={isOpen} />}
     </RouteSelectorDropDown>

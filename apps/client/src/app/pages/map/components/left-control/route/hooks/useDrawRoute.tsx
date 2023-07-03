@@ -25,7 +25,6 @@ function useDrawRoute() {
       return;
     }
     drawRoute(coordinates, map.current);
-    console.log(data);
   };
 
   return handleCalculateAndDraw;

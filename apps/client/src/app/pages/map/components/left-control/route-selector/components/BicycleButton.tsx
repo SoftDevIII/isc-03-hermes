@@ -6,7 +6,7 @@ function BicycleButton({ className = '', setIsOpen }: BicycleButtonProps) {
   const { setRouteType } = useRouteType();
   const onClick = () => {
     setIsOpen(false);
-    setRouteType('bicycle');
+    setRouteType('cycling');
   };
 
   return (

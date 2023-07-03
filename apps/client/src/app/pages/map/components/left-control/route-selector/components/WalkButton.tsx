@@ -6,7 +6,7 @@ function WalkButton({ className = '', setIsOpen }: WalkButtonProps) {
   const { setRouteType } = useRouteType();
   const onClick = () => {
     setIsOpen(false);
-    setRouteType('walk');
+    setRouteType('walking');
   };
 
   return (

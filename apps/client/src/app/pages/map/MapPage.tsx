@@ -6,10 +6,10 @@ import MarkersProvider from '@map-contexts/markers/MarkersProvider';
 import '@map-styles/marker.css';
 import { useParams } from 'react-router-dom';
 import LeftControl from './components/left-control/LeftControl';
+import PopUpForRouteInformation from './components/left-control/route/PopUpForRouteInformation';
 import RightControl from './components/right-control/RightControl';
 import RouteTypeProvider from './contexts/route-selector/RouteTypeProvider';
 import MapStyle from './map-style/MapStyle';
-import PopUpForRouteInformation from './route/components/pop-up/PopUpForRouteInformation';
 
 function MapPage() {
   const { long, lat } = useParams();

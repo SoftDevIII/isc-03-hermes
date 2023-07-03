@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 
 function useRouteTypeProvider() {
-  const [routeType, setRouteType] = useState<string>('walk');
+  const [routeType, setRouteType] = useState<string>('walking');
 
   const routeTypeProviderValue = useMemo(
     () => ({ routeType, setRouteType }),

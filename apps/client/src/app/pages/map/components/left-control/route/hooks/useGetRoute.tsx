@@ -53,4 +53,13 @@ const drawRoute = (coordinates: number[][], map: Map) => {
   }
 };
 
-export { calculateRoute, drawRoute };
+const deleteRoute = (map: Map) => {
+  if (map.getLayer('route')) {
+    map.removeLayer('route');
+  }
+  if (map.getSource('route')) {
+    map.removeSource('route');
+  }
+};
+
+export { calculateRoute, deleteRoute, drawRoute };

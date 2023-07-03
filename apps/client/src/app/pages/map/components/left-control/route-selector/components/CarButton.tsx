@@ -6,7 +6,7 @@ function CarButton({ className = '', setIsOpen }: CarButtonProps) {
   const { setRouteType } = useRouteType();
   const onClick = () => {
     setIsOpen(false);
-    setRouteType('car');
+    setRouteType('driving');
   };
 
   return (
