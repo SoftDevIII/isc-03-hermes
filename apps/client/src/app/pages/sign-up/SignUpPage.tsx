@@ -13,7 +13,6 @@ function SignUpPage() {
     confirmPassword: ''
   });
   const navigate = useNavigate();
-
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -24,7 +23,7 @@ function SignUpPage() {
   }
 
   async function userAddition() {
-    await axios.post('/api/customer/signup', {
+    await axios.post<void>('/api/customer/signup', {
       email: formData.userName,
       password: formData.password
     });
