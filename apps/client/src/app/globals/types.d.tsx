@@ -400,11 +400,36 @@ declare global {
     coordinates: LngLat;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     removeMarker: () => void;
+    feature: Feature | Coordinates | null;
+    setIsCommonPlace: Dispatch<SetStateAction<boolean>>;
+    setIsUncommonPlace: Dispatch<SetStateAction<boolean>>;
   }
 
   interface CloseButtonContextProps {
     removeMarker: () => void;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface CloseButtonPlaceProps {
+    removeMarker: () => void;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    setIsPlace: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface CommonPlaceProps {
+    setIsCommonPlace: Dispatch<SetStateAction<boolean>>;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+    feature: Feature | Coordinates | null;
+    coordinates: LngLat;
+  }
+
+  interface UncommonPlaceProps {
+    setIsUncommonPlace: Dispatch<SetStateAction<boolean>>;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+    feature: Feature | Coordinates | null;
+    coordinates: LngLat;
   }
 
   interface UseContextRefProps {
@@ -451,6 +476,10 @@ declare global {
     center: number[];
     geometry: Geometry;
     context: Context[];
+    temperature: number;
+    category: string;
+    description: string;
+    address: string;
   }
 
   interface Coordinates {
@@ -458,6 +487,10 @@ declare global {
     place_name_es: string;
     text: string;
     geometry: Geometry;
+    temperature: number;
+    category: string;
+    description: string;
+    address: string;
   }
 
   interface Context {
@@ -610,6 +643,8 @@ declare global {
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     removeMarker: () => void;
     feature: Feature | Coordinates | null;
+    setIsCommonPlace: Dispatch<SetStateAction<boolean>>;
+    setIsUncommonPlace: Dispatch<SetStateAction<boolean>>;
   }
 
   interface SearchInputProps {
@@ -663,7 +698,6 @@ declare global {
 
   interface FetchWeatherProps {
     coordinates: LngLat;
-    setWeather: Dispatch<SetStateAction<Weather | null>>;
   }
 
   interface WeatherResponse {
