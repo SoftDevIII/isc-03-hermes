@@ -35,6 +35,15 @@ declare global {
     children: ReactNode;
   }
 
+  interface DirectionsResponse {
+    routes: {
+      geometry: {
+        coordinates: number[][];
+        type: string;
+      };
+    }[];
+  }
+
   interface CreateMapProps {
     container: MapRef['container'];
   }
