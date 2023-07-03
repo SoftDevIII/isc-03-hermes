@@ -774,6 +774,8 @@ declare global {
   }
   interface UseSearchDisasterInputProps {
     setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    isOpen: boolean;
   }
 
   interface BicycleButtonProps {
