@@ -1,6 +1,7 @@
 import help from '@map-assets/help.png';
 import home from '@map-assets/home.png';
 import lightMode from '@map-assets/light-mode.png';
+import minus from '@map-assets/minus-icon.png';
 import settings from '@map-assets/settings.png';
 import logout from '@map-assets/sign-out.png';
 import Line from './Line';
@@ -33,6 +34,13 @@ function MenuList({ handleActionSelected }: MenuListProps) {
         onClick={() => handleActionSelected('goLightMode')}
       >
         <OptionImage src={lightMode} />
+      </MenuOptionButton>
+      <MenuOptionButton
+        title='Sign Up'
+        onClick={() => handleActionSelected('goSignUp')}
+        last
+      >
+        <OptionImage src={minus} />
       </MenuOptionButton>
       <Line />
       <MenuOptionButton

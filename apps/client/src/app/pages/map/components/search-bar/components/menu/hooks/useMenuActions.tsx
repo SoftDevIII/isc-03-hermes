@@ -1,7 +1,9 @@
 function useMenuActions() {
   function goProfile() {}
 
-  function goHome() {}
+  function goHome() {
+    window.location.href = '/home';
+  }
 
   function goSettings() {}
 
@@ -11,13 +13,23 @@ function useMenuActions() {
 
   function goLogout() {}
 
+  function goLogIn() {
+    window.location.href = '/login';
+  }
+
+  function goSignUp() {
+    window.location.href = '/sign-up';
+  }
+
   const actions: MenuActions = {
     goHome,
     goProfile,
     goSettings,
     goHelp,
     goLightMode,
-    goLogout
+    goLogout,
+    goLogIn,
+    goSignUp
   };
 
   const handleActionSelected = (action: string) => {
