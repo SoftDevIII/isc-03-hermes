@@ -6,16 +6,29 @@ import { calculateRoute, drawRoute } from './useGetRoute';
 
 function useDrawRoute() {
   const { map } = useMap();
+  const { userCoordinates } = useCoordinates();
   const { startCoordinates, endCoordinates } = useCoordinates();
   const { routeType } = useRouteType();
 
   const handleCalculateAndDraw = async () => {
     const type = routeType;
-    const data: DirectionsResponse = await calculateRoute(
-      startCoordinates as LngLat,
-      endCoordinates as LngLat,
-      type
-    );
+    let data: DirectionsResponse;
+    if (
+      startCoordinates?.lat === undefined &&
+      startCoordinates?.lng === undefined
+    ) {
+      data = await calculateRoute(
+        userCoordinates as LngLat,
+        endCoordinates as LngLat,
+        type
+      );
+    } else {
+      data = await calculateRoute(
+        startCoordinates,
+        endCoordinates as LngLat,
+        type
+      );
+    }
     if (!data.routes || data.routes.length === 0) {
       return;
     }

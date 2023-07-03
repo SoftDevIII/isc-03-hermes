@@ -13,10 +13,12 @@ function PopUpForRouteInformation() {
 
   if (
     startCoordinates?.lat === undefined ||
-    startCoordinates?.lng === undefined ||
-    endCoordinates?.lat === undefined ||
-    endCoordinates?.lng === undefined
+    startCoordinates?.lng === undefined
   ) {
+    deleteRoute(map.current);
+  }
+
+  if (endCoordinates?.lat === undefined || endCoordinates?.lng === undefined) {
     deleteRoute(map.current);
     return <div />;
   }
