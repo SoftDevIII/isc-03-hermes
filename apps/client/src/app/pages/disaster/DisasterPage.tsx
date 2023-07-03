@@ -2,8 +2,8 @@ import InputDisaster from '@shared-components/InputDisaster';
 import InputLocation from '@shared-components/InputLocation';
 import SubmitButton from '@shared-components/SubmitButton';
 import { useState } from 'react';
-import useSearchInput from '../map/components/search-bar/hooks/useSearchInput';
 import SearchDataDisaster from './Service/SearchDisasterData';
+import useSearchDisasterInput from './hooks/useSearchDisasterInput';
 
 function SignUpPage() {
   const [formData, setFormData] = useState<FormDisasterData>({
@@ -22,7 +22,6 @@ function SignUpPage() {
       latitude,
       longitude
     }));
-
     return coordinates;
   };
 
@@ -36,7 +35,7 @@ function SignUpPage() {
   }
   const [filterData, setFilterData] = useState<(Feature | Coordinates)[]>([]);
   const [isOpen, setIsOpen] = useState(false);
-  const { search, onInputChange, ref } = useSearchInput({
+  const { search, onInputChange, ref } = useSearchDisasterInput({
     setFilterData,
     setIsOpen,
     isOpen
