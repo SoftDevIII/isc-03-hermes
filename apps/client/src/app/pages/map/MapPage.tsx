@@ -6,7 +6,9 @@ import MarkersProvider from '@map-contexts/markers/MarkersProvider';
 import '@map-styles/marker.css';
 import { useParams } from 'react-router-dom';
 import LeftControl from './components/left-control/LeftControl';
+import PopUpForRouteInformation from './components/left-control/route/PopUpForRouteInformation';
 import RightControl from './components/right-control/RightControl';
+import RouteTypeProvider from './contexts/route-selector/RouteTypeProvider';
 import MapStyle from './map-style/MapStyle';
 
 function MapPage() {
@@ -16,13 +18,16 @@ function MapPage() {
     <MapProvider>
       <CoordinatesProvider>
         <MarkersProvider>
-          <div className='h-full grid font-roboto'>
-            <MapComponent />
-            <MapStyle />
-            <SearchBar long={long} lat={lat} />
-            <LeftControl />
-            <RightControl />
-          </div>
+          <RouteTypeProvider>
+            <div className='h-full grid font-roboto'>
+              <MapComponent />
+              <MapStyle />
+              <SearchBar long={long} lat={lat} />
+              <LeftControl />
+              <RightControl />
+              <PopUpForRouteInformation />
+            </div>
+          </RouteTypeProvider>
         </MarkersProvider>
       </CoordinatesProvider>
     </MapProvider>

@@ -35,6 +35,15 @@ declare global {
     children: ReactNode;
   }
 
+  interface DirectionsResponse {
+    routes: {
+      geometry: {
+        coordinates: number[][];
+        type: string;
+      };
+    }[];
+  }
+
   interface CreateMapProps {
     container: MapRef['container'];
   }
@@ -130,6 +139,11 @@ declare global {
     setUserCoordinates: Dispatch<SetStateAction<LngLat | null>>;
   }
 
+  interface RouteTypeContextValue {
+    routeType: string;
+    setRouteType: Dispatch<SetStateAction<string>>;
+  }
+
   interface MarkersContextValue {
     setStartMarker: () => void;
     removeStartMarker: () => void;
@@ -160,6 +174,10 @@ declare global {
   }
 
   interface MarkersProviderProps {
+    children: ReactNode;
+  }
+
+  interface RouteTypeProviderProps {
     children: ReactNode;
   }
 
@@ -758,5 +776,44 @@ declare global {
     setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     isOpen: boolean;
+  }
+
+  interface BicycleButtonProps {
+    className?: string;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface WalkButtonProps {
+    className?: string;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface CarButtonProps {
+    className?: string;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface SelectorButtonProps {
+    onClick: () => void;
+    icon: string;
+    alt: string;
+    ajustImage?: string;
+    className?: string;
+  }
+
+  interface RouteSelectorDropDownProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    className?: string;
+    children: ReactNode;
+  }
+
+  interface RouteSelectorListProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    isOpen: boolean;
+  }
+
+  interface TypeRouteButton {
+    children: ReactNode;
+    handleClick: () => void;
   }
 }
