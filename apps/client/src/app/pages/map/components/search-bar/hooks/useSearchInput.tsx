@@ -1,15 +1,21 @@
 import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
+import { LngLat } from 'mapbox-gl';
 import { ChangeEvent, RefObject, useRef, useState } from 'react';
 import {
   convertCoordinatesToFeat,
   convertRegexToCoordinates,
-  fetchMapBoxPlaces
+  fetchMapBoxPlaces,
+  fetchWeatherByCoordinates,
+  getPlaceDetailsByName
 } from '../services/SearchBarService';
 
 function useSearchInput({
   setFilterData,
   setIsOpen,
-  isOpen
+  isOpen,
+  createMarker,
+  setIsContextOpen,
+  setFeature
 }: UseSearchInputProps) {
   const { userCoordinates } = useCoordinates();
 
@@ -35,7 +41,17 @@ function useSearchInput({
       const newFeat = convertCoordinatesToFeat({
         coordinates: coordinatesSearch
       });
-      setFilterData([newFeat]);
+
+      setFilterData([
+        {
+          ...newFeat,
+          temperature: 0,
+          category: '',
+          description: '',
+          address: ''
+        }
+      ]);
+
       return;
     }
 
@@ -52,7 +68,43 @@ function useSearchInput({
     ref.current?.focus();
   };
 
-  return { search, onInputChange, ref, clearInput };
+  const handleSearch = ({ feature }: HandleSearchProps) => {
+    const coordinates = new LngLat(
+      feature.geometry.coordinates[0],
+      feature.geometry.coordinates[1]
+    );
+    fetchWeatherByCoordinates({ coordinates })
+      .then(res => {
+        const details = getPlaceDetailsByName({ name: feature.place_name_es });
+        if (details) {
+          setFeature({
+            ...feature,
+            temperature: res,
+            category: details.category,
+            description: details.description,
+            address: details.address
+          });
+        } else {
+          setFeature({
+            ...feature,
+            temperature: res,
+            category: '',
+            description: '',
+            address: ''
+          });
+        }
+      })
+      .catch((error: Error) => {
+        throw new Error(error.message);
+      });
+    setSearch('');
+    setFilterData([]);
+    createMarker(feature.geometry.coordinates);
+    setIsContextOpen(true);
+    setIsOpen(false);
+  };
+
+  return { search, onInputChange, ref, clearInput, handleSearch };
 }
 
 export default useSearchInput;

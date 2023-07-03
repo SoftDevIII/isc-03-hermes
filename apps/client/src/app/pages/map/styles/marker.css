@@ -17,16 +17,19 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  border: 2px solid #40396e;
 }
 
 .start::before {
   background: #ed5e5e;
-  border: 2px solid #40396e;
 }
 
 .end::before {
   background: #d5881c;
-  border: 2px solid #40396e;
+}
+
+.info:before {
+  background: #258383;
 }
 
 .marker::after {
@@ -74,6 +77,10 @@
 
 .shadow-end::after {
   box-shadow: 0 0 2px 2px #d5881c;
+}
+
+.shadow-info::after {
+  box-shadow: 0 0 2px 2px #258383;
 }
 
 .user-marker {

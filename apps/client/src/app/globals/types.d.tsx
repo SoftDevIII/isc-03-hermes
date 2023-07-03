@@ -1,4 +1,5 @@
 import Language from '@enums/Language';
+import MarkerType from '@enums/Marker';
 import ShortCode from '@enums/ShortCode';
 import Wikidata from '@enums/Wikidata';
 import { LngLat, Map as MapBox } from 'mapbox-gl';
@@ -77,6 +78,27 @@ declare global {
     disabled: boolean;
   }
 
+  interface ShareButtonProps {
+    children?: ReactNode;
+    onClick: () => void;
+  }
+
+  interface CopyLinkButtonProps {
+    children: ReactNode;
+    onClick: () => void;
+  }
+
+  interface ShareLinkProps {
+    coordinates: LngLat;
+    placeName: string;
+  }
+
+  interface ShareModalProps {
+    link: string;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    placeName: string;
+  }
+
   interface MarkerButtonProps {
     children: ReactNode;
     onClick: () => void;
@@ -100,24 +122,62 @@ declare global {
   }
 
   interface CoordinatesContextValue {
-    startCoordinates: LngLat;
-    setStartCoordinates: Dispatch<SetStateAction<LngLat>>;
-    endCoordinates: LngLat;
-    setEndCoordinates: Dispatch<SetStateAction<LngLat>>;
-    userCoordinates: LngLat;
-    setUserCoordinates: Dispatch<SetStateAction<LngLat>>;
+    startCoordinates: LngLat | null;
+    setStartCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+    endCoordinates: LngLat | null;
+    setEndCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+    userCoordinates: LngLat | null;
+    setUserCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+  }
+
+  interface MarkersContextValue {
+    setStartMarker: () => void;
+    removeStartMarker: () => void;
+    createStartMarkerCoordinates: ({
+      coordinatesToMark
+    }: CreateMarkerCoordinatesProps) => void;
+    updateStartMarkerCoordinates: ({
+      coordinatesToUpdate
+    }: UpdateCoordinatesProps) => void;
+    setEndMarker: () => void;
+    removeEndMarker: () => void;
+    createEndMarkerCoordinates: ({
+      coordinatesToMark
+    }: CreateMarkerCoordinatesProps) => void;
+    updateEndMarkerCoordinates: ({
+      coordinatesToUpdate
+    }: UpdateCoordinatesProps) => void;
+    setUserMarker: () => void;
+    removeUserMarker: () => void;
+    createUserMarkerCoordinates: ({
+      coordinatesToMark
+    }: CreateMarkerCoordinatesProps) => void;
+    updateUserMarkerCoordinates: ({
+      coordinatesToUpdate
+    }: UpdateCoordinatesProps) => void;
     isMarking: boolean;
     setIsMarking: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface MarkersProviderProps {
+    children: ReactNode;
   }
 
   interface CoordinatesProviderProps {
     children: ReactNode;
   }
 
+  interface CreateMarkerCoordinatesProps {
+    coordinatesToMark: LngLat;
+  }
+
   interface UseMarkerProps {
-    type: string;
-    icon: string;
-    setCoordinates: Dispatch<SetStateAction<LngLat>>;
+    coordinates: LngLat | null;
+    setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+    isMarking: boolean;
+    setIsMarking: Dispatch<SetStateAction<boolean>>;
+    type?: MarkerType;
+    icon?: string;
   }
 
   interface MarkerDropDownMenuProps {
@@ -247,10 +307,12 @@ declare global {
   }
 
   interface SuccessCurrentPositionProps {
-    coordinates: LngLat;
-    createUserMarker: ({ coordinates }: CreateUserMarkerProps) => void;
+    coordinatesToMark: LngLat;
+    createUserMarkerCoordinates: ({
+      coordinatesToMark
+    }: CreateUserMarkerProps) => void;
     redirectToUserLocation: ({
-      coordinates
+      coordinatesToMark
     }: RedirectToUserLocationProps) => void;
     setSnackbarMessage: Dispatch<SetStateAction<string>>;
     setSnackbarSeverity: Dispatch<SetStateAction<string>>;
@@ -258,7 +320,7 @@ declare global {
   }
 
   interface RedirectToUserLocationProps {
-    coordinates: LngLat;
+    coordinatesToMark: LngLat;
   }
 
   interface ErrorCurrentPositionProps {
@@ -286,26 +348,26 @@ declare global {
     setSnackbarOpen: Dispatch<SetStateAction<boolean>>;
   }
 
-  interface UseUserMarkerProps {
-    setIsMarked: Dispatch<SetStateAction<boolean>>;
-  }
-
   interface CreateMarkerProps {
     coordinates: LngLat;
   }
 
   interface CreateUserMarkerProps {
-    coordinates: LngLat;
+    coordinatesToMark: LngLat;
   }
 
   interface UseLocationProps {
-    createUserMarker: ({ coordinates }: CreateMarkerProps) => void;
-    updateCoordinates: ({ coordinates }: UpdateCoordinatesProps) => void;
+    createUserMarkerCoordinates: ({
+      coordinatesToMark
+    }: CreateUserMarkerProps) => void;
+    updateUserMarkerCoordinates: ({
+      coordinatesToUpdate
+    }: UpdateCoordinatesProps) => void;
     removeUserMarker: () => void;
   }
 
   interface UpdateCoordinatesProps {
-    coordinates: LngLat;
+    coordinatesToUpdate: LngLat;
   }
 
   interface HandleErrorsProps {
@@ -331,14 +393,68 @@ declare global {
     className: string;
   }
 
+  interface UseSearchBarProps {
+    long: string | undefined;
+    lat: string | undefined;
+  }
+
   interface UseSearchInputProps {
     setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     isOpen: boolean;
+    createMarker: (lngLat: number[]) => void;
+    setIsContextOpen: Dispatch<SetStateAction<boolean>>;
+    setFeature: Dispatch<SetStateAction<Feature | Coordinates | null>>;
+  }
+
+  interface UseHandleClickProps {
+    coordinates: LngLat;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+    feature: Feature | Coordinates | null;
+    setIsCommonPlace: Dispatch<SetStateAction<boolean>>;
+    setIsUncommonPlace: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface CloseButtonContextProps {
+    removeMarker: () => void;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface CloseButtonPlaceProps {
+    removeMarker: () => void;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    setIsPlace: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface CommonPlaceProps {
+    setIsCommonPlace: Dispatch<SetStateAction<boolean>>;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+    feature: Feature | Coordinates | null;
+    coordinates: LngLat;
+  }
+
+  interface UncommonPlaceProps {
+    setIsUncommonPlace: Dispatch<SetStateAction<boolean>>;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+    feature: Feature | Coordinates | null;
+    coordinates: LngLat;
+  }
+
+  interface UseContextRefProps {
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+  }
+
+  interface HandleSearchProps {
+    feature: Feature | Coordinates;
   }
 
   interface SearchDataProps {
     filterData: (Feature | Coordinates)[];
+    handleSearch: ({ feature }: HandleSearchProps) => void;
   }
 
   interface UseSearchRefProps {
@@ -371,12 +487,21 @@ declare global {
     center: number[];
     geometry: Geometry;
     context: Context[];
+    temperature: number;
+    category: string;
+    description: string;
+    address: string;
   }
 
   interface Coordinates {
     id: string;
     place_name_es: string;
+    text: string;
     geometry: Geometry;
+    temperature: number;
+    category: string;
+    description: string;
+    address: string;
   }
 
   interface Context {
@@ -404,7 +529,7 @@ declare global {
 
   interface FetchMapBoxPlacesProps {
     query: string;
-    coordinates: LngLat;
+    coordinates: LngLat | null;
     setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
   }
 
@@ -451,7 +576,7 @@ declare global {
   }
 
   interface ReferenceButtonProps {
-    ref?: string;
+    href?: string;
     content: string;
   }
 
@@ -472,6 +597,7 @@ declare global {
     icon: string;
     onClick: () => void;
   }
+
   interface SocialMediaButtonProps {
     src: string;
     alt: string;
@@ -483,10 +609,154 @@ declare global {
     isLast?: boolean;
   }
 
-  interface SignUpImputProps {
-    classNameDiv?: string;
+  interface FormSignUpData {
+    userName: string;
+    password: string;
+    confirmPassword: string;
+  }
+
+  interface FormLoginData {
+    userName: string;
+    password: string;
+  }
+
+  interface InputProps {
+    isPassword?: boolean;
     children: ReactNode;
-    id: string;
-    type: string;
+    name: string;
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+
+  interface UseEndMarkerProps {
+    isMarking: boolean;
+    setIsMarking: Dispatch<SetStateAction<boolean>>;
+    coordinates: LngLat | null;
+    setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+  }
+
+  interface UseUserMarkerProps {
+    isMarking: boolean;
+    setIsMarking: Dispatch<SetStateAction<boolean>>;
+    coordinates: LngLat | null;
+    setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+  }
+
+  interface UseStartMarkerProps {
+    isMarking: boolean;
+    setIsMarking: Dispatch<SetStateAction<boolean>>;
+    coordinates: LngLat | null;
+    setCoordinates: Dispatch<SetStateAction<LngLat | null>>;
+  }
+
+  interface MenuProps {
+    coordinates: LngLat;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+    feature: Feature | Coordinates | null;
+    setIsCommonPlace: Dispatch<SetStateAction<boolean>>;
+    setIsUncommonPlace: Dispatch<SetStateAction<boolean>>;
+  }
+
+  interface SearchInputProps {
+    createMarker: (lngLat: number[]) => void;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    setFeature: Dispatch<SetStateAction<Feature | Coordinates | null>>;
+  }
+
+  interface ContextMenuProps {
+    coordinates: LngLat;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    removeMarker: () => void;
+    feature: Feature | Coordinates | null;
+  }
+
+  interface UseSearchMarkerProps {
+    setCoordinates: Dispatch<SetStateAction<LngLat>>;
+  }
+
+  interface ContextButtonProps {
+    handleClick: () => void;
+    children: ReactNode;
+    last?: boolean;
+  }
+
+  interface SocialShareButtonProps {
+    name: string;
+    children: ReactNode;
+    onClick: () => void;
+  }
+
+  interface HandleShareSocialProps {
+    msg: string;
+    url: string;
+    extra: string | null;
+    url2: string | null;
+  }
+
+  interface PublicPlaces {
+    places: PublicPlace[];
+  }
+
+  interface PublicPlace {
+    id: number;
+    name: string;
+    category: string;
+    description: string;
+    address: string;
+    coordinates: number[];
+  }
+
+  interface FetchWeatherProps {
+    coordinates: LngLat;
+  }
+
+  interface WeatherResponse {
+    main: MainWeather;
+    temperature: number;
+    description: string;
+  }
+
+  interface MainWeather {
+    temp: number;
+  }
+
+  interface Weather {
+    temperature: number;
+  }
+
+  interface GetPlaceDetailsByNameProps {
+    name: string;
+  }
+  interface FormDisasterData {
+    disasterName: string;
+    duration: string;
+    latitude: number;
+    longitude: number;
+  }
+  interface InputDisasterProps {
+    isTime?: boolean;
+    children: ReactNode;
+    name: string;
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+  interface SearchDisasterDataProps {
+    filterData: (Feature | Coordinates)[];
+    handleLocationClick: (coordinates: number[]) => void;
+  }
+
+  interface InputDisasterLocationProps {
+    children: ReactNode;
+    name: string;
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onFocus?: () => void;
+    ref?: React.RefObject<HTMLInputElement>;
+  }
+  interface UseSearchDisasterInputProps {
+    setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
+    setIsOpen: Dispatch<SetStateAction<boolean>>;
+    isOpen: boolean;
   }
 }

@@ -1,4 +1,6 @@
 import PlacesAPI from '@api/PlacesAPI';
+import WeatherAPI from '@api/WeatherAPI';
+import PlacesDetails from '@api/data/places-details.json';
 import { INIT_LAT, INIT_LONG, MAX_RESULTS } from '@utils/constants';
 import { LngLat } from 'mapbox-gl';
 
@@ -11,7 +13,8 @@ function convertCoordinatesToFeat({
     geometry: {
       type: 'coordinates',
       coordinates: [coordinates.lng, coordinates.lat]
-    }
+    },
+    text: `Coordinates: ${coordinates.lng.toString()}, ${coordinates.lat.toString()}`
   };
 }
 
@@ -54,8 +57,32 @@ function convertRegexToCoordinates({
   return new LngLat(parseFloat(lng), parseFloat(lat));
 }
 
+const fetchWeatherByCoordinates = async ({
+  coordinates
+}: FetchWeatherProps) => {
+  const data = await WeatherAPI.get<WeatherResponse>('', {
+    params: {
+      lat: coordinates.lat,
+      lon: coordinates.lng
+    }
+  });
+  return data.data.main.temp;
+};
+
+const fetchPlacesDetails = () => {
+  const data = PlacesDetails as PublicPlaces;
+  return data.places;
+};
+
+const getPlaceDetailsByName = ({ name }: GetPlaceDetailsByNameProps) => {
+  const places = fetchPlacesDetails();
+  return places.find(place => place.name === name);
+};
+
 export {
   convertCoordinatesToFeat,
   convertRegexToCoordinates,
-  fetchMapBoxPlaces
+  fetchMapBoxPlaces,
+  fetchWeatherByCoordinates,
+  getPlaceDetailsByName
 };

@@ -1,6 +1,6 @@
 import AutoCompleteButton from './AutoCompleteButton';
 
-function SearchData({ filterData }: SearchDataProps) {
+function SearchData({ filterData, handleSearch }: SearchDataProps) {
   return (
     <div
       className='absolute bg-black/50 rounded-xl py-[17px] pl-[17px] pr-[4px]
@@ -11,7 +11,10 @@ function SearchData({ filterData }: SearchDataProps) {
       h-full max-h-[160px] landscape:sm:max-h-[100px]'
       >
         {filterData.map(feature => (
-          <AutoCompleteButton key={feature.id} onClick={() => {}}>
+          <AutoCompleteButton
+            key={feature.id}
+            onClick={() => handleSearch({ feature })}
+          >
             {feature.place_name_es}
           </AutoCompleteButton>
         ))}
