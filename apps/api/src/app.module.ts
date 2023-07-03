@@ -17,7 +17,7 @@ import ExampleModule from './example/example.module';
       ...DataSourceConfig
     }),
     ExampleModule,
-    CustomerModule
+    CustomerModule,
     DisasterModule
   ]
 })
