@@ -9,7 +9,7 @@ function CommonPlace({
   coordinates
 }: CommonPlaceProps) {
   return (
-    <div className='bg-black/50 text-white p-6  rounded-xl w-96'>
+    <div className='bg-black/50 text-white p-6  rounded-xl text-xs w-60 md:text-base md:w-auto landscape:md:w-80'>
       <CloseButtonPlace
         setIsOpen={setIsOpen}
         removeMarker={removeMarker}

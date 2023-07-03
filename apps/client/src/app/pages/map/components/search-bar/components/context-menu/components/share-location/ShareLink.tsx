@@ -18,7 +18,7 @@ function ShareLink({ coordinates, placeName }: ShareLinkProps) {
       {isOpen && (
         <ShareModal link={link} setIsOpen={setIsOpen} placeName={placeName} />
       )}
-      <div className='absolute right-2 bottom-1'>
+      <div className='absolute left-1 top-1'>
         <ShareButton onClick={() => setIsOpen(true)} />
       </div>
     </>
