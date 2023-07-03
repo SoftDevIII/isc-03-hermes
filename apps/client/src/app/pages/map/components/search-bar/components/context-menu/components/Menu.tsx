@@ -11,7 +11,7 @@ function Menu({ coordinates, setIsOpen, removeMarker, feature }: MenuProps) {
   });
 
   return (
-    <div className='bg-black/50 text-white p-5  rounded-2xl text-center'>
+    <div className='bg-black/50 text-white p-6  rounded-2xl text-center'>
       <CloseButtonContext setIsOpen={setIsOpen} removeMarker={removeMarker} />
       <p className='mb-3 border-b border-white/20'>
         {' '}

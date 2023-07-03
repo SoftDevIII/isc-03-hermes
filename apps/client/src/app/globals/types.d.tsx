@@ -91,7 +91,6 @@ declare global {
     link: string;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
     placeName: string;
-    setLink: Dispatch<SetStateAction<string>>;
   }
 
   interface MarkerButtonProps {
