@@ -1,12 +1,13 @@
 import Input from '@shared-components/Input';
 import SubmitButton from '@shared-components/SubmitButton';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function SignUpPage() {
   const [isEquals, setIsEquals] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
   const [formData, setFormData] = useState<FormSignUpData>({
     userName: '',
     password: '',
@@ -23,26 +24,29 @@ function SignUpPage() {
   }
 
   async function userAddition() {
-    await axios.post<void>('/api/customer/signup', {
+    const userSave = await axios.post<boolean>('/api/customer/signup', {
       email: formData.userName,
       password: formData.password
     });
+    setIsSaved(Boolean(userSave.data));
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     verifyPassword();
-    if (isEquals) {
-      userAddition().catch(error => {
-        throw error;
-      });
-      navigate('/login');
-      setIsVisible(false);
-    } else {
+    if (!isEquals) {
       setIsVisible(true);
     }
+    userAddition().catch(error => {
+      throw error;
+    });
   }
 
+  useEffect(() => {
+    if (isSaved && isEquals) {
+      navigate('/login');
+    }
+  }, [isEquals, isSaved, navigate]);
   return (
     <div className='bg-gradient-to-r from-slate-900 to-slate-700 h-screen grid place-items-center content-center'>
       <form
