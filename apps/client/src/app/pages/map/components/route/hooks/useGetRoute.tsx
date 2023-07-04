@@ -53,7 +53,8 @@ const drawRoute = (coordinates: number[][], map: Map) => {
   }
 };
 
-const deleteRoute = (map: Map) => {
+const deleteRoute = (map: Map | null | undefined) => {
+  if (!map) return;
   if (map.getLayer('route')) {
     map.removeLayer('route');
   }

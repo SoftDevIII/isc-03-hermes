@@ -1,17 +1,14 @@
-import useCoordinates from '../../contexts/coordinates/CoordinatesState';
-import useMap from '../../contexts/map/MapState';
+import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
+import useMap from '@map-contexts/map/MapState';
 import StartButton from './components/StartButton';
 import { deleteRoute } from './hooks/useGetRoute';
 
 function PopUpForRouteInformation() {
-  const { startCoordinates, endCoordinates } = useCoordinates();
+  const { startCoordinates, endCoordinates, userCoordinates } =
+    useCoordinates();
   const { map } = useMap();
 
-  if (!map.current) {
-    return <div />;
-  }
-
-  if (endCoordinates === null || startCoordinates === null) {
+  if ((!userCoordinates && !startCoordinates) || !endCoordinates) {
     deleteRoute(map.current);
     return <div />;
   }
