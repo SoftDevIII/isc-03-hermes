@@ -100,7 +100,6 @@
   position: relative;
 }
 
-
 .user-marker::before {
   content: "";
   width: 1.5rem;

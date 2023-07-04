@@ -10,5 +10,3 @@ VALUES ('user3@example.com', 'password123');
 
 INSERT INTO Customer ( email, password)
 VALUES ('user4@example.com', 'password123');
-INSERT INTO Customer (customer_name, password, email)
-VALUES ('user4', 'password123', 'user4@example.com');
