@@ -47,7 +47,12 @@ const configureMapLoading = ({
   });
 };
 
+const delDisasters = async () => {
+  await axios.delete('/api/Disaster');
+};
+
 const fetchDisasters = async () => {
+  await delDisasters();
   const response = await axios.get('/api/Disaster');
   const data = response.data as Disaster[];
   return data;

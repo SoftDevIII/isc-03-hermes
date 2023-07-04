@@ -20,6 +20,20 @@ class DisasterService {
     const newDisaster = this.disasterRepository.create(disaster);
     return this.disasterRepository.save(newDisaster);
   }
+
+  async deleteExpiredDisasters() {
+    const currentTimestamp = new Date().toISOString();
+
+    const expiredDisasters = await this.disasterRepository
+      .createQueryBuilder('disaster')
+      .where(
+        `(disaster.insertion_hour + disaster.duration) <= :currentTimestamp`,
+        { currentTimestamp }
+      )
+      .getMany();
+
+    await this.disasterRepository.remove(expiredDisasters);
+  }
 }
 
 export default DisasterService;

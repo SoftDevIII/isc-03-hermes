@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
 import Disaster from './disaster.entity';
 import DisasterService from './disaster.service';
 import CreateDisasterDto from './dto/disaster.dto';
@@ -15,6 +15,11 @@ class DisasterController {
   @Post()
   saveDisaster(@Body() disaster: CreateDisasterDto): Promise<Disaster> {
     return this.disasterService.saveDisaster(disaster);
+  }
+
+  @Delete()
+  deleteDisaster() {
+    return this.disasterService.deleteExpiredDisasters();
   }
 }
 
