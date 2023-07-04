@@ -772,12 +772,15 @@ declare global {
   interface GetPlaceDetailsByNameProps {
     name: string;
   }
+
   interface FormDisasterData {
     disasterName: string;
-    duration: string;
     latitude: number;
     longitude: number;
+    mins: number;
+    hours: number;
   }
+
   interface InputDisasterProps {
     isTime?: boolean;
     children: ReactNode;
@@ -785,6 +788,13 @@ declare global {
     value: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   }
+
+  interface InputTimeProps {
+    children: ReactNode;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    data: FormDisasterData;
+  }
+
   interface SearchDisasterDataProps {
     filterData: (Feature | Coordinates)[];
     handleLocationClick: (feature: Feature | Coordinates) => void;
@@ -798,6 +808,7 @@ declare global {
     onFocus?: () => void;
     ref?: React.RefObject<HTMLInputElement>;
   }
+
   interface UseSearchDisasterInputProps {
     setFilterData: Dispatch<SetStateAction<(Feature | Coordinates)[]>>;
     setIsOpen: Dispatch<SetStateAction<boolean>>;
