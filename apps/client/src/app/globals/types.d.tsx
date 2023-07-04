@@ -622,6 +622,7 @@ declare global {
   interface ReferenceButtonProps {
     href?: string;
     content: string;
+    setIsOpen?: Dispatch<SetStateAction<boolean>>;
   }
 
   interface LabelTextFieldProps {
