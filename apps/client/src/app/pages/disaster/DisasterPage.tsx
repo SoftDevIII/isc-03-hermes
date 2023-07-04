@@ -1,3 +1,4 @@
+import GoBackButton from '@shared-components/GoBackButton';
 import InputDisaster from '@shared-components/InputDisaster';
 import InputLocation from '@shared-components/InputLocation';
 import SubmitButton from '@shared-components/SubmitButton';
@@ -13,16 +14,26 @@ function DisasterPage() {
     longitude: 0
   });
 
-  const handleClickLocation = (coordinates: number[]) => {
-    const latitude = coordinates[1];
-    const longitude = coordinates[0];
+  const [filterData, setFilterData] = useState<(Feature | Coordinates)[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const { search, onInputChange, setSearch, clearInput } =
+    useSearchDisasterInput({
+      setFilterData,
+      setIsOpen,
+      isOpen
+    });
+
+  const handleClickLocation = (feature: Feature | Coordinates) => {
+    const longitude = feature.geometry.coordinates[0];
+    const latitude = feature.geometry.coordinates[1];
 
     setFormData(prevFormData => ({
       ...prevFormData,
       latitude,
       longitude
     }));
-    return coordinates;
+    setSearch(feature.text);
+    clearInput();
   };
 
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -33,22 +44,17 @@ function DisasterPage() {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
   }
-  const [filterData, setFilterData] = useState<(Feature | Coordinates)[]>([]);
-  const [isOpen, setIsOpen] = useState(false);
-  const { search, onInputChange, ref } = useSearchDisasterInput({
-    setFilterData,
-    setIsOpen,
-    isOpen
-  });
 
   return (
-    <div className='bg-gradient-to-r from-slate-900 to-slate-700 h-screen grid place-items-center content-center'>
+    <div className='bg-gradient-to-r from-slate-900 to-slate-700 h-screen grid place-items-center content-center w-screen'>
       <form
-        className='flex gap-3 flex-col justify-center items-center p-5 bg-gradient-to-r from-slate-700/80 to-slate-900/20 rounded-2xl shadow-2xl md:w-auto landscape:md-auto landscape:flex-row landscape:md:flex-col'
+        className='flex gap-3 flex-col justify-center items-center p-5 bg-gradient-to-r from-slate-700/80 to-slate-900/20 rounded-2xl shadow-2xl landscape:md-auto landscape:flex-row landscape:md:flex-col'
         onSubmit={handleSubmit}
       >
-        <p className='text-white px-16 text-2xl font-bold'>Disaster Form</p>
         <div className='flex flex-col gap-1'>
+          <p className='text-white px-16 text-2xl font-bold text-center'>
+            Disaster Form
+          </p>
           <InputDisaster
             name='disasterName'
             value={formData.disasterName}
@@ -64,22 +70,30 @@ function DisasterPage() {
           >
             Duration:
           </InputDisaster>
+        </div>
+        <div className='flex flex-col w-full gap-1'>
           <InputLocation
             name='location'
             onChange={onInputChange}
             value={search}
-            ref={ref}
             onFocus={() => setIsOpen(true)}
           >
             Location:
           </InputLocation>
-          {isOpen && filterData.length !== 0 && (
-            <SearchDataDisaster
-              filterData={filterData}
-              handleLocationClick={handleClickLocation}
-            />
-          )}
-          <SubmitButton />
+          <div className='w-full grid place-content-center'>
+            <div className='portrait:w-[230px] w-[275px] portrait:md-[275px]'>
+              {isOpen && filterData.length !== 0 && (
+                <SearchDataDisaster
+                  filterData={filterData}
+                  handleLocationClick={handleClickLocation}
+                />
+              )}
+            </div>
+          </div>
+          <div className='flex justify-between w-full'>
+            <GoBackButton />
+            <SubmitButton />
+          </div>
         </div>
       </form>
     </div>

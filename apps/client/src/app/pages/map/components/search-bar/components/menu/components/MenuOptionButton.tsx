@@ -17,7 +17,7 @@ function MenuOptionButton({
         className='w-full py-3 landscape:sm:py-2 text-start
         px-2 font-roboto grid grid-cols-5 text-white portrait:font-sm'
       >
-        <div className='grid col-span-1 place-items-center h-full'>
+        <div className='grid col-span-1 place-items-center h-full text-[#838eaa]'>
           {children}
         </div>
         <p className='col-span-4 portrait:md:text-xl'>{title}</p>

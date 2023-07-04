@@ -765,7 +765,7 @@ declare global {
   }
   interface SearchDisasterDataProps {
     filterData: (Feature | Coordinates)[];
-    handleLocationClick: (coordinates: number[]) => void;
+    handleLocationClick: (feature: Feature | Coordinates) => void;
   }
 
   interface InputDisasterLocationProps {
