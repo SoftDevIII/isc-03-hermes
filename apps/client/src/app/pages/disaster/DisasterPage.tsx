@@ -48,7 +48,7 @@ function DisasterPage() {
   return (
     <div className='bg-gradient-to-r from-slate-900 to-slate-700 h-screen grid place-items-center content-center w-screen'>
       <form
-        className='flex gap-3 flex-col justify-center items-center p-5 bg-gradient-to-r from-slate-700/80 to-slate-900/20 rounded-2xl shadow-2xl md:w-auto landscape:md-auto landscape:flex-row landscape:md:flex-col'
+        className='flex gap-3 flex-col justify-center items-center p-5 bg-gradient-to-r from-slate-700/80 to-slate-900/20 rounded-2xl shadow-2xl landscape:md-auto landscape:flex-row landscape:md:flex-col'
         onSubmit={handleSubmit}
       >
         <div className='flex flex-col gap-1'>
@@ -71,7 +71,7 @@ function DisasterPage() {
             Duration:
           </InputDisaster>
         </div>
-        <div className='flex flex-col gap-1'>
+        <div className='flex flex-col w-full gap-1'>
           <InputLocation
             name='location'
             onChange={onInputChange}
@@ -80,12 +80,16 @@ function DisasterPage() {
           >
             Location:
           </InputLocation>
-          {isOpen && filterData.length !== 0 && (
-            <SearchDataDisaster
-              filterData={filterData}
-              handleLocationClick={handleClickLocation}
-            />
-          )}
+          <div className='w-full grid place-content-center'>
+            <div className='portrait:w-[230px] w-[275px] portrait:md-[275px]'>
+              {isOpen && filterData.length !== 0 && (
+                <SearchDataDisaster
+                  filterData={filterData}
+                  handleLocationClick={handleClickLocation}
+                />
+              )}
+            </div>
+          </div>
           <div className='flex justify-between w-full'>
             <GoBackButton />
             <SubmitButton />

@@ -8,7 +8,7 @@ function SearchDataDisaster({
     <div className=' bg-black/50 rounded-xl p-2'>
       <div
         className='overflow-y-scroll scrollbar-thin scrollbar-thumb scrollbar-track pr-[7px] flex flex-col gap-[6px]
-       max-h-[60px] landscape:sm:max-h-[60px] w-[200px]'
+       max-h-[60px]'
       >
         {filterData.map(feature => (
           <AutoCompleteButton
