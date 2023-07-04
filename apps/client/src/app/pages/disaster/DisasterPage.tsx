@@ -1,17 +1,22 @@
 import GoBackButton from '@shared-components/GoBackButton';
 import InputDisaster from '@shared-components/InputDisaster';
 import InputLocation from '@shared-components/InputLocation';
+import InputTime from '@shared-components/InputTime';
 import SubmitButton from '@shared-components/SubmitButton';
+import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SearchDataDisaster from './Service/SearchDisasterData';
 import useSearchDisasterInput from './hooks/useSearchDisasterInput';
 
 function DisasterPage() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<FormDisasterData>({
     disasterName: '',
-    duration: '',
     latitude: 0,
-    longitude: 0
+    longitude: 0,
+    hours: 0,
+    mins: 0
   });
 
   const [filterData, setFilterData] = useState<(Feature | Coordinates)[]>([]);
@@ -41,8 +46,31 @@ function DisasterPage() {
     setFormData({ ...formData, [name]: value });
   }
 
+  function convertToTime(number: number) {
+    if (number.toLocaleString().length === 1) {
+      return `0${number}`;
+    }
+    return number;
+  }
+
+  async function saveDisaster() {
+    await axios.post<void>('/api/Disaster', {
+      disaster_name: formData.disasterName,
+      duration: `${convertToTime(formData.hours)}:${convertToTime(
+        formData.mins
+      )}`,
+      latitude: formData.latitude,
+      longitude: formData.longitude
+    });
+  }
+
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    saveDisaster()
+      .then(() => navigate('/map'))
+      .catch((error: Error) => {
+        throw new Error(error.message);
+      });
   }
 
   return (
@@ -62,14 +90,9 @@ function DisasterPage() {
           >
             Disaster Name:
           </InputDisaster>
-          <InputDisaster
-            name='duration'
-            value={formData.duration}
-            onChange={event => onChange(event)}
-            isTime
-          >
+          <InputTime onChange={event => onChange(event)} data={formData}>
             Duration:
-          </InputDisaster>
+          </InputTime>
         </div>
         <div className='flex flex-col w-full gap-1'>
           <InputLocation

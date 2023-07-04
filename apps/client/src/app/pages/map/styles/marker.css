@@ -8,6 +8,14 @@
   position: relative;
 }
 
+.disaster-marker {
+  background-image: url('../assets/disaster-marker.png');
+  background-size: cover;
+  width: 1.5rem;
+  height: 2rem;
+  position: relative;
+}
+
 .marker::before {
   content: "";
   width: 1.5rem;
@@ -91,7 +99,6 @@
   margin: 1.7rem 0 0 0.0175rem;
   position: relative;
 }
-
 
 .user-marker::before {
   content: "";

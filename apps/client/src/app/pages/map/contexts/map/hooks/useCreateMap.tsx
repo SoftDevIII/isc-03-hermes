@@ -2,6 +2,7 @@ import { INIT_ZOOM_PERCENTAGE } from '@utils/constants';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useEffect, useRef, useState } from 'react';
 import {
+  addDisasters,
   configureMap,
   configureMapLoading,
   configureZoomPercentage,
@@ -23,6 +24,7 @@ function useCreateMap() {
     configureMap({ current: map.current });
     configureZoomPercentage({ current: map.current, setActualZoom });
     configureMapLoading({ current: map.current, setIsLoading });
+    addDisasters({ current: map.current });
   }, [container]);
 
   return { map, container, actualZoom, isLoading };
