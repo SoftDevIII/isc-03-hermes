@@ -3,6 +3,7 @@ import SubmitButton from '@shared-components/SubmitButton';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import GoBackButton from '@shared-components/GoBackButton';
 
 function SignUpPage() {
   const [isEquals, setIsEquals] = useState(false);
@@ -81,7 +82,10 @@ function SignUpPage() {
           >
             Confirm Password:
           </Input>
-          <SubmitButton />
+          <div className='flex justify-between w-full'>
+            <GoBackButton />
+            <SubmitButton />
+          </div>
         </div>
       </form>
     </div>

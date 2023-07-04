@@ -3,6 +3,7 @@ import SubmitButton from '@shared-components/SubmitButton';
 import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import GoBackButton from '@shared-components/GoBackButton';
 
 function LoginPage() {
   const [formData, setFormData] = useState<FormLoginData>({
@@ -61,7 +62,10 @@ function LoginPage() {
             Password:
           </Input>
 
-          <SubmitButton />
+          <div className='flex justify-between w-full'>
+            <GoBackButton />
+            <SubmitButton />
+          </div>
         </div>
       </form>
     </div>

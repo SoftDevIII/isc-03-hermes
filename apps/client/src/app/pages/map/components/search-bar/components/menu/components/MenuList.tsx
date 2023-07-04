@@ -1,9 +1,6 @@
-import help from '@map-assets/help.png';
 import home from '@map-assets/home.png';
-import lightMode from '@map-assets/light-mode.png';
-import minus from '@map-assets/minus-icon.png';
-import settings from '@map-assets/settings.png';
-import logout from '@map-assets/sign-out.png';
+import SignUp from '@mui/icons-material/ExitToApp';
+import LandslideIcon from '@mui/icons-material/Landslide';
 import Line from './Line';
 import MenuOptionButton from './MenuOptionButton';
 import OptionImage from './OptionImage';
@@ -18,37 +15,18 @@ function MenuList({ handleActionSelected }: MenuListProps) {
         <OptionImage src={home} />
       </MenuOptionButton>
       <MenuOptionButton
-        title='Profile Settings'
-        onClick={() => handleActionSelected('goSettings')}
+        title='Report Disaster'
+        onClick={() => handleActionSelected('goDisaster')}
       >
-        <OptionImage src={settings} />
+        <LandslideIcon />
       </MenuOptionButton>
-      <MenuOptionButton
-        title='Help Center'
-        onClick={() => handleActionSelected('goHelp')}
-      >
-        <OptionImage src={help} />
-      </MenuOptionButton>
-      <MenuOptionButton
-        title='Light Mode'
-        onClick={() => handleActionSelected('goLightMode')}
-      >
-        <OptionImage src={lightMode} />
-      </MenuOptionButton>
+      <Line />
       <MenuOptionButton
         title='Sign Up'
         onClick={() => handleActionSelected('goSignUp')}
         last
       >
-        <OptionImage src={minus} />
-      </MenuOptionButton>
-      <Line />
-      <MenuOptionButton
-        title='Sign Out'
-        onClick={() => handleActionSelected('goLogout')}
-        last
-      >
-        <OptionImage src={logout} />
+        <SignUp />
       </MenuOptionButton>
     </li>
   );

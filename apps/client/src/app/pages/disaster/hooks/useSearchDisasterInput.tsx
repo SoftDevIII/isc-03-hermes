@@ -1,5 +1,5 @@
 import useCoordinates from '@map-contexts/coordinates/CoordinatesState';
-import { ChangeEvent, RefObject, useRef, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import {
   convertCoordinatesToFeat,
   convertRegexToCoordinates,
@@ -14,7 +14,6 @@ function useSearchDisasterInput({
   const { userCoordinates } = useCoordinates();
 
   const [search, setSearch] = useState<string>('');
-  const ref: RefObject<HTMLInputElement> = useRef<HTMLInputElement>(null);
 
   const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -55,18 +54,10 @@ function useSearchDisasterInput({
   };
 
   const clearInput = () => {
-    setSearch('');
     setFilterData([]);
-    ref.current?.focus();
   };
 
-  const handleSearch = () => {
-    setSearch('');
-    setFilterData([]);
-    setIsOpen(false);
-  };
-
-  return { search, onInputChange, ref, clearInput, handleSearch };
+  return { search, onInputChange, clearInput, setSearch };
 }
 
 export default useSearchDisasterInput;
