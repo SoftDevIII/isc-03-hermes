@@ -1,9 +1,9 @@
+import GoBackButton from '@shared-components/GoBackButton';
 import Input from '@shared-components/Input';
 import SubmitButton from '@shared-components/SubmitButton';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import GoBackButton from '@shared-components/GoBackButton';
 
 function SignUpPage() {
   const [isEquals, setIsEquals] = useState(false);
@@ -30,6 +30,7 @@ function SignUpPage() {
       password: formData.password
     });
     setIsSaved(Boolean(userSave.data));
+    setIsVisible(!userSave.data);
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -48,6 +49,7 @@ function SignUpPage() {
       navigate('/login');
     }
   }, [isEquals, isSaved, navigate]);
+
   return (
     <div className='bg-gradient-to-r from-slate-900 to-slate-700 h-screen grid place-items-center content-center'>
       <form
