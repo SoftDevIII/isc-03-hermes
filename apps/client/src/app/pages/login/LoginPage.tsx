@@ -11,6 +11,7 @@ function LoginPage() {
     password: ''
   });
   const [isCredentialValid, setIsCredentialValid] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
 
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -24,6 +25,7 @@ function LoginPage() {
       { email: formData.userName, password: formData.password }
     );
     setIsCredentialValid(Boolean(postRequest.data));
+    setIsVisible(!postRequest.data);
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -45,6 +47,9 @@ function LoginPage() {
         onSubmit={handleSubmit}
       >
         <p className='text-white px-16 text-2xl font-bold'>Login</p>
+        {isVisible && !isCredentialValid && (
+          <p className='text-red-500 text-sm'>Invalid credentials.</p>
+        )}
         <div className='flex flex-col gap-1'>
           <Input
             name='userName'
