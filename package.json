@@ -1,0 +1,25 @@
+{
+  "name": "isc-03-hermes",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "turbo dev -F db && turbo dev -F api -F client",
+    "dev:windows": "turbo dev -F api -F client",
+    "up": "turbo up -F db",
+    "build": "turbo build -F client -F api",
+    "lint": "turbo lint -F client -F api",
+    "format": "turbo format -F client -F api",
+    "format:check": "turbo format:check -F client -F api",
+    "test:unit": "turbo test:unit -F client -F api",
+    "test:cov": "turbo test:cov -F client -F api",
+    "start": "node apps/api/dist/main"
+  },
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "apps/*"
+  ],
+  "devDependencies": {
+    "turbo": "1.10.6"
+  }
+}

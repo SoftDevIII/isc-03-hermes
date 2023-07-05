@@ -1,0 +1,92 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@src/*": [
+        "src/app/*"
+      ],
+      "@pages/*": [
+        "src/app/pages/*"
+      ],
+      "@map-hooks/*": [
+        "src/app/pages/map/hooks/*"
+      ],
+      "@map-contexts/*": [
+        "src/app/pages/map/contexts/*"
+      ],
+      "@map-shared-components/*": [
+        "src/app/pages/map/shared-ui-components/*"
+      ],
+      "@map-components/*": [
+        "src/app/pages/map/components/*"
+      ],
+      "@map-assets/*": [
+        "src/app/pages/map/assets/*"
+      ],
+      "@map-styles/*": [
+        "src/app/pages/map/styles/*"
+      ],
+      "@enums/*": [
+        "src/app/enums/*"
+      ],
+      "@api/*": [
+        "src/app/api/*"
+      ],
+      "@utils/*": [
+        "src/app/utils/*"
+      ],
+      "@home-assets/*": [
+        "src/app/pages/home/assets/*"
+      ],
+      "@home-components/*": [
+        "src/app/pages/home/components/*"
+      ],
+      "@shared-components/*": [
+        "src/app/shared-components/*"
+      ]
+    }
+  },
+  "types": [
+    "vitest/globals",
+    "./src/globals"
+  ],
+  "include": [
+    "src",
+    "test",
+    "*.ts",
+    "*.js",
+    ".eslintrc.cjs",
+    "*.d.ts",
+    "*.d.tsx"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

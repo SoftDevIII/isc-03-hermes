@@ -1,0 +1,12 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "docker compose down && docker compose up -d",
+    "up": "docker compose down && docker compose up -d"
+  }
+}
