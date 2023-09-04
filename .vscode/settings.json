@@ -27,4 +27,7 @@
     "onSave": false,
     "onType": false
   },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
 }

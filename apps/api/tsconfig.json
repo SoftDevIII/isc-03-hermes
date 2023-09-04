@@ -17,5 +17,13 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false
-  }
+  },
+  "include": [
+    "src",
+    "test",
+    "*.ts",
+    "*.js",
+    ".eslintrc.cjs",
+    "*.d.ts",
+  ],
 }

@@ -6,13 +6,18 @@ import Header from './components/header/Header';
 
 function HomePage() {
   return (
-    <div className='w-full grid absolute'>
-      <Header />
-      <HomeSection />
-      <AboutSection />
-      <FunctionsSection />
-      <Footer />
-    </div>
+    <>
+      <div className='w-full grid absolute'>
+        <Header />
+        <HomeSection />
+        <AboutSection />
+        <FunctionsSection />
+        <Footer />
+      </div>
+      <h1>
+        <span>Hello</span>
+      </h1>
+    </>
   );
 }
 export default HomePage;
