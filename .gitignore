@@ -55,3 +55,6 @@ temp
 
 # Postgres
 postgres-data
+
+# enviroments
+.env

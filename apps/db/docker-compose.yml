@@ -3,22 +3,23 @@ version: latest
 services:
   postgres:
     image: postgis/postgis:latest
-    container_name: postgres
+    container_name: postgres-isc-hermes
     restart: always
     environment:
       POSTGRES_DB: hermes
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     ports:
-      - 1010:1010
-    command: -p 1010
+      - 3030:3030
+    command: -p 3030
     volumes:
+      - postgres-data-isc-hermes:/var/lib/postgresql/data
       - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./sql/query.sql:/docker-entrypoint-initdb.d/query.sql
 
   pgadmin:
     image: dpage/pgadmin4:latest
-    container_name: pgadmin
+    container_name: pgadmin-isc-hermes
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
@@ -26,5 +27,11 @@ services:
       PGADMIN_LISTEN_PORT: 2020
     ports:
       - 2020:2020
+    volumes:
+      - pgadmin-data-isc-hermes:/var/lib/pgadmin
     depends_on:
       - postgres
+
+volumes:
+  postgres-data-isc-hermes:
+  pgadmin-data-isc-hermes:
